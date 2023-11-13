@@ -1,7 +1,9 @@
 #include <stdio.h>
-#include <iostream.h>
+#include <iostream>
+
+using namespace std;
 
 int main(){
-    cout << Ola<<endl;
+    cout<< "Ola"<<endl;
     return 0;
 }
