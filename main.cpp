@@ -9,5 +9,6 @@ int main(){
     cout<<"This should be working now"<<endl;
     cout <<"Write a random int: "<< endl;
     cin >> i;
+    cout <<"With my alterations Dio"<< endl;
     return 0;
 }
