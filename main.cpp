@@ -1,14 +1,15 @@
-#include <stdio.h>
 #include <iostream>
+#include <locale>
 
 using namespace std;
 
-int main(){
-    int i;
-    cout<< "Ola"<<endl;
-    cout<<"This should be working now"<<endl;
-    cout <<"Write a random int: "<< endl;
-    cin >> i;
-    cout <<"With my alterations Dio"<< endl;
-    return 0;
+#include "Pessoa.h"
+
+int main()
+{
+    setlocale(LC_ALL, "PORTUGUESE");
+
+    Pessoa *P = new Pessoa("Z� Carlos", 48);
+    P->Show();
+    delete P;
 }
