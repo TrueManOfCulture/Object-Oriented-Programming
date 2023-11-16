@@ -27,11 +27,11 @@ void ClassicSlots::Jogar()
         //_sleep ADICIONA SUSPENSE
         //1000 = 1s
         cout << "Loading..." << endl;
-        _sleep(1000);
+        sleep(1);
         cout << slot1 << "  ";
-        _sleep(1000);
+        sleep(1);
         cout << slot2 << "  ";
-        _sleep(2000);
+        sleep(2);
         cout << slot3;
 
         if((slot1 == "7") && (slot2 == "7") && (slot3 == "7")) {
@@ -44,7 +44,7 @@ void ClassicSlots::Jogar()
         }
     }
     else{
-        do{ // GARANTE QUE OS 3 VALORES NÃO SEJAM IGUAIS MAS QUE AINDA POSSA HAVER DOIS VALORES IGUAIS E UM DIFERENTE
+        do{ // GARANTE QUE OS 3 VALORES Nï¿½O SEJAM IGUAIS MAS QUE AINDA POSSA HAVER DOIS VALORES IGUAIS E UM DIFERENTE
             slot1 = AleatorioVECTOR_STRINGS(L_Resultado);
             slot2 = AleatorioVECTOR_STRINGS(L_Resultado);
             slot3 = AleatorioVECTOR_STRINGS(L_Resultado);
@@ -53,11 +53,11 @@ void ClassicSlots::Jogar()
         }while((slot1 == slot2) && (slot2 == slot3));
 
         cout << "Loading..." << endl;
-        _sleep(1000);
+        sleep(1);
         cout << slot1 << "  ";
-        _sleep(1000);
+        sleep(1);
         cout << slot2 << "  ";
-        _sleep(2000);
+        sleep(2);
         cout << slot3;
 
         cout << endl << "Perdeu" << endl;

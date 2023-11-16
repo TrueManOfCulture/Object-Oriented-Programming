@@ -20,7 +20,7 @@ void Casino::Add(Maquina *M)
     LM.push_back(M);
 }
 
-list<Maquina *> *Casino::Listar_Tipo(string Tipo, ostream &saida = cout)
+list<Maquina *> *Casino::Listar_Tipo(string Tipo)
 {
     list<Maquina *> LM_Tipo;
 
@@ -31,5 +31,5 @@ list<Maquina *> *Casino::Listar_Tipo(string Tipo, ostream &saida = cout)
             (*it)->Show();
         }
 
-    //return LM_Tipo;
+    return NULL;
 }

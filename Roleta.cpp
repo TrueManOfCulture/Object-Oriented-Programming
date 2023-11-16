@@ -11,10 +11,10 @@ Roleta::~Roleta()
     //dtor
 }
 
-/*void Jogar()
+void Roleta::Jogar()
 {
-    int RESULTADO = AleatorioINT(1, 36);
+    /*int RESULTADO = AleatorioINT(1, 36);
 
     int esc;
-    cout << "Onde vai apostar: " << endl << "\t1- Vermelho"
-}*/
+    cout << "Onde vai apostar: " << endl << "\t1- Vermelho"*/
+}
