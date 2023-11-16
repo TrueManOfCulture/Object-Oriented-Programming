@@ -1,4 +1,4 @@
-#include "Casino.h"
+#include "../include/Casino.h"
 
 Casino::Casino(string _nome, int _horaA, int _horaF)
 {

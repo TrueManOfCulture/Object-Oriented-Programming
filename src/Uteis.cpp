@@ -1,4 +1,4 @@
-#include "Uteis.h"
+#include "../include/Uteis.h"
 
 int AleatorioINT(int minN, int maxN)
 {

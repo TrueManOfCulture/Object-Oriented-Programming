@@ -6,11 +6,11 @@
 
 using namespace std;
 
-#include "Maquina.h"
-#include "ClassicSlots.h"
-#include "BlackJack.h"
-#include "Casino.h"
-#include "Roleta.h"
+#include "include/Maquina.h"
+#include "include/ClassicSlots.h"
+#include "include/BlackJack.h"
+#include "include/Casino.h"
+#include "include/Roleta.h"
 
 int main()
 {
@@ -43,7 +43,7 @@ int main()
 
     ofstream ficheiro("TESTE.txt");
 
-    C.Listar_Tipo("CLASSIC_SLOTS", ficheiro);
+    C.Listar_Tipo("BLACKJACK");
 
     ficheiro.close();
 }

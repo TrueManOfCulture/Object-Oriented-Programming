@@ -1,4 +1,4 @@
-#include "ClassicSlots.h"
+#include "../include/ClassicSlots.h"
 
 ClassicSlots::ClassicSlots(int _id, int _prob_ganhar, int _premio, int _posX, int _posY, int _temp)
     : Maquina(_id, _prob_ganhar, _premio, _posX, _posY, _temp)

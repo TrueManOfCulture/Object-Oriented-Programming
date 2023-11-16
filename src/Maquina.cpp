@@ -1,4 +1,4 @@
-#include "Maquina.h"
+#include "../include/Maquina.h"
 
 Maquina::Maquina(int _id, int _prob_ganhar, int _premio, int _posX, int _posY, int _temp)
 {

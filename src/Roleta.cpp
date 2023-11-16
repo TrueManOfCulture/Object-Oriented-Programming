@@ -1,4 +1,4 @@
-#include "Roleta.h"
+#include "../include/Roleta.h"
 
 Roleta::Roleta(int _id, int _prob_ganhar, int _premio, int _posX, int _posY, int _temp)
     : Maquina(_id, _prob_ganhar, _premio, _posX, _posY, _temp)
