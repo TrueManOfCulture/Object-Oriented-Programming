@@ -10,8 +10,20 @@
                 "${file}",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}",
-                "${fileDirname}/Pessoa.h",
-                "${fileDirname}/Pessoa.cpp"
+                "${fileDirname}/BlackJack.h",
+                "${fileDirname}/BlackJack.cpp",
+                "${fileDirname}/Casino.h",
+                "${fileDirname}/Casino.cpp",
+                "${fileDirname}/ClassicSlots.h",
+                "${fileDirname}/ClassicSlots.cpp",
+                "${fileDirname}/Maquina.h",
+                "${fileDirname}/Maquina.cpp",
+                "${fileDirname}/Roleta.h",
+                "${fileDirname}/Roleta.cpp",
+                "${fileDirname}/User.h",
+                "${fileDirname}/User.cpp",
+                "${fileDirname}/Uteis.h",
+                "${fileDirname}/Uteis.cpp",
             ],
             "options": {
                 "cwd": "${fileDirname}"
