@@ -1,0 +1,14 @@
+ID: 8
+PROB_GANHAR: 20
+PREMIO: 100
+posX: 1
+posY: 2
+TEMP: 50
+
+ID: 9
+PROB_GANHAR: 20
+PREMIO: 100
+posX: 1
+posY: 2
+TEMP: 50
+

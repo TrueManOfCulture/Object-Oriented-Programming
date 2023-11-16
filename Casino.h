@@ -26,7 +26,7 @@ class Casino
         void Add(User *U);
         void Add(Maquina *M);
 
-        list<Maquina *> *Listar_Tipo(string Tipo);
+        list<Maquina *> *Listar_Tipo(string Tipo, ostream &saida = cout);
 
         /*
         bool Load(const string &ficheiro);

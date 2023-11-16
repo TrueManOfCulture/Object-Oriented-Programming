@@ -24,8 +24,8 @@ void ClassicSlots::Jogar()
         slot2 = VENCER;
         slot3 = VENCER;
 
-        //_sleep ADICIONA SUSPENSE
-        //1000 = 1s
+        //sleep ADICIONA SUSPENSE
+        //1 = 1s
         cout << "Loading..." << endl;
         sleep(1);
         cout << slot1 << "  ";

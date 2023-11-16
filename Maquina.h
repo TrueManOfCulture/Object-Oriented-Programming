@@ -25,7 +25,7 @@ class Maquina
         virtual void Jogar(){}
 
         virtual string Get_TIPO(){ return "SEM_TIPO"; }
-        virtual void Show();
+        virtual void Show(ostream &saida = cout);
 
 };
 

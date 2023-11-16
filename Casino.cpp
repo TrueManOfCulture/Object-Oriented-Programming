@@ -20,7 +20,7 @@ void Casino::Add(Maquina *M)
     LM.push_back(M);
 }
 
-list<Maquina *> *Casino::Listar_Tipo(string Tipo)
+list<Maquina *> *Casino::Listar_Tipo(string Tipo, ostream &saida)
 {
     list<Maquina *> LM_Tipo;
 
@@ -28,7 +28,7 @@ list<Maquina *> *Casino::Listar_Tipo(string Tipo)
         if(Tipo == (*it)->Get_TIPO())
         {
             LM_Tipo.push_back(*it);
-            (*it)->Show();
+            (*it)->Show(saida);
         }
 
     return NULL;

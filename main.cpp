@@ -2,6 +2,7 @@
 #include <locale>
 #include <string>
 #include <list>
+#include <fstream>
 
 using namespace std;
 
@@ -40,5 +41,9 @@ int main()
     Maq = new Maquina(10, 20, 100, 1, 2, 50);
     C.Add(Maq);
 
-    C.Listar_Tipo("BLACKJACK");
+    ofstream ficheiro("TESTE.txt");
+
+    C.Listar_Tipo("CLASSIC_SLOTS", ficheiro);
+
+    ficheiro.close();
 }

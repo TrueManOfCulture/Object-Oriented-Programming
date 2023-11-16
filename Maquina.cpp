@@ -15,7 +15,7 @@ Maquina::~Maquina()
     //dtor
 }
 
-void Maquina::Show()
+void Maquina::Show(ostream &saida)
 {
-    cout << "ID: " << ID << endl << "PROB_GANHAR: " << PROB_GANHAR << endl << "PREMIO: " << PREMIO << endl << "posX: " << posX << endl << "posY: " << posY << endl << "TEMP: " << TEMPERATURA << endl << endl;
+    saida << "ID: " << ID << endl << "PROB_GANHAR: " << PROB_GANHAR << endl << "PREMIO: " << PREMIO << endl << "posX: " << posX << endl << "posY: " << posY << endl << "TEMP: " << TEMPERATURA << endl << endl;
 }
