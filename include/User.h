@@ -17,6 +17,8 @@ class User
     public:
         User(int _id, string _nome, string _cidade, int _idade);
         virtual ~User();
+
+        void Show();
 };
 
 #endif // USER_H

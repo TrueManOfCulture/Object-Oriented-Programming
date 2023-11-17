@@ -12,3 +12,8 @@ User::~User()
 {
     //dtor
 }
+
+void User::Show()
+{
+    cout << "ID: " << ID << endl << "NOME: " << NOME << endl << "CIDADE: " << CIDADE << endl << "IDADE: " << IDADE << endl << endl;
+}

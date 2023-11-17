@@ -1,5 +1,7 @@
 #include "../include/Uteis.h"
 
+LinhaTexto LT;
+
 int AleatorioINT(int minN, int maxN)
 {
     random_device rd;
@@ -24,23 +26,23 @@ string AleatorioVECTOR_STRINGS(vector<string> L)
     return elementoAleatorio;
 }
 
-/*STRING *Read_Split_Line_File(FILE *f, int n_campos_max, int *n_campos_lidos, char *separadores)
+STRING *Read_Split_Line_File(ifstream &f, int n_campos_max, int &n_campos_lidos, const char *separadores)
 {
-    *n_campos_lidos = 0;
-    if (!f) return NULL;
-    if (fgets(LT , MAX_LINHA_FICHEIRO , f) != NULL)    
+    n_campos_lidos = 0;
+    if (!f.is_open()) return NULL;
+    f.getline(LT, MAX_LINHA_FICHEIRO);
+    if (!f.eof())
     {
-        
-        STRING *Res = (STRING *)malloc(n_campos_max*sizeof(STRING));  
-        char *pch = strtok (LT, separadores);
+        STRING *Res = new STRING[n_campos_max];
+        char *pch = strtok(LT, separadores);
         int cont = 0;
         while (pch != NULL)
         {
-            Res[cont] = (char *)malloc((strlen(pch)+1)*sizeof(char)); 
-            strcpy(Res[cont++], pch);
-            pch = strtok (NULL, separadores);
+            Res[cont] = pch;
+            ++cont;
+            pch = strtok(NULL, separadores);
         }
-        *n_campos_lidos = cont;
+        n_campos_lidos = cont;
         return Res;
     }
     return NULL;
@@ -51,33 +53,42 @@ void LerFicheiroUser(list<User *> &LU, string fic)
     int n_campos_max = 4;
     int n_campos_lidos;
     int n_linhas_lidas = 0;
-    int i;
-    int n=0;
+    int n = 0;
 
-    ifstream ficheiro(fic);
-
-    if(!ficheiro.is_open()){
-        cerr << "ERRO AO ABRIR O FICHEIRO [" << fic << "]!" << endl;
-        exit(-1);
-    }
-
-    string linha;
-    getline(ficheiro, linha);
+    ifstream F1(fic);
 
     User *U;
 
-    while(){
-        STRING *V = Read_Split_Line_File(ficheiro, n_campos_max, &n_campos_lidos, "\t");
+    if (!F1.is_open())
+    {
+        cerr << "ERRO: Impossivel abrir ficheiro!" << endl;
+        exit(1);
+    }
+    while (!F1.eof())
+    {
+        STRING *V = Read_Split_Line_File(F1, n_campos_max, n_campos_lidos, "\t");
 
-        int cod = atoi(V[0]), idade = atoi(V[3]);
-        string nome = V[1], cidade = V[2];
+        int COD, IDADE;
+        string NOME, CIDADE;
 
-        U = new User(cod, nome, cidade, idade);
+        if (V != NULL)
+        {
+            COD = atoi(V[0].c_str());
+            NOME = V[1];
+            CIDADE = V[2];
+            IDADE = atoi(V[3].c_str());
 
-        LU.push_back(U);
+            U = new User(COD, NOME, CIDADE, IDADE);
+
+            LU.push_back(U);
+            
+            ++n;
+
+            delete[] V;
+        }
     }
 
     delete U;
 
-    ficheiro.close();
-}*/
+    F1.close();
+}

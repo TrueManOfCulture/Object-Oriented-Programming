@@ -1,10 +1,10 @@
 #ifndef UTEIS_H_INCLUDED
 #define UTEIS_H_INCLUDED
 
-#define STRING char *
+#define STRING string
 #define MAX_LINHA_FICHEIRO 150
 typedef char LinhaTexto[MAX_LINHA_FICHEIRO];
-LinhaTexto LT;
+extern LinhaTexto LT;
 
 #include <iostream>
 #include <string>
@@ -27,7 +27,6 @@ using namespace std;
 
 int AleatorioINT(int minN, int maxN);
 string AleatorioVECTOR_STRINGS(vector<string> L);
-/*STRING *Read_Split_Line_File(FILE *f, int n_campos_max, int *n_campos_lidos, char *separadores);
-void LerFicheiroUser(list<User *> &lista, string fic);*/
+void LerFicheiroUser(list<User *> &LU, string fic);
 
 #endif // UTEIS_H_INCLUDED
