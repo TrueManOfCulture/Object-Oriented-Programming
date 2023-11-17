@@ -17,7 +17,9 @@ int main()
     setlocale(LC_ALL, "PORTUGUESE");
 
     Casino C("Solverde", 15, 27);
-    Maquina *Maq = new BlackJack(1, 20, 100, 1, 1, 50);
+
+    
+    /*Maquina *Maq = new BlackJack(1, 20, 100, 1, 1, 50);
     C.Add(Maq);
     Maq = new BlackJack(2, 20, 100, 1, 1, 50);
     C.Add(Maq);
@@ -45,5 +47,5 @@ int main()
 
     C.Listar_Tipo("BLACKJACK");
 
-    ficheiro.close();
+    ficheiro.close();*/
 }

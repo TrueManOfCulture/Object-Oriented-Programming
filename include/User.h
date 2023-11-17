@@ -10,9 +10,12 @@ using namespace std;
 class User
 {
     int ID;
+    string NOME;
+    string CIDADE;
+    int IDADE;
 
     public:
-        User();
+        User(int _id, string _nome, string _cidade, int _idade);
         virtual ~User();
 };
 
