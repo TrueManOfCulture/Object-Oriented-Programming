@@ -66,7 +66,7 @@ void LerFicheiroUser(list<User *> &LU, string fic)
     }
     while (!F1.eof())
     {
-        STRING *V = Read_Split_Line_File(F1, n_campos_max, n_campos_lidos, "\t");
+        STRING *V = Read_Split_Line_File(F1, n_campos_max, n_campos_lidos, "\t\n\r");
 
         int COD, IDADE;
         string NOME, CIDADE;

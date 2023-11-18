@@ -17,7 +17,7 @@ int main()
 {
     setlocale(LC_ALL, "PORTUGUESE");
 
-    Casino C("Solverde", 15, 27);
+    Casino C("Solverde", 11, 27);
 
 
     list<User *> LU;
