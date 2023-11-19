@@ -29,6 +29,8 @@ int main()
         (*it)->Show();
     }
 
+    // SE ADICIONAR UMA LINHA VAZIA NO FINAL DO FICHEIRO, A LEITURA FICA CORRETA
+
 
     /*Maquina *Maq = new BlackJack(1, 20, 100, 1, 1, 50);
     C.Add(Maq);
