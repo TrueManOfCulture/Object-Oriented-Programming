@@ -28,7 +28,7 @@ int main()
         //(*it)->Show();
     }*/
 
-    cout << endl << "Memória Ocupada pelo Casino: " << C.MemoriaCasino() << endl << endl;
+    cout << endl << "Memória Ocupada pelo Casino: " << C.MemoriaCasino() << " bytes"<< endl << endl;
 
     /*Maquina *Maq = new BlackJack(1, 20, 100, 1, 1, 50);
     C.Add(Maq);

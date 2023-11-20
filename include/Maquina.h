@@ -18,12 +18,14 @@ class Maquina
     int posX, posY;
     int TEMPERATURA;
     string TIPO;
-    string ESTADO;
+    enum ESTADO_MAQUINA{OFF, ON, AVARIADA};
+    ESTADO_MAQUINA est;
 
     public:
-        Maquina(int _id, int _prob_ganhar, int _premio, int _posX, int _posY, int _temp, string _tipo, string _estado, User *U = NULL);
+        Maquina(int _id, int _prob_ganhar, int _premio, int _posX, int _posY, int _temp, string _tipo, User *U = NULL, est = OFF);
+        
         virtual ~Maquina();
-        string GET_ESTADO (){return ESTADO; }
+        string GET_ESTADO (){return est; }
         int GET_ID (){return ID; }
         int Get_PROB_GANHAR(){ return PROB_GANHAR; }
         virtual void Jogar(){}
