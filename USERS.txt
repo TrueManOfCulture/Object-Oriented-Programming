@@ -9996,10 +9996,5 @@
 339179107	Soraia Mora Carneiro Castanheira	Vila Nova de Gaia	49
 374717128	Clarice Macedo Amorim Soeiro Martins	Montemor-O-Velho	63
 412357620	Valdemar Aguiar Lobato Belchior Rego	Condeixa-A-Nova	37
-<<<<<<< HEAD
 663959318   Catarina Seixas Tinoco Bogas Cardoso	Coruche	50
 569306993   Eduarda Mora Soeiro Carreira Carrasco	Santa Comba Dao	25
-=======
-663959318	Catarina Seixas Tinoco Bogas Cardoso	Coruche	50
-569306993	Eduarda Mora Soeiro Carreira Carrasco	Santa Comba Dao	25
->>>>>>> 12d57bd4e96b3b74882a61fef242a3a2d974bae3
