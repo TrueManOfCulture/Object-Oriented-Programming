@@ -9731,7 +9731,7 @@
 261659001	Dora Mota Amora Castanheira	Mirandela	26
 221353031	Bernardo Amora Rocha Nascimento Cunha	Alijo	21
 616843273	Eduardo Vivas Clementino Amorim Ferraz	Macedo de Cavaleiros	67
-425659450	Dora Aguiar Calado Cardoso Caiado	Castro Daire	70
+425659450	Dora Aguiar Calado Cardoso Caiado   Castro Daire	70
 978838872	Marisa Dias Moreira Aguiar Pinto	Sintra	21
 499528986	Dulce Ferro Dinis Andrade Ferraz	Braganca	55
 816169856	Soraia Fonseca Azeredo Cunha	Moncao	66
@@ -9996,5 +9996,5 @@
 339179107	Soraia Mora Carneiro Castanheira	Vila Nova de Gaia	49
 374717128	Clarice Macedo Amorim Soeiro Martins	Montemor-O-Velho	63
 412357620	Valdemar Aguiar Lobato Belchior Rego	Condeixa-A-Nova	37
-663959318	Catarina Seixas Tinoco Bogas Cardoso	Coruche	50
-569306993	Eduarda Mora Soeiro Carreira Carrasco	Santa Comba Dao	25
+663959318   Catarina Seixas Tinoco Bogas Cardoso	Coruche	50
+569306993   Eduarda Mora Soeiro Carreira Carrasco	Santa Comba Dao	25
