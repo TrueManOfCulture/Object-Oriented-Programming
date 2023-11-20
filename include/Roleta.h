@@ -21,6 +21,7 @@ class Roleta : public Maquina
 
         void Jogar();
         string Get_TIPO(){ return "ROLETA"; }
+        int Memoria(){ return sizeof(*this); }
 };
 
 #endif // ROLETA_H

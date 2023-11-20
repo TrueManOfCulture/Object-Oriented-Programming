@@ -30,6 +30,7 @@ class Maquina
 
         virtual string Get_TIPO(){ return "SEM_TIPO"; }
         virtual void Show(ostream &saida = cout);
+        virtual int Memoria(){ return sizeof(*this); }
 
 };
 

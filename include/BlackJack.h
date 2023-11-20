@@ -21,6 +21,7 @@ class BlackJack : public Maquina
 
         void Jogar();
         string Get_TIPO(){ return "BLACKJACK"; }
+        int Memoria(){ return sizeof(*this); }
 };
 
 #endif // BLACKJACK_H

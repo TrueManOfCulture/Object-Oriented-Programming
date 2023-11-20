@@ -21,7 +21,7 @@ class ClassicSlots : public Maquina
 
         void Jogar();
         string Get_TIPO(){ return "CLASSIC_SLOTS"; }
-
+        int Memoria(){ return sizeof(*this); }
 };
 
 #endif // CLASSICSLOTS_H

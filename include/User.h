@@ -19,6 +19,7 @@ class User
         virtual ~User();
 
         void Show();
+        int Memoria(){ return sizeof(*this); }
 };
 
 #endif // USER_H

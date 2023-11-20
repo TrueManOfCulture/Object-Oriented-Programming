@@ -42,5 +42,24 @@ string Casino::Get_Estado(int ID)
         if(ID == (*it)->GET_ID())
             return (*it)->GET_ESTADO();
 
-            return "deu merda guys";
+            return "ERRO";
+}
+
+int Casino::MemoriaCasino()
+{
+    int TOTAL;
+    int MEM_MAQ = 0, MEM_U = 0;
+
+    for(list<Maquina *>::iterator it = LM.begin(); it != LM.end(); ++it)
+        MEM_MAQ += (*it)->Memoria();
+
+    for(list<User *>::iterator it = LU.begin(); it != LU.end(); ++it)
+        MEM_U += (*it)->Memoria();
+
+    for(list<User *>::iterator it = LU_Espera.begin(); it != LU_Espera.end(); ++it)
+        MEM_U += (*it)->Memoria();
+
+    TOTAL = sizeof(*this) + MEM_MAQ + MEM_U;
+
+    return TOTAL;
 }

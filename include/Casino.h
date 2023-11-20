@@ -9,6 +9,10 @@ using namespace std;
 
 #include "User.h"
 #include "Maquina.h"
+#include "BlackJack.h"
+#include "ClassicSlots.h"
+#include "Roleta.h"
+#include "Uteis.h"
 
 class Casino
 {
@@ -29,11 +33,12 @@ class Casino
 
         list<Maquina *> *Listar_Tipo(string Tipo, ostream &saida = cout);
 
+        int MemoriaCasino();
+
         /*
         bool Load(const string &ficheiro);
         void Listar(ostream &f = std::cout);
         void Desligar(int id_maq);
-        ESTADO_MAQUINA Get_Estado(int id_maq);
         int Memoria_Total();
         list<string> * Ranking_Dos_Fracos();
         list<Maquina *> * Ranking_Das_Mais_Trabalhadores();

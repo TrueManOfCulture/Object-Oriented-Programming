@@ -18,17 +18,18 @@ int main()
 {
     setlocale(LC_ALL, "PORTUGUESE");
 
-    Casino C("Solverde", 19, 27);
+    Casino C("Solverde", 15, 27);
 
     list<User *> LU;
 
     LerFicheiroUser(LU, "USERS.txt");
 
 
-    for(list<User *>::iterator it = LU.begin(); it != LU.end(); ++it){
+    /*for(list<User *>::iterator it = LU.begin(); it != LU.end(); ++it){
         //(*it)->Show();
-    }
+    }*/
 
+    cout << endl << "Memória Ocupada pelo Casino: " << C.MemoriaCasino() << endl << endl;
 
     /*Maquina *Maq = new BlackJack(1, 20, 100, 1, 1, 50);
     C.Add(Maq);
