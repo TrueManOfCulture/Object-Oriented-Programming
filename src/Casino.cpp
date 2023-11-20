@@ -36,13 +36,14 @@ list<Maquina *> *Casino::Listar_Tipo(string Tipo, ostream &saida)
     return NULL;
 }
 
-string Casino::Get_Estado(int ID)
+ESTADO_MAQUINA Casino::Get_Estado(int ID)
 {
     for(list <Maquina *>::iterator it = LM.begin(); it != LM.end(); ++it)
         if(ID == (*it)->GET_ID())
             return (*it)->GET_ESTADO();
 
-            return "ERRO";
+    cout << endl << endl << "ERRO! NENHUMA MÁQUINA ENCONTRADA COM O ID " << ID << "!" << endl;
+    return ERRO;
 }
 
 int Casino::MemoriaCasino()
