@@ -7,7 +7,7 @@
 
 using namespace std;
 
-//#include "User.h"
+#include "User.h"
 
 class Maquina
 {
@@ -21,7 +21,7 @@ class Maquina
     string ESTADO;
 
     public:
-        Maquina(int _id, int _prob_ganhar, int _premio, int _posX, int _posY, int _temp, string _tipo, string _estado);
+        Maquina(int _id, int _prob_ganhar, int _premio, int _posX, int _posY, int _temp, string _tipo, string _estado, User *U = NULL);
         virtual ~Maquina();
         string GET_ESTADO (){return ESTADO; }
         int GET_ID (){return ID; }

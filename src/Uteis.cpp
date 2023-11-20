@@ -73,7 +73,7 @@ void LerFicheiroUser(list<User *> &LU, string fic)
 
         if (V != NULL)
         {
-            COD = atoi(V[0].c_str());
+            COD = V[0];
             NOME = V[1];
             CIDADE = V[2];
             IDADE = atoi(V[3].c_str());

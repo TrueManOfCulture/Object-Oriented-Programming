@@ -20,7 +20,6 @@ int main()
 
     Casino C("Solverde", 19, 27);
 
-
     list<User *> LU;
 
     LerFicheiroUser(LU, "USERS.txt");
