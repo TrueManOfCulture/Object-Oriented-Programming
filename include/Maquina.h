@@ -7,7 +7,7 @@
 
 using namespace std;
 
-//#include "User.h"
+#include "User.h"
 
 class Maquina
 {
@@ -18,10 +18,10 @@ class Maquina
     int posX, posY;
     int TEMPERATURA;
     string TIPO;
-    sting ESTADO;
+    string ESTADO;
 
     public:
-        Maquina(int _id, int _prob_ganhar, int _premio, int _posX, int _posY, int _temp, string _tipo, string _estado);
+        Maquina(int _id, int _prob_ganhar, int _premio, int _posX, int _posY, int _temp, string _tipo, string _estado, User *U = NULL);
         virtual ~Maquina();
         int Get_PROB_GANHAR(){ return PROB_GANHAR; }
         virtual void Jogar(){}

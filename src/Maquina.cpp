@@ -1,6 +1,6 @@
 #include "../include/Maquina.h"
 
-Maquina::Maquina(int _id, int _prob_ganhar, int _premio, int _posX, int _posY, int _temp, string _tipo, string _estado)
+Maquina::Maquina(int _id, int _prob_ganhar, int _premio, int _posX, int _posY, int _temp, string _tipo, string _estado, User *U)
 {
     ID = _id;
     PROB_GANHAR = _prob_ganhar;
