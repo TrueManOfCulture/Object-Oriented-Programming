@@ -68,8 +68,8 @@ void LerFicheiroUser(list<User *> &LU, string fic)
     {
         STRING *V = Read_Split_Line_File(F1, n_campos_max, n_campos_lidos, "\t\n\r");
 
-        int COD, IDADE;
-        string NOME, CIDADE;
+        int IDADE;
+        string COD, NOME, CIDADE;
 
         if (V != NULL)
         {
@@ -79,7 +79,6 @@ void LerFicheiroUser(list<User *> &LU, string fic)
             IDADE = atoi(V[3].c_str());
 
             U = new User(COD, NOME, CIDADE, IDADE);
-
             LU.push_back(U);
             
             ++n;
@@ -87,8 +86,6 @@ void LerFicheiroUser(list<User *> &LU, string fic)
             delete[] V;
         }
     }
-
-    delete U;
 
     F1.close();
 }

@@ -9,13 +9,13 @@ using namespace std;
 
 class User
 {
-    int ID;
+    string ID;
     string NOME;
     string CIDADE;
     int IDADE;
 
     public:
-        User(int _id, string _nome, string _cidade, int _idade);
+        User(string _id, string _nome, string _cidade, int _idade);
         virtual ~User();
 
         void Show();
