@@ -24,7 +24,6 @@ int main()
 
     LerFicheiroUser(LU, "USERS.txt");
 
-
     /*for(list<User *>::iterator it = LU.begin(); it != LU.end(); ++it){
         //(*it)->Show();
     }*/
