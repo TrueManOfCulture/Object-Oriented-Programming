@@ -12,9 +12,9 @@ using namespace std;
 
 class Casino
 {
-    list<User *> LU;
-    list<User *> LU_Espera;
-    list<Maquina *> LM;
+    list <User *> LU;
+    list <User *> LU_Espera;
+    list <Maquina *> LM;
 
     string NOME;
     int HORA_ABERTURA, HORA_FECHO;
@@ -25,6 +25,7 @@ class Casino
 
         void Add(User *U);
         void Add(Maquina *M);
+        string Get_Estado(int ID);
 
         list<Maquina *> *Listar_Tipo(string Tipo, ostream &saida = cout);
 

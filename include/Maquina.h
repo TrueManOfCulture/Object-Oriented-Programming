@@ -18,11 +18,13 @@ class Maquina
     int posX, posY;
     int TEMPERATURA;
     string TIPO;
-    sting ESTADO;
+    string ESTADO;
 
     public:
         Maquina(int _id, int _prob_ganhar, int _premio, int _posX, int _posY, int _temp, string _tipo, string _estado);
         virtual ~Maquina();
+        string GET_ESTADO (){return ESTADO; }
+        int GET_ID (){return ID; }
         int Get_PROB_GANHAR(){ return PROB_GANHAR; }
         virtual void Jogar(){}
 

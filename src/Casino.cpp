@@ -2,9 +2,9 @@
 
 Casino::Casino(string _nome, int _horaA, int _horaF)
 {
-    Nome = _nome;
-    HoraA = _horaA;
-    HoraF = _horaF;
+    NOME = _nome;
+    HORA_ABERTURA = _horaA;
+    HORA_FECHO = _horaF;
 }
 
 Casino::~Casino()
@@ -36,11 +36,11 @@ list<Maquina *> *Casino::Listar_Tipo(string Tipo, ostream &saida)
     return NULL;
 }
 
-string Casino::Get_Estado(int id_maq)
-
+string Casino::Get_Estado(int ID)
 {
+    for(list <Maquina *>::iterator it = LM.begin(); it != LM.end(); ++it)
+        if(ID == (*it)->GET_ID())
+            return (*it)->GET_ESTADO();
 
-for(list <Maquinas *>::iterator it = LM.begin(); it != LM.end(); ++it)
-    if(id == (*it)->GET_ID())
-        return GET_ESTADO();
+            return "deu merda guys";
 }

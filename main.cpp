@@ -12,6 +12,7 @@ using namespace std;
 #include "include/Casino.h"
 #include "include/Roleta.h"
 #include "include/Uteis.h"
+#include "include/User.h"
 
 int main()
 {
@@ -26,7 +27,7 @@ int main()
 
 
     for(list<User *>::iterator it = LU.begin(); it != LU.end(); ++it){
-        (*it)->Show();
+        //(*it)->Show();
     }
 
 
