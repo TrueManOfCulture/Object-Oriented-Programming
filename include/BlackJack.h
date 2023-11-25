@@ -16,7 +16,7 @@ using namespace std;
 class BlackJack : public Maquina
 {
     public:
-        BlackJack(int _id, int _prob_ganhar, int _premio, int _posX, int _posY, int _temp, string _tipo);
+        BlackJack(int _id, float _prob_ganhar, int _premio, int _posX, int _posY, int _temp, string _tipo, User *U = NULL);
         virtual ~BlackJack();
 
         void Jogar();

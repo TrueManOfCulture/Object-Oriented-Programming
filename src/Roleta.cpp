@@ -1,6 +1,6 @@
 #include "../include/Roleta.h"
 
-Roleta::Roleta(int _id, int _prob_ganhar, int _premio, int _posX, int _posY, int _temp, string _tipo)
+Roleta::Roleta(int _id, float _prob_ganhar, int _premio, int _posX, int _posY, int _temp, string _tipo, User *U)
     : Maquina(_id, _prob_ganhar, _premio, _posX, _posY, _temp, _tipo)
 {
     //ctor
