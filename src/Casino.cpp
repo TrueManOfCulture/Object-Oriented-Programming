@@ -65,7 +65,9 @@ int Casino::MemoriaCasino()
     return TOTAL;
 }
 
-void Listar(float X, ostream &f = std::cout)
+void Casino::Listar(float X, ostream &saida = std::cout)
 {
-    for(list<Maquina *>::iterator it = LM.begin(); it != LM.end();)
+    for(list<Maquina *>::iterator it = LM.begin(); it != LM.end(); ++it)
+        if((*it)->Get_PROB_GANHAR() == X)
+            (*it)->Show(saida);
 }

@@ -35,7 +35,7 @@ class Casino
 
         int MemoriaCasino();
 
-        void Listar(float X, ostream &f = std::cout);
+        void Listar(float X, ostream &saida = std::cout);
 
         /*
         bool Load(const string &ficheiro);
