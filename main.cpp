@@ -24,14 +24,15 @@ int main()
 
     LerFicheiroUser(LU, "USERS.txt");
 
-    /*for(list<User *>::iterator it = LU.begin(); it != LU.end(); ++it){
-        if((*it)->Get_IDADE() == 0)
-            (*it)->Show();
-    }*/
+    for(list<User *>::iterator it = LU.begin(); it != LU.end(); ++it){
+            //cout << (*it)->Memoria() << endl;
+            (*it)->TAMANHO_NOME();
+    }
 
     C.Ass_ListaUsusarios(LU);
 
     C.MemoriaCasino();
+
     
     /*Maquina *Maq = new BlackJack(1, 20, 100, 1, 1, 50);
     C.Add(Maq);

@@ -19,6 +19,7 @@ class User
         virtual ~User();
 
         void Show();
+        void TAMANHO_NOME(){ cout << sizeof(NOME) << endl; }
         int Memoria(){ return sizeof(*this); }
         int Get_IDADE(){ return IDADE; }
 };
