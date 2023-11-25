@@ -9731,7 +9731,7 @@
 261659001	Dora Mota Amora Castanheira	Mirandela	26
 221353031	Bernardo Amora Rocha Nascimento Cunha	Alijo	21
 616843273	Eduardo Vivas Clementino Amorim Ferraz	Macedo de Cavaleiros	67
-425659450	Dora Aguiar Calado Cardoso Caiado   Castro Daire	70
+425659450	Dora Aguiar Calado Cardoso Caiado	Castro Daire	70
 978838872	Marisa Dias Moreira Aguiar Pinto	Sintra	21
 499528986	Dulce Ferro Dinis Andrade Ferraz	Braganca	55
 816169856	Soraia Fonseca Azeredo Cunha	Moncao	66
