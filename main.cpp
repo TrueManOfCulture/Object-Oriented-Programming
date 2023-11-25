@@ -25,8 +25,12 @@ int main()
     LerFicheiroUser(LU, "USERS.txt");
 
     for(list<User *>::iterator it = LU.begin(); it != LU.end(); ++it){
+<<<<<<< HEAD
+        (*it)->Show();
+=======
         if((*it)->Get_IDADE() == 0)
             (*it)->Show();
+>>>>>>> 7239ba30dff2fe1d432bb528ac7ed2722685ea1c
     }
 
     //cout << endl << "Memória Ocupada pelo Casino: " << C.MemoriaCasino() << " bytes"<< endl;
