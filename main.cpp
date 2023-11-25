@@ -24,9 +24,9 @@ int main()
 
     LerFicheiroUser(LU, "USERS.txt");
 
-    /*for(list<User *>::iterator it = LU.begin(); it != LU.end(); ++it){
-        //(*it)->Show();
-    }*/
+    for(list<User *>::iterator it = LU.begin(); it != LU.end(); ++it){
+        (*it)->Show();
+    }
 
     cout << endl << "Memória Ocupada pelo Casino: " << C.MemoriaCasino() << " bytes"<< endl;
 
