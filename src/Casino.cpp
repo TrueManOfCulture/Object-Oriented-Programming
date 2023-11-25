@@ -64,3 +64,8 @@ int Casino::MemoriaCasino()
 
     return TOTAL;
 }
+
+void Listar(float X, ostream &f = std::cout)
+{
+    for(list<Maquina *>::iterator it = LM.begin(); it != LM.end();)
+}

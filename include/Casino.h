@@ -35,6 +35,8 @@ class Casino
 
         int MemoriaCasino();
 
+        void Listar(float X, ostream &f = std::cout);
+
         /*
         bool Load(const string &ficheiro);
         void Listar(ostream &f = std::cout);
@@ -46,7 +48,6 @@ class Casino
         list<User *> *Jogadores_Mais_Ganhos();
         void Relatorio(string fich_xml);
         void SubirProbabilidadeVizinhas(Maquina *M_ganhou, float R, list<Maquina *> &lmvizinhas);
-        void Listar(float X, ostream &f = std::cout);
         void Run(bool Debug = true);
         */
 };
