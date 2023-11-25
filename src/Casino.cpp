@@ -62,16 +62,14 @@ int Casino::MemoriaCasino()
 
     TOTAL = sizeof(*this) + MEM_MAQ + MEM_U;
 
+    cout << endl << "MÁQ: " << MEM_MAQ << endl << "U: " << MEM_U << endl << endl << "TOTAL: " << TOTAL;
+
     return TOTAL;
 }
 
 void Casino::Listar(float X, ostream &saida)
 {
     for(list<Maquina *>::iterator it = LM.begin(); it != LM.end(); ++it)
-    {
         if((*it)->Get_PROB_GANHAR() == X)
-        {
             (*it)->Show(saida);
-        }
-    }
 }

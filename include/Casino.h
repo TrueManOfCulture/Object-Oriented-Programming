@@ -27,6 +27,8 @@ class Casino
         Casino(string _nome, int _horaA, int _horaF);
         virtual ~Casino();
 
+        void Ass_ListaUsusarios(list<User *> &_LU){ LU = _LU; }
+
         void Add(User *U);
         void Add(Maquina *M);
         ESTADO_MAQUINA Get_Estado(int ID);
