@@ -6,13 +6,13 @@
 
 using namespace std;
 
-#include "include/Maquina.h"
-#include "include/ClassicSlots.h"
-#include "include/BlackJack.h"
-#include "include/Casino.h"
-#include "include/Roleta.h"
-#include "include/Uteis.h"
-#include "include/User.h"
+#include "./include/Maquina.h"
+#include "./include/ClassicSlots.h"
+#include "./include/BlackJack.h"
+#include "./include/Casino.h"
+#include "./include/Roleta.h"
+#include "./include/Uteis.h"
+#include "./include/User.h"
 
 int main()
 {
@@ -25,10 +25,15 @@ int main()
     LerFicheiroUser(LU, "USERS.txt");
 
     for(list<User *>::iterator it = LU.begin(); it != LU.end(); ++it){
+<<<<<<< HEAD
         (*it)->Show();
+=======
+        if((*it)->Get_IDADE() == 0)
+            (*it)->Show();
+>>>>>>> 7239ba30dff2fe1d432bb528ac7ed2722685ea1c
     }
 
-    cout << endl << "Memória Ocupada pelo Casino: " << C.MemoriaCasino() << " bytes"<< endl;
+    //cout << endl << "Memória Ocupada pelo Casino: " << C.MemoriaCasino() << " bytes"<< endl;
 
     /*Maquina *Maq = new BlackJack(1, 20, 100, 1, 1, 50);
     C.Add(Maq);

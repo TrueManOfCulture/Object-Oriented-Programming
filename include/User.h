@@ -20,6 +20,7 @@ class User
 
         void Show();
         int Memoria(){ return sizeof(*this); }
+        int Get_IDADE(){ return IDADE; }
 };
 
 #endif // USER_H
