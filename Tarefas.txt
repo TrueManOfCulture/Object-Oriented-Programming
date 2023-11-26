@@ -1,6 +1,6 @@
 Adicionar verificação no add maquina porque não se podem colocar na mesma posição
 
-bool Casino::Load(const string &ficheiro)
+bool Casino::Load(const string &ficheiro) e Ficheiro XML - Diogo
 
 void Casino::Listar(ostream &f = std::cout)
 
