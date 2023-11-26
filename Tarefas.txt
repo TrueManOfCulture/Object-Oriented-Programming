@@ -21,3 +21,5 @@ void Casino::Relatorio(string fich_xml)
 void Casino::SubirProbabilidadeVizinhas(Maquina *M_ganhou, float R, List<Maquina *> &lmvizinhas)
 
 void Casino::Run(bool Debug = true)
+
+Quando uma máquina estiver a ser utilizada por muito tempo, deve dar um aviso de estar a aquecer e ficar em repouso para o cooldown
