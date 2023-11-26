@@ -1,15 +1,13 @@
 <DADOS>
     <DEFINICOES>
-        <NOME>Casino Figueira </NOME>
-        <MAX_JOG>50</MAX_JOG>
-        <PROB_USER>5</PROB_USER>
-        <HORA_INICIO>22</HORA_INICIO>
-        <HORA_FIM>26</HORA_FIM>
-        ...
+        <NOME>Casino Figueira</NOME>
+        <CAPACIDADEJOG>40</CAPACIDADEJOG>
+        <HORA_INICIO>10:30</HORA_INICIO>
+        <HORA_FIM>23:30</HORA_FIM>
     </DEFINICOES>
     <LISTA_MAQ>
         <MAQUINA>
-            <NOME>Flippers</NOME>
+            <NOME>BlackJack</NOME>
             <PROB_G>10</PROB_G>
             <PREMIO>50</PREMIO>
             <X>10</X>
@@ -17,7 +15,7 @@
             <TEMP_AVISO>70</TEMP_AVISO>            
         </MAQUINA>
         <MAQUINA>
-            <NOME>Maq. Rafa</NOME>
+            <NOME>ClassicSlots</NOME>
             <PROB_G>1</PROB_G>
             <PREMIO>60</PREMIO>
             <X>50</X>
@@ -25,7 +23,7 @@
             <TEMP_AVISO>50</TEMP_AVISO>            
         </MAQUINA>
         <MAQUINA>
-            <NOME>Maq?</NOME>
+            <NOME>Roleta</NOME>
             <PROB_G>1</PROB_G>
             <PREMIO>60</PREMIO>
             <X>50</X>

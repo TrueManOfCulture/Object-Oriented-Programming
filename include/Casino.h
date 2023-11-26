@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <list>
+#include <fstream>
 
 using namespace std;
 
@@ -38,9 +39,9 @@ class Casino
         int MemoriaCasino();
 
         void Listar(float X, ostream &saida = std::cout);
-
-        /*
         bool Load(const string &ficheiro);
+        /*
+        
         void Listar(ostream &f = std::cout);
         void Desligar(int id_maq);
         int Memoria_Total();

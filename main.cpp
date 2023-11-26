@@ -13,6 +13,7 @@ using namespace std;
 #include "./include/Roleta.h"
 #include "./include/Uteis.h"
 #include "./include/User.h"
+#include "./include/XML.h"
 
 int main()
 {
@@ -21,8 +22,10 @@ int main()
     Casino C("Solverde", 15, 27);
 
     list<User *> LU;
+    C.Load("CasinoData.xml");
 
     LerFicheiroUser(LU, "USERS.txt");
+    //cout << ObterConteudo("<TEMP_AVISO>70</TEMP_AVISO>")<<endl;
 
     //for(list<User *>::iterator it = LU.begin(); it != LU.end(); ++it){
     //        //cout << (*it)->Memoria() << endl;
@@ -65,5 +68,5 @@ int main()
     ficheiro.close();*/
 
     Maquina *Maq = new ClassicSlots(1, 1, 1, 1, 1, 1, "ClassicSlots");
-    Maq->Jogar();
+    //Maq->Jogar();
 }

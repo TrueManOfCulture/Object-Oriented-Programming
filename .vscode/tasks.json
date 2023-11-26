@@ -24,6 +24,8 @@
                 "${fileDirname}/src/User.cpp",
                 "${fileDirname}/include/Uteis.h",
                 "${fileDirname}/src/Uteis.cpp",
+                "${fileDirname}/include/XML.h",
+                "${fileDirname}/src/XML.cpp",
             ],
             "options": {
                 "cwd": "${fileDirname}"
