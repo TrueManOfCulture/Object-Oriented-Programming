@@ -19,3 +19,5 @@ list<User *> * Casino::Jogadores_Mais_Ganhos ()
 void Casino::Relatorio(string fich_xml)
 
 void Casino::SubirProbabilidadeVizinhas(Maquina *M_ganhou, float R, List<Maquina *> &lmvizinhas)
+
+void Casino::Run(bool Debug = true)
