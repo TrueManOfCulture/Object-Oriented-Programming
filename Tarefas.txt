@@ -16,11 +16,4 @@ void Casino::Relatorio(string fich_xml)
 
 void Casino::Run(bool Debug = true)
 
-<<<<<<< HEAD
 Quando uma máquina estiver a ser utilizada por muito tempo, deve dar um aviso de estar a aquecer e ficar em repouso para o cooldown
-=======
-Quando uma máquina estiver a ser utilizada por muito tempo, deve dar um aviso de estar a aquecer e ficar em repouso para o cooldown
-
-Funções gerais para listas
-Comentar código inteiro - Chico
->>>>>>> b7ff6f39ffe283e820f04d9ae736ed28307e72fd
