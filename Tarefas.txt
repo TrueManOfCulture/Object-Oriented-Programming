@@ -1,4 +1,4 @@
-Adicionar verificação no add maquina porque não se podem colocar na mesma posição
+Adicionar verificação no add maquina porque não se podem colocar na mesma posição - Gui
 
 bool Casino::Load(const string &ficheiro) e Ficheiro XML - Diogo
 
