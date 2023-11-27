@@ -1,7 +1,7 @@
 #include "../include/ClassicSlots.h"
 
-ClassicSlots::ClassicSlots(int _id, float _prob_ganhar, int _premio, int _posX, int _posY, int _temp, string _tipo, User *U, ESTADO_MAQUINA _est)
-    : Maquina(_id, _prob_ganhar, _premio, _posX, _posY, _temp, _tipo, U, _est)
+ClassicSlots::ClassicSlots(float _prob_ganhar, int _premio, int _posX, int _posY, int _temp, string _tipo, User *U, ESTADO_MAQUINA _est)
+    : Maquina(_prob_ganhar, _premio, _posX, _posY, _temp, _tipo, U, _est)
 {
 
 }

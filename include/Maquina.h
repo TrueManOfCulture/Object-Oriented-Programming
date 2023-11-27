@@ -11,10 +11,11 @@ using namespace std;
 
 enum ESTADO_MAQUINA{OFF, ON, AVARIADA, ERRO};
 
+int ID = 0;
+
 class Maquina
 {
     //User *U;
-    int ID;
     float PROB_GANHAR;
     int PREMIO;
     int posX, posY;
@@ -23,7 +24,7 @@ class Maquina
     ESTADO_MAQUINA ESTADO;
 
     public:
-        Maquina(int _id, float _prob_ganhar, int _premio, int _posX, int _posY, int _temp, string _tipo, User *U = NULL, ESTADO_MAQUINA _est = OFF);
+        Maquina(float _prob_ganhar, int _premio, int _posX, int _posY, int _temp, string _tipo, User *U = NULL, ESTADO_MAQUINA _est = OFF);
         
         virtual ~Maquina();
         ESTADO_MAQUINA Get_ESTADO(){ return ESTADO; }

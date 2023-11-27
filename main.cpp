@@ -69,7 +69,7 @@ int main()
 
     ficheiro.close();*/
 
-    Maquina *Maq = new ClassicSlots(12, 5, 50, 1, 1, 70, "Classic Slots", NULL, ON);
+    Maquina *Maq = new ClassicSlots(5, 50, 1, 1, 70, "Classic Slots", NULL, ON);
     C.Add(Maq);
     //Maq->Jogar();
 
