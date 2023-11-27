@@ -4,8 +4,6 @@ bool Casino::Load(const string &ficheiro) e Ficheiro XML - Diogo
 
 void Casino::Listar(ostream &f = std::cout)
 
-void Casino::Desligar(int id_maq) - Chico
-
 int Casino::Memoria_Total()
 
 list<string> * Casino::Ranking_Dos_Fracos()
