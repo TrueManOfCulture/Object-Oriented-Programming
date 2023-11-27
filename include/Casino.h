@@ -28,23 +28,20 @@ class Casino
         Casino(string _nome);
         virtual ~Casino();
 
-        void Ass_ListaUsusarios(list<User *> &_LU){ LU = _LU; }
+        void Ass_ListaUsusarios(list<User *> &_LU){ LU = _LU; }                 // ASSOCIAR A LISTA DE USUÁRIO DO CASINO A UMA LISTA DADA
 
-        void Add(User *U);
-        void Add(Maquina *M);
-        string Get_Estado(int ID);
+        void Add(User *U);                                                      // ADICIONAR USUÁRIOS À LISTA
+        void Add(Maquina *M);                                                   // ADICIONAR MÁQUINAS À LISTA
+        string Get_Estado(int ID);                                              // RETORNAR O ESTADO DE UMA MÁQUINA DADO UM ID
 
-        list<Maquina *> *Listar_Tipo(string Tipo, ostream &saida = cout);
-        void Desligar(int ID_MAQ);
+        list<Maquina *> *Listar_Tipo(string Tipo, ostream &saida = cout); //INACABADO       // LISTAR TODOS OS TIPOS DE MÁQUINA DADO UM TIPO
+        void Desligar(int ID_MAQ);                                              // DESLIGAR UMA MÁQUINA DADO UM ID
 
-        int MemoriaCasino();
+        int MemoriaCasino();                                                    // CALCULAR A MEMÓRIA TOTAL DO CASINO
 
-        void Listar(float X, ostream &saida = std::cout);
-        bool Load(const string &ficheiro);
+        void Listar_Sup_Prob_Ganhar(float X, ostream &saida = std::cout);       // LISTAR AS MÁQUINAS COM UM VALOR DE PROBABILIDADE DE GANHAR SUPERIOR AO DADO
+        bool Load(const string &ficheiro);                                      // CARREGAR O FICHEIRO XML
         /*
-        
-        void Listar(ostream &f = std::cout);
-        int Memoria_Total(); - EM FASE DE TESTES
         list<string> * Ranking_Dos_Fracos();
         list<Maquina *> * Ranking_Das_Mais_Trabalhadores();
         list<User *> *Jogadores_Mais_Frequentes();

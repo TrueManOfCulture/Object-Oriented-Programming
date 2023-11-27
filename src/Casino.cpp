@@ -50,7 +50,8 @@ list<Maquina *> *Casino::Listar_Tipo(string Tipo, ostream &saida)
             (*it)->Show(saida);
         }
 
-    return NULL;
+
+    return NULL; // RETORNA NULL CASO NÃO ENCONTRE
 }
 
 string Casino::Get_Estado(int ID)
@@ -84,10 +85,10 @@ int Casino::MemoriaCasino()
     return TOTAL;
 }
 
-void Casino::Listar(float X, ostream &saida)
+void Casino::Listar_Sup_Prob_Ganhar(float X, ostream &saida = std::cout)
 {
     for(list<Maquina *>::iterator it = LM.begin(); it != LM.end(); ++it)
-        if((*it)->Get_PROB_GANHAR() == X)
+        if((*it)->Get_PROB_GANHAR() > X)
             (*it)->Show(saida);
 }
 

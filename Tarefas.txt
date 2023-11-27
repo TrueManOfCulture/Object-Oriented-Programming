@@ -2,9 +2,7 @@ Adicionar verificação no add maquina porque não se podem colocar na mesma pos
 
 bool Casino::Load(const string &ficheiro) e Ficheiro XML - Diogo
 
-void Casino::Listar(ostream &f = std::cout)
-
-int Casino::Memoria_Total() - Chico (EM ANDAMENTO)
+[[[[[[[[    int Casino::Memoria_Total() - Chico (Supostamente já está a funcionar)    ]]]]]]]]
 
 list<string> * Casino::Ranking_Dos_Fracos()
 
@@ -23,3 +21,4 @@ void Casino::Run(bool Debug = true)
 Quando uma máquina estiver a ser utilizada por muito tempo, deve dar um aviso de estar a aquecer e ficar em repouso para o cooldown
 
 Funções gerais para listas
+Comentar código inteiro - Chico

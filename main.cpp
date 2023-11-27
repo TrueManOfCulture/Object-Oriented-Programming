@@ -17,61 +17,19 @@ using namespace std;
 
 int main()
 {
-    ifstream dadosCasino("CasinoData.xml");
+    /*ifstream dadosCasino("CasinoData.xml");
     setlocale(LC_ALL, "PORTUGUESE");
     saltarNLinhas(dadosCasino, 2);
     string nomeCasino = ObterConteudo(dadosCasino);
 
     Casino C(nomeCasino);
 
-    //list<User *> LU;
-
-    C.Load("CasinoData.xml");
-
-    //LerFicheiroUser(LU, "USERS.txt");
+    C.Load("CasinoData.xml");*/
 
     //cout << ObterConteudo("<TEMP_AVISO>70</TEMP_AVISO>")<<endl;
 
-    /*for(list<User *>::iterator it = LU.begin(); it != LU.end(); ++it){
-            cout << (*it)->Memoria() << endl;
-            (*it)->TAMANHO_NOME();
-    }*/
 
-    //C.Ass_ListaUsusarios(LU);
-
-    //C.MemoriaCasino();
-
-    
-    /*Maquina *Maq = new BlackJack(1, 1, 1, 1, 1, 1, "BlackJack");
-    C.Add(Maq);
-    Maq = new BlackJack(1, 1, 1, 1, 1, 1, "BlackJack");
-    C.Add(Maq);
-    Maq = new BlackJack(1, 1, 1, 1, 1, 1, "BlackJack");
-    C.Add(Maq);
-    Maq = new BlackJack(1, 1, 1, 1, 1, 1, "BlackJack");
-    C.Add(Maq);
-
-    Maq = new Roleta(1, 1, 1, 1, 1, 1, "Roleta");
-    C.Add(Maq);
-    Maq = new Roleta(1, 1, 1, 1, 1, 1, "Roleta");
-    C.Add(Maq);
-    Maq = new Roleta(1, 1, 1, 1, 1, 1, "Roleta");
-    C.Add(Maq);
-
-    Maq = new ClassicSlots(1, 1, 1, 1, 1, 1, "ClassicSlots");
-    C.Add(Maq);
-    Maq = new ClassicSlots(1, 1, 1, 1, 1, 1, "ClassicSlots");
-    C.Add(Maq);
-
-    Maq = new Maquina(1, 1, 1, 1, 1, 1, "Maquina");
-    C.Add(Maq);
-
-    ofstream ficheiro("TESTE.txt");
-
-    C.Listar_Tipo("BLACKJACK");
-
-    ficheiro.close();*/
-
+    //////////////    TESTES DE ALTERAR ESTADO DE UMA MÁQUINA    //////////////
     /*Maquina *Maq = new ClassicSlots(5, 50, 1, 1, 70, "Classic Slots", NULL, ON);
     C.Add(Maq);
     //Maq->Jogar();
@@ -82,11 +40,20 @@ int main()
 
     cout << C.Get_Estado(12) << endl;*/
 
-    Maquina *Maq = new ClassicSlots(5, 50, 1, 1, 70, "CLASSIC SLOTS", NULL, ON);
-    Maq->Show();
-    Maq = new ClassicSlots(5, 50, 1, 1, 70, "CLASSIC SLOTS", NULL, ON);
-    Maq->Show();
-    Maq = new ClassicSlots(5, 50, 1, 1, 70, "CLASSIC SLOTS", NULL, ON);
-    Maq->Show();
 
+    //////////////    TESTES DE LEITURA DE MEMÓRIA    //////////////
+    /*Casino C("Solverde");
+
+    list<User *> LU;
+    LerFicheiroUser(LU, "USERS.txt");
+    C.Ass_ListaUsusarios(LU);
+
+    Maquina *Maq = new ClassicSlots(5, 50, 1, 1, 70, "CLASSIC SLOTS", NULL, ON);
+    C.Add(Maq);
+    Maq = new ClassicSlots(5, 50, 1, 1, 70, "CLASSIC SLOTS", NULL, ON);
+    C.Add(Maq);
+    Maq = new ClassicSlots(5, 50, 1, 1, 70, "CLASSIC SLOTS", NULL, ON);
+    C.Add(Maq);
+
+    C.MemoriaCasino();*/
 }

@@ -25,11 +25,11 @@ extern LinhaTexto LT;
 
 using namespace std;
 
-int AleatorioINT(int minN, int maxN);
-string AleatorioVECTOR_STRINGS(vector<string> L);
-void LerFicheiroUser(list<User *> &LU, string fic);
-STRING *Read_Split_Line_File(ifstream &f, int n_campos_max, int &n_campos_lidos, const char *separadores);
+int AleatorioINT(int minN, int maxN);                       // RETORNA UM INTEIRO ALEATÓRIO
+string AleatorioVECTOR_STRINGS(vector<string> L);           // RETORNA UM ELEMENTO ALEATÓRIO DE UM VETOR DE STRINGS (USADA EM CLASSIC SLOTS)
+void LerFicheiroUser(list<User *> &LU, string fic);         // LÊ O FICHEIRO USERS.txt
+STRING *Read_Split_Line_File(ifstream &f, int n_campos_max, int &n_campos_lidos, const char *separadores);  // SEPARA OS CAMPOS
 bool saltarNLinhas(ifstream &f, int nlinhas);
-string EnumToString(ESTADO_MAQUINA _est);
+string EnumToString(ESTADO_MAQUINA _est);                   // TRANSFORMA O VALOR DE ENUM NUMA STRING
 
 #endif // UTEIS_H_INCLUDED
