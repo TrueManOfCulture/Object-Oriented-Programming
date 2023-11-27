@@ -19,9 +19,9 @@ class Roleta : public Maquina
         Roleta(float _prob_ganhar, int _premio, int _posX, int _posY, int _temp, string _tipo, User *U = NULL, ESTADO_MAQUINA _est = OFF);
         virtual ~Roleta();
 
-        void Jogar();
-        string Get_TIPO(){ return "ROLETA"; }
-        int Memoria(){ return sizeof(*this); }
+        void Jogar();                               // FUNÇÃO DE JOGAR
+        string Get_TIPO(){ return "ROLETA"; }       // RETORNA O TIPO DA MÁQUINA
+        int Memoria(){ return sizeof(*this); }      // CALCULA A MEMÓRIA OCUPADA
 };
 
 #endif // ROLETA_H

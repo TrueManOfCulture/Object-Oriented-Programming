@@ -18,9 +18,9 @@ class User
         User(string _id, string _nome, string _cidade, int _idade);
         virtual ~User();
 
-        void Show();
-        int Memoria(){ return sizeof(*this); }
-        int Get_IDADE(){ return IDADE; }
+        void Show();                                // MOSTRA OS DADOS DO USER
+        int Memoria(){ return sizeof(*this); }      // CALCULA A MEMÓRIA OCUPADA
+        int Get_IDADE(){ return IDADE; }            // RETORNA A IDADE
 };
 
 #endif // USER_H

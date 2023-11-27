@@ -26,18 +26,15 @@ class Maquina
         Maquina(float _prob_ganhar, int _premio, int _posX, int _posY, int _temp, string _tipo, User *U = NULL, ESTADO_MAQUINA _est = OFF);
         virtual ~Maquina();
 
-        void ReturnBytes(){ cout << "ID: " << sizeof(ID) << endl << "PROB_GANHAR: " << sizeof(PROB_GANHAR) << endl << "PREMIO: " << sizeof(PREMIO) << endl << "PosX: " << sizeof(posX) << endl << "PosY: " << sizeof(posY) << endl << "Temp: " << sizeof(TEMPERATURA) << endl << "TIPO: " << sizeof(TIPO) << endl << "ESTADO: " << sizeof(ESTADO) << endl << endl; }
-
-        ESTADO_MAQUINA Get_ESTADO(){ return ESTADO; }
-        int Get_ID (){ return ID; }
-        float Get_PROB_GANHAR(){ return PROB_GANHAR; }
-        void Set_ESTADO(ESTADO_MAQUINA _est){ ESTADO = _est; }
+        ESTADO_MAQUINA Get_ESTADO(){ return ESTADO; }               // RETORNA O ESTADO DA MÁQUINA
+        int Get_ID (){ return ID; }                                 // RETORNA O ID DA MÁQUINA
+        float Get_PROB_GANHAR(){ return PROB_GANHAR; }              // RETORNA A PROBABILIDADE DE GANHAR DE UMA MÁQUINA
+        void Set_ESTADO(ESTADO_MAQUINA _est){ ESTADO = _est; }      // ALTERA O TIPO ESTADO DA MÁQUINA
         virtual void Jogar(){}
 
-        virtual string Get_TIPO(){ return "SEM_TIPO"; }
-        virtual void Show(ostream &saida = cout);
-        virtual int Memoria(){ return sizeof(*this); }
-
+        virtual string Get_TIPO(){ return "SEM_TIPO"; }             // RETORNA O TIPO DA MÁQUINA
+        virtual void Show(ostream &saida = cout);                   // MOSTRA OS DADOS DA MÁQUINA
+        virtual int Memoria(){ return sizeof(*this); }              // CALCULA A MEMÓRIA OCUPADA
 };
 
 #endif // MAQUINA_H

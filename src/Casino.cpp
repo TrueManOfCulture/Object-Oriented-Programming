@@ -50,7 +50,8 @@ list<Maquina *> *Casino::Listar_Tipo(string Tipo, ostream &saida)
             (*it)->Show(saida);
         }
 
-    return NULL;
+
+    return NULL; // RETORNA NULL CASO NÃO ENCONTRE
 }
 
 string Casino::Get_Estado(int ID)
