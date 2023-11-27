@@ -27,20 +27,8 @@ int main()
     C.Load("CasinoData.xml");*/
 
     //cout << ObterConteudo("<TEMP_AVISO>70</TEMP_AVISO>")<<endl;
-<<<<<<< HEAD
-    /*for(list<User *>::iterator it = LU.begin(); it != LU.end(); ++it){
-            cout << (*it)->Memoria() << endl;
-            (*it)->TAMANHO_NOME();
-    }*/
-
-    //C.Ass_ListaUsusarios(LU);
-
-    //C.MemoriaCasino();
-
     
-=======
 
->>>>>>> e6adf915262ebab1df3eba12a3e28b7e7019389c
     /*Maquina *Maq = new BlackJack(1, 1, 1, 1, 1, 1, "BlackJack");
     C.Add(Maq);
     Maq = new BlackJack(1, 1, 1, 1, 1, 1, "BlackJack");
@@ -81,8 +69,6 @@ int main()
 
     cout << C.Get_Estado(12) << endl;*/
 
-
-    //TESTAR SIZEOF DE CADA ELEMENTO EM MAQUINA
 
     Casino C("Solverde");
 
