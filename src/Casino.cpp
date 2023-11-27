@@ -1,5 +1,15 @@
 #include "../include/Casino.h"
 
+Casino::Casino(string _nome)
+{
+    NOME = _nome;
+}
+
+Casino::~Casino()
+{
+    //dtor
+}
+
 bool Casino::Load(const string &ficheiro)
 {
     ifstream infoCasino(ficheiro);
@@ -17,18 +27,6 @@ bool Casino::Load(const string &ficheiro)
     cout << "Numero de elementos: " << n_campos_lidos << endl;
 
     return true;
-}
-
-Casino::Casino(string _nome, int _horaA, int _horaF)
-{
-    NOME = _nome;
-    HORA_ABERTURA = _horaA;
-    HORA_FECHO = _horaF;
-}
-
-Casino::~Casino()
-{
-    //dtor
 }
 
 void Casino::Add(User *U)

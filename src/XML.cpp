@@ -1,12 +1,19 @@
 #include "../include/XML.h"
 
-//Obter conteudo dentro de tags
-string ObterConteudo(string linha){
+string ObterConteudo(ifstream &f){
     string conteudo;
-    int pos_ini, pos_fim;
-    pos_ini = linha.find(">")+1; // posicao do inicio da string  
-    pos_fim = linha.find("<",1); //posicao do fim da string
-    conteudo = linha.substr(pos_ini,pos_fim-pos_ini);
+    if (!f.is_open()){
+        cout<<"File not found"<<endl;
+        return NULL;
+    } 
+
+    int n_campos_lidos;
+    STRING *V = Read_Split_Line_File(f, 10, n_campos_lidos, "<>");
+    if(n_campos_lidos<4){
+        cout << "Nao tinha conteudo"<<endl;
+        return NULL;
+    }
+    conteudo = V[2];
     return conteudo;
 }
 
