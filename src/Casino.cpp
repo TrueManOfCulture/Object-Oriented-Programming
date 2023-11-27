@@ -85,7 +85,7 @@ int Casino::MemoriaCasino()
     return TOTAL;
 }
 
-void Casino::Listar_Sup_Prob_Ganhar(float X, ostream &saida = std::cout)
+void Casino::Listar_Sup_Prob_Ganhar(float X, ostream &saida)
 {
     for(list<Maquina *>::iterator it = LM.begin(); it != LM.end(); ++it)
         if((*it)->Get_PROB_GANHAR() > X)
@@ -97,6 +97,23 @@ void Casino::Desligar(int ID_MAQ)
     for(list<Maquina *>::iterator it = LM.begin(); it != LM.end(); ++it){
         if((*it)->Get_ID() == ID_MAQ){
             (*it)->Set_ESTADO(OFF);
+        }
+    }
+}
+
+void Casino::SubirProbabilidadeVizinhas(Maquina *M_ganhou, float raio, list<Maquina *> &LM_Vizinhas)
+{
+    for(list<Maquina *>::iterator it = LM.begin(); it != LM.end(); ++it){
+        float dist = CalcularDistancia(M_ganhou, (*it));
+        if(raio >= dist)
+        {
+            if(dist == 0){
+                continue;
+            }
+            else{
+                LM_Vizinhas.push_back(*it);
+                (*it)->Set_PROB_GANHAR(5);
+            }
         }
     }
 }

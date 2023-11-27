@@ -56,4 +56,33 @@ int main()
     C.Add(Maq);
 
     C.MemoriaCasino();*/
+
+
+    //////////////    TESTES DE AUMENTAR PROBABILIDADE DE GANHAR VIZINHAS    //////////////
+    /*Casino C("Solverde");
+    Maquina *Maq = new ClassicSlots(5, 50, 1, 0, 70, "CLASSIC SLOTS", NULL, ON);
+    Maq->Show();
+    C.Add(Maq);
+    Maq = new ClassicSlots(5, 50, 0, 1, 70, "CLASSIC SLOTS", NULL, ON);
+    Maq->Show();
+    C.Add(Maq);
+    Maq = new ClassicSlots(5, 50, 1, 1, 70, "CLASSIC SLOTS", NULL, ON);
+    Maq->Show();
+    C.Add(Maq);
+    Maq = new ClassicSlots(5, 50, 2, 2, 70, "CLASSIC SLOTS", NULL, ON);
+    Maq->Show();
+    C.Add(Maq);
+    Maq = new ClassicSlots(5, 50, 0, 0, 70, "CLASSIC SLOTS", NULL, ON);
+    Maq->Show();
+    C.Add(Maq);
+
+    list<Maquina *> MaquinasVizinhas;
+
+    C.SubirProbabilidadeVizinhas(Maq, 1, MaquinasVizinhas);
+
+    cout << "//////////////////////////////////////////" << endl << endl;
+
+    for(list<Maquina *>::iterator it = MaquinasVizinhas.begin(); it != MaquinasVizinhas.end(); ++it){
+        (*it)->Show();
+    }*/
 }

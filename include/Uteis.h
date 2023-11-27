@@ -15,6 +15,7 @@ extern LinhaTexto LT;
 #include <ctime>
 #include <fstream>
 #include <cstring>
+#include <cmath>
 
 #include "Casino.h"
 #include "Maquina.h"
@@ -31,5 +32,6 @@ void LerFicheiroUser(list<User *> &LU, string fic);         // LÊ O FICHEIRO US
 STRING *Read_Split_Line_File(ifstream &f, int n_campos_max, int &n_campos_lidos, const char *separadores);  // SEPARA OS CAMPOS
 bool saltarNLinhas(ifstream &f, int nlinhas);
 string EnumToString(ESTADO_MAQUINA _est);                   // TRANSFORMA O VALOR DE ENUM NUMA STRING
+float CalcularDistancia(Maquina *M1, Maquina *M2);          // CALCULA A DISTANCIA ENTRE DUAS MÁQUINAS
 
 #endif // UTEIS_H_INCLUDED

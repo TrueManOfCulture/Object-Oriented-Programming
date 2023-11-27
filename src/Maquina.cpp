@@ -5,6 +5,7 @@ int Maquina::ID = 0;
 Maquina::Maquina(float _prob_ganhar, int _premio, int _posX, int _posY, int _temp, string _tipo, User *U, ESTADO_MAQUINA _est)
 {
     ID++;
+    ID__ = ID;
     PROB_GANHAR = _prob_ganhar;
     PREMIO = _premio;
     posX = _posX;
@@ -21,5 +22,5 @@ Maquina::~Maquina()
 
 void Maquina::Show(ostream &saida)
 {
-    saida << "ID: " << ID << endl << "PROB_GANHAR: " << PROB_GANHAR << endl << "PREMIO: " << PREMIO << endl << "posX: " << posX << endl << "posY: " << posY << endl << "TEMP: " << TEMPERATURA << "TIPO: "<< TIPO << endl << endl;
+    saida << "ID: " << ID__ << endl << "PROB_GANHAR: " << PROB_GANHAR << endl << "PREMIO: " << PREMIO << endl << "posX: " << posX << endl << "posY: " << posY << endl << "TEMP: " << TEMPERATURA << endl << "TIPO: "<< TIPO << endl << endl;
 }
