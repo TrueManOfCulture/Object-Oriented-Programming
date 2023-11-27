@@ -1,0 +1,25 @@
+Adicionar verificação no add maquina porque não se podem colocar na mesma posição
+
+bool Casino::Load(const string &ficheiro) e Ficheiro XML - Diogo
+
+void Casino::Listar(ostream &f = std::cout)
+
+void Casino::Desligar(int id_maq)
+
+int Casino::Memoria_Total()
+
+list<string> * Casino::Ranking_Dos_Fracos()
+
+list<Maquina *> * Casino::Ranking_Das_Mais_Trabalhadores()
+
+list<User *> * Casino::Jogadores_Mais_Frequentes ()
+
+list<User *> * Casino::Jogadores_Mais_Ganhos ()
+
+void Casino::Relatorio(string fich_xml)
+
+void Casino::SubirProbabilidadeVizinhas(Maquina *M_ganhou, float R, List<Maquina *> &lmvizinhas)
+
+void Casino::Run(bool Debug = true)
+
+Quando uma máquina estiver a ser utilizada por muito tempo, deve dar um aviso de estar a aquecer e ficar em repouso para o cooldown

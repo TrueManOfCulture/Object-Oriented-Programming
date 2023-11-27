@@ -1,5 +1,19 @@
 #include "../include/Casino.h"
 
+bool Casino::Load(const string &ficheiro){
+    ifstream infoCasino(ficheiro);
+    if (!infoCasino.is_open()){
+        cout<<"File not found"<<endl;
+        return false;
+    } 
+    int n_campos_lidos;
+    saltarNLinhas(infoCasino,2);
+    STRING *V = Read_Split_Line_File(infoCasino, 10, n_campos_lidos,"<>");
+    cout <<V[2]<< endl;
+    cout << "Numero de elementos: "<< n_campos_lidos<<endl;
+    return true;
+}
+
 Casino::Casino(string _nome, int _horaA, int _horaF)
 {
     NOME = _nome;
