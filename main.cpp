@@ -21,24 +21,10 @@ int main()
 
     Casino C("Solverde", 15, 27);
 
-    //list<User *> LU;
-
     C.Load("CasinoData.xml");
-
-    //LerFicheiroUser(LU, "USERS.txt");
 
     //cout << ObterConteudo("<TEMP_AVISO>70</TEMP_AVISO>")<<endl;
 
-    /*for(list<User *>::iterator it = LU.begin(); it != LU.end(); ++it){
-            cout << (*it)->Memoria() << endl;
-            (*it)->TAMANHO_NOME();
-    }*/
-
-    //C.Ass_ListaUsusarios(LU);
-
-    //C.MemoriaCasino();
-
-    
     /*Maquina *Maq = new BlackJack(1, 1, 1, 1, 1, 1, "BlackJack");
     C.Add(Maq);
     Maq = new BlackJack(1, 1, 1, 1, 1, 1, "BlackJack");
@@ -79,11 +65,16 @@ int main()
 
     cout << C.Get_Estado(12) << endl;*/
 
-    Maquina *Maq = new ClassicSlots(5, 50, 1, 1, 70, "CLASSIC SLOTS", NULL, ON);
-    Maq->Show();
-    Maq = new ClassicSlots(5, 50, 1, 1, 70, "CLASSIC SLOTS", NULL, ON);
-    Maq->Show();
-    Maq = new ClassicSlots(5, 50, 1, 1, 70, "CLASSIC SLOTS", NULL, ON);
-    Maq->Show();
+    /*list<User *> LU;
+    LerFicheiroUser(LU, "USERS.txt");
+    C.Ass_ListaUsusarios(LU);
 
+    Maquina *Maq = new ClassicSlots(5, 50, 1, 1, 70, "CLASSIC SLOTS", NULL, ON);
+    C.Add(Maq);
+    Maq = new ClassicSlots(5, 50, 1, 1, 70, "CLASSIC SLOTS", NULL, ON);
+    C.Add(Maq);
+    Maq = new ClassicSlots(5, 50, 1, 1, 70, "CLASSIC SLOTS", NULL, ON);
+    C.Add(Maq);
+
+    C.MemoriaCasino();*/
 }
