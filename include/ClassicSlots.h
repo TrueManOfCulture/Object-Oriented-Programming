@@ -19,9 +19,9 @@ class ClassicSlots : public Maquina
         ClassicSlots(float _prob_ganhar, int _premio, int _posX, int _posY, int _temp, string _tipo, User *U = NULL, ESTADO_MAQUINA _est = OFF);
         virtual ~ClassicSlots();
 
-        void Jogar();
-        string Get_TIPO(){ return "CLASSIC_SLOTS"; }
-        int Memoria(){ return sizeof(*this); }
+        void Jogar();                                   // FUNÇÃO DE JOGAR
+        string Get_TIPO(){ return "CLASSIC_SLOTS"; }    // RETORNA O TIPO
+        int Memoria(){ return sizeof(*this); }          // CALCULO DE MEMÓRIA
 };
 
 #endif // CLASSICSLOTS_H

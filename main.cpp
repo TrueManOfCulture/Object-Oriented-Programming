@@ -27,38 +27,9 @@ int main()
     C.Load("CasinoData.xml");*/
 
     //cout << ObterConteudo("<TEMP_AVISO>70</TEMP_AVISO>")<<endl;
-    
 
-    /*Maquina *Maq = new BlackJack(1, 1, 1, 1, 1, 1, "BlackJack");
-    C.Add(Maq);
-    Maq = new BlackJack(1, 1, 1, 1, 1, 1, "BlackJack");
-    C.Add(Maq);
-    Maq = new BlackJack(1, 1, 1, 1, 1, 1, "BlackJack");
-    C.Add(Maq);
-    Maq = new BlackJack(1, 1, 1, 1, 1, 1, "BlackJack");
-    C.Add(Maq);
 
-    Maq = new Roleta(1, 1, 1, 1, 1, 1, "Roleta");
-    C.Add(Maq);
-    Maq = new Roleta(1, 1, 1, 1, 1, 1, "Roleta");
-    C.Add(Maq);
-    Maq = new Roleta(1, 1, 1, 1, 1, 1, "Roleta");
-    C.Add(Maq);
-
-    Maq = new ClassicSlots(1, 1, 1, 1, 1, 1, "ClassicSlots");
-    C.Add(Maq);
-    Maq = new ClassicSlots(1, 1, 1, 1, 1, 1, "ClassicSlots");
-    C.Add(Maq);
-
-    Maq = new Maquina(1, 1, 1, 1, 1, 1, "Maquina");
-    C.Add(Maq);
-
-    ofstream ficheiro("TESTE.txt");
-
-    C.Listar_Tipo("BLACKJACK");
-
-    ficheiro.close();*/
-
+    //////////////    TESTES DE ALTERAR ESTADO DE UMA MÁQUINA    //////////////
     /*Maquina *Maq = new ClassicSlots(5, 50, 1, 1, 70, "Classic Slots", NULL, ON);
     C.Add(Maq);
     //Maq->Jogar();
@@ -70,7 +41,8 @@ int main()
     cout << C.Get_Estado(12) << endl;*/
 
 
-    Casino C("Solverde");
+    //////////////    TESTES DE LEITURA DE MEMÓRIA    //////////////
+    /*Casino C("Solverde");
 
     list<User *> LU;
     LerFicheiroUser(LU, "USERS.txt");
@@ -83,5 +55,5 @@ int main()
     Maq = new ClassicSlots(5, 50, 1, 1, 70, "CLASSIC SLOTS", NULL, ON);
     C.Add(Maq);
 
-    C.MemoriaCasino();
+    C.MemoriaCasino();*/
 }

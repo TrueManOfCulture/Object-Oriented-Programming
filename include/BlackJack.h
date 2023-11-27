@@ -19,9 +19,9 @@ class BlackJack : public Maquina
         BlackJack(float _prob_ganhar, int _premio, int _posX, int _posY, int _temp, string _tipo, User *U = NULL, ESTADO_MAQUINA _est = OFF);
         virtual ~BlackJack();
 
-        void Jogar();
-        string Get_TIPO(){ return "BLACKJACK"; }
-        int Memoria(){ return sizeof(*this); }
+        void Jogar();                               // Função de Jogar
+        string Get_TIPO(){ return "BLACKJACK"; }    // Retornar o TIPO da máquina
+        int Memoria(){ return sizeof(*this); }      // Retornar o espaço em memória que a máquina ocupa
 };
 
 #endif // BLACKJACK_H
