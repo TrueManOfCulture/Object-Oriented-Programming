@@ -2,7 +2,7 @@
 
 int Maquina::ID = 0;
 
-Maquina::Maquina(float _prob_ganhar, int _premio, int _posX, int _posY, int _temp, string _tipo, User *U, ESTADO_MAQUINA _est)
+Maquina::Maquina(float _prob_ganhar, int _premio, int _posX, int _posY, int _pos[2], int _temp, string _tipo, User *U, ESTADO_MAQUINA _est)
 {
     ID++;
     PROB_GANHAR = _prob_ganhar;
@@ -12,6 +12,9 @@ Maquina::Maquina(float _prob_ganhar, int _premio, int _posX, int _posY, int _tem
     TEMPERATURA = _temp;
     TIPO = _tipo;
     ESTADO = _est;
+    POSICAO = _pos[0]; //x
+    POSICAO = _pos[1];//y
+
 }
 
 Maquina::~Maquina()

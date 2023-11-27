@@ -21,9 +21,10 @@ class Maquina
     int TEMPERATURA;
     string TIPO;
     ESTADO_MAQUINA ESTADO;
+    int POSICAO[2];                                 
 
     public:
-        Maquina(float _prob_ganhar, int _premio, int _posX, int _posY, int _temp, string _tipo, User *U = NULL, ESTADO_MAQUINA _est = OFF);
+Maquina::Maquina(float _prob_ganhar, int _premio, int _posX, int _posY, int pos[2], int _temp, string _tipo, User *U, ESTADO_MAQUINA _est);
         
         virtual ~Maquina();
         ESTADO_MAQUINA Get_ESTADO(){ return ESTADO; }
