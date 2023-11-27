@@ -17,9 +17,12 @@ using namespace std;
 
 int main()
 {
+    ifstream dadosCasino("CasinoData.xml");
     setlocale(LC_ALL, "PORTUGUESE");
+    saltarNLinhas(dadosCasino, 2);
+    string nomeCasino = ObterConteudo(dadosCasino);
 
-    Casino C("Solverde", 15, 27);
+    Casino C(nomeCasino);
 
     C.Load("CasinoData.xml");
 

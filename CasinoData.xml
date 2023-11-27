@@ -7,6 +7,7 @@
     </DEFINICOES>
     <LISTA_MAQ>
         <MAQUINA>
+            <ID>1</ID>
             <NOME>BlackJack</NOME>
             <PROB_G>10</PROB_G>
             <PREMIO>50</PREMIO>
@@ -15,6 +16,7 @@
             <TEMP_AVISO>70</TEMP_AVISO>            
         </MAQUINA>
         <MAQUINA>
+            <ID>2</ID>
             <NOME>ClassicSlots</NOME>
             <PROB_G>1</PROB_G>
             <PREMIO>60</PREMIO>
@@ -23,13 +25,13 @@
             <TEMP_AVISO>50</TEMP_AVISO>            
         </MAQUINA>
         <MAQUINA>
+            <ID>3</ID>
             <NOME>Roleta</NOME>
             <PROB_G>1</PROB_G>
             <PREMIO>60</PREMIO>
             <X>50</X>
             <Y>30</Y>
             <TEMP_AVISO>80</TEMP_AVISO>                        
-        </MAQUINA>    
-        ...
+        </MAQUINA>
     </LISTA_MAQ>
 </DADOS>
