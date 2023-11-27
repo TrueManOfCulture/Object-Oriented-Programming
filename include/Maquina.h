@@ -11,11 +11,10 @@ using namespace std;
 
 enum ESTADO_MAQUINA{OFF, ON, AVARIADA, ERRO};
 
-int ID = 0;
-
 class Maquina
 {
     //User *U;
+    static int ID;
     float PROB_GANHAR;
     int PREMIO;
     int posX, posY;
