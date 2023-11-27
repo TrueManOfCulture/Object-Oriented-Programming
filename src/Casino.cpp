@@ -118,7 +118,21 @@ void Casino::SubirProbabilidadeVizinhas(Maquina *M_ganhou, float raio, list<Maqu
     }
 }
 
+void Prob_Avaria(Maquina *M)
+{
+    if(M->Get_PROB_AVARIA() >= AleatorioINT(1, 100)){
+        M->Set_ESTADO(AVARIADA);
+        M->Inc_QNT_AVARIA();
+    }
+}
+
 list<Maquina *> *Casino::Ranking_Dos_Fracos()
 {
-    
+    int aux = -1;
+    list<Maquina *> Res;
+
+    for(list<Maquina *>::iterator it = LM.begin(); it != LM.end(); ++it){
+        if((*it)->Get_QNT_AVARIA() > aux)
+            Res.push_back(*it); //INACABADO
+    }
 }

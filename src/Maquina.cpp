@@ -14,6 +14,7 @@ Maquina::Maquina(float _prob_ganhar, float _prob_avaria,  int _premio, int _posX
     TIPO = _tipo;
     ESTADO = _est;
     PROB_AVARIA = _prob_avaria;
+    QNT_AVARIA = 0;
 }
 
 Maquina::~Maquina()

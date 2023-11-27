@@ -44,7 +44,8 @@ class Casino
 
         void SubirProbabilidadeVizinhas(Maquina *M_ganhou, float raio, list<Maquina *> &LM_Vizinhas);
 
-        list<Maquina *> *Ranking_Dos_Fracos();
+        void Prob_Avaria(Maquina *M);
+        list<Maquina *> * Ranking_Dos_Fracos();
         /*
         list<string> * Ranking_Dos_Fracos();
         list<Maquina *> * Ranking_Das_Mais_Trabalhadores();

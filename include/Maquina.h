@@ -24,7 +24,7 @@ class Maquina
     int TEMPERATURA;
     string TIPO;
     ESTADO_MAQUINA ESTADO;
-    int QNT_AVARIAS;                            
+    int QNT_AVARIA;
 
     public:
         Maquina(float _prob_ganhar, float _prob_avaria,  int _premio, int _posX, int _posY, int _temp, string _tipo, User *U = NULL, ESTADO_MAQUINA _est = OFF);
@@ -38,6 +38,9 @@ class Maquina
         void Set_ESTADO(ESTADO_MAQUINA _est){ ESTADO = _est; }      // ALTERA O ESTADO DA MÁQUINA
         void Set_PROB_GANHAR(float _prob){ PROB_GANHAR += _prob; }  // ALTERA A PROBABILIDADE DE GANHAR DA MÁQUINA
         virtual void Jogar(){}
+        float Get_PROB_AVARIA(){ return PROB_AVARIA; }
+        void Inc_QNT_AVARIA(){ QNT_AVARIA++; }
+        int Get_QNT_AVARIA(){ return QNT_AVARIA; }
 
         virtual string Get_TIPO(){ return "SEM_TIPO"; }             // RETORNA O TIPO DA MÁQUINA
         virtual void Show(ostream &saida = cout);                   // MOSTRA OS DADOS DA MÁQUINA
