@@ -27,9 +27,9 @@ void ClassicSlots::Jogar()
         //sleep ADICIONA SUSPENSE
         //1 = 1s
         cout << "Loading..." << endl;
-        sleep(1);
+        sleep(2);
         cout << slot1 << "  ";
-        sleep(1);
+        sleep(2);
         cout << slot2 << "  ";
         sleep(2);
         cout << slot3;

@@ -24,38 +24,38 @@ int main()
 
     LerFicheiroUser(LU, "USERS.txt");
 
-    //for(list<User *>::iterator it = LU.begin(); it != LU.end(); ++it){
-    //        //cout << (*it)->Memoria() << endl;
-    //        (*it)->TAMANHO_NOME();
-    //}
+    for(list<User *>::iterator it = LU.begin(); it != LU.end(); ++it){
+            cout << (*it)->Memoria() << endl;
+            //(*it)->TAMANHO_NOME();
+    }
 
     //C.Ass_ListaUsusarios(LU);
 
     //C.MemoriaCasino();
 
     
-    /*Maquina *Maq = new BlackJack(1, 20, 100, 1, 1, 50);
+    /*Maquina *Maq = new BlackJack(1, 1, 1, 1, 1, 1, "BlackJack");
     C.Add(Maq);
-    Maq = new BlackJack(2, 20, 100, 1, 1, 50);
+    Maq = new BlackJack(1, 1, 1, 1, 1, 1, "BlackJack");
     C.Add(Maq);
-    Maq = new BlackJack(3, 20, 100, 1, 1, 50);
+    Maq = new BlackJack(1, 1, 1, 1, 1, 1, "BlackJack");
     C.Add(Maq);
-    Maq = new BlackJack(4, 20, 100, 1, 1, 50);
-    C.Add(Maq);
-
-    Maq = new Roleta(5, 20, 100, 1, 2, 50);
-    C.Add(Maq);
-    Maq = new Roleta(6, 20, 100, 1, 2, 50);
-    C.Add(Maq);
-    Maq = new Roleta(7, 20, 100, 1, 2, 50);
+    Maq = new BlackJack(1, 1, 1, 1, 1, 1, "BlackJack");
     C.Add(Maq);
 
-    Maq = new ClassicSlots(8, 20, 100, 1, 2, 50);
+    Maq = new Roleta(1, 1, 1, 1, 1, 1, "Roleta");
     C.Add(Maq);
-    Maq = new ClassicSlots(9, 20, 100, 1, 2, 50);
+    Maq = new Roleta(1, 1, 1, 1, 1, 1, "Roleta");
+    C.Add(Maq);
+    Maq = new Roleta(1, 1, 1, 1, 1, 1, "Roleta");
     C.Add(Maq);
 
-    Maq = new Maquina(10, 20, 100, 1, 2, 50);
+    Maq = new ClassicSlots(1, 1, 1, 1, 1, 1, "ClassicSlots");
+    C.Add(Maq);
+    Maq = new ClassicSlots(1, 1, 1, 1, 1, 1, "ClassicSlots");
+    C.Add(Maq);
+
+    Maq = new Maquina(1, 1, 1, 1, 1, 1, "Maquina");
     C.Add(Maq);
 
     ofstream ficheiro("TESTE.txt");
@@ -63,7 +63,4 @@ int main()
     C.Listar_Tipo("BLACKJACK");
 
     ficheiro.close();*/
-
-    Maquina *Maq = new ClassicSlots(1, 1, 1, 1, 1, 1, "ClassicSlots");
-    Maq->Jogar();
 }
