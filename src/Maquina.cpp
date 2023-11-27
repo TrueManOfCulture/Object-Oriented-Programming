@@ -1,9 +1,10 @@
 #include "../include/Maquina.h"
 
+int Maquina::ID = 0;
 
-Maquina::Maquina(int _id, float _prob_ganhar, int _premio, int _posX, int _posY, int _temp, string _tipo, User *U, ESTADO_MAQUINA _est)
+Maquina::Maquina(float _prob_ganhar, int _premio, int _posX, int _posY, int _temp, string _tipo, User *U, ESTADO_MAQUINA _est)
 {
-    ID = _id;
+    ID++;
     PROB_GANHAR = _prob_ganhar;
     PREMIO = _premio;
     posX = _posX;

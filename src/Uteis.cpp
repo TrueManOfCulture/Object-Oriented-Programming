@@ -101,3 +101,29 @@ bool saltarNLinhas(ifstream &f, int nlinhas)
     
     return true;
 }
+
+string EnumToString(ESTADO_MAQUINA _est)
+{
+    switch (_est)
+    {
+    case 0:
+        return "OFF";
+        break;
+
+    case 1:
+        return "ON";
+        break;
+
+    case 2:
+        return "AVARIADA";
+        break;
+
+    case 3:
+        return "ERRO";
+        break;
+    
+    default:
+        return "ESTADO NÃO ENCONTRADO!";
+        break;
+    }
+}

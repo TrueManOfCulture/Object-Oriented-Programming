@@ -1,12 +1,10 @@
-Adicionar verificação no add maquina porque não se podem colocar na mesma posição
+Adicionar verificação no add maquina porque não se podem colocar na mesma posição - Gui
 
 bool Casino::Load(const string &ficheiro) e Ficheiro XML - Diogo
 
 void Casino::Listar(ostream &f = std::cout)
 
-void Casino::Desligar(int id_maq) - Chico
-
-int Casino::Memoria_Total()
+int Casino::Memoria_Total() - Chico (EM ANDAMENTO)
 
 list<string> * Casino::Ranking_Dos_Fracos()
 

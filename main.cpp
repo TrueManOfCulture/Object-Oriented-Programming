@@ -24,10 +24,11 @@ int main()
 
     Casino C(nomeCasino);
 
-    list<User *> LU;
+    //list<User *> LU;
+
     C.Load("CasinoData.xml");
 
-    LerFicheiroUser(LU, "USERS.txt");
+    //LerFicheiroUser(LU, "USERS.txt");
 
     //cout << ObterConteudo("<TEMP_AVISO>70</TEMP_AVISO>")<<endl;
 
@@ -71,6 +72,21 @@ int main()
 
     ficheiro.close();*/
 
-    //Maquina *Maq = new ClassicSlots(1, 1, 1, 1, 1, 1, "ClassicSlots");
+    /*Maquina *Maq = new ClassicSlots(5, 50, 1, 1, 70, "Classic Slots", NULL, ON);
+    C.Add(Maq);
     //Maq->Jogar();
+
+    cout << C.Get_Estado(12) << endl;
+
+    C.Desligar(12);
+
+    cout << C.Get_Estado(12) << endl;*/
+
+    Maquina *Maq = new ClassicSlots(5, 50, 1, 1, 70, "CLASSIC SLOTS", NULL, ON);
+    Maq->Show();
+    Maq = new ClassicSlots(5, 50, 1, 1, 70, "CLASSIC SLOTS", NULL, ON);
+    Maq->Show();
+    Maq = new ClassicSlots(5, 50, 1, 1, 70, "CLASSIC SLOTS", NULL, ON);
+    Maq->Show();
+
 }

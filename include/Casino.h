@@ -32,7 +32,7 @@ class Casino
 
         void Add(User *U);
         void Add(Maquina *M);
-        ESTADO_MAQUINA Get_Estado(int ID);
+        string Get_Estado(int ID);
 
         list<Maquina *> *Listar_Tipo(string Tipo, ostream &saida = cout);
         void Desligar(int ID_MAQ);
