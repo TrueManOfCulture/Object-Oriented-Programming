@@ -16,7 +16,7 @@ using namespace std;
 class Roleta : public Maquina
 {
     public:
-        Roleta(float _prob_ganhar, int _premio, int _posX, int _posY, int _temp, string _tipo, User *U = NULL, ESTADO_MAQUINA _est = OFF);
+        Roleta(float _prob_ganhar, float _prob_avaria,  int _premio, int _posX, int _posY, int _temp, string _tipo, User *U = NULL, ESTADO_MAQUINA _est = OFF);
         virtual ~Roleta();
 
         void Jogar();                               // FUNÇÃO DE JOGAR

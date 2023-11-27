@@ -117,3 +117,8 @@ void Casino::SubirProbabilidadeVizinhas(Maquina *M_ganhou, float raio, list<Maqu
         }
     }
 }
+
+list<Maquina *> *Casino::Ranking_Dos_Fracos()
+{
+    
+}

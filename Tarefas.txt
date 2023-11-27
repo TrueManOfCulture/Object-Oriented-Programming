@@ -4,7 +4,7 @@ bool Casino::Load(const string &ficheiro) e Ficheiro XML - Diogo
 
 [[[[[[[[    int Casino::Memoria_Total() - Chico (Supostamente já está a funcionar)    ]]]]]]]]
 
-list<string> * Casino::Ranking_Dos_Fracos()
+list<string> * Casino::Ranking_Dos_Fracos() - Chico
 
 list<Maquina *> * Casino::Ranking_Das_Mais_Trabalhadores()
 

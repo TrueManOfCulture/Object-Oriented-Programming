@@ -39,10 +39,12 @@ class Casino
 
         int MemoriaCasino();                                                    // CALCULAR A MEMÓRIA TOTAL DO CASINO
 
-        void Listar_Sup_Prob_Ganhar(float X, ostream &saida = cout);       // LISTAR AS MÁQUINAS COM UM VALOR DE PROBABILIDADE DE GANHAR SUPERIOR AO DADO
+        void Listar_Sup_Prob_Ganhar(float X, ostream &saida = cout);            // LISTAR AS MÁQUINAS COM UM VALOR DE PROBABILIDADE DE GANHAR SUPERIOR AO DADO
         bool Load(const string &ficheiro);                                      // CARREGAR O FICHEIRO XML
 
         void SubirProbabilidadeVizinhas(Maquina *M_ganhou, float raio, list<Maquina *> &LM_Vizinhas);
+
+        list<Maquina *> *Ranking_Dos_Fracos();
         /*
         list<string> * Ranking_Dos_Fracos();
         list<Maquina *> * Ranking_Das_Mais_Trabalhadores();

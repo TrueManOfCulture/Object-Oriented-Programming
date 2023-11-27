@@ -85,4 +85,7 @@ int main()
     for(list<Maquina *>::iterator it = MaquinasVizinhas.begin(); it != MaquinasVizinhas.end(); ++it){
         (*it)->Show();
     }*/
+
+
+    
 }

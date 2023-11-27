@@ -18,14 +18,16 @@ class Maquina
     static int ID;
     int ID__;
     float PROB_GANHAR;
+    float PROB_AVARIA;
     int PREMIO;
     int posX, posY;
     int TEMPERATURA;
     string TIPO;
-    ESTADO_MAQUINA ESTADO;                             
+    ESTADO_MAQUINA ESTADO;
+    int QNT_AVARIAS;                            
 
     public:
-        Maquina(float _prob_ganhar, int _premio, int _posX, int _posY, int _temp, string _tipo, User *U = NULL, ESTADO_MAQUINA _est = OFF);
+        Maquina(float _prob_ganhar, float _prob_avaria,  int _premio, int _posX, int _posY, int _temp, string _tipo, User *U = NULL, ESTADO_MAQUINA _est = OFF);
         virtual ~Maquina();
 
         ESTADO_MAQUINA Get_ESTADO(){ return ESTADO; }               // RETORNA O ESTADO DA MÁQUINA
