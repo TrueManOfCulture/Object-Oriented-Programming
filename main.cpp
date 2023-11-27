@@ -69,7 +69,7 @@ int main()
 
     ficheiro.close();*/
 
-    Maquina *Maq = new ClassicSlots(5, 50, 1, 1, 70, "Classic Slots", NULL, ON);
+    /*Maquina *Maq = new ClassicSlots(5, 50, 1, 1, 70, "Classic Slots", NULL, ON);
     C.Add(Maq);
     //Maq->Jogar();
 
@@ -77,5 +77,13 @@ int main()
 
     C.Desligar(12);
 
-    cout << C.Get_Estado(12) << endl;
+    cout << C.Get_Estado(12) << endl;*/
+
+    Maquina *Maq = new ClassicSlots(5, 50, 1, 1, 70, "CLASSIC SLOTS", NULL, ON);
+    Maq->Show();
+    Maq = new ClassicSlots(5, 50, 1, 1, 70, "CLASSIC SLOTS", NULL, ON);
+    Maq->Show();
+    Maq = new ClassicSlots(5, 50, 1, 1, 70, "CLASSIC SLOTS", NULL, ON);
+    Maq->Show();
+
 }
