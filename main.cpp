@@ -26,11 +26,11 @@ int main()
 
     LerFicheiroUser(LU, "USERS.txt");
 
-    cout << ObterConteudo("<TEMP_AVISO>70</TEMP_AVISO>")<<endl;
+    //cout << ObterConteudo("<TEMP_AVISO>70</TEMP_AVISO>")<<endl;
 
     /*for(list<User *>::iterator it = LU.begin(); it != LU.end(); ++it){
             cout << (*it)->Memoria() << endl;
-            //(*it)->TAMANHO_NOME();
+            (*it)->TAMANHO_NOME();
     }*/
 
     //C.Ass_ListaUsusarios(LU);

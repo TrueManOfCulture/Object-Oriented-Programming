@@ -1,5 +1,8 @@
 Máquinas imediatamente ao redor da máquina que ganhou ou dentro do raio?
+
 User está a ocupar 112 de memória
+    RESPOSTA: A memória está bem assim, pq pode ser da maneira como o VS Code ou o Linux trabalha com a memória.~
+
 O que incluir no XML?
 O programa só vai funcionar entre a hora de abertura e hora de encerramento?
 Ao acrescentar uma nova máquina, mudamos a posição ou não acrescentamos a máquina?

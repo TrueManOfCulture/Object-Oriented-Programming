@@ -91,11 +91,13 @@ void LerFicheiroUser(list<User *> &LU, string fic)
 }
 
 //Para saltar um determinado numero de linhas num ficheiro
-bool saltarNLinhas(ifstream &f, int nlinhas){
+bool saltarNLinhas(ifstream &f, int nlinhas)
+{
     for(int i = 0; i<nlinhas; i++){
         f.getline(LT, MAX_LINHA_FICHEIRO);
         if(f.eof())
             return false;
     }
+    
     return true;
 }

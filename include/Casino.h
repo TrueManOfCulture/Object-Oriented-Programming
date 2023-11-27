@@ -35,6 +35,7 @@ class Casino
         ESTADO_MAQUINA Get_Estado(int ID);
 
         list<Maquina *> *Listar_Tipo(string Tipo, ostream &saida = cout);
+        void Desligar(int ID_MAQ);
 
         int MemoriaCasino();
 
@@ -43,8 +44,7 @@ class Casino
         /*
         
         void Listar(ostream &f = std::cout);
-        void Desligar(int id_maq);
-        int Memoria_Total();
+        int Memoria_Total(); - EM FASE DE TESTES
         list<string> * Ranking_Dos_Fracos();
         list<Maquina *> * Ranking_Das_Mais_Trabalhadores();
         list<User *> *Jogadores_Mais_Frequentes();
