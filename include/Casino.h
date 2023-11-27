@@ -22,10 +22,10 @@ class Casino
     list <Maquina *> LM;
 
     string NOME;
-    int HORA_ABERTURA, HORA_FECHO;
+    time_t HORA_ABERTURA, HORA_FECHO;
 
     public:
-        Casino(string _nome, int _horaA, int _horaF);
+        Casino(string _nome);
         virtual ~Casino();
 
         void Ass_ListaUsusarios(list<User *> &_LU){ LU = _LU; }
