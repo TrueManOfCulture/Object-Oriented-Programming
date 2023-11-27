@@ -29,5 +29,6 @@ int AleatorioINT(int minN, int maxN);
 string AleatorioVECTOR_STRINGS(vector<string> L);
 void LerFicheiroUser(list<User *> &LU, string fic);
 STRING *Read_Split_Line_File(ifstream &f, int n_campos_max, int &n_campos_lidos, const char *separadores);
+bool saltarNLinhas(ifstream &f, int nlinhas);
 
 #endif // UTEIS_H_INCLUDED

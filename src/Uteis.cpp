@@ -26,16 +26,6 @@ string AleatorioVECTOR_STRINGS(vector<string> L)
     return elementoAleatorio;
 }
 
-//Para saltar um determinado numero de linhas num ficheiro
-bool saltarNLinhas(ifstream &f,int nlinhas){
-    for(int i = 0;i<nlinhas;i++){
-        f.getline(LT, MAX_LINHA_FICHEIRO);
-        if(f.eof())
-            return false;
-    }
-    return true;
-}
-
 STRING *Read_Split_Line_File(ifstream &f, int n_campos_max, int &n_campos_lidos, const char *separadores)
 {
     n_campos_lidos = 0;
@@ -98,4 +88,14 @@ void LerFicheiroUser(list<User *> &LU, string fic)
     }
 
     F1.close();
+}
+
+//Para saltar um determinado numero de linhas num ficheiro
+bool saltarNLinhas(ifstream &f, int nlinhas){
+    for(int i = 0; i<nlinhas; i++){
+        f.getline(LT, MAX_LINHA_FICHEIRO);
+        if(f.eof())
+            return false;
+    }
+    return true;
 }
