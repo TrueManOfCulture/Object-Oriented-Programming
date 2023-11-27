@@ -25,6 +25,8 @@ class Maquina
     public:
         Maquina(float _prob_ganhar, int _premio, int _posX, int _posY, int _temp, string _tipo, User *U = NULL, ESTADO_MAQUINA _est = OFF);
         
+        void ReturnBytes(){ cout << "ID: " << sizeof(ID) << endl << "PROB_GANHAR: " << sizeof(PROB_GANHAR) << endl << "PREMIO: " << sizeof(PREMIO) << endl << "PosX: " << sizeof(posX) << endl << "PosY: " << sizeof(posY) << endl << "Temp: " << sizeof(TEMPERATURA) << endl << "TIPO: " << sizeof(TIPO) << endl << "ESTADO: " << sizeof(ESTADO) << endl << endl; }
+        
         virtual ~Maquina();
         ESTADO_MAQUINA Get_ESTADO(){ return ESTADO; }
         int Get_ID (){ return ID; }

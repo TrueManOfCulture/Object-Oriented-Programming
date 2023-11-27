@@ -17,14 +17,14 @@ using namespace std;
 
 int main()
 {
-    ifstream dadosCasino("CasinoData.xml");
+    /*ifstream dadosCasino("CasinoData.xml");
     setlocale(LC_ALL, "PORTUGUESE");
     saltarNLinhas(dadosCasino, 2);
     string nomeCasino = ObterConteudo(dadosCasino);
 
     Casino C(nomeCasino);
 
-    C.Load("CasinoData.xml");
+    C.Load("CasinoData.xml");*/
 
     //cout << ObterConteudo("<TEMP_AVISO>70</TEMP_AVISO>")<<endl;
 
@@ -68,7 +68,12 @@ int main()
 
     cout << C.Get_Estado(12) << endl;*/
 
-    /*list<User *> LU;
+
+    //TESTAR SIZEOF DE CADA ELEMENTO EM MAQUINA
+
+    Casino C("Solverde");
+
+    list<User *> LU;
     LerFicheiroUser(LU, "USERS.txt");
     C.Ass_ListaUsusarios(LU);
 
@@ -79,5 +84,5 @@ int main()
     Maq = new ClassicSlots(5, 50, 1, 1, 70, "CLASSIC SLOTS", NULL, ON);
     C.Add(Maq);
 
-    C.MemoriaCasino();*/
+    C.MemoriaCasino();
 }
