@@ -26,9 +26,10 @@ class Maquina
         Maquina(int _id, float _prob_ganhar, int _premio, int _posX, int _posY, int _temp, string _tipo, User *U = NULL, ESTADO_MAQUINA _est = OFF);
         
         virtual ~Maquina();
-        ESTADO_MAQUINA GET_ESTADO(){ return ESTADO; }
-        int GET_ID (){return ID; }
+        ESTADO_MAQUINA Get_ESTADO(){ return ESTADO; }
+        int Get_ID (){ return ID; }
         float Get_PROB_GANHAR(){ return PROB_GANHAR; }
+        void Set_ESTADO(ESTADO_MAQUINA _est){ ESTADO = _est; }
         virtual void Jogar(){}
 
         virtual string Get_TIPO(){ return "SEM_TIPO"; }

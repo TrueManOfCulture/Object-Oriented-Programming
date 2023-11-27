@@ -55,14 +55,14 @@ list<Maquina *> *Casino::Listar_Tipo(string Tipo, ostream &saida)
     return NULL;
 }
 
-ESTADO_MAQUINA Casino::Get_Estado(int ID)
+string Casino::Get_Estado(int ID)
 {
     for(list <Maquina *>::iterator it = LM.begin(); it != LM.end(); ++it)
-        if(ID == (*it)->GET_ID())
-            return (*it)->GET_ESTADO();
+        if(ID == (*it)->Get_ID())
+            return EnumToString((*it)->Get_ESTADO());
 
     cout << endl << endl << "ERRO! NENHUMA MÁQUINA ENCONTRADA COM O ID " << ID << "!" << endl;
-    return ERRO;
+    return EnumToString(ERRO);
 }
 
 int Casino::MemoriaCasino()
@@ -91,4 +91,13 @@ void Casino::Listar(float X, ostream &saida)
     for(list<Maquina *>::iterator it = LM.begin(); it != LM.end(); ++it)
         if((*it)->Get_PROB_GANHAR() == X)
             (*it)->Show(saida);
+}
+
+void Casino::Desligar(int ID_MAQ)
+{
+    for(list<Maquina *>::iterator it = LM.begin(); it != LM.end(); ++it){
+        if((*it)->Get_ID() == ID_MAQ){
+            (*it)->Set_ESTADO(OFF);
+        }
+    }
 }

@@ -16,7 +16,7 @@ using namespace std;
 class ClassicSlots : public Maquina
 {
     public:
-        ClassicSlots(int _id, float _prob_ganhar, int _premio, int _posX, int _posY, int _temp, string _tipo, User *U = NULL);
+        ClassicSlots(int _id, float _prob_ganhar, int _premio, int _posX, int _posY, int _temp, string _tipo, User *U = NULL, ESTADO_MAQUINA _est = OFF);
         virtual ~ClassicSlots();
 
         void Jogar();
