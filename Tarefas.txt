@@ -4,7 +4,7 @@ bool Casino::Load(const string &ficheiro) e Ficheiro XML - Diogo
 
 void Casino::Listar(ostream &f = std::cout)
 
-int Casino::Memoria_Total() - Chico (EM ANDAMENTO)
+[[[[[[[[    int Casino::Memoria_Total() - Chico (Supostamente já está a funcionar)    ]]]]]]]]
 
 list<string> * Casino::Ranking_Dos_Fracos()
 
