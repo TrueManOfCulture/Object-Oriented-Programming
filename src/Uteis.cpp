@@ -102,6 +102,15 @@ bool saltarNLinhas(ifstream &f, int nlinhas)
     return true;
 }
 
+time_t convertToTime(int hora, int minutos){
+	time_t x = time(0);
+	struct tm *tmp = localtime(&x);
+	tmp->tm_hour = hora;
+	tmp->tm_min = minutos;
+	time_t tempo = mktime(tmp);
+	return tempo;
+}
+
 string EnumToString(ESTADO_MAQUINA _est)
 {
     switch (_est)

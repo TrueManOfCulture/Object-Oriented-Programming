@@ -17,14 +17,14 @@ using namespace std;
 
 int main()
 {
-    /*ifstream dadosCasino("CasinoData.xml");
+    ifstream dadosCasino("CasinoData.xml");
     setlocale(LC_ALL, "PORTUGUESE");
     saltarNLinhas(dadosCasino, 2);
     string nomeCasino = ObterConteudo(dadosCasino);
-
+    dadosCasino.close();
     Casino C(nomeCasino);
 
-    C.Load("CasinoData.xml");*/
+    C.Load("CasinoData.xml");
 
     //cout << ObterConteudo("<TEMP_AVISO>70</TEMP_AVISO>")<<endl;
 

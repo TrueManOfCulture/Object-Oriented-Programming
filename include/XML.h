@@ -10,5 +10,6 @@
 using namespace std;
 
 string ObterConteudo(ifstream &f);
+string ObterTag(ifstream &f);
 
 #endif // XML_H_INCLUDED

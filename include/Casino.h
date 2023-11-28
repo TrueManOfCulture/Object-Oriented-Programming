@@ -14,12 +14,14 @@ using namespace std;
 #include "ClassicSlots.h"
 #include "Roleta.h"
 #include "Uteis.h"
+#include "XML.h"
 
 class Casino
 {
     list <User *> LU;
     list <User *> LU_Espera;
     list <Maquina *> LM;
+    int maxJog;
 
     string NOME;
     time_t HORA_ABERTURA, HORA_FECHO;

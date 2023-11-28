@@ -10,6 +10,24 @@ Casino::~Casino()
     //dtor
 }
 
+//recebe string hh:mm e passa a hora para o int hora e os minutos para a variável minuto
+void horas(int &hora, int &minuto,string linha){
+    char * cstr = new char [linha.length()+1];
+    strcpy (cstr, linha.c_str());
+    linha = strtok(cstr,":");
+    hora = stoi(linha);
+    minuto = stoi(strtok(NULL,":"));
+}
+
+void inicializarDefCasino(ifstream &infoCasino, int &maxJog, time_t &HORA_ABERTURA,time_t &HORA_FECHO){
+    int hora,minuto;
+    maxJog = stoi(ObterConteudo(infoCasino));
+    horas(hora,minuto, ObterConteudo(infoCasino));
+    HORA_ABERTURA = convertToTime(hora,minuto);
+    horas(hora,minuto, ObterConteudo(infoCasino));
+    HORA_FECHO = convertToTime(hora,minuto);
+}
+
 bool Casino::Load(const string &ficheiro)
 {
     ifstream infoCasino(ficheiro);
@@ -19,13 +37,19 @@ bool Casino::Load(const string &ficheiro)
         return false;
     } 
 
-    int n_campos_lidos;
-    saltarNLinhas(infoCasino,2);
-    STRING *V = Read_Split_Line_File(infoCasino, 10, n_campos_lidos, "<>");
+    saltarNLinhas(infoCasino,3);
 
-    cout << V[2] << endl;
-    cout << "Numero de elementos: " << n_campos_lidos << endl;
-
+    //Obter definicoes de casino
+    inicializarDefCasino(infoCasino,maxJog,HORA_ABERTURA,HORA_FECHO);
+    saltarNLinhas(infoCasino, 2);
+    string tag = ObterTag(infoCasino);
+    int a=0;
+    while(tag=="MAQUINA"){
+        cout<< "Maquina "<< ++a;
+        
+        saltarNLinhas(infoCasino,8);
+        tag = ObterTag(infoCasino);
+    }
     return true;
 }
 
@@ -85,12 +109,12 @@ int Casino::MemoriaCasino()
     return TOTAL;
 }
 
-void Casino::Listar_Sup_Prob_Ganhar(float X, ostream &saida = std::cout)
+/*void Casino::Listar_Sup_Prob_Ganhar(float X, ostream &saida = cout)
 {
     for(list<Maquina *>::iterator it = LM.begin(); it != LM.end(); ++it)
         if((*it)->Get_PROB_GANHAR() > X)
             (*it)->Show(saida);
-}
+}*/
 
 void Casino::Desligar(int ID_MAQ)
 {

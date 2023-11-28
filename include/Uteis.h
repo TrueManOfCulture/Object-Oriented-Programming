@@ -31,5 +31,5 @@ void LerFicheiroUser(list<User *> &LU, string fic);         // LÊ O FICHEIRO US
 STRING *Read_Split_Line_File(ifstream &f, int n_campos_max, int &n_campos_lidos, const char *separadores);  // SEPARA OS CAMPOS
 bool saltarNLinhas(ifstream &f, int nlinhas);
 string EnumToString(ESTADO_MAQUINA _est);                   // TRANSFORMA O VALOR DE ENUM NUMA STRING
-
+time_t convertToTime(int hora, int minutos);                // converte dois int para tempo
 #endif // UTEIS_H_INCLUDED
