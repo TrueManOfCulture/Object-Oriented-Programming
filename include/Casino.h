@@ -22,6 +22,7 @@ class Casino
     list <User *> LU_Espera;
     list <Maquina *> LM;
     int maxJog;
+    
 
     string NOME;
     time_t HORA_ABERTURA, HORA_FECHO;

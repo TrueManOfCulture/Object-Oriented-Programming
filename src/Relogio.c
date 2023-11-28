@@ -2,9 +2,6 @@
 #include <stdlib.h>
 #include <time.h>
 #include "Relogio.h"
-#include "supermercado.h"
-
-
 
 void StartRelogio(RELOGIO *R, int Vel, SUPERMERCADO *S){
     R->START = time(0);

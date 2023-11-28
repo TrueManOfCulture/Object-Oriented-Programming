@@ -59,7 +59,7 @@ bool Casino::Load(const string &ficheiro)
 
         //(float _prob_ganhar, float _prob_avaria,  int _premio, int _posX, int _posY, int _temp)
         Maquina *M = new Maquina(pGanhar,pAvariar, premio,x,y,tempoAviso,nome);
-        cout<< "Maquina: "<< nome<<" "<<pGanhar<<" "<<pAvariar<<" "<<premio<<" "<<x<<" "<<y<<" "<<tempoAviso<<endl;
+        M->Show();
         Add(M);
         saltarNLinhas(infoCasino,1);
         tag = ObterTag(infoCasino);
