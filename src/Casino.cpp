@@ -30,6 +30,10 @@ void inicializarDefCasino(ifstream &infoCasino, int &maxJog, time_t &HORA_ABERTU
 
 bool Casino::Load(const string &ficheiro)
 {
+    int premio,x,y,tempoAviso;
+    string nome;
+    float pGanhar, pAvariar;
+
     ifstream infoCasino(ficheiro);
 
     if (!infoCasino.is_open()){
@@ -45,9 +49,19 @@ bool Casino::Load(const string &ficheiro)
     string tag = ObterTag(infoCasino);
     int a=0;
     while(tag=="MAQUINA"){
-        cout<< "Maquina "<< ++a;
+        nome = ObterConteudo(infoCasino);
+        pGanhar = stof(ObterConteudo(infoCasino));
+        pAvariar = stof(ObterConteudo(infoCasino));
+        premio = stoi(ObterConteudo(infoCasino));
+        x = stoi(ObterConteudo(infoCasino));;
+        y = stoi(ObterConteudo(infoCasino));
+        tempoAviso = stoi(ObterConteudo(infoCasino));
 
-        saltarNLinhas(infoCasino,8);
+        //(float _prob_ganhar, float _prob_avaria,  int _premio, int _posX, int _posY, int _temp)
+        Maquina *M = new Maquina(pGanhar,pAvariar, premio,x,y,tempoAviso,nome);
+        cout<< "Maquina: "<< nome<<" "<<pGanhar<<" "<<pAvariar<<" "<<premio<<" "<<x<<" "<<y<<" "<<tempoAviso<<endl;
+        LM.push_back(M);
+        saltarNLinhas(infoCasino,1);
         tag = ObterTag(infoCasino);
     }
     return true;
