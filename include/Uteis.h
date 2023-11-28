@@ -32,10 +32,7 @@ void LerFicheiroUser(list<User *> &LU, string fic);         // LÊ O FICHEIRO US
 STRING *Read_Split_Line_File(ifstream &f, int n_campos_max, int &n_campos_lidos, const char *separadores);  // SEPARA OS CAMPOS
 bool saltarNLinhas(ifstream &f, int nlinhas);
 string EnumToString(ESTADO_MAQUINA _est);                   // TRANSFORMA O VALOR DE ENUM NUMA STRING
-<<<<<<< HEAD
 time_t convertToTime(int hora, int minutos);                // converte dois int para tempo
-=======
 float CalcularDistancia(Maquina *M1, Maquina *M2);          // CALCULA A DISTANCIA ENTRE DUAS MÁQUINAS
 
->>>>>>> eb39a527b9e31107f11e47279fde0969bafcc521
 #endif // UTEIS_H_INCLUDED

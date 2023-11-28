@@ -46,7 +46,7 @@ bool Casino::Load(const string &ficheiro)
     int a=0;
     while(tag=="MAQUINA"){
         cout<< "Maquina "<< ++a;
-        
+
         saltarNLinhas(infoCasino,8);
         tag = ObterTag(infoCasino);
     }
@@ -109,16 +109,12 @@ int Casino::MemoriaCasino()
     return TOTAL;
 }
 
-<<<<<<< HEAD
-/*void Casino::Listar_Sup_Prob_Ganhar(float X, ostream &saida = cout)
-=======
 void Casino::Listar_Sup_Prob_Ganhar(float X, ostream &saida)
->>>>>>> eb39a527b9e31107f11e47279fde0969bafcc521
 {
     for(list<Maquina *>::iterator it = LM.begin(); it != LM.end(); ++it)
         if((*it)->Get_PROB_GANHAR() > X)
             (*it)->Show(saida);
-}*/
+}
 
 void Casino::Desligar(int ID_MAQ)
 {
