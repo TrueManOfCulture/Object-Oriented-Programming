@@ -3,7 +3,7 @@
 #include <time.h>
 #include "Relogio.h"
 
-void StartRelogio(RELOGIO *R, int Vel, SUPERMERCADO *S){
+void StartRelogio(RELOGIO *R, int Vel){
     R->START = time(0);
     R->VELOCIDADE = Vel;
 

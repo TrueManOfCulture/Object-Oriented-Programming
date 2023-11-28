@@ -16,6 +16,6 @@ time_t VerTimeRelogio(RELOGIO *R);
 void WaitSegundos(int s);
 void Wait(int s);
 
-void StartRelogio(RELOGIO *R, int Vel, SUPERMERCADO *S);
+void StartRelogio(RELOGIO *R, int Vel);
 
 #endif // RELOGIO_H_INCLUDED
