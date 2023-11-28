@@ -23,11 +23,7 @@ class Casino
     list <User *> LU_Espera;
     list <Maquina *> LM;
     int maxJog;
-<<<<<<< HEAD
     unordered_map<string, Maquina *>HashMaq;
-=======
-    
->>>>>>> 6891137fee2868f4480f9bda4d8b31bf635b21ee
 
     string NOME;
     time_t HORA_ABERTURA, HORA_FECHO;
