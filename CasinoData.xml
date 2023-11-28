@@ -33,5 +33,14 @@
             <Y>30</Y>
             <TEMP_AVISO>80</TEMP_AVISO>                        
         </MAQUINA>
+        <MAQUINA>
+            <NOME>Slots2</NOME>
+            <PROB_G>1</PROB_G>
+            <PROB_A>30</PROB_A>
+            <PREMIO>60</PREMIO>
+            <X>50</X>
+            <Y>30</Y>
+            <TEMP_AVISO>80</TEMP_AVISO>                        
+        </MAQUINA>
     </LISTA_MAQ>
 </DADOS>
