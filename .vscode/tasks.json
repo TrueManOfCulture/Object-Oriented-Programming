@@ -26,6 +26,8 @@
                 "${fileDirname}/src/Uteis.cpp",
                 "${fileDirname}/include/XML.h",
                 "${fileDirname}/src/XML.cpp",
+                "${fileDirname}/src/Relogio.h",
+                "${fileDirname}/src/Relogio.cpp",
             ],
             "options": {
                 "cwd": "${fileDirname}"
