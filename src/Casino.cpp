@@ -109,7 +109,11 @@ int Casino::MemoriaCasino()
     return TOTAL;
 }
 
+<<<<<<< HEAD
 /*void Casino::Listar_Sup_Prob_Ganhar(float X, ostream &saida = cout)
+=======
+void Casino::Listar_Sup_Prob_Ganhar(float X, ostream &saida)
+>>>>>>> eb39a527b9e31107f11e47279fde0969bafcc521
 {
     for(list<Maquina *>::iterator it = LM.begin(); it != LM.end(); ++it)
         if((*it)->Get_PROB_GANHAR() > X)
@@ -122,5 +126,41 @@ void Casino::Desligar(int ID_MAQ)
         if((*it)->Get_ID() == ID_MAQ){
             (*it)->Set_ESTADO(OFF);
         }
+    }
+}
+
+void Casino::SubirProbabilidadeVizinhas(Maquina *M_ganhou, float raio, list<Maquina *> &LM_Vizinhas)
+{
+    for(list<Maquina *>::iterator it = LM.begin(); it != LM.end(); ++it){
+        float dist = CalcularDistancia(M_ganhou, (*it));
+        if(raio >= dist)
+        {
+            if(dist == 0){
+                continue;
+            }
+            else{
+                LM_Vizinhas.push_back(*it);
+                (*it)->Set_PROB_GANHAR(5);
+            }
+        }
+    }
+}
+
+void Prob_Avaria(Maquina *M)
+{
+    if(M->Get_PROB_AVARIA() >= AleatorioINT(1, 100)){
+        M->Set_ESTADO(AVARIADA);
+        M->Inc_QNT_AVARIA();
+    }
+}
+
+list<Maquina *> *Casino::Ranking_Dos_Fracos()
+{
+    int aux = -1;
+    list<Maquina *> Res;
+
+    for(list<Maquina *>::iterator it = LM.begin(); it != LM.end(); ++it){
+        if((*it)->Get_QNT_AVARIA() > aux)
+            Res.push_back(*it); //INACABADO
     }
 }

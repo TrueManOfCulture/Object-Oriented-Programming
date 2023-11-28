@@ -4,7 +4,7 @@ bool Casino::Load(const string &ficheiro) e Ficheiro XML - Diogo
 
 [[[[[[[[    int Casino::Memoria_Total() - Chico (Supostamente já está a funcionar)    ]]]]]]]]
 
-list<string> * Casino::Ranking_Dos_Fracos()
+list<string> * Casino::Ranking_Dos_Fracos() - Chico
 
 list<Maquina *> * Casino::Ranking_Das_Mais_Trabalhadores()
 
@@ -14,11 +14,6 @@ list<User *> * Casino::Jogadores_Mais_Ganhos ()
 
 void Casino::Relatorio(string fich_xml)
 
-void Casino::SubirProbabilidadeVizinhas(Maquina *M_ganhou, float R, List<Maquina *> &lmvizinhas)
-
 void Casino::Run(bool Debug = true)
 
 Quando uma máquina estiver a ser utilizada por muito tempo, deve dar um aviso de estar a aquecer e ficar em repouso para o cooldown
-
-Funções gerais para listas
-Comentar código inteiro - Chico
