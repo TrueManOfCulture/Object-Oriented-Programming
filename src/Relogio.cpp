@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include "Relogio.h"
+#include "../include/Relogio.h"
 
 void StartRelogio(RELOGIO *R, int Vel, time_t inicio){
     R->START = time(0);
     R->VELOCIDADE = Vel;
 
-    struct tm *tmp = localtime(inicio);
+    struct tm *tmp = localtime(&inicio);
     //sscanf(S->horaAbertura, "%d:%d", &tmp->tm_hour, &tmp->tm_min);
     R->Hora_Inicio = mktime(tmp);
     //printf("Hora de Arranque = [%s]\n", asctime(localtime(&(R->Hora_Inicio))));
