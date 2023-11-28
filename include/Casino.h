@@ -5,6 +5,7 @@
 #include <string>
 #include <list>
 #include <fstream>
+#include <unordered_map>
 
 using namespace std;
 
@@ -22,6 +23,7 @@ class Casino
     list <User *> LU_Espera;
     list <Maquina *> LM;
     int maxJog;
+    unordered_map<string, Maquina *>HashMaq;
 
     string NOME;
     time_t HORA_ABERTURA, HORA_FECHO;
@@ -32,8 +34,8 @@ class Casino
 
         void Ass_ListaUsusarios(list<User *> &_LU){ LU = _LU; }                 // ASSOCIAR A LISTA DE USUÁRIO DO CASINO A UMA LISTA DADA
 
-        void Add(User *U);                                                      // ADICIONAR USUÁRIOS À LISTA
-        void Add(Maquina *M);                                                   // ADICIONAR MÁQUINAS À LISTA
+        bool Add(User *U);                                                      // ADICIONAR USUÁRIOS À LISTA
+        bool Add(Maquina *M);                                                   // ADICIONAR MÁQUINAS À LISTA
         string Get_Estado(int ID);                                              // RETORNAR O ESTADO DE UMA MÁQUINA DADO UM ID
 
         list<Maquina *> *Listar_Tipo(string Tipo, ostream &saida = cout); //INACABADO       // LISTAR TODOS OS TIPOS DE MÁQUINA DADO UM TIPO

@@ -1,5 +1,6 @@
 #include "../include/Casino.h"
 
+
 Casino::Casino(string _nome)
 {
     NOME = _nome;
@@ -67,15 +68,38 @@ bool Casino::Load(const string &ficheiro)
     return true;
 }
 
-void Casino::Add(User *U)
+bool Casino::Add(User *U)
 {
     LU.push_back(U);
+
+    return true;
 }
 
-void Casino::Add(Maquina *M)
+string criarKey(Maquina *M) // junta as coordenasdas da maquina numa key x,y
 {
-    LM.push_back(M);
+    int x = M->Get_POSX(), y = M->Get_POSY();
+
+    string key = x + "," + y;
+
+    return key;
 }
+
+
+bool Casino::Add(Maquina *M)
+{
+ 
+ string key = criarKey(M);
+
+    if(HashMaq.find(key) == HashMaq.end()){
+
+        HashMaq[key] = M;
+    } else {
+        cout<<"Erro! Já hexiste uma máquina na posição: "<< key <<"!"<< endl;
+        return false;
+    }
+    return true;
+}
+
 
 list<Maquina *> *Casino::Listar_Tipo(string Tipo, ostream &saida)
 {
