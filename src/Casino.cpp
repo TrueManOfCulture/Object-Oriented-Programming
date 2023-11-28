@@ -79,7 +79,7 @@ string criarKey(Maquina *M) // junta as coordenasdas da maquina numa key x,y
 {
     int x = M->Get_POSX(), y = M->Get_POSY();
 
-    string key = x + "," + y;
+    string key = to_string(x) + "," + to_string(y);
 
     return key;
 }
@@ -94,7 +94,7 @@ bool Casino::Add(Maquina *M)
 
         HashMaq[key] = M;
     } else {
-        cout<<"Erro! Já hexiste uma máquina na posição: "<< key <<"!"<< endl;
+        cout<<"Erro! Já existe uma máquina na posição: "<< key <<"!" << endl << endl;
         return false;
     }
     return true;
