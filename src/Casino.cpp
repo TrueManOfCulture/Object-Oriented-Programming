@@ -91,9 +91,9 @@ bool Casino::Add(Maquina *M)
  string key = criarKey(M);
 
     if(HashMaq.find(key) == HashMaq.end()){
-
         HashMaq[key] = M;
     } else {
+        delete M;
         cout<<"Erro! Já existe uma máquina na posição: "<< key <<"!" << endl << endl;
         return false;
     }
@@ -105,22 +105,21 @@ list<Maquina *> *Casino::Listar_Tipo(string Tipo, ostream &saida)
 {
     list<Maquina *> LM_Tipo;
 
-    for(list<Maquina *>::iterator it = LM.begin(); it != LM.end(); ++it)
-        if(Tipo == (*it)->Get_TIPO())
+    for(unordered_map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it)
+        if(Tipo == it->second->Get_TIPO())
         {
-            LM_Tipo.push_back(*it);
-            (*it)->Show(saida);
+            LM_Tipo.push_back(it->second);
+            (it->second)->Show(saida);
         }
-
 
     return NULL; // RETORNA NULL CASO NÃO ENCONTRE
 }
 
 string Casino::Get_Estado(int ID)
 {
-    for(list <Maquina *>::iterator it = LM.begin(); it != LM.end(); ++it)
-        if(ID == (*it)->Get_ID())
-            return EnumToString((*it)->Get_ESTADO());
+    for(unordered_map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it)
+        if(ID == it->second->Get_ID())
+            return EnumToString(it->second->Get_ESTADO());
 
     cout << endl << endl << "ERRO! NENHUMA MÁQUINA ENCONTRADA COM O ID " << ID << "!" << endl;
     return EnumToString(ERRO);
@@ -131,8 +130,11 @@ int Casino::MemoriaCasino()
     int TOTAL;
     int MEM_MAQ = 0, MEM_U = 0;
 
-    for(list<Maquina *>::iterator it = LM.begin(); it != LM.end(); ++it)
-        MEM_MAQ += (*it)->Memoria();
+    cout << HashMaq.size();
+
+    for(unordered_map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it){
+        MEM_MAQ += it->second->Memoria();
+    }
 
     for(list<User *>::iterator it = LU.begin(); it != LU.end(); ++it)
         MEM_U += (*it)->Memoria();
@@ -149,32 +151,32 @@ int Casino::MemoriaCasino()
 
 void Casino::Listar_Sup_Prob_Ganhar(float X, ostream &saida)
 {
-    for(list<Maquina *>::iterator it = LM.begin(); it != LM.end(); ++it)
-        if((*it)->Get_PROB_GANHAR() > X)
-            (*it)->Show(saida);
+    for(unordered_map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it)
+        if(it->second->Get_PROB_GANHAR() > X)
+            it->second->Show(saida);
 }
 
 void Casino::Desligar(int ID_MAQ)
 {
-    for(list<Maquina *>::iterator it = LM.begin(); it != LM.end(); ++it){
-        if((*it)->Get_ID() == ID_MAQ){
-            (*it)->Set_ESTADO(OFF);
+    for(unordered_map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it){
+        if(it->second->Get_ID() == ID_MAQ){
+            it->second->Set_ESTADO(OFF);
         }
     }
 }
 
 void Casino::SubirProbabilidadeVizinhas(Maquina *M_ganhou, float raio, list<Maquina *> &LM_Vizinhas)
 {
-    for(list<Maquina *>::iterator it = LM.begin(); it != LM.end(); ++it){
-        float dist = CalcularDistancia(M_ganhou, (*it));
+    for(unordered_map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it){
+        float dist = CalcularDistancia(M_ganhou, it->second);
         if(raio >= dist)
         {
             if(dist == 0){
                 continue;
             }
             else{
-                LM_Vizinhas.push_back(*it);
-                (*it)->Set_PROB_GANHAR(5);
+                LM_Vizinhas.push_back(it->second);
+                it->second->Set_PROB_GANHAR(5);
             }
         }
     }
@@ -193,8 +195,10 @@ list<Maquina *> *Casino::Ranking_Dos_Fracos()
     int aux = -1;
     list<Maquina *> Res;
 
-    for(list<Maquina *>::iterator it = LM.begin(); it != LM.end(); ++it){
-        if((*it)->Get_QNT_AVARIA() > aux)
-            Res.push_back(*it); //INACABADO
+    for(unordered_map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it){
+        if(it->second->Get_QNT_AVARIA() > aux)
+            Res.push_back(it->second);
     }
+
+    return NULL;
 }

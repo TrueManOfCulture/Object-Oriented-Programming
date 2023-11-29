@@ -44,20 +44,13 @@ int main()
 
 
     //////////////    TESTES DE LEITURA DE MEMÓRIA    //////////////
-    /*Casino C("Solverde");
+    //Casino C("Solverde");
 
     list<User *> LU;
     LerFicheiroUser(LU, "USERS.txt");
     C.Ass_ListaUsusarios(LU);
 
-    Maquina *Maq = new ClassicSlots(5, 50, 1, 1, 70, "CLASSIC SLOTS", NULL, ON);
-    C.Add(Maq);
-    Maq = new ClassicSlots(5, 50, 1, 1, 70, "CLASSIC SLOTS", NULL, ON);
-    C.Add(Maq);
-    Maq = new ClassicSlots(5, 50, 1, 1, 70, "CLASSIC SLOTS", NULL, ON);
-    C.Add(Maq);
-
-    C.MemoriaCasino();*/
+    C.MemoriaCasino();
 
 
     //////////////    TESTES DE AUMENTAR PROBABILIDADE DE GANHAR VIZINHAS    //////////////
