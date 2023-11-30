@@ -10,8 +10,14 @@ O que incluir no XML?
 O programa só vai funcionar entre a hora de abertura e hora de encerramento?
     RESPOSTA: Sim.
 
-Ao acrescentar uma nova máquina, mudamos a posição ou não acrescentamos a máquina?
-    RESPOSTA: Nós decidimos.
-
 Era suposto o ficheiro txt ter os erros de \t?
     RESPOSTA: Não, mas está resolvido.
+
+Se será necessário a meio do código adicionar uma nova máquina
+    RESPOSTA:
+
+Ao acrescentar uma nova máquina, mudamos a posição ou não acrescentamos a máquina?
+    RESPOSTA: 
+
+O que será devolvido na função Ranking dos fracos?
+    RESPOSTA: 
