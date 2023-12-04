@@ -105,7 +105,7 @@ list<Maquina *> *Casino::Listar_Tipo(string Tipo, ostream &saida)
 {
     list<Maquina *> LM_Tipo;
 
-    for(unordered_map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it)
+    for(map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it)
         if(Tipo == it->second->Get_TIPO())
         {
             LM_Tipo.push_back(it->second);
@@ -120,7 +120,7 @@ list<Maquina *> *Casino::Listar_Tipo(string Tipo, ostream &saida)
 
 string Casino::Get_Estado(int ID)
 {
-    for(unordered_map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it)
+    for(map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it)
         if(ID == it->second->Get_ID())
             return EnumToString(it->second->Get_ESTADO());
 
@@ -135,7 +135,7 @@ int Casino::MemoriaCasino()
 
     cout << HashMaq.size();
 
-    for(unordered_map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it){
+    for(map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it){
         MEM_MAQ += it->second->Memoria();
     }
 
@@ -154,14 +154,14 @@ int Casino::MemoriaCasino()
 
 void Casino::Listar_Sup_Prob_Ganhar(float X, ostream &saida)
 {
-    for(unordered_map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it)
+    for(map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it)
         if(it->second->Get_PROB_GANHAR() > X)
             it->second->Show(saida);
 }
 
 void Casino::Desligar(int ID_MAQ)
 {
-    for(unordered_map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it){
+    for(map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it){
         if(it->second->Get_ID() == ID_MAQ){
             it->second->Set_ESTADO(OFF);
         }
@@ -170,7 +170,7 @@ void Casino::Desligar(int ID_MAQ)
 
 void Casino::SubirProbabilidadeVizinhas(Maquina *M_ganhou, float raio, list<Maquina *> &LM_Vizinhas)
 {
-    for(unordered_map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it){
+    for(map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it){
         float dist = CalcularDistancia(M_ganhou, it->second);
         if(raio >= dist)
         {
@@ -199,7 +199,7 @@ list<Maquina *> *Casino::Ranking_Dos_Fracos()
     list<Maquina *> Res;
     //list<Maquina *>::iterator ResIT = Res.begin();
 
-    for(unordered_map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it){
+    for(map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it){
         if(it->second->Get_QNT_AVARIA() > aux){
             Res.push_front(it->second);
             aux = it->second->Get_QNT_AVARIA();

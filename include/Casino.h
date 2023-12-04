@@ -5,7 +5,7 @@
 #include <string>
 #include <list>
 #include <fstream>
-#include <unordered_map>
+#include <map>
 
 using namespace std;
 
@@ -23,7 +23,7 @@ class Casino
     list <User *> LU_Espera;
     list <Maquina *> LM;
     int maxJog;
-    unordered_map<string, Maquina *>HashMaq;
+    map<string, Maquina *>HashMaq;
 
     string NOME;
     time_t HORA_ABERTURA, HORA_FECHO;
