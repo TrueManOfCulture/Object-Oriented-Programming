@@ -82,7 +82,7 @@ int main()
 
 
     //////////////    TESTES DE LISTAR TIPO DE MAQUINAS    //////////////
-    
+    /*
     cout << "//////////////////////////////////////////" << endl << endl;
 
     list<Maquina *> *Test;
@@ -92,6 +92,30 @@ int main()
     cout << "//////////////////////////////////////////" << endl << endl;
     cout << "//////////////////////////////////////////" << endl << endl;
     cout << "//////////////////////////////////////////" << endl << endl;
+
+    for(list<Maquina *>::iterator it = Test->begin(); it != Test->end(); ++it){
+        (*it)->Show();
+    }
+
+    delete Test;
+    */
+
+    //////////////    TESTES DE RANKING DOS FRACOS    //////////////
+
+    cout << "//////////////////////////////////////////" << endl << endl;
+
+    map<string, Maquina *> HashMaq;
+
+    HashMaq = C.Ass_HashMaq();
+
+    for(map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it){
+        int aoga = AleatorioINT(1, 100);
+        for(int i = 0; i < aoga; i++)
+            it->second->Inc_QNT_AVARIA();
+    }
+
+    list<Maquina *> *Test;
+    Test = C.Ranking_Dos_Fracos();
 
     for(list<Maquina *>::iterator it = Test->begin(); it != Test->end(); ++it){
         (*it)->Show();
