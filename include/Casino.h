@@ -38,7 +38,7 @@ class Casino
         bool Add(Maquina *M);                                                   // ADICIONAR MÁQUINAS À LISTA
         string Get_Estado(int ID);                                              // RETORNAR O ESTADO DE UMA MÁQUINA DADO UM ID
 
-        list<Maquina *> *Listar_Tipo(string Tipo, ostream &saida = cout); //INACABADO       // LISTAR TODOS OS TIPOS DE MÁQUINA DADO UM TIPO
+        list<Maquina *> *Listar_Tipo(string Tipo, ostream &saida = cout);       // LISTAR TODOS OS TIPOS DE MÁQUINA DADO UM TIPO
         void Desligar(int ID_MAQ);                                              // DESLIGAR UMA MÁQUINA DADO UM ID
 
         int MemoriaCasino();                                                    // CALCULAR A MEMÓRIA TOTAL DO CASINO

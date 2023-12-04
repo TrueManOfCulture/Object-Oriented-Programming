@@ -82,7 +82,7 @@ int main()
 
 
     //////////////    TESTES DE LISTAR TIPO DE MAQUINAS    //////////////
-    /*
+    
     cout << "//////////////////////////////////////////" << endl << endl;
 
     list<Maquina *> *Test;
@@ -96,7 +96,6 @@ int main()
     for(list<Maquina *>::iterator it = Test->begin(); it != Test->end(); ++it){
         (*it)->Show();
     }
-    */
 
-    
+    delete Test;
 }
