@@ -5,7 +5,6 @@
 #include <fstream>
 #include <map>
 
-
 using namespace std;
 
 #include "./include/Maquina.h"
@@ -19,8 +18,9 @@ using namespace std;
 
 int main()
 {
-    ifstream dadosCasino("CasinoData.xml");
     setlocale(LC_ALL, "PORTUGUESE");
+
+    ifstream dadosCasino("CasinoData.xml");
     saltarNLinhas(dadosCasino, 2);
     string nomeCasino = ObterConteudo(dadosCasino);
     dadosCasino.close();
@@ -46,12 +46,11 @@ int main()
     //////////////    TESTES DE LEITURA DE MEMÓRIA    //////////////
     //Casino C("Solverde");
 
-    list<User *> LU;
+    /*list<User *> LU;
     LerFicheiroUser(LU, "USERS.txt");
     C.Ass_ListaUsusarios(LU);
 
-    C.MemoriaCasino();
-
+    C.MemoriaCasino();*/
 
     //////////////    TESTES DE AUMENTAR PROBABILIDADE DE GANHAR VIZINHAS    //////////////
     /*Casino C("Solverde");
@@ -82,5 +81,21 @@ int main()
     }*/
 
 
+    //////////////    TESTES DE LISTAR TIPO DE MAQUINAS    //////////////
     
+    cout << "//////////////////////////////////////////" << endl << endl;
+
+    list<Maquina *> *Test;
+    Test = C.Listar_Tipo("SEM_TIPO");
+
+    cout << "//////////////////////////////////////////" << endl << endl;
+    cout << "//////////////////////////////////////////" << endl << endl;
+    cout << "//////////////////////////////////////////" << endl << endl;
+    cout << "//////////////////////////////////////////" << endl << endl;
+
+    for(list<Maquina *>::iterator it = Test->begin(); it != Test->end(); ++it){
+        (*it)->Show();
+    }
+
+    delete Test;
 }

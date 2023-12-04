@@ -14,10 +14,10 @@ Era suposto o ficheiro txt ter os erros de \t?
     RESPOSTA: Não, mas está resolvido.
 
 Se será necessário a meio do código adicionar uma nova máquina
-    RESPOSTA:
+    RESPOSTA: No menu, podemos ter uma opção de adicionar máquina
 
 Ao acrescentar uma nova máquina, mudamos a posição ou não acrescentamos a máquina?
-    RESPOSTA: 
+    RESPOSTA: Escolhemos (PODEMOS ELIMINAR)
 
 O que será devolvido na função Ranking dos fracos?
-    RESPOSTA: 
+    RESPOSTA: Devolver list<Maquina *>
