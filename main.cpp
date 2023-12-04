@@ -5,7 +5,6 @@
 #include <fstream>
 #include <map>
 
-
 using namespace std;
 
 #include "./include/Maquina.h"
@@ -19,14 +18,15 @@ using namespace std;
 
 int main()
 {
-    /*ifstream dadosCasino("CasinoData.xml");
     setlocale(LC_ALL, "PORTUGUESE");
+
+    ifstream dadosCasino("CasinoData.xml");
     saltarNLinhas(dadosCasino, 2);
     string nomeCasino = ObterConteudo(dadosCasino);
     dadosCasino.close();
     Casino C(nomeCasino);
 
-    C.Load("CasinoData.xml");*/
+    C.Load("CasinoData.xml");
 
     //cout << ObterConteudo("<TEMP_AVISO>70</TEMP_AVISO>")<<endl;
 
@@ -80,6 +80,23 @@ int main()
         (*it)->Show();
     }*/
 
+
+    //////////////    TESTES DE LISTAR TIPO DE MAQUINAS    //////////////
+    /*
+    cout << "//////////////////////////////////////////" << endl << endl;
+
+    list<Maquina *> *Test;
+    Test = C.Listar_Tipo("SEM_TIPO");
+
+    cout << "//////////////////////////////////////////" << endl << endl;
+    cout << "//////////////////////////////////////////" << endl << endl;
+    cout << "//////////////////////////////////////////" << endl << endl;
+    cout << "//////////////////////////////////////////" << endl << endl;
+
+    for(list<Maquina *>::iterator it = Test->begin(); it != Test->end(); ++it){
+        (*it)->Show();
+    }
+    */
 
     
 }
