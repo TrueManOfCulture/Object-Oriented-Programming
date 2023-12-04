@@ -5,7 +5,7 @@
 #include <string>
 #include <list>
 #include <fstream>
-#include <map>
+#include <unordered_map>
 
 using namespace std;
 
@@ -23,7 +23,7 @@ class Casino
     list <User *> LU_Espera;
     list <Maquina *> LM;
     int maxJog;
-    map<string, Maquina *>HashMaq;
+    unordered_map<string, Maquina *>HashMaq;
 
     string NOME;
     time_t HORA_ABERTURA, HORA_FECHO;
@@ -49,9 +49,8 @@ class Casino
         void SubirProbabilidadeVizinhas(Maquina *M_ganhou, float raio, list<Maquina *> &LM_Vizinhas);
 
         void Prob_Avaria(Maquina *M);
-        list<Maquina *> * Ranking_Dos_Fracos();
+        list<Maquina *> *Ranking_Dos_Fracos();
         /*
-        list<string> * Ranking_Dos_Fracos();
         list<Maquina *> * Ranking_Das_Mais_Trabalhadores();
         list<User *> *Jogadores_Mais_Frequentes();
         list<User *> *Jogadores_Mais_Ganhos();

@@ -105,19 +105,22 @@ list<Maquina *> *Casino::Listar_Tipo(string Tipo, ostream &saida)
 {
     list<Maquina *> LM_Tipo;
 
-    for(map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it)
+    for(unordered_map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it)
         if(Tipo == it->second->Get_TIPO())
         {
             LM_Tipo.push_back(it->second);
             (it->second)->Show(saida);
         }
 
-    return NULL; // RETORNA NULL CASO NÃO ENCONTRE
+    if(LM_Tipo.empty())
+        return nullptr;
+    
+    return LM_Tipo; // RETORNA NULL CASO NÃO ENCONTRE
 }
 
 string Casino::Get_Estado(int ID)
 {
-    for(map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it)
+    for(unordered_map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it)
         if(ID == it->second->Get_ID())
             return EnumToString(it->second->Get_ESTADO());
 
@@ -132,7 +135,7 @@ int Casino::MemoriaCasino()
 
     cout << HashMaq.size();
 
-    for(map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it){
+    for(unordered_map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it){
         MEM_MAQ += it->second->Memoria();
     }
 
@@ -151,14 +154,14 @@ int Casino::MemoriaCasino()
 
 void Casino::Listar_Sup_Prob_Ganhar(float X, ostream &saida)
 {
-    for(map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it)
+    for(unordered_map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it)
         if(it->second->Get_PROB_GANHAR() > X)
             it->second->Show(saida);
 }
 
 void Casino::Desligar(int ID_MAQ)
 {
-    for(map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it){
+    for(unordered_map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it){
         if(it->second->Get_ID() == ID_MAQ){
             it->second->Set_ESTADO(OFF);
         }
@@ -167,7 +170,7 @@ void Casino::Desligar(int ID_MAQ)
 
 void Casino::SubirProbabilidadeVizinhas(Maquina *M_ganhou, float raio, list<Maquina *> &LM_Vizinhas)
 {
-    for(map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it){
+    for(unordered_map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it){
         float dist = CalcularDistancia(M_ganhou, it->second);
         if(raio >= dist)
         {
@@ -194,11 +197,21 @@ list<Maquina *> *Casino::Ranking_Dos_Fracos()
 {
     int aux = -1;
     list<Maquina *> Res;
+    //list<Maquina *>::iterator ResIT = Res.begin();
 
-    for(map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it){
-        if(it->second->Get_QNT_AVARIA() > aux)
-            Res.push_back(it->second);
+    for(unordered_map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it){
+        if(it->second->Get_QNT_AVARIA() > aux){
+            Res.push_front(it->second);
+            aux = it->second->Get_QNT_AVARIA();
+        }
+        /*else{
+            for(list<Maquina* >::iterator it = Res.begin(); it != Res.end(); ++it){
+                if((*it)->Get_QNT_AVARIA() > (*ResIT)->Get_QNT_AVARIA()){
+
+                }
+            }
+        }*/
     }
 
-    return NULL;
+    return Res;
 }
