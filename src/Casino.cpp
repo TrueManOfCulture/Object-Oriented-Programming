@@ -29,12 +29,12 @@ void inicializarDefCasino(ifstream &infoCasino, int &maxJog, time_t &HORA_ABERTU
     HORA_FECHO = convertToTime(hora,minuto);
 }
 
-Maquina *MaquinaTipo(float pGanhar,float pAvariar,int premio,int x,int y,int tempoAviso,string nome){
+Maquina *MaquinaTipo(float pGanhar, float pAvariar, int premio, int x, int y, int tempoAviso, string nome){
     Maquina *M;
     if(nome == "BlackJack")
         M = new BlackJack(pGanhar,pAvariar, premio,x,y,tempoAviso,nome);
     if(nome == "ClassicSlots")
-        M = new ClassicSlots(pGanhar,pAvariar, premio,x,y,tempoAviso,nome);
+        M = new ClassicSlots(pGanhar, pAvariar, premio, x, y, tempoAviso, nome);
     if(nome == "Roleta")
         M = new Roleta(pGanhar,pAvariar, premio,x,y,tempoAviso,nome);
     //if(nome == "PorDeterminar")
@@ -120,11 +120,16 @@ list<Maquina *> *Casino::Listar_Tipo(string Tipo, ostream &saida)
     list<Maquina *> *LM_Tipo = new list<Maquina *>;
 
     for(map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it)
+    {
+        cout << "TIPO: " << it->second->Get_TIPO() << endl;
+
         if(Tipo == it->second->Get_TIPO())
         {
             LM_Tipo->push_back(it->second);
-            (it->second)->Show(saida);
+            it->second->Show(saida);
         }
+    }
+        
 
     return LM_Tipo;
 }

@@ -20,7 +20,7 @@ class Roleta : public Maquina
         virtual ~Roleta();
 
         void Jogar();                               // FUNÇÃO DE JOGAR
-        string Get_TIPO(){ return "ROLETA"; }       // RETORNA O TIPO DA MÁQUINA
+        //string Get_TIPO(){ return TIPO; }           // RETORNA O TIPO DA MÁQUINA
         int Memoria(){ return sizeof(*this); }      // CALCULA A MEMÓRIA OCUPADA
 };
 

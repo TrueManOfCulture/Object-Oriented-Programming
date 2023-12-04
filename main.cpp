@@ -84,25 +84,25 @@ int main()
     //////////////    TESTES DE LISTAR TIPO DE MAQUINAS    //////////////
     /*
     cout << "//////////////////////////////////////////" << endl << endl;
-
+    //print da saida
     list<Maquina *> *Test;
-    Test = C.Listar_Tipo("SEM_TIPO");
+    Test = C.Listar_Tipo("ClassicSlots");
 
     cout << "//////////////////////////////////////////" << endl << endl;
     cout << "//////////////////////////////////////////" << endl << endl;
     cout << "//////////////////////////////////////////" << endl << endl;
     cout << "//////////////////////////////////////////" << endl << endl;
 
+    //print da lista
     for(list<Maquina *>::iterator it = Test->begin(); it != Test->end(); ++it){
         (*it)->Show();
     }
 
     delete Test;
     */
-
     //////////////    TESTES DE RANKING DOS FRACOS    //////////////
 
-    cout << "//////////////////////////////////////////" << endl << endl;
+    /*cout << "//////////////////////////////////////////" << endl << endl;
 
     map<string, Maquina *> HashMaq;
 
@@ -121,5 +121,5 @@ int main()
         (*it)->Show();
     }
 
-    delete Test;
+    delete Test;*/
 }
