@@ -24,6 +24,7 @@ class Casino
     list <Maquina *> LM;
     int maxJog;
     map<string, Maquina *>HashMaq;
+    map<string, User*>UserNoCasino;
 
     string NOME;
     time_t HORA_ABERTURA, HORA_FECHO;

@@ -29,6 +29,19 @@ void inicializarDefCasino(ifstream &infoCasino, int &maxJog, time_t &HORA_ABERTU
     HORA_FECHO = convertToTime(hora,minuto);
 }
 
+Maquina *MaquinaTipo(float pGanhar,float pAvariar,int premio,int x,int y,int tempoAviso,string nome){
+    Maquina *M;
+    if(nome == "BlackJack")
+        M = new BlackJack(pGanhar,pAvariar, premio,x,y,tempoAviso,nome);
+    if(nome == "ClassicSlots")
+        M = new ClassicSlots(pGanhar,pAvariar, premio,x,y,tempoAviso,nome);
+    if(nome == "Roleta")
+        M = new Roleta(pGanhar,pAvariar, premio,x,y,tempoAviso,nome);
+    //if(nome == "PorDeterminar")
+        //M = new Maquina(pGanhar,pAvariar, premio,x,y,tempoAviso,nome);
+    return M;
+}
+
 bool Casino::Load(const string &ficheiro)
 {
     int premio, x, y, tempoAviso;
@@ -59,7 +72,7 @@ bool Casino::Load(const string &ficheiro)
         tempoAviso = stoi(ObterConteudo(infoCasino));
 
         //(float _prob_ganhar, float _prob_avaria,  int _premio, int _posX, int _posY, int _temp)
-        Maquina *M = new Maquina(pGanhar,pAvariar, premio,x,y,tempoAviso,nome);
+        Maquina *M = MaquinaTipo(pGanhar,pAvariar, premio,x,y,tempoAviso,nome);
         M->Show();
         Add(M);
         saltarNLinhas(infoCasino,1);
