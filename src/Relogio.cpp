@@ -1,6 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
 #include "../include/Relogio.h"
 
 void StartRelogio(RELOGIO *R, int Vel, time_t inicio){

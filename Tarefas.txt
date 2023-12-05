@@ -1,16 +1,12 @@
-Adicionar verificação no add maquina porque não se podem colocar na mesma posição - Gui
-
 [[[[[[[[    bool Casino::Load(const string &ficheiro) e Ficheiro XML - Diogo          ]]]]]]]]
 
 [[[[[[[[    int Casino::Memoria_Total() - Chico (Supostamente já está a funcionar)    ]]]]]]]]
 
-list<string> * Casino::Ranking_Dos_Fracos() - Chico
+list<Maquina *> *Casino::Ranking_Das_Mais_Trabalhadores() - Diogo
 
-list<Maquina *> * Casino::Ranking_Das_Mais_Trabalhadores() - Diogo
+list<User *> *Casino::Jogadores_Mais_Frequentes()
 
-list<User *> * Casino::Jogadores_Mais_Frequentes ()
-
-list<User *> * Casino::Jogadores_Mais_Ganhos ()
+list<User *> *Casino::Jogadores_Mais_Ganhos()
 
 void Casino::Relatorio(string fich_xml)
 

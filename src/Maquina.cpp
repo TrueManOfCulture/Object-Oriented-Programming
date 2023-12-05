@@ -24,5 +24,12 @@ Maquina::~Maquina()
 
 void Maquina::Show(ostream &saida)
 {
-    saida << "ID: " << ID__ << endl << "PROB_GANHAR: " << PROB_GANHAR << endl << "PREMIO: " << PREMIO << endl << "posX: " << posX << endl << "posY: " << posY << endl << "TEMP: " << TEMPERATURA << endl << "TIPO: "<< TIPO << endl << endl;
+    saida << "ID: " << ID__ << endl;
+    saida << "PROB_GANHAR: " << PROB_GANHAR << endl;
+    saida << "PREMIO: " << PREMIO << endl;
+    saida << "posX: " << posX << endl;
+    saida << "posY: " << posY << endl;
+    saida << "TEMP: " << TEMPERATURA << endl;
+     saida << "TIPO: "<< TIPO << endl;
+     saida << "QNT_AVARIAS: " << QNT_AVARIA << endl << endl;
 }

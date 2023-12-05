@@ -29,9 +29,22 @@ void inicializarDefCasino(ifstream &infoCasino, int &maxJog, time_t &HORA_ABERTU
     HORA_FECHO = convertToTime(hora,minuto);
 }
 
+Maquina *MaquinaTipo(float pGanhar, float pAvariar, int premio, int x, int y, int tempoAviso, string nome){
+    Maquina *M;
+    if(nome == "BlackJack")
+        M = new BlackJack(pGanhar,pAvariar, premio,x,y,tempoAviso,nome);
+    if(nome == "ClassicSlots")
+        M = new ClassicSlots(pGanhar, pAvariar, premio, x, y, tempoAviso, nome);
+    if(nome == "Roleta")
+        M = new Roleta(pGanhar,pAvariar, premio,x,y,tempoAviso,nome);
+    //if(nome == "PorDeterminar")
+        //M = new Maquina(pGanhar,pAvariar, premio,x,y,tempoAviso,nome);
+    return M;
+}
+
 bool Casino::Load(const string &ficheiro)
 {
-    int premio,x,y,tempoAviso;
+    int premio, x, y, tempoAviso;
     string nome;
     float pGanhar, pAvariar;
 
@@ -59,7 +72,7 @@ bool Casino::Load(const string &ficheiro)
         tempoAviso = stoi(ObterConteudo(infoCasino));
 
         //(float _prob_ganhar, float _prob_avaria,  int _premio, int _posX, int _posY, int _temp)
-        Maquina *M = new Maquina(pGanhar,pAvariar, premio,x,y,tempoAviso,nome);
+        Maquina *M = MaquinaTipo(pGanhar,pAvariar, premio,x,y,tempoAviso,nome);
         M->Show();
         Add(M);
         saltarNLinhas(infoCasino,1);
@@ -88,6 +101,7 @@ bool Casino::Add(Maquina *M)
     if(HashMaq.find(key) == HashMaq.end()){
         HashMaq[key] = M;
     } else {
+        M->Dec_STATIC_ID();
         delete M;
         cout<<"Erro! Já existe uma máquina na posição: "<< key <<"!" << endl << endl;
         return false;
@@ -99,16 +113,21 @@ bool Casino::Add(Maquina *M)
 
 list<Maquina *> *Casino::Listar_Tipo(string Tipo, ostream &saida)
 {
-    list<Maquina *> LM_Tipo;
+    list<Maquina *> *LM_Tipo = new list<Maquina *>;
 
     for(map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it)
+    {
+        cout << "TIPO: " << it->second->Get_TIPO() << endl;
+
         if(Tipo == it->second->Get_TIPO())
         {
-            LM_Tipo.push_back(it->second);
-            (it->second)->Show(saida);
+            LM_Tipo->push_back(it->second);
+            it->second->Show(saida);
         }
+    }
+        
 
-    return NULL; // RETORNA NULL CASO NÃO ENCONTRE
+    return LM_Tipo;
 }
 
 
@@ -254,12 +273,26 @@ void Prob_Avaria(Maquina *M)
 list<Maquina *> *Casino::Ranking_Dos_Fracos()
 {
     int aux = -1;
-    list<Maquina *> Res;
+    list<Maquina *> *Res = new list<Maquina *>;
 
     for(map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it){
-        if(it->second->Get_QNT_AVARIA() > aux)
-            Res.push_back(it->second);
-    }
+        if(it->second->Get_QNT_AVARIA() >= aux){
+            Res->push_front(it->second);
+            aux = it->second->Get_QNT_AVARIA();
+        }
+        else{
+            list<Maquina *>::iterator it_Res = Res->begin();
+            while(it_Res != Res->end() && (*it_Res)->Get_QNT_AVARIA() >= it->second->Get_QNT_AVARIA()){
+                ++it_Res;
+            }
 
-    return NULL;
+            if(it_Res == Res->end()){
+                Res->push_back(it->second);
+            } else{
+                Res->insert(it_Res, it->second);
+            }
+        }
+    }
+    
+    return Res;
 }

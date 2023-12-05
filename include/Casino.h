@@ -22,9 +22,9 @@ class Casino
     list <User *> LU;
     list <User *> LU_Espera;
     list <Maquina *> LM;
-    int maxUser;
+    int maxJog;
     map<string, Maquina *>HashMaq;
-    map<string, User*>HashUser;
+    map<string, User*>UserNoCasino;
 
     string NOME;
     time_t HORA_ABERTURA, HORA_FECHO;
@@ -40,6 +40,9 @@ class Casino
         string Get_Estado(int ID);                                             // RETORNAR O ESTADO DE UMA MÁQUINA DADO UM ID
         int Qnt_Jog(); 
         list<Maquina *> *Listar_Tipo(string Tipo, ostream &saida = cout); //INACABADO       // LISTAR TODOS OS TIPOS DE MÁQUINA DADO UM TIPO
+        string Get_Estado(int ID);                                              // RETORNAR O ESTADO DE UMA MÁQUINA DADO UM ID
+
+        list<Maquina *> *Listar_Tipo(string Tipo, ostream &saida = cout);       // LISTAR TODOS OS TIPOS DE MÁQUINA DADO UM TIPO
         void Desligar(int ID_MAQ);                                              // DESLIGAR UMA MÁQUINA DADO UM ID
 
         int MemoriaCasino();                                                    // CALCULAR A MEMÓRIA TOTAL DO CASINO
@@ -50,9 +53,8 @@ class Casino
         void SubirProbabilidadeVizinhas(Maquina *M_ganhou, float raio, list<Maquina *> &LM_Vizinhas);
 
         void Prob_Avaria(Maquina *M);
-        list<Maquina *> * Ranking_Dos_Fracos();
+        list<Maquina *> *Ranking_Dos_Fracos();
         /*
-        list<string> * Ranking_Dos_Fracos();
         list<Maquina *> * Ranking_Das_Mais_Trabalhadores();
         list<User *> *Jogadores_Mais_Frequentes();
         list<User *> *Jogadores_Mais_Ganhos();
@@ -60,6 +62,8 @@ class Casino
         
         void Run(bool Debug = true);
         */
+
+        map<string, Maquina *> Ass_HashMaq(){ return HashMaq; }
 };
 
 #endif // CASINO_H

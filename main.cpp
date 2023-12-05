@@ -5,7 +5,6 @@
 #include <fstream>
 #include <map>
 
-
 using namespace std;
 
 #include "./include/Maquina.h"
@@ -19,8 +18,9 @@ using namespace std;
 
 int main()
 {
-    ifstream dadosCasino("CasinoData.xml");
     setlocale(LC_ALL, "PORTUGUESE");
+
+    ifstream dadosCasino("CasinoData.xml");
     saltarNLinhas(dadosCasino, 2);
     string nomeCasino = ObterConteudo(dadosCasino);
     dadosCasino.close();
@@ -46,12 +46,11 @@ int main()
     //////////////    TESTES DE LEITURA DE MEMÓRIA    //////////////
     //Casino C("Solverde");
 
-    list<User *> LU;
+    /*list<User *> LU;
     LerFicheiroUser(LU, "USERS.txt");
     C.Ass_ListaUsusarios(LU);
 
-    C.MemoriaCasino();
-
+    C.MemoriaCasino();*/
 
     //////////////    TESTES DE AUMENTAR PROBABILIDADE DE GANHAR VIZINHAS    //////////////
     /*Casino C("Solverde");
@@ -82,5 +81,59 @@ int main()
     }*/
 
 
-    
+    //////////////    TESTES DE LISTAR TIPO DE MAQUINAS    //////////////
+    /*
+    cout << "//////////////////////////////////////////" << endl << endl;
+    //print da saida
+    list<Maquina *> *Test;
+    Test = C.Listar_Tipo("ClassicSlots");
+
+    cout << "//////////////////////////////////////////" << endl;
+    cout << "//////////////////////////////////////////" << endl;
+    cout << "//////////////////////////////////////////" << endl;
+    cout << "//////////////////////////////////////////" << endl << endl;
+
+    //print da lista
+    for(list<Maquina *>::iterator it = Test->begin(); it != Test->end(); ++it){
+        (*it)->Show();
+    }
+
+    delete Test;
+    */
+
+    //////////////    TESTES DE RANKING DOS FRACOS    //////////////
+    /*
+    cout << "//////////////////////////////////////////" << endl << endl;
+
+    map<string, Maquina *> HashMaq;
+
+    HashMaq = C.Ass_HashMaq();
+
+    for(map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it){
+        int aoga = AleatorioINT(1, 100);
+        for(int i = 0; i < aoga; i++)
+            it->second->Inc_QNT_AVARIA();
+    }
+
+    for(map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it){
+        it->second->Show();
+    }
+
+    cout << "//////////////////////////////////////////" << endl;
+    cout << "//////////////////////////////////////////" << endl;
+    cout << "//////////////////////////////////////////" << endl;
+    cout << "//////////////////////////////////////////" << endl << endl;
+
+    list<Maquina *> *Test;
+    Test = C.Ranking_Dos_Fracos();
+
+    for(list<Maquina *>::iterator it = Test->begin(); it != Test->end(); ++it){
+        (*it)->Show();
+    }
+
+    delete Test;
+    */
+
+   //////////////    TESTES DE RANKING DOS FRACOS    //////////////
+   
 }

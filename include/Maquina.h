@@ -37,15 +37,17 @@ class Maquina
         float Get_PROB_GANHAR(){ return PROB_GANHAR; }              // RETORNA A PROBABILIDADE DE GANHAR DE UMA MÁQUINA
         void Set_ESTADO(ESTADO_MAQUINA _est){ ESTADO = _est; }      // ALTERA O ESTADO DA MÁQUINA
         void Set_PROB_GANHAR(float _prob){ PROB_GANHAR += _prob; }  // ALTERA A PROBABILIDADE DE GANHAR DA MÁQUINA
+        string Get_TIPO(){ return TIPO; }                   // RETORNA O TIPO DA MÁQUINA
+        
         virtual void Jogar(){}
+
         float Get_PROB_AVARIA(){ return PROB_AVARIA; }
         void Inc_QNT_AVARIA(){ QNT_AVARIA++; }
         int Get_QNT_AVARIA(){ return QNT_AVARIA; }
 
-        virtual string Get_TIPO(){ return "SEM_TIPO"; }             // RETORNA O TIPO DA MÁQUINA
-        virtual void Show(ostream &saida = cout);                   // MOSTRA OS DADOS DA MÁQUINA
-        virtual int Memoria(){ return sizeof(*this); }              // CALCULA A MEMÓRIA OCUPADA
-        
-        void Ass_User(User *_U){ U = _U; }                          // ASSOCIA UM USER
+        void Show(ostream &saida = cout);                   // MOSTRA OS DADOS DA MÁQUINA
+        virtual int Memoria(){ return sizeof(*this); }              // CALCULA A MEMÓRIA OCUPADA´
+
+        void Dec_STATIC_ID(){ ID--; }
 };
 #endif // MAQUINA_H

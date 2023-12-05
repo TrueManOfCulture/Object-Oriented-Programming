@@ -1,8 +1,11 @@
 #ifndef RELOGIO_H_INCLUDED
 #define RELOGIO_H_INCLUDED
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+
+using namespace std;
 
 
 typedef struct relogio{
