@@ -59,6 +59,8 @@ class Casino
         
         void Run(bool Debug = true);
         */
+
+        map<string, Maquina *> Ass_HashMaq(){ return HashMaq; }
 };
 
 #endif // CASINO_H

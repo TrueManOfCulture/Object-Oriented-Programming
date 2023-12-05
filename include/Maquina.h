@@ -45,7 +45,7 @@ class Maquina
         void Inc_QNT_AVARIA(){ QNT_AVARIA++; }
         int Get_QNT_AVARIA(){ return QNT_AVARIA; }
 
-        virtual void Show(ostream &saida = cout);                   // MOSTRA OS DADOS DA MÁQUINA
+        void Show(ostream &saida = cout);                   // MOSTRA OS DADOS DA MÁQUINA
         virtual int Memoria(){ return sizeof(*this); }              // CALCULA A MEMÓRIA OCUPADA´
 
         void Dec_STATIC_ID(){ ID--; }

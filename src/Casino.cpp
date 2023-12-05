@@ -213,21 +213,25 @@ list<Maquina *> *Casino::Ranking_Dos_Fracos()
 {
     int aux = -1;
     list<Maquina *> *Res = new list<Maquina *>;
-    //list<Maquina *>::iterator ResIT = Res.begin();
 
     for(map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it){
-        if(it->second->Get_QNT_AVARIA() > aux){
+        if(it->second->Get_QNT_AVARIA() >= aux){
             Res->push_front(it->second);
             aux = it->second->Get_QNT_AVARIA();
         }
-        /*else{
-            for(list<Maquina* >::iterator it = Res.begin(); it != Res.end(); ++it){
-                if((*it)->Get_QNT_AVARIA() > (*ResIT)->Get_QNT_AVARIA()){
-
-                }
+        else{
+            list<Maquina *>::iterator it_Res = Res->begin();
+            while(it_Res != Res->end() && (*it_Res)->Get_QNT_AVARIA() >= it->second->Get_QNT_AVARIA()){
+                ++it_Res;
             }
-        }*/
-    }
 
+            if(it_Res == Res->end()){
+                Res->push_back(it->second);
+            } else{
+                Res->insert(it_Res, it->second);
+            }
+        }
+    }
+    
     return Res;
 }

@@ -100,9 +100,10 @@ int main()
 
     delete Test;
     */
-    //////////////    TESTES DE RANKING DOS FRACOS    //////////////
 
-    /*cout << "//////////////////////////////////////////" << endl << endl;
+    //////////////    TESTES DE RANKING DOS FRACOS    //////////////
+    /*
+    cout << "//////////////////////////////////////////" << endl << endl;
 
     map<string, Maquina *> HashMaq;
 
@@ -114,6 +115,15 @@ int main()
             it->second->Inc_QNT_AVARIA();
     }
 
+    for(map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it){
+        it->second->Show();
+    }
+
+    cout << "//////////////////////////////////////////" << endl;
+    cout << "//////////////////////////////////////////" << endl;
+    cout << "//////////////////////////////////////////" << endl;
+    cout << "//////////////////////////////////////////" << endl << endl;
+
     list<Maquina *> *Test;
     Test = C.Ranking_Dos_Fracos();
 
@@ -121,5 +131,6 @@ int main()
         (*it)->Show();
     }
 
-    delete Test;*/
+    delete Test;
+    */
 }
