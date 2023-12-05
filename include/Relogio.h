@@ -11,7 +11,8 @@ class Relogio{
     time_t START;
     int VELOCIDADE;
     time_t Hora_Inicio;
-    time_t tempoParado;
+    time_t tempoParadoVirt;
+    time_t tempoParadoReal;
     bool parado;
 
     public:

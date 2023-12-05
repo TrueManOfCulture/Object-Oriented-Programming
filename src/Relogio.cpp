@@ -3,7 +3,8 @@
 Relogio::Relogio(int Vel, time_t inicio){
     START = time(0);
     VELOCIDADE = Vel;
-    tempoParado = 0;
+    tempoParadoVirt = time(0);
+    tempoParadoReal = time(0);
     parado = false;
 
     struct tm *tmp = localtime(&inicio);
@@ -11,18 +12,22 @@ Relogio::Relogio(int Vel, time_t inicio){
 }
 
 void Relogio::start(){
-    tempoParado=0;
+    parado = false;
+    time_t Dif = difftime(time(0), tempoParadoReal);
+    START += Dif;
 }
 
 void Relogio::stop(){
     parado = true;
+    tempoParadoVirt = VerTimeRelogio();
+    tempoParadoReal = time(0);
 }
 
 time_t Relogio::VerTimeRelogio(){
     time_t Dif = difftime(time(0), START);
     time_t Simulada = Hora_Inicio + Dif *VELOCIDADE;
     if(parado)
-        return Hora_Inicio;
+        return tempoParadoVirt;
     return Simulada;
 }
 
