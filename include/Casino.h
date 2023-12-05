@@ -22,9 +22,9 @@ class Casino
     list <User *> LU;
     list <User *> LU_Espera;
     list <Maquina *> LM;
-    int maxJog;
+    int maxUser;
     map<string, Maquina *>HashMaq;
-    map<string, User*>UserNoCasino;
+    map<string, User*>HashUser;
 
     string NOME;
     time_t HORA_ABERTURA, HORA_FECHO;
@@ -39,8 +39,6 @@ class Casino
         bool Add(User *U);                                                      // ADICIONAR USUÁRIOS À LISTA
         string Get_Estado(int ID);                                             // RETORNAR O ESTADO DE UMA MÁQUINA DADO UM ID
         int Qnt_Jog(); 
-        list<Maquina *> *Listar_Tipo(string Tipo, ostream &saida = cout); //INACABADO       // LISTAR TODOS OS TIPOS DE MÁQUINA DADO UM TIPO
-        string Get_Estado(int ID);                                              // RETORNAR O ESTADO DE UMA MÁQUINA DADO UM ID
 
         list<Maquina *> *Listar_Tipo(string Tipo, ostream &saida = cout);       // LISTAR TODOS OS TIPOS DE MÁQUINA DADO UM TIPO
         void Desligar(int ID_MAQ);                                              // DESLIGAR UMA MÁQUINA DADO UM ID

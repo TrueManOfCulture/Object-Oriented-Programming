@@ -102,7 +102,7 @@ int main()
     */
 
     //////////////    TESTES DE RANKING DOS FRACOS    //////////////
-    /*
+     
     cout << "//////////////////////////////////////////" << endl << endl;
 
     map<string, Maquina *> HashMaq;
@@ -132,7 +132,7 @@ int main()
     }
 
     delete Test;
-    */
+    
 
    //////////////    TESTES DE RANKING DOS FRACOS    //////////////
    
