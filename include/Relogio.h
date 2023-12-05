@@ -7,18 +7,22 @@
 
 using namespace std;
 
-
-typedef struct relogio{
+class Relogio{
     time_t START;
     int VELOCIDADE;
     time_t Hora_Inicio;
-}RELOGIO;
+    time_t tempoParado;
+    bool parado;
+
+    public:
+        Relogio(int Vel, time_t inicio);
+        time_t VerTimeRelogio();
+        void stop();
+        void start();
+        void WaitSegundos(int s);
+        void Wait(int s);
+};
 
 
-time_t VerTimeRelogio(RELOGIO *R);
-void WaitSegundos(int s);
-void Wait(int s);
-
-void StartRelogio(RELOGIO *R, int Vel, time_t inicio);
 
 #endif // RELOGIO_H_INCLUDED

@@ -51,6 +51,9 @@ class Casino
 
         void Prob_Avaria(Maquina *M);
         list<Maquina *> *Ranking_Dos_Fracos();
+
+        time_t getHoraAbertura(){ return HORA_ABERTURA;};
+        time_t getHoraFecho(){return HORA_FECHO;};
         /*
         list<Maquina *> * Ranking_Das_Mais_Trabalhadores();
         list<User *> *Jogadores_Mais_Frequentes();

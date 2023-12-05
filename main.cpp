@@ -15,20 +15,46 @@ using namespace std;
 #include "./include/Uteis.h"
 #include "./include/User.h"
 #include "./include/XML.h"
+#include "./include/Relogio.h"
 
 int main()
 {
     setlocale(LC_ALL, "PORTUGUESE");
+
+    char ch;
+
+    list<User *> LU;
+    LerFicheiroUser(LU, "USERS.txt");
 
     ifstream dadosCasino("CasinoData.xml");
     saltarNLinhas(dadosCasino, 2);
     string nomeCasino = ObterConteudo(dadosCasino);
     dadosCasino.close();
     Casino C(nomeCasino);
-
     C.Load("CasinoData.xml");
 
-    //cout << ObterConteudo("<TEMP_AVISO>70</TEMP_AVISO>")<<endl;
+    Relogio *R = new Relogio(1000,C.getHoraAbertura());
+    time_t horaAtual = R->VerTimeRelogio();
+
+    while(difftime(horaAtual,C.getHoraFecho()) < 0){
+        /*if (kbhit){
+            ch = getch();
+            if(ch == 'M'|| ch == 'm'){
+                menu();
+            }
+        }*/
+        int userEscolhido = AleatorioINT(0,LU.size()-1),prob = AleatorioINT(0,100);
+        if(prob<=5){
+            list<User *>::iterator userIt = LU.begin();
+            for (int i = 0; i < userEscolhido; i++)
+            {
+                userIt++;
+            }
+            C.Add(*userIt);
+        }
+        horaAtual = R->VerTimeRelogio();
+        //R->Wait(2);
+    }
 
 
     //////////////    TESTES DE ALTERAR ESTADO DE UMA MÁQUINA    //////////////

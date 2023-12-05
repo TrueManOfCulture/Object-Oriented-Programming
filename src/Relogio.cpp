@@ -1,29 +1,43 @@
 #include "../include/Relogio.h"
 
-void StartRelogio(RELOGIO *R, int Vel, time_t inicio){
-    R->START = time(0);
-    R->VELOCIDADE = Vel;
+Relogio::Relogio(int Vel, time_t inicio){
+    START = time(0);
+    VELOCIDADE = Vel;
+    tempoParado = 0;
+    parado = false;
 
     struct tm *tmp = localtime(&inicio);
-    //sscanf(S->horaAbertura, "%d:%d", &tmp->tm_hour, &tmp->tm_min);
-    R->Hora_Inicio = mktime(tmp);
-    //printf("Hora de Arranque = [%s]\n", asctime(localtime(&(R->Hora_Inicio))));
+    Hora_Inicio = mktime(tmp);
 }
 
-time_t VerTimeRelogio(RELOGIO *R){
-    time_t Dif = difftime(time(0), R->START);
-    time_t Simulada = R->Hora_Inicio + Dif * R->VELOCIDADE;
+void Relogio::start(){
+    tempoParado=0;
+}
+
+void Relogio::stop(){
+    parado = true;
+}
+
+time_t Relogio::VerTimeRelogio(){
+    time_t Dif = difftime(time(0), START);
+    time_t Simulada = Hora_Inicio + Dif *VELOCIDADE;
+    if(parado)
+        return Hora_Inicio;
     return Simulada;
 }
 
-void WaitSegundos(int s){
+void Relogio::WaitSegundos(int s){
     clock_t T0 = clock();
     clock_t T1 = T0 + s;
     while (clock() < T1);
 }
 
-void Wait(int s){
+void Relogio::Wait(int s){
     WaitSegundos(s*CLOCKS_PER_SEC);
+}
+
+Relogio::~Relogio(){
+    
 }
 
 //Verificar tecla pressionada
