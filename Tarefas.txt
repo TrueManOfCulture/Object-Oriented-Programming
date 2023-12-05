@@ -6,7 +6,7 @@ list<Maquina *> *Casino::Ranking_Das_Mais_Trabalhadores() - Diogo
 
 list<User *> *Casino::Jogadores_Mais_Frequentes()
 
-list<User *> *Casino::Jogadores_Mais_Ganhos() - Chico
+list<User *> *Casino::Jogadores_Mais_Ganhos()
 
 void Casino::Relatorio(string fich_xml)
 
