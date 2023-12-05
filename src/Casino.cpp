@@ -58,7 +58,7 @@ bool Casino::Load(const string &ficheiro)
     saltarNLinhas(infoCasino,3);
 
     //Obter definicoes de casino
-    inicializarDefCasino(infoCasino,maxJog,HORA_ABERTURA,HORA_FECHO);
+    inicializarDefCasino(infoCasino,maxUser,HORA_ABERTURA,HORA_FECHO);
     saltarNLinhas(infoCasino, 2);
     string tag = ObterTag(infoCasino);
     int a=0;
@@ -81,12 +81,7 @@ bool Casino::Load(const string &ficheiro)
     return true;
 }
 
-bool Casino::Add(User *U)
-{
-    LU.push_back(U);
 
-    return true;
-}
 
 string criarKey(Maquina *M) // junta as coordenasdas da maquina numa key x,y
 {
@@ -115,6 +110,7 @@ bool Casino::Add(Maquina *M)
 }
 
 
+
 list<Maquina *> *Casino::Listar_Tipo(string Tipo, ostream &saida)
 {
     list<Maquina *> *LM_Tipo = new list<Maquina *>;
@@ -134,6 +130,8 @@ list<Maquina *> *Casino::Listar_Tipo(string Tipo, ostream &saida)
     return LM_Tipo;
 }
 
+
+
 string Casino::Get_Estado(int ID)
 {
     for(map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it)
@@ -142,6 +140,69 @@ string Casino::Get_Estado(int ID)
 
     cout << endl << endl << "ERRO! NENHUMA MÁQUINA ENCONTRADA COM O ID " << ID << "!" << endl;
     return EnumToString(ERRO);
+}
+
+int Casino::Qnt_Jog(){
+
+    int num_jog = 0;
+
+    for(map<string, Maquina*>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it){      
+        if(it->second->Get_ESTADO() == ON){                                             
+
+            num_jog += 1;
+
+    }
+    return num_jog;
+    }
+}
+
+
+bool Casino::Add(User *U)
+{
+
+int qnt_j = Qnt_Jog();
+
+    for(map<string, Maquina*>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it){      //percorrer as maquinas 
+        if(it->second->Get_ESTADO() != OFF){                                                   //ver se as maquinas estao ON ou AVARIDAS (Ocupadas)
+
+                if (HashUser.size() < (maxUser - qnt_j)) {                                     //caso a fila não esteja cheia
+
+                    list<User *>::iterator it = LU.begin();
+                        advance(it, AleatorioINT(1, 10000));
+
+                    string key = (*it)->Get_ID();
+
+                        if(HashUser.find(key)== HashUser.end()){                               //caso a fila não esteja cheia
+                            HashUser[key] = U;
+                        } else {
+
+                        cout<<"Erro! Esse User já esta no casino, ID: "<< key <<"!" << endl << endl;
+                            return false;
+
+                        }
+                }
+
+                if (HashUser.size() == (maxUser - qnt_j)) {                                    //caso a fila esteja cheia
+
+                        cout<<"Erro! O casino está cheio!"<< endl << endl;
+                            return false;
+                }
+
+            }
+        
+        if(it->second->Get_ESTADO() == OFF){                                                   //ver se há alguma maquina OFF (Livre)
+            
+            
+                    list<User *>::iterator it = LU.begin();
+                        advance(it, AleatorioINT(1, 10000));  
+
+                    string key = (*it)->Get_ID();
+                    
+                    
+        }                                      
+
+
+    } 
 }
 
 int Casino::MemoriaCasino()

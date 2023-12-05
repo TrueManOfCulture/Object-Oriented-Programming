@@ -50,5 +50,4 @@ class Maquina
 
         void Dec_STATIC_ID(){ ID--; }
 };
-
 #endif // MAQUINA_H
