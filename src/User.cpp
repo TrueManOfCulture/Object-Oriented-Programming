@@ -15,5 +15,8 @@ User::~User()
 
 void User::Show()
 {
-    cout << "ID: " << ID << endl << "NOME: " << NOME << endl << "CIDADE: " << CIDADE << endl << "IDADE: " << IDADE << endl << endl;
+    cout << "ID: " << ID << endl;
+    cout << "NOME: " << NOME << endl;
+    cout << "CIDADE: " << CIDADE << endl;
+    cout << "IDADE: " << IDADE << endl << endl;
 }
