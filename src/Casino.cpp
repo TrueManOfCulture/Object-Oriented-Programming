@@ -165,7 +165,7 @@ int qnt_j = Qnt_Jog();
     for(map<string, Maquina*>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it){      //percorrer as maquinas 
         if(it->second->Get_ESTADO() != OFF){                                                   //ver se as maquinas estao ON ou AVARIDAS (Ocupadas)
 
-                if (HashUser.size() < (maxUser - qnt_j)) {                                     //caso a fila não esteja cheia
+                if (HashUser.size() < (maxUser)) {                                     //caso a fila não esteja cheia
 
                     list<User *>::iterator it = LU.begin();
                         advance(it, AleatorioINT(1, 10000));
