@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <list>
+#include "Uteis.h"
 
 using namespace std;
 
@@ -38,12 +39,13 @@ class Maquina
         void Set_ESTADO(ESTADO_MAQUINA _est){ ESTADO = _est; }      // ALTERA O ESTADO DA MÁQUINA
         void Set_PROB_GANHAR(float _prob){ PROB_GANHAR += _prob; }  // ALTERA A PROBABILIDADE DE GANHAR DA MÁQUINA
         string Get_TIPO(){ return TIPO; }                   // RETORNA O TIPO DA MÁQUINA
-        
-        virtual void Jogar(){}
+        float Get_PROB_AVARIA(){ return PROB_AVARIA; }      //RETORNA A PROBABILIDADE DE AVARIA
+        void Inc_QNT_AVARIA(){ QNT_AVARIA++; }              //INCREMENTA A QUANTIDADE DE AVARIA
+        int Get_QNT_AVARIA(){ return QNT_AVARIA; }          //RETORNA A QUANTIDADE DE AVARIAS
+        void Set_User(User *Us){U = Us;}
+        User *Get_User(){return U;}
 
-        float Get_PROB_AVARIA(){ return PROB_AVARIA; }
-        void Inc_QNT_AVARIA(){ QNT_AVARIA++; }
-        int Get_QNT_AVARIA(){ return QNT_AVARIA; }
+        virtual void Jogar();                               //FUNÇÃO PARA JOGAR NA MÁQUINA ESCOLHIDA
 
         void Show(ostream &saida = cout);                   // MOSTRA OS DADOS DA MÁQUINA
         virtual int Memoria(){ return sizeof(*this); }              // CALCULA A MEMÓRIA OCUPADA´
