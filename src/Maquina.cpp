@@ -33,3 +33,9 @@ void Maquina::Show(ostream &saida)
      saida << "TIPO: "<< TIPO << endl;
      saida << "QNT_AVARIAS: " << QNT_AVARIA << endl << endl;
 }
+
+void Maquina::Jogar(){
+    int tempoJogo; //Tempo de jogo em minutos
+    tempoJogo = AleatorioINT(5,50);
+    U->Set_TempoJogo(U->Get_TempoJogo()+tempoJogo);
+}

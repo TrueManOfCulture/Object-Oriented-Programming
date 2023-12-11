@@ -10,6 +10,9 @@ list<User *> *Casino::Jogadores_Mais_Ganhos()
 
 void Casino::Relatorio(string fich_xml)
 
-void Casino::Run(bool Debug = true)
+void Casino::Run(bool Debug = true) - Diogo
 
-Quando uma máquina estiver a ser utilizada por muito tempo, deve dar um aviso de estar a aquecer e ficar em repouso para o cooldown
+void Maquina::Jogar() - Diogo
+
+Menus e Switch case
+

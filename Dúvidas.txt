@@ -21,3 +21,5 @@ Ao acrescentar uma nova máquina, mudamos a posição ou não acrescentamos a m�
 
 O que será devolvido na função Ranking dos fracos?
     RESPOSTA: Devolver list<Maquina *>
+
+Espaço Ocupado com ponteiros e this

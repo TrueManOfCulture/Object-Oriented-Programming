@@ -1,21 +1,8 @@
-#include <iostream>
 #include <locale>
-#include <string>
-#include <list>
-#include <fstream>
-#include <map>
 
 using namespace std;
 
-#include "./include/Maquina.h"
-#include "./include/ClassicSlots.h"
-#include "./include/BlackJack.h"
 #include "./include/Casino.h"
-#include "./include/Roleta.h"
-#include "./include/Uteis.h"
-#include "./include/User.h"
-#include "./include/XML.h"
-#include "./include/Relogio.h"
 
 int main()
 {
@@ -33,28 +20,7 @@ int main()
     Casino C(nomeCasino);
     C.Load("CasinoData.xml");
 
-    Relogio *R = new Relogio(1000,C.getHoraAbertura());
-    time_t horaAtual = R->VerTimeRelogio();
-
-    while(difftime(horaAtual,C.getHoraFecho()) < 0){
-        /*if (kbhit){
-            ch = getch();
-            if(ch == 'M'|| ch == 'm'){
-                menu();
-            }
-        }*/
-        int userEscolhido = AleatorioINT(0,LU.size()-1),prob = AleatorioINT(0,100);
-        if(prob<=5){
-            list<User *>::iterator userIt = LU.begin();
-            for (int i = 0; i < userEscolhido; i++)
-            {
-                userIt++;
-            }
-            C.Add(*userIt);
-        }
-        horaAtual = R->VerTimeRelogio();
-        //R->Wait(2);
-    }
+    
 
 
     //////////////    TESTES DE ALTERAR ESTADO DE UMA MÁQUINA    //////////////

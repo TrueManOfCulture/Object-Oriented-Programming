@@ -9,19 +9,18 @@
 
 using namespace std;
 
-#include "User.h"
 #include "Maquina.h"
 #include "BlackJack.h"
 #include "ClassicSlots.h"
 #include "Roleta.h"
-#include "Uteis.h"
 #include "XML.h"
+#include "Relogio.h"
 
 class Casino
 {
     list <User *> LU;
     list <User *> LU_Espera;
-    list <Maquina *> LM;
+    list <Maquina *> LM; 
     int maxUser;
     map<string, Maquina *>HashMaq;
     map<string, User*>HashUser;
@@ -55,15 +54,15 @@ class Casino
 
         time_t getHoraAbertura(){ return HORA_ABERTURA;};
         time_t getHoraFecho(){return HORA_FECHO;};
+        void Run(bool Debug = true);
+        void Listar(ostream &f=cout);
         /*
         list<Maquina *> * Ranking_Das_Mais_Trabalhadores();
         list<User *> *Jogadores_Mais_Frequentes();
         list<User *> *Jogadores_Mais_Ganhos();
         void Relatorio(string fich_xml);
         
-        void Run(bool Debug = true);
         */
-
         map<string, Maquina *> Ass_HashMaq(){ return HashMaq; }
 };
 
