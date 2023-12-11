@@ -137,7 +137,7 @@ int main()
     */
 
    //////////////    TESTES DE JOGADORES MAIS GANHOS    //////////////
-   
+   /*
    cout << "//////////////////////////////////////////" << endl << endl;
 
    list<User *>::iterator userIt = LU.begin();
@@ -180,4 +180,5 @@ int main()
     }
 
     delete Test;
+    */
 }
