@@ -20,5 +20,6 @@ void User::Show()
     cout << "ID: " << ID << endl;
     cout << "NOME: " << NOME << endl;
     cout << "CIDADE: " << CIDADE << endl;
-    cout << "IDADE: " << IDADE << endl << endl;
+    cout << "IDADE: " << IDADE << endl;
+    cout << "PREMIO GANHO: " << premioGanho << endl << endl;
 }

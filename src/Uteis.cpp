@@ -141,5 +141,5 @@ float CalcularDistancia(Maquina *M1, Maquina *M2)
     float calc1 = abs((M2->Get_POSX() - M1->Get_POSX())*(M2->Get_POSX() - M1->Get_POSX()));
     float calc2 = abs((M2->Get_POSY() - M1->Get_POSY())*(M2->Get_POSY() - M1->Get_POSY()));
     
-    return sqrt(calc1+calc2);
+    return sqrt(calc1+calc2);   
 }

@@ -16,3 +16,4 @@ void Maquina::Jogar() - Diogo
 
 Menus e Switch case
 
+Ao adicionar maquina a meio da simulação aumentar tamanho de maxUser
