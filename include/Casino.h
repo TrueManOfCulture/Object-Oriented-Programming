@@ -14,6 +14,7 @@ using namespace std;
 #include "BlackJack.h"
 #include "ClassicSlots.h"
 #include "Roleta.h"
+#include "Craps.h"
 #include "XML.h"
 #include "Relogio.h"
 #include "Uteis.h"

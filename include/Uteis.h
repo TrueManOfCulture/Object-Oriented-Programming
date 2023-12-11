@@ -22,6 +22,7 @@ extern LinhaTexto LT;
 #include "User.h"
 #include "BlackJack.h"
 #include "ClassicSlots.h"
+#include "Craps.h"
 #include "Roleta.h"
 
 using namespace std;

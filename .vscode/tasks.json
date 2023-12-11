@@ -28,6 +28,8 @@
                 "${fileDirname}/src/XML.cpp",
                 "${fileDirname}/include/Relogio.h",
                 "${fileDirname}/src/Relogio.cpp",
+                "${fileDirname}/include/Craps.h",
+                "${fileDirname}/src/Craps.cpp",
             ],
             "options": {
                 "cwd": "${fileDirname}"

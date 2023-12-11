@@ -33,14 +33,16 @@ void inicializarDefCasino(ifstream &infoCasino, int &maxJog, time_t &HORA_ABERTU
 Maquina *MaquinaTipo(float pGanhar, float pAvariar, int premio, int x, int y, int tempoAviso, string nome)
 {
     Maquina *M;
+    
     if (nome == "BlackJack")
         M = new BlackJack(pGanhar, pAvariar, premio, x, y, tempoAviso, nome);
     if (nome == "ClassicSlots")
         M = new ClassicSlots(pGanhar, pAvariar, premio, x, y, tempoAviso, nome);
     if (nome == "Roleta")
         M = new Roleta(pGanhar, pAvariar, premio, x, y, tempoAviso, nome);
-    // if(nome == "PorDeterminar")
-    // M = new Maquina(pGanhar,pAvariar, premio,x,y,tempoAviso,nome);
+    if(nome == "Craps")
+        M = new Craps(pGanhar,pAvariar, premio,x,y,tempoAviso,nome);
+
     return M;
 }
 

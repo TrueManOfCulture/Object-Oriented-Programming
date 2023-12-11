@@ -24,5 +24,6 @@
 #include "User.h"
 #include "Uteis.h"
 #include "XML.h"
+#include "Craps.h"
 
 #endif // LIB_H_INCLUDED

@@ -12,6 +12,7 @@ using namespace std;
 #include "./include/User.h"
 #include "./include/Uteis.h"
 #include "./include/XML.h"
+#include "./include/Craps.h"
 
 int main()
 {
