@@ -20,7 +20,7 @@ class BlackJack : public Maquina
         virtual ~BlackJack();
 
         void Jogar();                               // Função de Jogar
-        //string Get_TIPO(){ return TIPO; }    // Retornar o TIPO da máquina
+        //string Get_TIPO(){ return TIPO; }         // Retornar o TIPO da máquina
         int Memoria(){ return sizeof(*this); }      // Retornar o espaço em memória que a máquina ocupa
 };
 

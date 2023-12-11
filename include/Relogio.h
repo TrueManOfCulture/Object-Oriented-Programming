@@ -17,13 +17,12 @@ class Relogio{
 
     public:
         Relogio(int Vel, time_t inicio);
+        virtual ~Relogio();
         time_t VerTimeRelogio();
         void stop();
         void start();
         void WaitSegundos(int s);
         void Wait(int s);
 };
-
-
 
 #endif // RELOGIO_H_INCLUDED

@@ -9,12 +9,14 @@
 
 using namespace std;
 
+#include "User.h"
 #include "Maquina.h"
 #include "BlackJack.h"
 #include "ClassicSlots.h"
 #include "Roleta.h"
 #include "XML.h"
 #include "Relogio.h"
+#include "Uteis.h"
 
 class Casino
 {
@@ -22,7 +24,7 @@ class Casino
     list <User *> LU_Espera;
     list <Maquina *> LM; 
     int maxUser;
-    map<string, Maquina *>HashMaq;
+    map<string, Maquina *> HashMaq;
     map<string, User*>HashUser;
 
     string NOME;
@@ -36,7 +38,7 @@ class Casino
 
         bool Add(Maquina *M);                                                   // ADICIONAR MÁQUINAS À LISTA
         bool Add(User *U);                                                      // ADICIONAR USUÁRIOS À LISTA
-        string Get_Estado(int ID);                                             // RETORNAR O ESTADO DE UMA MÁQUINA DADO UM ID
+        string Get_Estado(int ID);                                              // RETORNAR O ESTADO DE UMA MÁQUINA DADO UM ID
         int Qnt_Jog(); 
 
         list<Maquina *> *Listar_Tipo(string Tipo, ostream &saida = cout);       // LISTAR TODOS OS TIPOS DE MÁQUINA DADO UM TIPO

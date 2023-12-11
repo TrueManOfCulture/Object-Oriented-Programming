@@ -13,7 +13,7 @@ ClassicSlots::~ClassicSlots()
 
 void ClassicSlots::Jogar()
 {
-    vector<string> L_Resultado = {"Banana", "Barra de Ouro", "Sino", "7"};
+    /*vector<string> L_Resultado = {"Banana", "Barra de Ouro", "Sino", "7"};
     string slot1, slot2, slot3;
 
     int Resultado = AleatorioINT(1, 100);
@@ -61,5 +61,5 @@ void ClassicSlots::Jogar()
         cout << slot3;
 
         cout << endl << "Perdeu" << endl;
-    }
+    }*/
 }

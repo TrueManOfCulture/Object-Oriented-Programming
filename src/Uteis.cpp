@@ -98,7 +98,6 @@ bool saltarNLinhas(ifstream &f, int nlinhas)
         if(f.eof())
             return false;
     }
-    
     return true;
 }
 

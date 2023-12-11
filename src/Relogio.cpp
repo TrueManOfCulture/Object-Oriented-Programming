@@ -11,6 +11,11 @@ Relogio::Relogio(int Vel, time_t inicio){
     Hora_Inicio = mktime(tmp);
 }
 
+Relogio::~Relogio()
+{
+    // dtor
+}
+
 void Relogio::start(){
     parado = false;
     time_t Dif = difftime(time(0), tempoParadoReal);
@@ -39,10 +44,6 @@ void Relogio::WaitSegundos(int s){
 
 void Relogio::Wait(int s){
     WaitSegundos(s*CLOCKS_PER_SEC);
-}
-
-Relogio::~Relogio(){
-    
 }
 
 //Verificar tecla pressionada

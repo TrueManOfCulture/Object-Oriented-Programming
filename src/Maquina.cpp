@@ -1,5 +1,7 @@
 #include "../include/Maquina.h"
 
+#include "../include/Uteis.h"
+
 int Maquina::ID = 0;
 
 Maquina::Maquina(float _prob_ganhar, float _prob_avaria,  int _premio, int _posX, int _posY, int _temp, string _tipo, User *U, ESTADO_MAQUINA _est)
@@ -30,8 +32,8 @@ void Maquina::Show(ostream &saida)
     saida << "posX: " << posX << endl;
     saida << "posY: " << posY << endl;
     saida << "TEMP: " << TEMPERATURA << endl;
-     saida << "TIPO: "<< TIPO << endl;
-     saida << "QNT_AVARIAS: " << QNT_AVARIA << endl << endl;
+    saida << "TIPO: "<< TIPO << endl;
+    saida << "QNT_AVARIAS: " << QNT_AVARIA << endl << endl;
 }
 
 void Maquina::Jogar(){

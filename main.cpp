@@ -3,6 +3,15 @@
 using namespace std;
 
 #include "./include/Casino.h"
+#include "./include/User.h"
+#include "./include/BlackJack.h"
+#include "./include/ClassicSlots.h"
+#include "./include/Maquina.h"
+#include "./include/Relogio.h"
+#include "./include/Roleta.h"
+#include "./include/User.h"
+#include "./include/Uteis.h"
+#include "./include/XML.h"
 
 int main()
 {
@@ -19,8 +28,6 @@ int main()
     dadosCasino.close();
     Casino C(nomeCasino);
     C.Load("CasinoData.xml");
-
-    
 
 
     //////////////    TESTES DE ALTERAR ESTADO DE UMA MÁQUINA    //////////////
@@ -94,7 +101,7 @@ int main()
     */
 
     //////////////    TESTES DE RANKING DOS FRACOS    //////////////
-     
+    /*
     cout << "//////////////////////////////////////////" << endl << endl;
 
     map<string, Maquina *> HashMaq;
@@ -124,7 +131,7 @@ int main()
     }
 
     delete Test;
-    
+    */
 
    //////////////    TESTES DE RANKING DOS FRACOS    //////////////
    
