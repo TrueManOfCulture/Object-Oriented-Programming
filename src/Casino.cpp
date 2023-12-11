@@ -236,7 +236,7 @@ bool Casino::Add(User *U)
         if (it->second->Get_ESTADO() != OFF)
         { // ver se as maquinas estao ON ou AVARIDAS (Ocupadas)
 
-            if (HashUser.size() < (maxUser - HashMaq.size())) 
+            if (HashUser.size() < maxUser)
             { // caso a fila não esteja cheia
                 string key = U->Get_ID();
 
@@ -261,6 +261,9 @@ bool Casino::Add(User *U)
         { // Por a jogar
             it->second->Set_ESTADO(ON);
             it->second->Set_User(U);
+
+            string key = U->Get_ID();
+            HashUser[key] = U;
             return true;
         }
     }

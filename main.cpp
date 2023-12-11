@@ -141,19 +141,18 @@ int main()
    cout << "//////////////////////////////////////////" << endl << endl;
 
    list<User *>::iterator userIt = LU.begin();
-   advance(userIt, AleatorioINT(0, LU.size()-0));
    C.Add(*userIt);
 
    userIt = LU.begin();
-   advance(userIt, AleatorioINT(0, LU.size()-0));
+   advance(userIt, 1);
    C.Add(*userIt);
    
    userIt = LU.begin();
-   advance(userIt, AleatorioINT(0, LU.size()-0));
+   advance(userIt, 2);
    C.Add(*userIt);
 
    userIt = LU.begin();
-   advance(userIt, AleatorioINT(0, LU.size()-0));
+   advance(userIt, 3);
    C.Add(*userIt);
 
     map<string, User *> HashUser;
