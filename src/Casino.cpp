@@ -159,13 +159,11 @@ int Casino::Qnt_Jog(){
 
 bool Casino::Add(User *U)
 {
-
-int qnt_j = Qnt_Jog();
-
+    int tempoJogo; //Tempo de jogo em minutos
     for(map<string, Maquina*>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it){      //percorrer as maquinas 
-        if(it->second->Get_ESTADO() != OFF){                                                   //ver se as maquinas estao ON ou AVARIDAS (Ocupadas)
+        if(it->second->Get_ESTADO() != OFF){      //ver se as maquinas estao ON ou AVARIDAS (Ocupadas)
 
-                if (HashUser.size() < (maxUser - qnt_j)) {                                     //caso a fila não esteja cheia
+                if (HashUser.size() < (maxUser - HashMaq.size())) {   //caso a fila não esteja cheia
 
                     list<User *>::iterator it = LU.begin();
                         advance(it, AleatorioINT(1, 10000));
@@ -175,31 +173,22 @@ int qnt_j = Qnt_Jog();
                         if(HashUser.find(key)== HashUser.end()){                               //caso a fila não esteja cheia
                             HashUser[key] = U;
                         } else {
-
-                        cout<<"Erro! Esse User já esta no casino, ID: "<< key <<"!" << endl << endl;
+                            cout<<"Erro! Esse User já esta no casino, ID: "<< key <<"!" << endl << endl;
                             return false;
-
                         }
                 }
 
-                if (HashUser.size() == (maxUser - qnt_j)) {                                    //caso a fila esteja cheia
-
+                else{                                    //caso a fila esteja cheia
                         cout<<"Erro! O casino está cheio!"<< endl << endl;
                             return false;
                 }
 
             }
-        
-        if(it->second->Get_ESTADO() == OFF){                                                   //ver se há alguma maquina OFF (Livre)
-            
-            
-                    list<User *>::iterator it = LU.begin();
-                        advance(it, AleatorioINT(1, 10000));  
-
-                    string key = (*it)->Get_ID();
-                    
-                    
-        }                                      
+        else{ //Por a jogar
+            it->second->Set_ESTADO(ON);
+            tempoJogo = AleatorioINT(5,50);
+            U->Set_TempoJogo(U->Get_TempoJogo()+tempoJogo);
+        }                                    
 
 
     } 

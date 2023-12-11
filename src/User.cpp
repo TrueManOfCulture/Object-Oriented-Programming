@@ -6,6 +6,8 @@ User::User(string _id, string _nome, string _cidade, int _idade)
     NOME = _nome;
     CIDADE = _cidade;
     IDADE = _idade;
+    tempoDeJogo = 0;
+    premioGanho = 0;
 }
 
 User::~User()
