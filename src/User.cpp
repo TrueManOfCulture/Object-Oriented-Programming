@@ -15,7 +15,7 @@ User::~User()
     //dtor
 }
 
-void User::Show()
+void User::Show(ostream &saida )
 {
     cout << "ID: " << ID << endl;
     cout << "NOME: " << NOME << endl;

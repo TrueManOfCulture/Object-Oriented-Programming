@@ -117,7 +117,19 @@ bool Casino::Add(Maquina *M)
 
 void Casino::Listar(ostream &f)
 {
-    f << endl << "OLA" << endl;
+    cout<<"Maquinas No Casino"<<endl<<endl;
+
+    for (map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it)
+    {
+     it->second->Show(f);
+    }
+
+    cout<<"Users No Casino"<<endl<<endl;
+
+    for (map<string, User *>::iterator it = HashUser.begin(); it != HashUser.end(); ++it)
+    {
+      it->second->Show(f);  
+    }
 }
 
 void Casino::Run(bool debug)
@@ -224,9 +236,8 @@ bool Casino::Add(User *U)
         if (it->second->Get_ESTADO() != OFF)
         { // ver se as maquinas estao ON ou AVARIDAS (Ocupadas)
 
-            if (HashUser.size() < (maxUser - HashMaq.size()))
+            if (HashUser.size() < (maxUser - HashMaq.size())) 
             { // caso a fila não esteja cheia
-
                 string key = U->Get_ID();
 
                 if (HashUser.find(key) == HashUser.end())
