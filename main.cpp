@@ -136,6 +136,49 @@ int main()
     delete Test;
     */
 
-   //////////////    TESTES DE RANKING DOS FRACOS    //////////////
+   //////////////    TESTES DE JOGADORES MAIS GANHOS    //////////////
    
+   cout << "//////////////////////////////////////////" << endl << endl;
+
+   list<User *>::iterator userIt = LU.begin();
+   advance(userIt, AleatorioINT(0, LU.size()-0));
+   C.Add(*userIt);
+
+   userIt = LU.begin();
+   advance(userIt, AleatorioINT(0, LU.size()-0));
+   C.Add(*userIt);
+   
+   userIt = LU.begin();
+   advance(userIt, AleatorioINT(0, LU.size()-0));
+   C.Add(*userIt);
+
+   userIt = LU.begin();
+   advance(userIt, AleatorioINT(0, LU.size()-0));
+   C.Add(*userIt);
+
+    map<string, User *> HashUser;
+    HashUser = C.Ass_HashUser();
+
+   for(map<string, User *>::iterator it = HashUser.begin(); it != HashUser.end(); ++it){
+        int aoga = AleatorioINT(1, 100);
+        it->second->Set_premioGanho(aoga);
+    }
+
+    for(map<string, User *>::iterator it = HashUser.begin(); it != HashUser.end(); ++it){
+        it->second->Show();
+    }
+
+    cout << "//////////////////////////////////////////" << endl;
+    cout << "//////////////////////////////////////////" << endl;
+    cout << "//////////////////////////////////////////" << endl;
+    cout << "//////////////////////////////////////////" << endl << endl;
+
+    list<User *> *Test;
+    Test = C.Jogadores_Mais_Ganhos();
+
+    for(list<User *>::iterator it = Test->begin(); it != Test->end(); ++it){
+        (*it)->Show();
+    }
+
+    delete Test;
 }

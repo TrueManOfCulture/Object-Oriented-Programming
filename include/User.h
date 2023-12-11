@@ -14,7 +14,7 @@ class User
     string CIDADE;
     int IDADE;
     int tempoDeJogo;
-    int premioGanho;
+    int premioGanho=0;
 
     public:
         User(string _id, string _nome, string _cidade, int _idade);

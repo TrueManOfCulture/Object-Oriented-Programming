@@ -227,10 +227,7 @@ bool Casino::Add(User *U)
             if (HashUser.size() < (maxUser - HashMaq.size()))
             { // caso a fila não esteja cheia
 
-                list<User *>::iterator it = LU.begin();
-                advance(it, AleatorioINT(1, 10000));
-
-                string key = (*it)->Get_ID();
+                string key = U->Get_ID();
 
                 if (HashUser.find(key) == HashUser.end())
                 { // caso a fila não esteja cheia
@@ -348,6 +345,40 @@ list<Maquina *> *Casino::Ranking_Dos_Fracos()
         {
             list<Maquina *>::iterator it_Res = Res->begin();
             while (it_Res != Res->end() && (*it_Res)->Get_QNT_AVARIA() >= it->second->Get_QNT_AVARIA())
+            {
+                ++it_Res;
+            }
+
+            if (it_Res == Res->end())
+            {
+                Res->push_back(it->second);
+            }
+            else
+            {
+                Res->insert(it_Res, it->second);
+            }
+        }
+    }
+
+    return Res;
+}
+
+list<User *> *Casino::Jogadores_Mais_Ganhos()
+{
+    int aux = -1;
+    list<User *> *Res = new list<User *>;
+
+    for(map<string, User *>::iterator it = HashUser.begin(); it != HashUser.end(); ++it)
+    {
+        if (it->second->Get_premioGanho() >= aux)
+        {
+            Res->push_front(it->second);
+            aux = it->second->Get_premioGanho();
+        }
+        else
+        {
+            list<User *>::iterator it_Res = Res->begin();
+            while (it_Res != Res->end() && (*it_Res)->Get_premioGanho() >= it->second->Get_premioGanho())
             {
                 ++it_Res;
             }

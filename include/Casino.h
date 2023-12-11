@@ -26,7 +26,7 @@ class Casino
     list <Maquina *> LM; 
     int maxUser;
     map<string, Maquina *> HashMaq;
-    map<string, User*>HashUser;
+    map<string, User *> HashUser;
 
     string NOME;
     time_t HORA_ABERTURA, HORA_FECHO;
@@ -59,14 +59,17 @@ class Casino
         time_t getHoraFecho(){return HORA_FECHO;};
         void Run(bool Debug = true);
         void Listar(ostream &f=cout);
+        list<User *> *Jogadores_Mais_Ganhos();
         /*
         list<Maquina *> * Ranking_Das_Mais_Trabalhadores();
         list<User *> *Jogadores_Mais_Frequentes();
-        list<User *> *Jogadores_Mais_Ganhos();
         void Relatorio(string fich_xml);
         
         */
+
+       // FUNÇÕES PARA TESTES  [ TEMPORÁRIAS ]
         map<string, Maquina *> Ass_HashMaq(){ return HashMaq; }
+        map<string, User *> Ass_HashUser(){ return HashUser; }
 };
 
 #endif // CASINO_H
