@@ -79,11 +79,12 @@ bool Casino::Load(const string &ficheiro)
 
         //(float _prob_ganhar, float _prob_avaria,  int _premio, int _posX, int _posY, int _temp)
         Maquina *M = MaquinaTipo(pGanhar, pAvariar, premio, x, y, tempoAviso, nome);
-        M->Show();
+        //M->Show();    PASSEI ESTE PARA O ADD
         Add(M);
         saltarNLinhas(infoCasino, 1);
         tag = ObterTag(infoCasino);
     }
+
     return true;
 }
 
@@ -104,6 +105,7 @@ bool Casino::Add(Maquina *M)
     if (HashMaq.find(key) == HashMaq.end())
     {
         HashMaq[key] = M;
+        M->Show();
     }
     else
     {
@@ -112,6 +114,7 @@ bool Casino::Add(Maquina *M)
         cout << "Erro! Já existe uma máquina na posição: " << key << "!" << endl << endl;
         return false;
     }
+
     return true;
 }
 
@@ -150,7 +153,7 @@ void Casino::Run(bool debug)
         Listar();
         userEscolhido = AleatorioINT(0, LU.size() - 1);
         prob = AleatorioINT(1, 100);
-        maquinaQueAvaria = AleatorioINT(0, HashMaq.size() - 1);
+        maquinaQueAvaria = AleatorioINT(0, HashMaq.size() - 1); // N SE ESCOLHE UMA MÁQUINA ESPECIFICA PARA AVARIAR, TODAS AS MÁQUINAS SERÃO PERCORRIDAS E CADA MÁQUINA TEM A SUA PROBABILIDADE DE AVARIAR
         //Colocar Usuários no Casino
         if (prob <= 5)
         {
@@ -169,17 +172,16 @@ void Casino::Run(bool debug)
             MaquinaIt->second->Set_ESTADO(AVARIADA);
         }
         //Jogar
-        for (map<string, Maquina *>::iterator i = HashMaq.begin(); i != HashMaq.end(); ++i)
+        for (map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it)
         {
-            Maquina *M = i->second;
-            if (M->Get_ESTADO() == ON)
+            if(it->second->Get_ESTADO() == ON)
             {
-                M->Jogar();
+                it->second->Jogar();
             }
-            if(M->Get_ESTADO() == OFF && !LU_Espera.empty()){
-                M->Set_User(LU_Espera.front());
+            if(it->second->Get_ESTADO() == OFF && !LU_Espera.empty()){
+                it->second->Set_User(LU_Espera.front());
                 LU_Espera.pop_front();
-                M->Set_ESTADO(ON);
+                it->second->Set_ESTADO(ON);
             }
         }
 
@@ -276,8 +278,6 @@ int Casino::MemoriaCasino()
     int TOTAL;
     int MEM_MAQ = 0, MEM_U = 0;
 
-    cout << HashMaq.size();
-
     for (map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it)
     {
         MEM_MAQ += it->second->Memoria();
@@ -288,6 +288,9 @@ int Casino::MemoriaCasino()
 
     for (list<User *>::iterator it = LU_Espera.begin(); it != LU_Espera.end(); ++it)
         MEM_U += (*it)->Memoria();
+    
+    for(map<string, User *>::iterator it = HashUser.begin(); it != HashUser.end(); ++it)
+        MEM_U = it->second->Memoria();
 
     TOTAL = sizeof(*this) + MEM_MAQ + MEM_U;
 
@@ -331,15 +334,6 @@ void Casino::SubirProbabilidadeVizinhas(Maquina *M_ganhou, float raio, list<Maqu
                 it->second->Set_PROB_GANHAR(5);
             }
         }
-    }
-}
-
-void Prob_Avaria(Maquina *M)
-{
-    if (M->Get_PROB_AVARIA() >= AleatorioINT(1, 100))
-    {
-        M->Set_ESTADO(AVARIADA);
-        M->Inc_QNT_AVARIA();
     }
 }
 

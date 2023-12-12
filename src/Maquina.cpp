@@ -41,3 +41,14 @@ void Maquina::Jogar(){
     tempoJogo = AleatorioINT(5,50);
     U->Set_TempoJogo(U->Get_TempoJogo()+tempoJogo);
 }
+
+void Maquina::Set_ESTADO(ESTADO_MAQUINA _est)
+{
+    if(_est == AVARIADA){
+        ESTADO = _est;
+        Inc_QNT_AVARIA();
+    }
+    else{
+        ESTADO = _est;
+    }
+}

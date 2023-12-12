@@ -51,8 +51,6 @@ class Casino
         bool Load(const string &ficheiro);                                      // CARREGAR O FICHEIRO XML
 
         void SubirProbabilidadeVizinhas(Maquina *M_ganhou, float raio, list<Maquina *> &LM_Vizinhas);
-
-        void Prob_Avaria(Maquina *M);
         list<Maquina *> *Ranking_Dos_Fracos();
 
         time_t getHoraAbertura(){ return HORA_ABERTURA;};
@@ -60,6 +58,7 @@ class Casino
         void Run(bool Debug = true);
         void Listar(ostream &f=cout);
         list<User *> *Jogadores_Mais_Ganhos();
+        
         /*
         list<Maquina *> * Ranking_Das_Mais_Trabalhadores();
         list<User *> *Jogadores_Mais_Frequentes();
