@@ -185,7 +185,7 @@ int main()
     */
 
    //////////////    TESTES DE LISTAR    //////////////
-
+   /*
    list<User *>::iterator userIt = LU.begin();
    C.Add(*userIt);
 
@@ -202,4 +202,30 @@ int main()
    C.Add(*userIt);
 
    C.Listar();
+   */
+
+    //////////////    TESTES DE JOGAR MAQUINA    //////////////
+    /*
+    cout << "//////////////////////////////////////////" << endl << endl;
+
+    list<User *>::iterator userIt = LU.begin();
+    C.Add(*userIt);
+
+    map<string, Maquina *> HashMaq;
+    HashMaq = C.Ass_HashMaq();
+
+    map<string, Maquina *>::iterator maqIt = HashMaq.begin();
+    maqIt->second->Set_User(*userIt);
+
+    (*userIt)->Show();
+
+    cout << "//////////////////////////////////////////" << endl;
+    cout << "//////////////////////////////////////////" << endl;
+    cout << "//////////////////////////////////////////" << endl;
+    cout << "//////////////////////////////////////////" << endl << endl;
+
+    maqIt->second->Jogar();
+
+    (*userIt)->Show();
+    */
 }

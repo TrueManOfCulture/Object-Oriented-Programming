@@ -7,7 +7,7 @@ Casino::Casino(string _nome)
 
 Casino::~Casino()
 {
-    // dtor
+    
 }
 
 // recebe string hh:mm e passa a hora para o int hora e os minutos para a variável minuto

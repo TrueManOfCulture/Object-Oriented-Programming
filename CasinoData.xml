@@ -8,7 +8,7 @@
     <LISTA_MAQ>
         <MAQUINA>
             <NOME>BlackJack</NOME>
-            <PROB_G>10</PROB_G>
+            <PROB_G>100</PROB_G>
             <PROB_A>25</PROB_A>
             <PREMIO>50</PREMIO>
             <X>10</X>
