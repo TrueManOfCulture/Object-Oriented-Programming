@@ -123,6 +123,7 @@ int main()
         it->second->Show();
     }
 
+
     cout << "//////////////////////////////////////////" << endl;
     cout << "//////////////////////////////////////////" << endl;
     cout << "//////////////////////////////////////////" << endl;
@@ -138,29 +139,29 @@ int main()
     delete Test;
     */
 
-   //////////////    TESTES DE JOGADORES MAIS GANHOS    //////////////
-   /*
-   cout << "//////////////////////////////////////////" << endl << endl;
+    //////////////    TESTES DE JOGADORES MAIS GANHOS    //////////////
+    /*
+    cout << "//////////////////////////////////////////" << endl << endl;
 
-   list<User *>::iterator userIt = LU.begin();
-   C.Add(*userIt);
+    list<User *>::iterator userIt = LU.begin();
+    C.Add(*userIt);
 
-   userIt = LU.begin();
-   advance(userIt, 1);
-   C.Add(*userIt);
-   
-   userIt = LU.begin();
-   advance(userIt, 2);
-   C.Add(*userIt);
+    userIt = LU.begin();
+    advance(userIt, 1);
+    C.Add(*userIt);
+    
+    userIt = LU.begin();
+    advance(userIt, 2);
+    C.Add(*userIt);
 
-   userIt = LU.begin();
-   advance(userIt, 3);
-   C.Add(*userIt);
+    userIt = LU.begin();
+    advance(userIt, 3);
+    C.Add(*userIt);
 
     map<string, User *> HashUser;
     HashUser = C.Ass_HashUser();
 
-   for(map<string, User *>::iterator it = HashUser.begin(); it != HashUser.end(); ++it){
+    for(map<string, User *>::iterator it = HashUser.begin(); it != HashUser.end(); ++it){
         int aoga = AleatorioINT(1, 100);
         it->second->Set_premioGanho(aoga);
     }
@@ -168,13 +169,12 @@ int main()
     for(map<string, User *>::iterator it = HashUser.begin(); it != HashUser.end(); ++it){
         it->second->Show();
     }
-
     cout << "//////////////////////////////////////////" << endl;
     cout << "//////////////////////////////////////////" << endl;
     cout << "//////////////////////////////////////////" << endl;
     cout << "//////////////////////////////////////////" << endl << endl;
 
-    list<User *> *Test;
+     list<User *> *Test;
     Test = C.Jogadores_Mais_Ganhos();
 
     for(list<User *>::iterator it = Test->begin(); it != Test->end(); ++it){
@@ -184,10 +184,22 @@ int main()
     C.Listar();
 
     delete Test;
+
     */
+    //////////////    TESTES DE LISTAR    //////////////
+    /*
+    list<User *>::iterator userIt = LU.begin();
+    C.Add(*userIt);
 
-   //////////////    TESTES DE LISTAR    //////////////
+    userIt = LU.begin();
+    advance(userIt, 1);
+    C.Add(*userIt);
+    
+    userIt = LU.begin();
+    advance(userIt, 2);
+    C.Add(*userIt);
 
+<<<<<<< HEAD
    /*list<User *>::iterator userIt = LU.begin();
    C.Add(*userIt);
 
@@ -205,3 +217,84 @@ int main()
 
    //C.Listar();
 }
+=======
+    userIt = LU.begin();
+    advance(userIt, 3);
+    C.Add(*userIt);
+
+   C.Listar();
+   */
+
+    //////////////    TESTES DE JOGAR MAQUINA    //////////////
+    /*
+    cout << "//////////////////////////////////////////" << endl << endl;
+
+    list<User *>::iterator userIt = LU.begin();
+    C.Add(*userIt);
+
+    map<string, Maquina *> HashMaq;
+    HashMaq = C.Ass_HashMaq();
+
+    map<string, Maquina *>::iterator maqIt = HashMaq.begin();
+    maqIt->second->Set_User(*userIt);
+
+    (*userIt)->Show();
+
+    cout << "//////////////////////////////////////////" << endl;
+    cout << "//////////////////////////////////////////" << endl;
+    cout << "//////////////////////////////////////////" << endl;
+    cout << "//////////////////////////////////////////" << endl << endl;
+
+    maqIt->second->Jogar();
+
+    (*userIt)->Show();
+    */
+
+    //////////////    TESTES DE JOGADORES MAIS FREQUENTES    //////////////
+    /*
+    cout << "//////////////////////////////////////////" << endl << endl;
+
+    list<User *>::iterator userIt = LU.begin();
+    C.Add(*userIt);
+
+    userIt = LU.begin();
+    advance(userIt, 1);
+    C.Add(*userIt);
+   
+    userIt = LU.begin();
+    advance(userIt, 2);
+    C.Add(*userIt);
+
+    userIt = LU.begin();
+    advance(userIt, 3);
+    C.Add(*userIt);
+
+    map<string, User *> HashUser;
+    HashUser = C.Ass_HashUser();
+
+    for(map<string, User *>::iterator it = HashUser.begin(); it != HashUser.end(); ++it){
+        int num = AleatorioINT(1, 100);
+        it->second->Set_qntEntradas(num);
+    }
+
+    for(map<string, User *>::iterator it = HashUser.begin(); it != HashUser.end(); ++it){
+        it->second->Show();
+    }
+
+
+    cout << "//////////////////////////////////////////" << endl;
+    cout << "//////////////////////////////////////////" << endl;
+    cout << "//////////////////////////////////////////" << endl;
+    cout << "//////////////////////////////////////////" << endl << endl;
+
+    list<User *> *Test;
+    Test = C.Jogadores_Mais_Frequentes();
+
+    for(list<User *>::iterator it = Test->begin(); it != Test->end(); ++it){
+        (*it)->Show();
+    }
+
+    delete Test;
+    */
+}
+>>>>>>> fd64c97c3a19f040738181737350e5c364c6552c

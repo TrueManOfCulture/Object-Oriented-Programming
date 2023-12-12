@@ -9,7 +9,7 @@ using namespace std;
 
 #include "User.h"
 
-class Uteis{};
+class Uteis;
 
 enum ESTADO_MAQUINA {OFF, ON, AVARIADA, ERRO};
 
@@ -48,8 +48,13 @@ class Maquina
         User *Get_User(){ return U; }
         void Inc_Tempo_Jogo(int tempo){tempoDeJogo+=tempo;}
 
+<<<<<<< HEAD
         bool Jogar();
         //virtual bool Jogar();                                       //FUNÇÃO PARA JOGAR NA MÁQUINA ESCOLHIDA
+=======
+        void Jogar();                                               //FUNÇÃO PARA JOGAR NA MÁQUINA ESCOLHIDA
+        // virtual void Jogar();  // CASO SEJA PARA CADA MÁQUINA TER UM MÉTODO DIFERENTE
+>>>>>>> fd64c97c3a19f040738181737350e5c364c6552c
 
         void Show(ostream &saida = cout);                           // MOSTRA OS DADOS DA MÁQUINA
         virtual int Memoria(){ return sizeof(*this); }              // CALCULA A MEMÓRIA OCUPADA

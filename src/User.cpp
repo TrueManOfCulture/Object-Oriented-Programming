@@ -8,6 +8,7 @@ User::User(string _id, string _nome, string _cidade, int _idade)
     IDADE = _idade;
     tempoDeJogo = 0;
     premioGanho = 0;
+    qntEntradas = 0;
 }
 
 User::~User()
@@ -15,11 +16,12 @@ User::~User()
     //dtor
 }
 
-void User::Show(ostream &saida )
+void User::Show(ostream &saida)
 {
     cout << "ID: " << ID << endl;
     cout << "NOME: " << NOME << endl;
     cout << "CIDADE: " << CIDADE << endl;
     cout << "IDADE: " << IDADE << endl;
-    cout << "PREMIO GANHO: " << premioGanho << endl << endl;
+    cout << "PREMIO GANHO: " << premioGanho << endl;
+    cout << "Nº ENTRADAS: "<< qntEntradas << endl << endl;
 }

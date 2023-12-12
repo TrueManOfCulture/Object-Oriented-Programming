@@ -38,6 +38,7 @@ void Maquina::Show(ostream &saida)
     saida << "QNT_AVARIAS: " << QNT_AVARIA << endl<< endl;
 }
 
+<<<<<<< HEAD
 bool Maquina::Jogar(){
     int tempoJogo,probGanhar; //Tempo de jogo em minutos
 
@@ -53,6 +54,17 @@ bool Maquina::Jogar(){
     ESTADO = OFF;
     cout<<U->Get_Nome()<<" jogou por "<<tempoJogo<<" minutos" <<endl<<endl;
     return false;
+=======
+void Maquina::Jogar(){
+    int tempoJogo;
+
+    tempoJogo = AleatorioINT(5,50);
+    U->Set_TempoJogo(U->Get_TempoJogo()+tempoJogo);
+
+    if(AleatorioINT(1, 100) <= PROB_GANHAR){
+        U->Set_premioGanho(PREMIO);
+    }
+>>>>>>> fd64c97c3a19f040738181737350e5c364c6552c
 }
 
 void Maquina::Set_ESTADO(ESTADO_MAQUINA _est)
@@ -66,4 +78,11 @@ void Maquina::Set_ESTADO(ESTADO_MAQUINA _est)
     }
 }
 
+<<<<<<< HEAD
 void Maquina::Aquecer(){ tempAtual += AleatorioINT(-2, 5); }
+=======
+void Maquina::Aquecer()
+{
+    TEMPERATURA += AleatorioINT(-2, 5);
+}
+>>>>>>> fd64c97c3a19f040738181737350e5c364c6552c
