@@ -52,8 +52,7 @@ class Maquina
 
         void Dec_STATIC_ID(){ ID--; }
 
-        void Aquecer(){ TEMPERATURA += AleatorioINT(-2, 5); }
-        
+       void Aquecer();
 };
 
 #endif // MAQUINA_H

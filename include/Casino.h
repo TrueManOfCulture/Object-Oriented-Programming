@@ -59,6 +59,8 @@ class Casino
         void Run(bool Debug = true);
         void Listar(ostream &f=cout);
         list<User *> *Jogadores_Mais_Ganhos();
+
+        list<User *> *Jogadores_Mais_Frequentes();
         
         /*
         list<Maquina *> * Ranking_Das_Mais_Trabalhadores();

@@ -282,6 +282,44 @@ void Casino::PesqUser(string _ID, ostream &f)
     
 */
 
+
+list<User *> *Casino::Jogadores_Mais_Frequentes()
+{
+    int aux=-1;
+    list<User *> *Res = new list<User *>;
+
+    for(map<string, User *>::iterator it = HashUser.begin(); it != HashUser.end(); ++it)
+    {
+        if(it->second->Get_qntEntradas() >= aux)
+        {
+            Res->push_front(it->second);
+            aux = it->second->Get_qntEntradas();
+        }
+        else
+        {
+            list<User *>::iterator it_Res = Res->begin();
+            while (it_Res != Res->end() && (*it_Res)->Get_qntEntradas() >= it->second->Get_qntEntradas()){
+                ++it_Res;
+            }
+        
+
+        if (it_Res == Res->end())
+        {
+            Res->push_back(it->second);
+        }
+        else
+        {
+            Res->insert(it_Res, it->second);
+        }
+        }
+}
+return Res;
+
+}
+
+
+
+
 void Casino::Run(bool debug) 
 {
     Relogio *R = new Relogio(1000, HORA_ABERTURA);
@@ -405,7 +443,7 @@ bool Casino::Add(User *U)
         { // Por a jogar
             it->second->Set_ESTADO(ON);
             it->second->Set_User(U);
-
+    
             string key = U->Get_ID();
             HashUser[key] = U;
             return true;

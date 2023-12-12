@@ -15,6 +15,7 @@ class User
     int IDADE;
     int tempoDeJogo;
     int premioGanho=0;
+    int qntEntradas=0;
 
     public:
         User(string _id, string _nome, string _cidade, int _idade);
@@ -28,6 +29,8 @@ class User
         int Get_TempoJogo(){ return tempoDeJogo; }
         void Set_premioGanho(int premio){ premioGanho=premio; };
         int Get_premioGanho(){ return premioGanho; }
+        void Set_qntEntradas(int entradas){ qntEntradas=entradas; };
+        int Get_qntEntradas(){ return qntEntradas; }
 };
 
 #endif // USER_H

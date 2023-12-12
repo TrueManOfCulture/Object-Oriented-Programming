@@ -52,3 +52,5 @@ void Maquina::Set_ESTADO(ESTADO_MAQUINA _est)
         ESTADO = _est;
     }
 }
+
+void Maquina::Aquecer(){ TEMPERATURA += AleatorioINT(-2, 5); }
