@@ -226,12 +226,8 @@ int Casino::Qnt_Jog()
     int num_jog = 0;
 
     for (map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it)
-    {
         if (it->second->Get_ESTADO() == ON)
-        {
             num_jog += 1;
-        }
-    }
 
     return num_jog;
 }
@@ -284,10 +280,8 @@ int Casino::MemoriaCasino()
     int MEM_MAQ = 0, MEM_U = 0;
 
     for (map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it)
-    {
         MEM_MAQ += it->second->Memoria();
-    }
-
+    
     for (list<User *>::iterator it = LU.begin(); it != LU.end(); ++it)
         MEM_U += (*it)->Memoria();
 
@@ -314,12 +308,8 @@ void Casino::Listar_Sup_Prob_Ganhar(float X, ostream &saida)
 void Casino::Desligar(int ID_MAQ)
 {
     for (map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it)
-    {
         if (it->second->Get_ID() == ID_MAQ)
-        {
             it->second->Set_ESTADO(OFF);
-        }
-    }
 }
 
 void Casino::SubirProbabilidadeVizinhas(Maquina *M_ganhou, float raio, list<Maquina *> &LM_Vizinhas)
