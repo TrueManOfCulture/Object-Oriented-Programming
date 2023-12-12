@@ -274,7 +274,15 @@ void Casino::PesqUser(string _ID, ostream &f)
     cout << "Nenhum User encontrada com o ID " << _ID << endl;
 }
 
-void Casino::Run(bool debug) // NO FINAL TAMBÉM SERÁ NECESSÁRIO APAGAR R UMA VEZ QUE É CRIADO DINAMICAMENTE, A NÃO SER QUE NUMA FUNÇÃO CHAMADA ISSO SEJA FEITO
+/*
+    - NO FINAL TAMBÉM SERÁ NECESSÁRIO APAGAR R UMA VEZ QUE É CRIADO DINAMICAMENTE, A NÃO SER QUE NUMA FUNÇÃO CHAMADA ISSO SEJA FEITO
+    - SERÁ NECESSÁRIO FZR UMA PARTE PARA VERIFICAR SE A MÁQUINA NÃO ANTINGE A TEMPERATURA DE AVISO
+    - N SE ESCOLHE UMA MÁQUINA ESPECIFICA PARA AVARIAR, TODAS AS MÁQUINAS SERÃO PERCORRIDAS E CADA MÁQUINA TEM A SUA PROBABILIDADE DE AVARIAR
+        .. PROBABILIDADE DE AVARIAR TEM DE USAR A PROBABILIDADE DE AVARIA DA MÁQUINA
+    
+*/
+
+void Casino::Run(bool debug) 
 {
     Relogio *R = new Relogio(1000, HORA_ABERTURA);
     time_t horaAtual = R->VerTimeRelogio();
@@ -292,7 +300,7 @@ void Casino::Run(bool debug) // NO FINAL TAMBÉM SERÁ NECESSÁRIO APAGAR R UMA 
         Listar();
         userEscolhido = AleatorioINT(0, LU.size() - 1);
         prob = AleatorioINT(1, 100);
-        maquinaQueAvaria = AleatorioINT(0, HashMaq.size() - 1); // N SE ESCOLHE UMA MÁQUINA ESPECIFICA PARA AVARIAR, TODAS AS MÁQUINAS SERÃO PERCORRIDAS E CADA MÁQUINA TEM A SUA PROBABILIDADE DE AVARIAR
+        maquinaQueAvaria = AleatorioINT(0, HashMaq.size() - 1);
         //Colocar Usuários no Casino
         if (prob <= 5)
         {
@@ -304,7 +312,6 @@ void Casino::Run(bool debug) // NO FINAL TAMBÉM SERÁ NECESSÁRIO APAGAR R UMA 
         map<string,Maquina*>::iterator MaquinaIt = HashMaq.begin();
         advance(MaquinaIt, maquinaQueAvaria);
 
-        // PROBABILIDADE DE AVARIAR TEM DE USAR A PROBABILIDADE DE AVARIA DA MÁQUINA
         if(prob >= 95){
             map<string,Maquina*>::iterator MaquinaIt = HashMaq.begin();
             advance(MaquinaIt, maquinaQueAvaria);

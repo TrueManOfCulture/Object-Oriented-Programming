@@ -22,7 +22,7 @@ class Maquina
     float PROB_AVARIA;
     int PREMIO;
     int posX, posY;
-    int TEMPERATURA;
+    int TEMPERATURA = 20;
     string TIPO;
     ESTADO_MAQUINA ESTADO;
     int QNT_AVARIA;
@@ -51,6 +51,9 @@ class Maquina
         virtual int Memoria(){ return sizeof(*this); }              // CALCULA A MEMÓRIA OCUPADA
 
         void Dec_STATIC_ID(){ ID--; }
+
+        void Aquecer(){ TEMPERATURA += AleatorioINT(-2, 5); }
+        
 };
 
 #endif // MAQUINA_H
