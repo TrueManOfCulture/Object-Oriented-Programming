@@ -5,13 +5,6 @@ Casino::Casino(string _nome)
     NOME = _nome;
 }
 
-/*
-    list <User *> LU;
-    list <User *> LU_Espera;
-
-    map<string, Maquina *> HashMaq;
-    map<string, User *> HashUser;
-*/
 
 Casino::~Casino()
 {

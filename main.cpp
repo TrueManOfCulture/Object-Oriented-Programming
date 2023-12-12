@@ -184,6 +184,51 @@ int main()
     delete Test;
 
     */
+    //////////////    TESTES DE LISTAR    //////////////
+    /*
+    list<User *>::iterator userIt = LU.begin();
+    C.Add(*userIt);
+
+    userIt = LU.begin();
+    advance(userIt, 1);
+    C.Add(*userIt);
+    
+    userIt = LU.begin();
+    advance(userIt, 2);
+    C.Add(*userIt);
+
+    userIt = LU.begin();
+    advance(userIt, 3);
+    C.Add(*userIt);
+
+   C.Listar();
+   */
+
+    //////////////    TESTES DE JOGAR MAQUINA    //////////////
+    /*
+    cout << "//////////////////////////////////////////" << endl << endl;
+
+    list<User *>::iterator userIt = LU.begin();
+    C.Add(*userIt);
+
+    map<string, Maquina *> HashMaq;
+    HashMaq = C.Ass_HashMaq();
+
+    map<string, Maquina *>::iterator maqIt = HashMaq.begin();
+    maqIt->second->Set_User(*userIt);
+
+    (*userIt)->Show();
+
+    cout << "//////////////////////////////////////////" << endl;
+    cout << "//////////////////////////////////////////" << endl;
+    cout << "//////////////////////////////////////////" << endl;
+    cout << "//////////////////////////////////////////" << endl << endl;
+
+    maqIt->second->Jogar();
+
+    (*userIt)->Show();
+    */
+
     //////////////    TESTES DE JOGADORES MAIS FREQUENTES    //////////////
     /*
     cout << "//////////////////////////////////////////" << endl << endl;
@@ -229,49 +274,5 @@ int main()
     }
 
     delete Test;
-    */
-    //////////////    TESTES DE LISTAR    //////////////
-    /*
-    list<User *>::iterator userIt = LU.begin();
-    C.Add(*userIt);
-
-    userIt = LU.begin();
-    advance(userIt, 1);
-    C.Add(*userIt);
-    
-    userIt = LU.begin();
-    advance(userIt, 2);
-    C.Add(*userIt);
-
-    userIt = LU.begin();
-    advance(userIt, 3);
-    C.Add(*userIt);
-
-   C.Listar();
-   */
-
-  //////////////    TESTES DE JOGAR MAQUINA    //////////////
-    /*
-    cout << "//////////////////////////////////////////" << endl << endl;
-
-    list<User *>::iterator userIt = LU.begin();
-    C.Add(*userIt);
-
-    map<string, Maquina *> HashMaq;
-    HashMaq = C.Ass_HashMaq();
-
-    map<string, Maquina *>::iterator maqIt = HashMaq.begin();
-    maqIt->second->Set_User(*userIt);
-
-    (*userIt)->Show();
-
-    cout << "//////////////////////////////////////////" << endl;
-    cout << "//////////////////////////////////////////" << endl;
-    cout << "//////////////////////////////////////////" << endl;
-    cout << "//////////////////////////////////////////" << endl << endl;
-
-    maqIt->second->Jogar();
-
-    (*userIt)->Show();
     */
 }

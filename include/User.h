@@ -27,7 +27,7 @@ class User
         string Get_ID(){ return ID; }               // RETORNA oO ID
         void Set_TempoJogo(int tempo){ tempoDeJogo = tempo; }
         int Get_TempoJogo(){ return tempoDeJogo; }
-        void Set_premioGanho(int premio){ premioGanho=premio; };
+        void Set_premioGanho(int premio){ premioGanho = premio; };
         int Get_premioGanho(){ return premioGanho; }
         void Set_qntEntradas(int entradas){ qntEntradas=entradas; };
         int Get_qntEntradas(){ return qntEntradas; }
