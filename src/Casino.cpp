@@ -115,7 +115,6 @@ bool Casino::Add(Maquina *M)
     else
     {
         M->Dec_STATIC_ID();
-        delete M;
         cout << "Erro! Já existe uma máquina na posição: " << key << "!" << endl << endl;
         return false;
     }
@@ -125,7 +124,7 @@ bool Casino::Add(Maquina *M)
 
 void Casino::Listar(ostream &f)
 {
-    cout<<"Maquinas No Casino"<<endl<<endl;
+    /*cout<<"Maquinas No Casino"<<endl<<endl;
 
     for (map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it)
     {
@@ -137,7 +136,142 @@ void Casino::Listar(ostream &f)
     for (map<string, User *>::iterator it = HashUser.begin(); it != HashUser.end(); ++it)
     {
       it->second->Show(f);  
+    }*/
+
+    int a;
+
+    cout << "--- MENU LISTAR ---" << endl;
+    cout << "\t1- Lista Total" << endl;
+    cout << "\t2- Lista Máquinas" << endl;
+    cout << "\t3- Lista User" << endl;
+    cout << endl << "Opção: ";
+    cin >> a;
+
+    switch (a)
+    {
+    case 1:
+        cout << endl;
+        for (map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it)
+            it->second->Show(f);
+        for (map<string, User *>::iterator it = HashUser.begin(); it != HashUser.end(); ++it)
+            it->second->Show(f);
+        break;
+
+    case 2:
+        OP_ListMaquina(f);
+        break;
+
+    case 3:
+        OP_ListUser(f);
+        break;
+    
+    default:
+        cout << "Escolha uma opção válida" << endl;
+        break;
     }
+
+}
+
+void Casino::OP_ListMaquina(ostream &f)
+{
+    int b, ID;
+    string Tipo;
+
+    cout << "--- Listar Máquinas ---" << endl;
+    cout << "\t1- Lista Total" << endl;
+    cout << "\t2- Lista Máquinas por Tipo" << endl;
+    cout << "\t3- Pesquisar Máquina por ID" << endl;
+    cout << "\t0- Voltar" << endl;
+    cout << endl << "Opção: ";
+    cin >> b;
+
+    switch (b)
+    {
+    case 1:
+        for (map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it)
+           it->second->Show(f);
+        break;
+
+    case 2:
+        cout << "Tipo das Máquinas: ";
+        cin >> Tipo;
+
+        Listar_Tipo(Tipo, f);
+        break;
+
+    case 3:
+        cout << "ID: ";
+        cin >> ID;
+
+        PesqMaq(ID, f);
+        break;
+
+    case 0:
+        Listar(f);
+        break;
+
+    default:
+        cout << "Escolha uma opção válida" << endl;
+        break;
+    }
+}
+
+void Casino::OP_ListUser(ostream &f)
+{
+    int b;
+    string ID;
+
+    cout << "--- Listar Users ---" << endl;
+    cout << "\t1- Lista Total" << endl;
+    cout << "\t2- Pesquisar User por ID" << endl;
+    cout << "\t0- Voltar" << endl;
+    cout << endl << "Opção: ";
+    cin >> b;
+
+    switch (b)
+    {
+    case 1:
+        for (map<string, User *>::iterator it = HashUser.begin(); it != HashUser.end(); ++it)
+            it->second->Show(f);
+        break;
+    
+    case 2:
+        cout << "ID: ";
+        cin >> ID;
+
+        PesqUser(ID, f);
+        break;
+
+    case 0:
+        Listar(f);
+        break;
+
+    default:
+        cout << "Escolha uma opção válida" << endl;
+        break;
+    }
+}
+
+void Casino::PesqMaq(int _ID, ostream &f)
+{
+    for (map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it)
+        if(_ID == it->second->Get_ID()){
+            it->second->Show(f);
+            break;
+        }
+
+    cout << "Nenhuma Máquina encontrada com o ID " << _ID << endl;
+}
+
+void Casino::PesqUser(string _ID, ostream &f)
+{
+    for (map<string, User *>::iterator it = HashUser.begin(); it != HashUser.end(); ++it)
+        if(_ID == it->second->Get_ID()){
+            it->second->Show(f);
+            break;
+        }
+
+    cout << "Nenhum User encontrada com o ID " << _ID << endl;
 }
 
 void Casino::Run(bool debug) // NO FINAL TAMBÉM SERÁ NECESSÁRIO APAGAR R UMA VEZ QUE É CRIADO DINAMICAMENTE, A NÃO SER QUE NUMA FUNÇÃO CHAMADA ISSO SEJA FEITO

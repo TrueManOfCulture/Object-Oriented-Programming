@@ -6,6 +6,7 @@
 #include <list>
 #include <fstream>
 #include <map>
+#include <iterator>
 
 using namespace std;
 
@@ -69,6 +70,11 @@ class Casino
        // FUNÇÕES PARA TESTES  [ TEMPORÁRIAS ]
         map<string, Maquina *> Ass_HashMaq(){ return HashMaq; }
         map<string, User *> Ass_HashUser(){ return HashUser; }
+
+        void OP_ListMaquina(ostream &f = cout);
+        void PesqMaq(int _ID, ostream &f = cout);
+        void OP_ListUser(ostream &f = cout);
+        void PesqUser(string _ID, ostream &f = cout);
 };
 
 #endif // CASINO_H
