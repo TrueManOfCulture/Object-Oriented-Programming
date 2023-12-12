@@ -176,7 +176,7 @@ void Casino::Run(bool debug) // NO FINAL TAMBÉM SERÁ NECESSÁRIO APAGAR R UMA 
             advance(MaquinaIt, maquinaQueAvaria);
             MaquinaIt->second->Set_ESTADO(AVARIADA);
         }
-        //Jogar
+        //Jogar  NA MINHA OPINIÃO MUDÁVA-SE O JOGAR() PARA JÁ FZR A VERIFICAÇÃO DE PROBABILIDADE
         for (map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it)
         {
             if(it->second->Get_ESTADO() == ON)
