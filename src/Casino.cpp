@@ -5,9 +5,29 @@ Casino::Casino(string _nome)
     NOME = _nome;
 }
 
+/*
+    list <User *> LU;
+    list <User *> LU_Espera;
+
+    map<string, Maquina *> HashMaq;
+    map<string, User *> HashUser;
+*/
+
 Casino::~Casino()
 {
-    
+    for(list<User*>::iterator it = LU.begin(); it != LU.end(); ++it)
+        delete (*it);
+
+    for(list<User*>::iterator it = LU_Espera.begin(); it != LU_Espera.end(); ++it)
+        delete (*it);
+
+    for(map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it)
+        delete (it->second);
+    HashMaq.clear();
+
+    for(map<string, User *>::iterator it = HashUser.begin(); it != HashUser.end(); ++it)
+        delete (it->second);
+    HashUser.clear();
 }
 
 // recebe string hh:mm e passa a hora para o int hora e os minutos para a variável minuto
@@ -124,20 +144,6 @@ bool Casino::Add(Maquina *M)
 
 void Casino::Listar(ostream &f)
 {
-    /*cout<<"Maquinas No Casino"<<endl<<endl;
-
-    for (map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it)
-    {
-     it->second->Show(f);
-    }
-
-    cout<<"Users No Casino"<<endl<<endl;
-
-    for (map<string, User *>::iterator it = HashUser.begin(); it != HashUser.end(); ++it)
-    {
-      it->second->Show(f);  
-    }*/
-
     int a;
 
     cout << "--- MENU LISTAR ---" << endl;
