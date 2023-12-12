@@ -137,29 +137,29 @@ int main()
     delete Test;
     */
 
-   //////////////    TESTES DE JOGADORES MAIS GANHOS    //////////////
-   /*
-   cout << "//////////////////////////////////////////" << endl << endl;
+    //////////////    TESTES DE JOGADORES MAIS GANHOS    //////////////
+    /*
+    cout << "//////////////////////////////////////////" << endl << endl;
 
-   list<User *>::iterator userIt = LU.begin();
-   C.Add(*userIt);
+    list<User *>::iterator userIt = LU.begin();
+    C.Add(*userIt);
 
-   userIt = LU.begin();
-   advance(userIt, 1);
-   C.Add(*userIt);
-   
-   userIt = LU.begin();
-   advance(userIt, 2);
-   C.Add(*userIt);
+    userIt = LU.begin();
+    advance(userIt, 1);
+    C.Add(*userIt);
+    
+    userIt = LU.begin();
+    advance(userIt, 2);
+    C.Add(*userIt);
 
-   userIt = LU.begin();
-   advance(userIt, 3);
-   C.Add(*userIt);
+    userIt = LU.begin();
+    advance(userIt, 3);
+    C.Add(*userIt);
 
     map<string, User *> HashUser;
     HashUser = C.Ass_HashUser();
 
-   for(map<string, User *>::iterator it = HashUser.begin(); it != HashUser.end(); ++it){
+    for(map<string, User *>::iterator it = HashUser.begin(); it != HashUser.end(); ++it){
         int aoga = AleatorioINT(1, 100);
         it->second->Set_premioGanho(aoga);
     }
@@ -230,23 +230,22 @@ int main()
 
     delete Test;
    
-   //////////////    TESTES DE LISTAR    //////////////
-/*
-   list<User *>::iterator userIt = LU.begin();
-   C.Add(*userIt);
+    //////////////    TESTES DE LISTAR    //////////////
+    /*/*
+    list<User *>::iterator userIt = LU.begin();
+    C.Add(*userIt);
 
-   userIt = LU.begin();
-   advance(userIt, 1);
-   C.Add(*userIt);
-   
-   userIt = LU.begin();
-   advance(userIt, 2);
-   C.Add(*userIt);
+    userIt = LU.begin();
+    advance(userIt, 1);
+    C.Add(*userIt);
+    
+    userIt = LU.begin();
+    advance(userIt, 2);
+    C.Add(*userIt);
 
-   userIt = LU.begin();
-   advance(userIt, 3);
-   C.Add(*userIt);
+    userIt = LU.begin();
+    advance(userIt, 3);
+    C.Add(*userIt);
 
    C.Listar();
-*/
 }

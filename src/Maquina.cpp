@@ -37,9 +37,14 @@ void Maquina::Show(ostream &saida)
 }
 
 void Maquina::Jogar(){
-    int tempoJogo; //Tempo de jogo em minutos
+    int tempoJogo;
+
     tempoJogo = AleatorioINT(5,50);
     U->Set_TempoJogo(U->Get_TempoJogo()+tempoJogo);
+
+    if(AleatorioINT(1, 100) <= PROB_GANHAR){
+        U->Set_premioGanho(PREMIO);
+    }
 }
 
 void Maquina::Set_ESTADO(ESTADO_MAQUINA _est)
@@ -53,4 +58,7 @@ void Maquina::Set_ESTADO(ESTADO_MAQUINA _est)
     }
 }
 
-void Maquina::Aquecer(){ TEMPERATURA += AleatorioINT(-2, 5); }
+void Maquina::Aquecer()
+{
+    TEMPERATURA += AleatorioINT(-2, 5);
+}
