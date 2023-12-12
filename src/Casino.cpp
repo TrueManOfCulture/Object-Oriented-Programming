@@ -33,15 +33,15 @@ void inicializarDefCasino(ifstream &infoCasino, int &maxJog, time_t &HORA_ABERTU
 Maquina *MaquinaTipo(float pGanhar, float pAvariar, int premio, int x, int y, int tempoAviso, string nome)
 {
     Maquina *M;
-    
+
     if (nome == "BlackJack")
         M = new BlackJack(pGanhar, pAvariar, premio, x, y, tempoAviso, nome);
     if (nome == "ClassicSlots")
         M = new ClassicSlots(pGanhar, pAvariar, premio, x, y, tempoAviso, nome);
     if (nome == "Roleta")
         M = new Roleta(pGanhar, pAvariar, premio, x, y, tempoAviso, nome);
-    if(nome == "Craps")
-        M = new Craps(pGanhar,pAvariar, premio,x,y,tempoAviso,nome);
+    if (nome == "Craps")
+        M = new Craps(pGanhar, pAvariar, premio, x, y, tempoAviso, nome);
 
     return M;
 }
@@ -82,7 +82,7 @@ bool Casino::Load(const string &ficheiro)
 
         //(float _prob_ganhar, float _prob_avaria,  int _premio, int _posX, int _posY, int _temp)
         M = MaquinaTipo(pGanhar, pAvariar, premio, x, y, tempoAviso, nome);
-        //M->Show();    PASSEI ESTE PARA O ADD
+        // M->Show();    PASSEI ESTE PARA O ADD
         Add(M);
         saltarNLinhas(infoCasino, 1);
         tag = ObterTag(infoCasino);
@@ -115,7 +115,8 @@ bool Casino::Add(Maquina *M)
     else
     {
         M->Dec_STATIC_ID();
-        cout << "Erro! Já existe uma máquina na posição: " << key << "!" << endl << endl;
+        cout << "Erro! Já existe uma máquina na posição: " << key << "!" << endl
+             << endl;
         return false;
     }
 
@@ -135,7 +136,7 @@ void Casino::Listar(ostream &f)
 
     for (map<string, User *>::iterator it = HashUser.begin(); it != HashUser.end(); ++it)
     {
-      it->second->Show(f);  
+      it->second->Show(f);
     }*/
 
     int a;
@@ -144,7 +145,8 @@ void Casino::Listar(ostream &f)
     cout << "\t1- Lista Total" << endl;
     cout << "\t2- Lista Máquinas" << endl;
     cout << "\t3- Lista User" << endl;
-    cout << endl << "Opção: ";
+    cout << endl
+         << "Opção: ";
     cin >> a;
 
     switch (a)
@@ -164,12 +166,11 @@ void Casino::Listar(ostream &f)
     case 3:
         OP_ListUser(f);
         break;
-    
+
     default:
         cout << "Escolha uma opção válida" << endl;
         break;
     }
-
 }
 
 void Casino::OP_ListMaquina(ostream &f)
@@ -177,19 +178,21 @@ void Casino::OP_ListMaquina(ostream &f)
     int b, ID;
     string Tipo;
 
-    cout << endl << "--- Listar Máquinas ---" << endl;
+    cout << endl
+         << "--- Listar Máquinas ---" << endl;
     cout << "\t1- Lista Total" << endl;
     cout << "\t2- Lista Máquinas por Tipo" << endl;
     cout << "\t3- Pesquisar Máquina por ID" << endl;
     cout << "\t0- Voltar" << endl;
-    cout << endl << "Opção: ";
+    cout << endl
+         << "Opção: ";
     cin >> b;
 
     switch (b)
     {
     case 1:
         for (map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it)
-           it->second->Show(f);
+            it->second->Show(f);
         break;
 
     case 2:
@@ -221,11 +224,13 @@ void Casino::OP_ListUser(ostream &f)
     int b;
     string ID;
 
-    cout << endl << "--- Listar Users ---" << endl;
+    cout << endl
+         << "--- Listar Users ---" << endl;
     cout << "\t1- Lista Total" << endl;
     cout << "\t2- Pesquisar User por ID" << endl;
     cout << "\t0- Voltar" << endl;
-    cout << endl << "Opção: ";
+    cout << endl
+         << "Opção: ";
     cin >> b;
 
     switch (b)
@@ -234,7 +239,7 @@ void Casino::OP_ListUser(ostream &f)
         for (map<string, User *>::iterator it = HashUser.begin(); it != HashUser.end(); ++it)
             it->second->Show(f);
         break;
-    
+
     case 2:
         cout << "ID: ";
         cin >> ID;
@@ -255,7 +260,8 @@ void Casino::OP_ListUser(ostream &f)
 void Casino::PesqMaq(int _ID, ostream &f)
 {
     for (map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it)
-        if(_ID == it->second->Get_ID()){
+        if (_ID == it->second->Get_ID())
+        {
             it->second->Show(f);
             break;
         }
@@ -266,7 +272,8 @@ void Casino::PesqMaq(int _ID, ostream &f)
 void Casino::PesqUser(string _ID, ostream &f)
 {
     for (map<string, User *>::iterator it = HashUser.begin(); it != HashUser.end(); ++it)
-        if(_ID == it->second->Get_ID()){
+        if (_ID == it->second->Get_ID())
+        {
             it->second->Show(f);
             break;
         }
@@ -279,15 +286,15 @@ void Casino::PesqUser(string _ID, ostream &f)
     - SERÁ NECESSÁRIO FZR UMA PARTE PARA VERIFICAR SE A MÁQUINA NÃO ANTINGE A TEMPERATURA DE AVISO
     - N SE ESCOLHE UMA MÁQUINA ESPECIFICA PARA AVARIAR, TODAS AS MÁQUINAS SERÃO PERCORRIDAS E CADA MÁQUINA TEM A SUA PROBABILIDADE DE AVARIAR
         .. PROBABILIDADE DE AVARIAR TEM DE USAR A PROBABILIDADE DE AVARIA DA MÁQUINA
-    
+
 */
 
-void Casino::Run(bool debug) 
+void Casino::Run(bool debug)
 {
     Relogio *R = new Relogio(1000, HORA_ABERTURA);
     time_t horaAtual = R->VerTimeRelogio();
-    int userEscolhido, prob, maquinaQueAvaria;
-
+    int userEscolhido, prob, probAv,quantUs;
+    list<Maquina*> lmvizinhas;
 
     while (difftime(horaAtual, HORA_FECHO) < 0)
     {
@@ -297,41 +304,58 @@ void Casino::Run(bool debug)
                 menu();
             }
         }*/
-        Listar();
-        userEscolhido = AleatorioINT(0, LU.size() - 1);
-        prob = AleatorioINT(1, 100);
-        maquinaQueAvaria = AleatorioINT(0, HashMaq.size() - 1);
-        //Colocar Usuários no Casino
-        if (prob <= 5)
+        
+        probAv = AleatorioINT(1, 100);
+        quantUs = AleatorioINT(1,10);
+        
+        // Colocar Usuários no Casino
+        for (int i = 0; i < quantUs; i++)
         {
-            list<User *>::iterator userIt = LU.begin();
-            advance(userIt, userEscolhido);
-            Add(*userIt);
+            userEscolhido = AleatorioINT(0, LU.size() - 1);
+            prob = AleatorioINT(1, 100);
+            if (prob <= 70)
+            {
+                list<User *>::iterator userIt = LU.begin();
+                advance(userIt, userEscolhido);
+                Add(*userIt);
+                cout << "Adicionou o user: "<<(*userIt)->Get_Nome()<<endl<<endl;
+            }
         }
+        
+        
 
-        map<string,Maquina*>::iterator MaquinaIt = HashMaq.begin();
-        advance(MaquinaIt, maquinaQueAvaria);
-
-        if(prob >= 95){
-            map<string,Maquina*>::iterator MaquinaIt = HashMaq.begin();
-            advance(MaquinaIt, maquinaQueAvaria);
-            MaquinaIt->second->Set_ESTADO(AVARIADA);
-        }
-        //Jogar  NA MINHA OPINIÃO MUDÁVA-SE O JOGAR() PARA JÁ FZR A VERIFICAÇÃO DE PROBABILIDADE
+        // Jogar  NA MINHA OPINIÃO MUDÁVA-SE O JOGAR() PARA JÁ FZR A VERIFICAÇÃO DE PROBABILIDADE
         for (map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it)
         {
-            if(it->second->Get_ESTADO() == ON)
-            {
-                it->second->Jogar();
+            Maquina *M = it->second;
+            if(M->Get_ESTADO()==AVARIADA) {
+                M->Set_ESTADO(OFF);
+                cout <<"Maquina " << M->Get_ID()<<" foi concertada"<<endl<<endl;
             }
-            if(it->second->Get_ESTADO() == OFF && !LU_Espera.empty()){
-                it->second->Set_User(LU_Espera.front());
+            if (probAv <= M->Get_PROB_AVARIA())
+            {
+                M->Set_ESTADO(AVARIADA);
+                cout<<"Maquina " << M->Get_ID()<<" avariou"<<endl<<endl;
+            }
+            /*if (M->Get_ESTADO() == ON)
+            {
+                if(M->Jogar()) SubirProbabilidadeVizinhas(M,40,lmvizinhas);
+                HashUser.erase(M->Get_User()->Get_ID());
+            }*/
+            if (M->Get_ESTADO() == OFF && !LU_Espera.empty())
+            {
+                M->Set_User(LU_Espera.front());
+                cout << "O User "<< LU_Espera.front()->Get_Nome()<< " foi adicionado a maquina " <<M->Get_ID()<<endl<<endl;
                 LU_Espera.pop_front();
-                it->second->Set_ESTADO(ON);
+                M->Set_ESTADO(ON);
+                
+                if(M->Jogar()) SubirProbabilidadeVizinhas(M,40,lmvizinhas);
+                HashUser.erase(M->Get_User()->Get_ID());
             }
         }
 
         horaAtual = R->VerTimeRelogio();
+        cout <<"Hora: "<< ctime(&horaAtual)<<endl<<endl;
         R->Wait(2);
     }
 }
@@ -358,7 +382,9 @@ string Casino::Get_Estado(int ID)
         if (ID == it->second->Get_ID())
             return EnumToString(it->second->Get_ESTADO());
 
-    cout << endl << endl << "ERRO! NENHUMA MÁQUINA ENCONTRADA COM O ID " << ID << "!" << endl;
+    cout << endl
+         << endl
+         << "ERRO! NENHUMA MÁQUINA ENCONTRADA COM O ID " << ID << "!" << endl;
     return EnumToString(ERRO);
 }
 
@@ -375,43 +401,23 @@ int Casino::Qnt_Jog()
 
 bool Casino::Add(User *U)
 {
-    for (map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it)
-    { // percorrer as maquinas
-        if (it->second->Get_ESTADO() != OFF)
-        { // ver se as maquinas estao ON ou AVARIDAS (Ocupadas)
-
-            if (HashUser.size() < maxUser)
-            { // caso a fila não esteja cheia
-                string key = U->Get_ID();
-
-                if (HashUser.find(key) == HashUser.end())
-                { // caso a fila não esteja cheia
-                    HashUser[key] = U;
-                    return true;
-                }
-                else
-                {
-                    cout << "Erro! Esse User já esta no casino, ID: " << key << "!" << endl << endl;
-                    return false;
-                }
-            }
-            else
-            { // caso a fila esteja cheia
-                cout << "Erro! O casino está cheio!" << endl << endl;
-                return false;
-            }
-        }
-        else
-        { // Por a jogar
-            it->second->Set_ESTADO(ON);
-            it->second->Set_User(U);
-
-            string key = U->Get_ID();
+    if (LU_Espera.size() < maxUser - HashMaq.size())
+    { // caso a fila não esteja cheia
+        string key = U->Get_ID();
+        if (HashUser.find(key) == HashUser.end())
+        { // caso a fila não esteja cheia
             HashUser[key] = U;
+            LU_Espera.push_back(U);
             return true;
         }
+        else
+        {
+            cout << "Erro! Esse User já esta no casino, ID: " << key << "!" << endl
+                 << endl;
+            return false;
+        }
     }
-
+    cout << "Erro! O casino está cheio!" << endl<<endl;
     return false;
 }
 
@@ -422,19 +428,23 @@ int Casino::MemoriaCasino()
 
     for (map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it)
         MEM_MAQ += it->second->Memoria();
-    
+
     for (list<User *>::iterator it = LU.begin(); it != LU.end(); ++it)
         MEM_U += (*it)->Memoria();
 
     for (list<User *>::iterator it = LU_Espera.begin(); it != LU_Espera.end(); ++it)
         MEM_U += (*it)->Memoria();
-    
-    for(map<string, User *>::iterator it = HashUser.begin(); it != HashUser.end(); ++it)
+
+    for (map<string, User *>::iterator it = HashUser.begin(); it != HashUser.end(); ++it)
         MEM_U = it->second->Memoria();
 
     TOTAL = sizeof(*this) + MEM_MAQ + MEM_U;
 
-    cout << endl << "MÁQ: " << MEM_MAQ << endl << "U: " << MEM_U << endl << endl << "TOTAL: " << TOTAL;
+    cout << endl
+         << "MÁQ: " << MEM_MAQ << endl
+         << "U: " << MEM_U << endl
+         << endl
+         << "TOTAL: " << TOTAL;
 
     return TOTAL;
 }
@@ -467,7 +477,7 @@ void Casino::SubirProbabilidadeVizinhas(Maquina *M_ganhou, float raio, list<Maqu
             else
             {
                 LM_Vizinhas.push_back(it->second);
-                it->second->Set_PROB_GANHAR(5);
+                it->second->Inc_PROB_GANHAR(5);
             }
         }
     }
@@ -512,7 +522,7 @@ list<User *> *Casino::Jogadores_Mais_Ganhos()
     int aux = -1;
     list<User *> *Res = new list<User *>;
 
-    for(map<string, User *>::iterator it = HashUser.begin(); it != HashUser.end(); ++it)
+    for (map<string, User *>::iterator it = HashUser.begin(); it != HashUser.end(); ++it)
     {
         if (it->second->Get_premioGanho() >= aux)
         {

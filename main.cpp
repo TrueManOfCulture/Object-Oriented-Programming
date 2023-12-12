@@ -19,6 +19,7 @@ using namespace std;
 int main()
 {
     setlocale(LC_ALL, "PORTUGUESE");
+    srand(time(0));
 
     char ch;
 
@@ -31,7 +32,8 @@ int main()
     dadosCasino.close();
     Casino C(nomeCasino);
     C.Load("CasinoData.xml");
-
+    C.Ass_ListaUsusarios(LU);
+    C.Run();
 
     //////////////    TESTES DE ALTERAR ESTADO DE UMA MÁQUINA    //////////////
     /*Maquina *Maq = new ClassicSlots(5, 50, 1, 1, 70, "Classic Slots", NULL, ON);
@@ -186,7 +188,7 @@ int main()
 
    //////////////    TESTES DE LISTAR    //////////////
 
-   list<User *>::iterator userIt = LU.begin();
+   /*list<User *>::iterator userIt = LU.begin();
    C.Add(*userIt);
 
    userIt = LU.begin();
@@ -199,7 +201,7 @@ int main()
 
    userIt = LU.begin();
    advance(userIt, 3);
-   C.Add(*userIt);
+   C.Add(*userIt);*/
 
-   C.Listar();
+   //C.Listar();
 }

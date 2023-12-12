@@ -24,10 +24,11 @@ class User
         int Memoria(){ return sizeof(*this); }      // CALCULA A MEMÓRIA OCUPADA
         int Get_IDADE(){ return IDADE; }            // RETORNA A IDADE
         string Get_ID(){ return ID; }               // RETORNA oO ID
-        void Set_TempoJogo(int tempo){ tempoDeJogo = tempo; }
+        void Inc_TempoJogo(int tempo){ tempoDeJogo += tempo; }
         int Get_TempoJogo(){ return tempoDeJogo; }
-        void Set_premioGanho(int premio){ premioGanho=premio; };
+        void Inc_premioGanho(int premio){ premioGanho+=premio; };
         int Get_premioGanho(){ return premioGanho; }
+        string Get_Nome(){return NOME;}
 };
 
 #endif // USER_H

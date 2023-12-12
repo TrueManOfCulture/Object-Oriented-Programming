@@ -11,7 +11,7 @@ BlackJack::~BlackJack()
     //dtor
 }
 
-void BlackJack::Jogar()
+bool BlackJack::Jogar()
 {
     /*vector<string> L_Resultado = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "Rainha", "Rei", "Valete", "�s"};
     while(1){
@@ -26,4 +26,5 @@ void BlackJack::Jogar()
             }
         }
     }*/
+    return false;
 }

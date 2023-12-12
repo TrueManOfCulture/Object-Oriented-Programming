@@ -11,7 +11,7 @@ ClassicSlots::~ClassicSlots()
 
 }
 
-void ClassicSlots::Jogar()
+bool ClassicSlots::Jogar()
 {
     /*vector<string> L_Resultado = {"Banana", "Barra de Ouro", "Sino", "7"};
     string slot1, slot2, slot3;
@@ -62,4 +62,5 @@ void ClassicSlots::Jogar()
 
         cout << endl << "Perdeu" << endl;
     }*/
+    return false;
 }

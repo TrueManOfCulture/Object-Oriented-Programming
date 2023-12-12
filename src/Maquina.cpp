@@ -12,11 +12,13 @@ Maquina::Maquina(float _prob_ganhar, float _prob_avaria,  int _premio, int _posX
     PREMIO = _premio;
     posX = _posX;
     posY = _posY;
-    TEMPERATURA = _temp;
+    tempAviso = _temp;
     TIPO = _tipo;
     ESTADO = _est;
     PROB_AVARIA = _prob_avaria;
     QNT_AVARIA = 0;
+    tempoDeJogo = 0;
+    tempAtual = 20;
 }
 
 Maquina::~Maquina()
@@ -31,15 +33,26 @@ void Maquina::Show(ostream &saida)
     saida << "PREMIO: " << PREMIO << endl;
     saida << "posX: " << posX << endl;
     saida << "posY: " << posY << endl;
-    saida << "TEMP: " << TEMPERATURA << endl;
+    saida << "TEMPATUAL: " << tempAtual << endl;
     saida << "TIPO: "<< TIPO << endl;
-    saida << "QNT_AVARIAS: " << QNT_AVARIA << endl << endl;
+    saida << "QNT_AVARIAS: " << QNT_AVARIA << endl<< endl;
 }
 
-void Maquina::Jogar(){
-    int tempoJogo; //Tempo de jogo em minutos
+bool Maquina::Jogar(){
+    int tempoJogo,probGanhar; //Tempo de jogo em minutos
+
+    probGanhar = AleatorioINT(0,100);
     tempoJogo = AleatorioINT(5,50);
-    U->Set_TempoJogo(U->Get_TempoJogo()+tempoJogo);
+    U->Inc_TempoJogo(tempoJogo);
+    Inc_Tempo_Jogo(tempoJogo);
+    if(probGanhar<=PROB_GANHAR) {
+        U->Inc_premioGanho(PREMIO);
+        cout<<U->Get_Nome()<<" galhou "<<PREMIO<<"  euros" <<endl<<endl;
+        return true;
+    }
+    ESTADO = OFF;
+    cout<<U->Get_Nome()<<" jogou por "<<tempoJogo<<" minutos" <<endl<<endl;
+    return false;
 }
 
 void Maquina::Set_ESTADO(ESTADO_MAQUINA _est)
@@ -52,3 +65,5 @@ void Maquina::Set_ESTADO(ESTADO_MAQUINA _est)
         ESTADO = _est;
     }
 }
+
+void Maquina::Aquecer(){ tempAtual += AleatorioINT(-2, 5); }

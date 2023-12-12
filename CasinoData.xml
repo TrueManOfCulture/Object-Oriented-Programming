@@ -9,7 +9,7 @@
         <MAQUINA>
             <NOME>BlackJack</NOME>
             <PROB_G>10</PROB_G>
-            <PROB_A>25</PROB_A>
+            <PROB_A>5</PROB_A>
             <PREMIO>50</PREMIO>
             <X>10</X>
             <Y>20</Y>
@@ -18,7 +18,7 @@
         <MAQUINA>
             <NOME>Craps</NOME>
             <PROB_G>1</PROB_G>
-            <PROB_A>31</PROB_A>
+            <PROB_A>3</PROB_A>
             <PREMIO>60</PREMIO>
             <X>50</X>
             <Y>50</Y>
@@ -27,7 +27,7 @@
         <MAQUINA>
             <NOME>ClassicSlots</NOME>
             <PROB_G>1</PROB_G>
-            <PROB_A>20</PROB_A>
+            <PROB_A>2</PROB_A>
             <PREMIO>60</PREMIO>
             <X>50</X>
             <Y>20</Y>    
@@ -36,7 +36,7 @@
         <MAQUINA>
             <NOME>Roleta</NOME>
             <PROB_G>1</PROB_G>
-            <PROB_A>30</PROB_A>
+            <PROB_A>3</PROB_A>
             <PREMIO>60</PREMIO>
             <X>50</X>
             <Y>50</Y>
@@ -45,7 +45,7 @@
         <MAQUINA>
             <NOME>ClassicSlots</NOME>
             <PROB_G>1</PROB_G>
-            <PROB_A>30</PROB_A>
+            <PROB_A>3</PROB_A>
             <PREMIO>60</PREMIO>
             <X>50</X>
             <Y>30</Y>
@@ -54,7 +54,7 @@
         <MAQUINA>
             <NOME>Craps</NOME>
             <PROB_G>1</PROB_G>
-            <PROB_A>33</PROB_A>
+            <PROB_A>3</PROB_A>
             <PREMIO>60</PREMIO>
             <X>50</X>
             <Y>50</Y>

@@ -11,7 +11,7 @@ Craps::~Craps()
     //dtor
 }
 
-void Craps::Jogar()
+bool Craps::Jogar()
 {
-    
+    return false;
 }

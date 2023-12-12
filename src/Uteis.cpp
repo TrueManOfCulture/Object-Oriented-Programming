@@ -4,13 +4,10 @@ LinhaTexto LT;
 
 int AleatorioINT(int minN, int maxN)
 {
-    random_device rd;
-    mt19937 generator(rd());
-    uniform_int_distribution<int> distribution(minN, maxN);
-
-    int random_number = distribution(generator);
-
-    return random_number;
+    if ((maxN - minN + 1) == 0) {
+        return -1;
+    }
+    return minN + rand()%(maxN-minN+1);
 }
 
 string AleatorioVECTOR_STRINGS(vector<string> L)
