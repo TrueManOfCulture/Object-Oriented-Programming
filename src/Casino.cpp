@@ -177,7 +177,7 @@ void Casino::OP_ListMaquina(ostream &f)
     int b, ID;
     string Tipo;
 
-    cout << "--- Listar Máquinas ---" << endl;
+    cout << endl << "--- Listar Máquinas ---" << endl;
     cout << "\t1- Lista Total" << endl;
     cout << "\t2- Lista Máquinas por Tipo" << endl;
     cout << "\t3- Pesquisar Máquina por ID" << endl;
@@ -221,7 +221,7 @@ void Casino::OP_ListUser(ostream &f)
     int b;
     string ID;
 
-    cout << "--- Listar Users ---" << endl;
+    cout << endl << "--- Listar Users ---" << endl;
     cout << "\t1- Lista Total" << endl;
     cout << "\t2- Pesquisar User por ID" << endl;
     cout << "\t0- Voltar" << endl;

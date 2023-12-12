@@ -67,7 +67,7 @@ class Casino
         
         */
 
-       // FUNÇÕES PARA TESTES  [ TEMPORÁRIAS ]
+        // FUNÇÕES PARA TESTES  [ TEMPORÁRIAS ]
         map<string, Maquina *> Ass_HashMaq(){ return HashMaq; }
         map<string, User *> Ass_HashUser(){ return HashUser; }
 

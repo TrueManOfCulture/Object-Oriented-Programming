@@ -183,4 +183,23 @@ int main()
 
     delete Test;
     */
+
+   //////////////    TESTES DE LISTAR    //////////////
+
+   list<User *>::iterator userIt = LU.begin();
+   C.Add(*userIt);
+
+   userIt = LU.begin();
+   advance(userIt, 1);
+   C.Add(*userIt);
+   
+   userIt = LU.begin();
+   advance(userIt, 2);
+   C.Add(*userIt);
+
+   userIt = LU.begin();
+   advance(userIt, 3);
+   C.Add(*userIt);
+
+   C.Listar();
 }
