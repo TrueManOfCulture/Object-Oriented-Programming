@@ -23,7 +23,7 @@ class Casino
 {
     list <User *> LU;
     list <User *> LU_Espera;
-    list <Maquina *> LM; 
+    list <Maquina *> LM;
     int maxUser;
     map<string, Maquina *> HashMaq;
     map<string, User *> HashUser;

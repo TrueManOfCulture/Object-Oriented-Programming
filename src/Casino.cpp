@@ -67,6 +67,9 @@ bool Casino::Load(const string &ficheiro)
     saltarNLinhas(infoCasino, 2);
     string tag = ObterTag(infoCasino);
     int a = 0;
+
+    Maquina *M;
+
     while (tag == "MAQUINA")
     {
         nome = ObterConteudo(infoCasino);
@@ -78,12 +81,14 @@ bool Casino::Load(const string &ficheiro)
         tempoAviso = stoi(ObterConteudo(infoCasino));
 
         //(float _prob_ganhar, float _prob_avaria,  int _premio, int _posX, int _posY, int _temp)
-        Maquina *M = MaquinaTipo(pGanhar, pAvariar, premio, x, y, tempoAviso, nome);
+        M = MaquinaTipo(pGanhar, pAvariar, premio, x, y, tempoAviso, nome);
         //M->Show();    PASSEI ESTE PARA O ADD
         Add(M);
         saltarNLinhas(infoCasino, 1);
         tag = ObterTag(infoCasino);
     }
+
+    delete M; // É NECESSÁRIO ESTAR AQUI PORQUE NA FUNÇÃO MAQUINATIPO AS MÁQUINAS VAO SER CRIADAS DINAMICAMENTE COM new, E ENT É NECESSARIO APAGAR
 
     return true;
 }
@@ -135,7 +140,7 @@ void Casino::Listar(ostream &f)
     }
 }
 
-void Casino::Run(bool debug)
+void Casino::Run(bool debug) // NO FINAL TAMBÉM SERÁ NECESSÁRIO APAGAR R UMA VEZ QUE É CRIADO DINAMICAMENTE, A NÃO SER QUE NUMA FUNÇÃO CHAMADA ISSO SEJA FEITO
 {
     Relogio *R = new Relogio(1000, HORA_ABERTURA);
     time_t horaAtual = R->VerTimeRelogio();
