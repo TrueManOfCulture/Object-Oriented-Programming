@@ -106,6 +106,22 @@ string criarKey(Maquina *M) // junta as coordenasdas da maquina numa key x,y
     return key;
 }
 
+void Casino::Set_ProbMaquina(){
+    int id=-1, prob;
+    while(id==-1){
+        while(HashMaq.find(to_string(id))==HashMaq.end()){
+            id = getInt("Qual e o id da maquina cuja a probabilidade quer alterar?", 1,1000);
+            if(HashMaq.find(to_string(id))==HashMaq.end()) cout<<"Maquina nao encontrada, volte a introduzir"<<endl;
+        }
+    }
+    prob = getInt("Qual e a probabilidade da maquina cuja a probabilidade quer alterar?", 0,100);
+    alterarProb(id,prob);
+}
+
+void Casino::alterarProb(int id, int prob){
+    HashMaq[to_string(id)]->Set_Prob_Maquina(prob);
+}
+
 bool Casino::Add(Maquina *M)
 {
     string key = criarKey(M);

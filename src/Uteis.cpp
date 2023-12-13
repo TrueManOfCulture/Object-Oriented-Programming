@@ -45,6 +45,20 @@ STRING *Read_Split_Line_File(ifstream &f, int n_campos_max, int &n_campos_lidos,
     return NULL;
 }
 
+int getInt(string pergunta, int menor,int maior){
+	int num;
+	cout<< pergunta<<endl;
+    do{
+        cout<<pergunta<<"("<<menor<<"-"<<maior<<")"<<endl;
+		cin >> num;
+		if(num<menor ||num>maior){
+			printf("Input invalido, por favor volte a introduzir");
+		}
+	}while(num<menor ||num>maior);
+    fflush(stdin);
+    return num;
+}
+
 void LerFicheiroUser(list<User *> &LU, string fic)
 {
     int n_campos_max = 4;

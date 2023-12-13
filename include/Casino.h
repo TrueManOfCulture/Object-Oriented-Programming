@@ -26,7 +26,11 @@ class Casino
     list <User *> LU_Espera;
     list<User *> LU_Total;
     int maxUser;
+
+    //map com posicoes de maquinas como chave e a maquina como valor
     map<string, Maquina *> HashMaq;
+
+    //map com id como chave e usuario como valor
     map<string, User *> HashUser;
     list<Maquina *> LM_Total;
     
@@ -62,8 +66,14 @@ class Casino
         list<User *> *Jogadores_Mais_Ganhos();
         list<User *> *Jogadores_Mais_Frequentes();
         list<Maquina *> *Ranking_Das_Mais_Trabalhadores();
+<<<<<<< HEAD
+        void Set_ProbMaquina();
+        void alterarProb(int id, int prob);
+
+=======
         list<Maquina *> *Ranking_Dos_Fracos();
         
+>>>>>>> 4af336077525b6eb09388fd13176c7cc3d183727
         /*
             void Relatorio(string fich_xml);
         */

@@ -55,7 +55,7 @@ class Maquina
         virtual int Memoria(){ return sizeof(*this); }              // CALCULA A MEMÓRIA OCUPADA
 
         void Dec_STATIC_ID(){ ID--; }
-
+        void Set_Prob_Maquina(int prob){PROB_GANHAR=prob;}
         void Aquecer();
         int Get_TEMP_AT(){ return tempAtual; } 
         int Get_TEMP_AV(){ return tempAviso; }
