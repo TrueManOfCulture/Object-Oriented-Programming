@@ -11,16 +11,9 @@ Casino::~Casino()
     for(list<User*>::iterator it = LU.begin(); it != LU.end(); ++it)
         delete (*it);
 
-    for(list<User*>::iterator it = LU_Espera.begin(); it != LU_Espera.end(); ++it)
-        delete (*it);
-
     for(map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it)
         delete (it->second);
     HashMaq.clear();
-
-    for(map<string, User *>::iterator it = HashUser.begin(); it != HashUser.end(); ++it)
-        delete (it->second);
-    HashUser.clear();
 }
 
 // recebe string hh:mm e passa a hora para o int hora e os minutos para a variável minuto
@@ -138,7 +131,6 @@ bool Casino::Add(Maquina *M)
 
 void Casino::Listar(ostream &f)
 {
-<<<<<<< HEAD
     /*cout<<"Maquinas No Casino"<<endl<<endl;
 
     for (map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it)
@@ -153,8 +145,6 @@ void Casino::Listar(ostream &f)
       it->second->Show(f);
     }*/
 
-=======
->>>>>>> fd64c97c3a19f040738181737350e5c364c6552c
     int a;
 
     cout << "--- MENU LISTAR ---" << endl;
@@ -305,10 +295,6 @@ void Casino::PesqUser(string _ID, ostream &f)
 
 */
 
-<<<<<<< HEAD
-void Casino::Run(bool debug)
-=======
-
 list<User *> *Casino::Jogadores_Mais_Frequentes()
 {
     int aux=-1;
@@ -347,7 +333,6 @@ return Res;
 
 
 void Casino::Run(bool debug) 
->>>>>>> fd64c97c3a19f040738181737350e5c364c6552c
 {
     Relogio *R = new Relogio(1000, HORA_ABERTURA);
     time_t horaAtual = R->VerTimeRelogio();
@@ -459,46 +444,11 @@ int Casino::Qnt_Jog()
 
 bool Casino::Add(User *U)
 {
-<<<<<<< HEAD
     if (LU_Espera.size() < maxUser - HashMaq.size())
     { // caso a fila não esteja cheia
         string key = U->Get_ID();
         if (HashUser.find(key) == HashUser.end())
         { // caso a fila não esteja cheia
-=======
-    for (map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it)
-    { // percorrer as maquinas
-        if (it->second->Get_ESTADO() != OFF)
-        { // ver se as maquinas estao ON ou AVARIDAS (Ocupadas)
-
-            if (HashUser.size() < maxUser)
-            { // caso a fila não esteja cheia
-                string key = U->Get_ID();
-
-                if (HashUser.find(key) == HashUser.end())
-                { // caso a fila não esteja cheia
-                    HashUser[key] = U;
-                    return true;
-                }
-                else
-                {
-                    cout << "Erro! Esse User já esta no casino, ID: " << key << "!" << endl << endl;
-                    return false;
-                }
-            }
-            else
-            { // caso a fila esteja cheia
-                cout << "Erro! O casino está cheio!" << endl << endl;
-                return false;
-            }
-        }
-        else
-        { // Por a jogar
-            it->second->Set_ESTADO(ON);
-            it->second->Set_User(U);
-    
-            string key = U->Get_ID();
->>>>>>> fd64c97c3a19f040738181737350e5c364c6552c
             HashUser[key] = U;
             LU_Espera.push_back(U);
             return true;

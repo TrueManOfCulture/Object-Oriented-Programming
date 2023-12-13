@@ -21,8 +21,6 @@ int main()
     setlocale(LC_ALL, "PORTUGUESE");
     srand(time(0));
 
-    char ch;
-
     list<User *> LU;
     LerFicheiroUser(LU, "USERS.txt");
 
