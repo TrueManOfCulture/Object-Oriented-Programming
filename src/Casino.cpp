@@ -510,70 +510,74 @@ void Casino::SubirProbabilidadeVizinhas(Maquina *M_ganhou, float raio, list<Maqu
     }
 }
 
+bool compare_Ranking_Dos_Fracos(Maquina *M1, Maquina *M2)
+{
+    return (M1->Get_QNT_AVARIA() > M2->Get_QNT_AVARIA());
+}
+
 list<Maquina *> *Casino::Ranking_Dos_Fracos()
 {
-    int aux = -1;
     list<Maquina *> *Res = new list<Maquina *>;
 
-    for (map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it)
-    {
-        if (it->second->Get_QNT_AVARIA() >= aux)
-        {
-            Res->push_front(it->second);
-            aux = it->second->Get_QNT_AVARIA();
-        }
-        else
-        {
-            list<Maquina *>::iterator it_Res = Res->begin();
-            while (it_Res != Res->end() && (*it_Res)->Get_QNT_AVARIA() >= it->second->Get_QNT_AVARIA())
-            {
-                ++it_Res;
-            }
+    for (map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it){
+        Res->push_back(it->second);
+    }
 
-            if (it_Res == Res->end())
-            {
-                Res->push_back(it->second);
-            }
-            else
-            {
-                Res->insert(it_Res, it->second);
-            }
-        }
+    for(list<Maquina *>::iterator it = Res->begin(); it != Res->end(); ++it){
+        Res->sort(compare_Ranking_Dos_Fracos);
     }
 
     return Res;
 }
+
+/*
+////////////////////////////////////////////////////////////////////
+                    Jogadores_Mais_Ganhos
+////////////////////////////////////////////////////////////////////
+
+bool compare_Jogadores_Mais_Ganhos(User *U1, User *U2)
+{
+    return (U1->Get_premioGanho() > U2->Get_premioGanho());
+}
+
 
 list<User *> *Casino::Jogadores_Mais_Ganhos()
 {
-    int aux = -1;
-    list<User *> *Res = new list<User *>;
+    for (map<string, User *>::iterator it = HashUser.begin(); it != HashUser.end(); ++it){
+        Res->push_back(it->second);
+    }
 
-    for(map<string, User *>::iterator it = HashUser.begin(); it != HashUser.end(); ++it)
-    {
-        if (it->second->Get_premioGanho() >= aux)
-        {
-            Res->push_front(it->second);
-            aux = it->second->Get_premioGanho();
-        }
-        else
-        {
-            list<User *>::iterator it_Res = Res->begin();
-            while (it_Res != Res->end() && (*it_Res)->Get_premioGanho() >= it->second->Get_premioGanho())
-            {
-                ++it_Res;
-            }
-
-            if (it_Res == Res->end())
-            {
-                Res->push_back(it->second);
-            }
-            else
-            {
-                Res->insert(it_Res, it->second);
-            }
-        }
+    for(list<User *>::iterator it = Res->begin(); it != Res->end(); ++it){
+        Res->sort(compare_Jogadores_Mais_Ganhos);
     }
 
     return Res;
 }
+*/
+
+/*
+////////////////////////////////////////////////////////////////////
+                    Ranking_Das_Mais_Trabalhadores
+////////////////////////////////////////////////////////////////////
+
+bool compare_Ranking_Das_Mais_Trabalhadores(Maquina *M1, Maquina *M2)
+{
+    return (U1->Get_premioGanho() > U2->Get_premioGanho());
+}
+
+list<Maquina *> *Casino::Ranking_Das_Mais_Trabalhadores()
+{
+
+    list<Maquina *> *Res = new list<Maquina *>;
+
+    for (map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it){
+        Res->push_back(it->second);
+    }
+
+    for(list<Maquina *>::iterator it = Res->begin(); it != Res->end(); ++it){
+        Res->sort(compare_Ranking_Das_Mais_Trabalhadores);
+    }
+
+    return Res;
+}
+*/
