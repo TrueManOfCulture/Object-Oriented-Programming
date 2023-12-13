@@ -47,11 +47,13 @@ bool Maquina::Jogar(){
     Inc_Tempo_Jogo(tempoJogo);
     if(probGanhar<=PROB_GANHAR) {
         U->Inc_premioGanho(PREMIO);
-        cout<<U->Get_Nome()<<" galhou "<<PREMIO<<"  euros" <<endl<<endl;
+        cout << U->Get_Nome() << " galhou " << PREMIO << "  euros" << endl << endl;
+        Aquecer();
         return true;
     }
+
     ESTADO = OFF;
-    cout<<U->Get_Nome()<<" jogou por "<<tempoJogo<<" minutos" <<endl<<endl;
+    cout << U->Get_Nome() << " jogou por " << tempoJogo << " minutos" << endl << endl;
     return false;
 }
 
@@ -66,4 +68,4 @@ void Maquina::Set_ESTADO(ESTADO_MAQUINA _est)
     }
 }
 
-void Maquina::Aquecer(){ tempAtual += AleatorioINT(-2, 5); }
+void Maquina::Aquecer(){ tempAtual += AleatorioINT(-1, 10); }

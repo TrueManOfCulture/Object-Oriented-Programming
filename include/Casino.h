@@ -24,6 +24,7 @@ class Casino
 {
     list <User *> LU;
     list <User *> LU_Espera;
+    list<User *> LU_Total;
     int maxUser;
 
     //map com posicoes de maquinas como chave e a maquina como valor
@@ -31,6 +32,8 @@ class Casino
 
     //map com id como chave e usuario como valor
     map<string, User *> HashUser;
+    list<Maquina *> LM_Total;
+    
 
     string NOME;
     time_t HORA_ABERTURA, HORA_FECHO;
@@ -42,7 +45,7 @@ class Casino
         bool Add(Maquina *M);                                                   // ADICIONAR MÁQUINAS À LISTA
         bool Add(User *U);                                                      // ADICIONAR USUÁRIOS À LISTA
         string Get_Estado(int ID);                                              // RETORNAR O ESTADO DE UMA MÁQUINA DADO UM ID
-        int Qnt_Jog(); 
+        int Qnt_Jog();
 
         list<Maquina *> *Listar_Tipo(string Tipo, ostream &saida = cout);       // LISTAR TODOS OS TIPOS DE MÁQUINA DADO UM TIPO
         void Desligar(int ID_MAQ);                                              // DESLIGAR UMA MÁQUINA DADO UM ID
@@ -53,22 +56,26 @@ class Casino
         bool Load(const string &ficheiro);                                      // CARREGAR O FICHEIRO XML
 
         void SubirProbabilidadeVizinhas(Maquina *M_ganhou, float raio, list<Maquina *> &LM_Vizinhas);
-        list<Maquina *> *Ranking_Dos_Fracos();
+        
 
         time_t getHoraAbertura(){ return HORA_ABERTURA;};
         time_t getHoraFecho(){return HORA_FECHO;};
         void Run(bool Debug = true);
         void Listar(ostream &f=cout);
-        list<User *> *Jogadores_Mais_Ganhos();
 
+        list<User *> *Jogadores_Mais_Ganhos();
         list<User *> *Jogadores_Mais_Frequentes();
         list<Maquina *> *Ranking_Das_Mais_Trabalhadores();
+<<<<<<< HEAD
         void Set_ProbMaquina();
         void alterarProb(int id, int prob);
 
+=======
+        list<Maquina *> *Ranking_Dos_Fracos();
+        
+>>>>>>> 4af336077525b6eb09388fd13176c7cc3d183727
         /*
-        list<User *> *Jogadores_Mais_Frequentes();
-        void Relatorio(string fich_xml);
+            void Relatorio(string fich_xml);
         */
 
         // FUNÇÕES PARA TESTES  [ TEMPORÁRIAS ]

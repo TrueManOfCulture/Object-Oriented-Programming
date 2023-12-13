@@ -46,7 +46,8 @@ class Maquina
         int Get_QNT_AVARIA(){ return QNT_AVARIA; }                  //RETORNA A QUANTIDADE DE AVARIAS
         void Set_User(User *_U){ U = _U; }
         User *Get_User(){ return U; }
-        void Inc_Tempo_Jogo(int tempo){tempoDeJogo+=tempo;}
+        void Inc_Tempo_Jogo(int tempo){ tempoDeJogo += tempo; }
+        int Get_TEMPO_JOGO(){ return tempoDeJogo; } 
 
         bool Jogar();
         //virtual bool Jogar();                                       //FUNÇÃO PARA JOGAR NA MÁQUINA ESCOLHIDA
@@ -57,6 +58,9 @@ class Maquina
         void Dec_STATIC_ID(){ ID--; }
         void Set_Prob_Maquina(int prob){PROB_GANHAR=prob;}
         void Aquecer();
+        int Get_TEMP_AT(){ return tempAtual; } 
+        int Get_TEMP_AV(){ return tempAviso; }
+        void Reset_TEMP_AT(){ tempAtual = 20; }      
         
 };
 
