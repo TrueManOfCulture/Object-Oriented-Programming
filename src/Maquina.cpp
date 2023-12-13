@@ -47,7 +47,7 @@ bool Maquina::Jogar(){
     Inc_Tempo_Jogo(tempoJogo);
     if(probGanhar<=PROB_GANHAR) {
         U->Inc_premioGanho(PREMIO);
-        cout << U->Get_Nome() << " galhou " << PREMIO << "  euros" << endl << endl;
+        cout << U->Get_Nome() << " ganhou " << PREMIO << "  euros" << endl << endl;
         Aquecer();
         return true;
     }

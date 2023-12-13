@@ -8,12 +8,12 @@ Casino::Casino(string _nome)
 
 Casino::~Casino()
 {
-    for(list<User *>::iterator it = LU.begin(); it != LU.end(); ++it)
-        delete (*it);
-
     for(map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it)
         delete (it->second);
     HashMaq.clear();
+
+    for(list<User *>::iterator it = LU.begin(); it != LU.end(); ++it)
+        delete (*it);
 
     HashUser.clear();
 }
@@ -88,15 +88,11 @@ bool Casino::Load(const string &ficheiro)
         y = stoi(ObterConteudo(infoCasino));
         tempoAviso = stoi(ObterConteudo(infoCasino));
 
-        //(float _prob_ganhar, float _prob_avaria,  int _premio, int _posX, int _posY, int _temp)
         M = MaquinaTipo(pGanhar, pAvariar, premio, x, y, tempoAviso, nome);
-        // M->Show();    PASSEI ESTE PARA O ADD
         Add(M);
         saltarNLinhas(infoCasino, 1);
         tag = ObterTag(infoCasino);
     }
-
-    delete M;
 
     return true;
 }
@@ -293,14 +289,6 @@ void Casino::PesqUser(string _ID, ostream &f)
     cout << "Nenhum User encontrada com o ID " << _ID << endl;
 }
 
-/*
-    - NO FINAL TAMBÉM SERÁ NECESSÁRIO APAGAR R UMA VEZ QUE É CRIADO DINAMICAMENTE, A NÃO SER QUE NUMA FUNÇÃO CHAMADA ISSO SEJA FEITO
-    - SERÁ NECESSÁRIO FZR UMA PARTE PARA VERIFICAR SE A MÁQUINA NÃO ANTINGE A TEMPERATURA DE AVISO
-    - N SE ESCOLHE UMA MÁQUINA ESPECIFICA PARA AVARIAR, TODAS AS MÁQUINAS SERÃO PERCORRIDAS E CADA MÁQUINA TEM A SUA PROBABILIDADE DE AVARIAR
-        .. PROBABILIDADE DE AVARIAR TEM DE USAR A PROBABILIDADE DE AVARIA DA MÁQUINA
-
-*/
-
 void Casino::Run(bool debug) 
 {
     Relogio *R = new Relogio(1000, HORA_ABERTURA);
@@ -344,7 +332,7 @@ void Casino::Run(bool debug)
                 cout <<"Maquina " << M->Get_ID() <<" foi concertada"<< endl << endl;
             }
 
-            if(M->Get_TEMP_AT() >= M->Get_TEMP_AV()){ cout << "Máquina: " << M->Get_ID() << " ATINGIU A TEMPERATURA DE AVISO"; }
+            if(M->Get_TEMP_AT() >= M->Get_TEMP_AV()){ cout << "Máquina: " << M->Get_ID() << " ATINGIU A TEMPERATURA DE AVISO  ////////////////////////////////////////////////////"; }
 
             if (probAv <= M->Get_PROB_AVARIA() || M->Get_TEMP_AT() >= M->Get_TEMP_AV())
             {
@@ -355,7 +343,7 @@ void Casino::Run(bool debug)
 
             if (M->Get_ESTADO() == ON)
             {
-                if(M->Jogar()) SubirProbabilidadeVizinhas(M, 40, lmvizinhas);
+                if(M->Jogar()) SubirProbabilidadeVizinhas(M, 1, lmvizinhas);
                 HashUser.erase(M->Get_User()->Get_ID());
             }
 
@@ -366,11 +354,10 @@ void Casino::Run(bool debug)
                 LU_Espera.pop_front();
                 M->Set_ESTADO(ON);
                 
-                if(M->Jogar()) SubirProbabilidadeVizinhas(M,40,lmvizinhas);
+                if(M->Jogar()) SubirProbabilidadeVizinhas(M, 1, lmvizinhas);
                 HashUser.erase(M->Get_User()->Get_ID());
             }
         }
-
         horaAtual = R->VerTimeRelogio();
         cout << "Hora: " << ctime(&horaAtual) << endl << endl;
         R->Wait(2);

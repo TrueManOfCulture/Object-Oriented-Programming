@@ -71,7 +71,14 @@ class Casino
         void alterarProb(int id, int prob);
 
         list<Maquina *> *Ranking_Dos_Fracos();
+<<<<<<< HEAD
         void Relatorio(string fich_xml);
+=======
+        
+        /*
+            void Relatorio(string fich_xml);
+        */
+>>>>>>> e4f1d4f1a7d90c54ef70af326d75c30e168c1d4b
 
         // FUNÇÕES PARA TESTES  [ TEMPORÁRIAS ]
         map<string, Maquina *> Ass_HashMaq(){ return HashMaq; }
