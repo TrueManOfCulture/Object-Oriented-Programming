@@ -38,7 +38,7 @@ class Casino
         bool Add(Maquina *M);                                                   // ADICIONAR MÁQUINAS À LISTA
         bool Add(User *U);                                                      // ADICIONAR USUÁRIOS À LISTA
         string Get_Estado(int ID);                                              // RETORNAR O ESTADO DE UMA MÁQUINA DADO UM ID
-        int Qnt_Jog(); 
+        int Qnt_Jog();
 
         list<Maquina *> *Listar_Tipo(string Tipo, ostream &saida = cout);       // LISTAR TODOS OS TIPOS DE MÁQUINA DADO UM TIPO
         void Desligar(int ID_MAQ);                                              // DESLIGAR UMA MÁQUINA DADO UM ID
@@ -49,18 +49,19 @@ class Casino
         bool Load(const string &ficheiro);                                      // CARREGAR O FICHEIRO XML
 
         void SubirProbabilidadeVizinhas(Maquina *M_ganhou, float raio, list<Maquina *> &LM_Vizinhas);
-        list<Maquina *> *Ranking_Dos_Fracos();
+        
 
         time_t getHoraAbertura(){ return HORA_ABERTURA;};
         time_t getHoraFecho(){return HORA_FECHO;};
         void Run(bool Debug = true);
         void Listar(ostream &f=cout);
-        list<User *> *Jogadores_Mais_Ganhos();
 
+        list<User *> *Jogadores_Mais_Ganhos();
         list<User *> *Jogadores_Mais_Frequentes();
         list<Maquina *> *Ranking_Das_Mais_Trabalhadores();
+        list<Maquina *> *Ranking_Dos_Fracos();
         /*
-        list<User *> *Jogadores_Mais_Frequentes();
+        
         void Relatorio(string fich_xml);
         */
 

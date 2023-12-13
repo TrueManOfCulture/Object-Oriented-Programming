@@ -94,7 +94,7 @@ bool Casino::Load(const string &ficheiro)
         tag = ObterTag(infoCasino);
     }
 
-    delete M; // É NECESSÁRIO ESTAR AQUI PORQUE NA FUNÇÃO MAQUINATIPO AS MÁQUINAS VAO SER CRIADAS DINAMICAMENTE COM new, E ENT É NECESSARIO APAGAR
+    delete M;
 
     return true;
 }
@@ -131,20 +131,6 @@ bool Casino::Add(Maquina *M)
 
 void Casino::Listar(ostream &f)
 {
-    /*cout<<"Maquinas No Casino"<<endl<<endl;
-
-    for (map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it)
-    {
-     it->second->Show(f);
-    }
-
-    cout<<"Users No Casino"<<endl<<endl;
-
-    for (map<string, User *>::iterator it = HashUser.begin(); it != HashUser.end(); ++it)
-    {
-      it->second->Show(f);
-    }*/
-
     int a;
 
     cout << "--- MENU LISTAR ---" << endl;
@@ -159,8 +145,11 @@ void Casino::Listar(ostream &f)
     {
     case 1:
         cout << endl;
+        cout << "Lista de Máquinas" << endl;
         for (map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it)
             it->second->Show(f);
+
+        cout << "Lista de Users" << endl;
         for (map<string, User *>::iterator it = HashUser.begin(); it != HashUser.end(); ++it)
             it->second->Show(f);
         break;
@@ -546,66 +535,9 @@ list<Maquina *> *Casino::Ranking_Dos_Fracos()
     return Res;
 }
 
-/*
-////////////////////////////////////////////////////////////////////
-                    Jogadores_Mais_Ganhos
-////////////////////////////////////////////////////////////////////
-
-bool compare_Jogadores_Mais_Ganhos(User *U1, User *U2)
-{
-    return (U1->Get_premioGanho() > U2->Get_premioGanho());
-}
-
-
-list<User *> *Casino::Jogadores_Mais_Ganhos()
-{
-    for (map<string, User *>::iterator it = HashUser.begin(); it != HashUser.end(); ++it){
-        Res->push_back(it->second);
-    }
-
-<<<<<<< HEAD
-    for (map<string, User *>::iterator it = HashUser.begin(); it != HashUser.end(); ++it)
-    {
-        if (it->second->Get_premioGanho() >= aux)
-        {
-            Res->push_front(it->second);
-            aux = it->second->Get_premioGanho();
-        }
-        else
-        {
-            list<User *>::iterator it_Res = Res->begin();
-            while (it_Res != Res->end() && (*it_Res)->Get_premioGanho() >= it->second->Get_premioGanho())
-            {
-                ++it_Res;
-            }
-
-            if (it_Res == Res->end())
-            {
-                Res->push_back(it->second);
-            }
-            else
-            {
-                Res->insert(it_Res, it->second);
-            }
-        }
-=======
-    for(list<User *>::iterator it = Res->begin(); it != Res->end(); ++it){
-        Res->sort(compare_Jogadores_Mais_Ganhos);
->>>>>>> bf109bc2ac09e00b5fe7c754fa26d16ffa4cb2d4
-    }
-
-    return Res;
-}
-*/
-
-/*
-////////////////////////////////////////////////////////////////////
-                    Ranking_Das_Mais_Trabalhadores
-////////////////////////////////////////////////////////////////////
-
 bool compare_Ranking_Das_Mais_Trabalhadores(Maquina *M1, Maquina *M2)
 {
-    return (U1->Get_premioGanho() > U2->Get_premioGanho());
+    return (M1->Get_TEMPO_JOGO() > M1->Get_TEMPO_JOGO());
 }
 
 list<Maquina *> *Casino::Ranking_Das_Mais_Trabalhadores()
@@ -623,4 +555,43 @@ list<Maquina *> *Casino::Ranking_Das_Mais_Trabalhadores()
 
     return Res;
 }
-*/
+
+bool compare_Jogadores_Mais_Ganhos(User *U1, User *U2)
+{
+    return (U1->Get_premioGanho() > U2->Get_premioGanho());
+}
+
+list<User *> *Casino::Jogadores_Mais_Ganhos()
+{
+    list<User *> *Res = new list<User *>;
+
+    for (map<string, User *>::iterator it = HashUser.begin(); it != HashUser.end(); ++it){
+        Res->push_back(it->second);
+    }
+
+    for(list<User *>::iterator it = Res->begin(); it != Res->end(); ++it){
+        Res->sort(compare_Jogadores_Mais_Ganhos);
+    }
+
+    return Res;
+}
+
+bool compare_Jogadores_Mais_Frequentes(User *U1, User *U2)
+{
+    return (U1->Get_TempoJogo() > U2->Get_TempoJogo());
+}
+
+list<User *> *Casino::Jogadores_Mais_Frequentes()
+{
+    list<User *> *Res = new list<User *>;
+
+    for (map<string, User *>::iterator it = HashUser.begin(); it != HashUser.end(); ++it){
+        Res->push_back(it->second);
+    }
+
+    for(list<User *>::iterator it = Res->begin(); it != Res->end(); ++it){
+        Res->sort(compare_Jogadores_Mais_Frequentes);
+    }
+
+    return Res;
+}

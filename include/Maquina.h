@@ -46,7 +46,8 @@ class Maquina
         int Get_QNT_AVARIA(){ return QNT_AVARIA; }                  //RETORNA A QUANTIDADE DE AVARIAS
         void Set_User(User *_U){ U = _U; }
         User *Get_User(){ return U; }
-        void Inc_Tempo_Jogo(int tempo){tempoDeJogo+=tempo;}
+        void Inc_Tempo_Jogo(int tempo){ tempoDeJogo += tempo; }
+        int Get_TEMPO_JOGO(){ return tempoDeJogo; } 
 
         bool Jogar();
         //virtual bool Jogar();                                       //FUNÇÃO PARA JOGAR NA MÁQUINA ESCOLHIDA
