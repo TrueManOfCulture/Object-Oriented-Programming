@@ -111,15 +111,15 @@ int main()
 
     HashMaq = C.Ass_HashMaq();
 
-    for(map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it){
+    /*for(map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it){
         int aoga = AleatorioINT(1, 100);
         for(int i = 0; i < aoga; i++)
             it->second->Inc_QNT_AVARIA();
-    }
+    }*/
 
-    for(map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it){
+    /*for(map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it){
         it->second->Show();
-    }
+    }*/
 
 
     cout << "//////////////////////////////////////////" << endl;

@@ -58,6 +58,9 @@ class Maquina
         void Dec_STATIC_ID(){ ID--; }
 
         void Aquecer();
+        int Get_TEMP_AT(){ return tempAtual; } 
+        int Get_TEMP_AV(){ return tempAviso; }
+        void Reset_TEMP_AT(){ tempAtual = 20; }      
         
 };
 

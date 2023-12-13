@@ -24,9 +24,12 @@ class Casino
 {
     list <User *> LU;
     list <User *> LU_Espera;
+    list<User *> LU_Total;
     int maxUser;
     map<string, Maquina *> HashMaq;
     map<string, User *> HashUser;
+    list<Maquina *> LM_Total;
+    
 
     string NOME;
     time_t HORA_ABERTURA, HORA_FECHO;
@@ -60,9 +63,9 @@ class Casino
         list<User *> *Jogadores_Mais_Frequentes();
         list<Maquina *> *Ranking_Das_Mais_Trabalhadores();
         list<Maquina *> *Ranking_Dos_Fracos();
-        /*
         
-        void Relatorio(string fich_xml);
+        /*
+            void Relatorio(string fich_xml);
         */
 
         // FUNÇÕES PARA TESTES  [ TEMPORÁRIAS ]

@@ -9,56 +9,74 @@
         <MAQUINA>
             <NOME>BlackJack</NOME>
             <PROB_G>10</PROB_G>
-            <PROB_A>5</PROB_A>
+            <PROB_A>10</PROB_A>
             <PREMIO>50</PREMIO>
-            <X>10</X>
-            <Y>20</Y>
+            <X>1</X>
+            <Y>1</Y>
             <TEMP_AVISO>70</TEMP_AVISO>            
         </MAQUINA>
         <MAQUINA>
             <NOME>Craps</NOME>
             <PROB_G>1</PROB_G>
-            <PROB_A>3</PROB_A>
+            <PROB_A>15</PROB_A>
             <PREMIO>60</PREMIO>
-            <X>50</X>
-            <Y>50</Y>
+            <X>1</X>
+            <Y>2</Y>
             <TEMP_AVISO>80</TEMP_AVISO>                        
         </MAQUINA>
         <MAQUINA>
             <NOME>ClassicSlots</NOME>
             <PROB_G>1</PROB_G>
-            <PROB_A>2</PROB_A>
-            <PREMIO>60</PREMIO>
-            <X>50</X>
-            <Y>20</Y>    
+            <PROB_A>20</PROB_A>
+            <PREMIO>20</PREMIO>
+            <X>1</X>
+            <Y>3</Y>    
             <TEMP_AVISO>50</TEMP_AVISO>            
         </MAQUINA>
         <MAQUINA>
             <NOME>Roleta</NOME>
             <PROB_G>1</PROB_G>
-            <PROB_A>3</PROB_A>
-            <PREMIO>60</PREMIO>
-            <X>50</X>
-            <Y>50</Y>
+            <PROB_A>20</PROB_A>
+            <PREMIO>50</PREMIO>
+            <X>1</X>
+            <Y>4</Y>
             <TEMP_AVISO>80</TEMP_AVISO>                        
         </MAQUINA>
         <MAQUINA>
             <NOME>ClassicSlots</NOME>
             <PROB_G>1</PROB_G>
-            <PROB_A>3</PROB_A>
-            <PREMIO>60</PREMIO>
-            <X>50</X>
-            <Y>30</Y>
+            <PROB_A>25</PROB_A>
+            <PREMIO>30</PREMIO>
+            <X>2</X>
+            <Y>1</Y>
             <TEMP_AVISO>80</TEMP_AVISO>                        
         </MAQUINA>
         <MAQUINA>
             <NOME>Craps</NOME>
             <PROB_G>1</PROB_G>
-            <PROB_A>3</PROB_A>
-            <PREMIO>60</PREMIO>
-            <X>50</X>
-            <Y>50</Y>
+            <PROB_A>10</PROB_A>
+            <PREMIO>40</PREMIO>
+            <X>2</X>
+            <Y>2</Y>
             <TEMP_AVISO>80</TEMP_AVISO>                        
+        </MAQUINA>
+        <MAQUINA>
+            <NOME>BlackJack</NOME>
+            <PROB_G>12</PROB_G>
+            <PROB_A>8</PROB_A>
+            <PREMIO>70</PREMIO>
+            <X>2</X>
+            <Y>3</Y>
+            <TEMP_AVISO>70</TEMP_AVISO>            
+        </MAQUINA>
+        <MAQUINA>
+            <NOME>Roleta</NOME>
+            <PROB_G>15</PROB_G>
+            <PROB_A>15</PROB_A>
+            <PREMIO>50</PREMIO>
+            <X>2</X>
+            <Y>4</Y>
+            <TEMP_AVISO>70</TEMP_AVISO>            
         </MAQUINA>
     </LISTA_MAQ>
 </DADOS>

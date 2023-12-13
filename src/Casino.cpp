@@ -8,12 +8,14 @@ Casino::Casino(string _nome)
 
 Casino::~Casino()
 {
-    for(list<User*>::iterator it = LU.begin(); it != LU.end(); ++it)
+    for(list<User *>::iterator it = LU.begin(); it != LU.end(); ++it)
         delete (*it);
 
     for(map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it)
         delete (it->second);
     HashMaq.clear();
+
+    HashUser.clear();
 }
 
 // recebe string hh:mm e passa a hora para o int hora e os minutos para a variável minuto
@@ -110,19 +112,18 @@ string criarKey(Maquina *M) // junta as coordenasdas da maquina numa key x,y
 
 bool Casino::Add(Maquina *M)
 {
-
     string key = criarKey(M);
 
     if (HashMaq.find(key) == HashMaq.end())
     {
         HashMaq[key] = M;
+        LM_Total.push_back(M);
         M->Show();
     }
     else
     {
         M->Dec_STATIC_ID();
-        cout << "Erro! Já existe uma máquina na posição: " << key << "!" << endl
-             << endl;
+        cout << "Erro! Já existe uma máquina na posição: " << key << "!" << endl << endl;
         return false;
     }
 
@@ -284,43 +285,6 @@ void Casino::PesqUser(string _ID, ostream &f)
 
 */
 
-list<User *> *Casino::Jogadores_Mais_Frequentes()
-{
-    int aux=-1;
-    list<User *> *Res = new list<User *>;
-
-    for(map<string, User *>::iterator it = HashUser.begin(); it != HashUser.end(); ++it)
-    {
-        if(it->second->Get_qntEntradas() >= aux)
-        {
-            Res->push_front(it->second);
-            aux = it->second->Get_qntEntradas();
-        }
-        else
-        {
-            list<User *>::iterator it_Res = Res->begin();
-            while (it_Res != Res->end() && (*it_Res)->Get_qntEntradas() >= it->second->Get_qntEntradas()){
-                ++it_Res;
-            }
-        
-
-        if (it_Res == Res->end())
-        {
-            Res->push_back(it->second);
-        }
-        else
-        {
-            Res->insert(it_Res, it->second);
-        }
-        }
-}
-return Res;
-
-}
-
-
-
-
 void Casino::Run(bool debug) 
 {
     Relogio *R = new Relogio(1000, HORA_ABERTURA);
@@ -354,30 +318,35 @@ void Casino::Run(bool debug)
             }
         }
         
-        
-
-        // Jogar  NA MINHA OPINIÃO MUDÁVA-SE O JOGAR() PARA JÁ FZR A VERIFICAÇÃO DE PROBABILIDADE
+        // Jogar
         for (map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it)
         {
             Maquina *M = it->second;
-            if(M->Get_ESTADO()==AVARIADA) {
+
+            if(M->Get_ESTADO() == AVARIADA) {
                 M->Set_ESTADO(OFF);
-                cout <<"Maquina " << M->Get_ID()<<" foi concertada"<<endl<<endl;
+                cout <<"Maquina " << M->Get_ID() <<" foi concertada"<< endl << endl;
             }
-            if (probAv <= M->Get_PROB_AVARIA())
+
+            if(M->Get_TEMP_AT() >= M->Get_TEMP_AV()){ cout << "Máquina: " << M->Get_ID() << " ATINGIU A TEMPERATURA DE AVISO"; }
+
+            if (probAv <= M->Get_PROB_AVARIA() || M->Get_TEMP_AT() >= M->Get_TEMP_AV())
             {
                 M->Set_ESTADO(AVARIADA);
-                cout<<"Maquina " << M->Get_ID()<<" avariou"<<endl<<endl;
+                M->Reset_TEMP_AT();
+                cout << "Maquina " << M->Get_ID() << " avariou" << endl << endl;
             }
-            /*if (M->Get_ESTADO() == ON)
+
+            if (M->Get_ESTADO() == ON)
             {
-                if(M->Jogar()) SubirProbabilidadeVizinhas(M,40,lmvizinhas);
+                if(M->Jogar()) SubirProbabilidadeVizinhas(M, 40, lmvizinhas);
                 HashUser.erase(M->Get_User()->Get_ID());
-            }*/
+            }
+
             if (M->Get_ESTADO() == OFF && !LU_Espera.empty())
             {
                 M->Set_User(LU_Espera.front());
-                cout << "O User "<< LU_Espera.front()->Get_Nome()<< " foi adicionado a maquina " <<M->Get_ID()<<endl<<endl;
+                cout << "O User "<< LU_Espera.front()->Get_Nome() << " foi adicionado a maquina " << M->Get_ID() << endl << endl;
                 LU_Espera.pop_front();
                 M->Set_ESTADO(ON);
                 
@@ -387,7 +356,7 @@ void Casino::Run(bool debug)
         }
 
         horaAtual = R->VerTimeRelogio();
-        cout <<"Hora: "<< ctime(&horaAtual)<<endl<<endl;
+        cout << "Hora: " << ctime(&horaAtual) << endl << endl;
         R->Wait(2);
     }
 }
@@ -414,9 +383,7 @@ string Casino::Get_Estado(int ID)
         if (ID == it->second->Get_ID())
             return EnumToString(it->second->Get_ESTADO());
 
-    cout << endl
-         << endl
-         << "ERRO! NENHUMA MÁQUINA ENCONTRADA COM O ID " << ID << "!" << endl;
+    cout << endl << endl << "ERRO! NENHUMA MÁQUINA ENCONTRADA COM O ID " << ID << "!" << endl;
     return EnumToString(ERRO);
 }
 
@@ -440,16 +407,16 @@ bool Casino::Add(User *U)
         { // caso a fila não esteja cheia
             HashUser[key] = U;
             LU_Espera.push_back(U);
+            LU_Total.push_back(U);
             return true;
         }
         else
         {
-            cout << "Erro! Esse User já esta no casino, ID: " << key << "!" << endl
-                 << endl;
+            cout << "Erro! Esse User já esta no casino, ID: " << key << "!" << endl << endl;
             return false;
         }
     }
-    cout << "Erro! O casino está cheio!" << endl<<endl;
+    cout << "Erro! O casino está cheio!" << endl <<endl;
     return false;
 }
 
@@ -467,16 +434,15 @@ int Casino::MemoriaCasino()
     for (list<User *>::iterator it = LU_Espera.begin(); it != LU_Espera.end(); ++it)
         MEM_U += (*it)->Memoria();
 
+    for(list<User *>::iterator it = LU_Total.begin(); it != LU_Total.end(); ++it)
+        MEM_U += (*it)->Memoria();
+
     for (map<string, User *>::iterator it = HashUser.begin(); it != HashUser.end(); ++it)
         MEM_U = it->second->Memoria();
 
     TOTAL = sizeof(*this) + MEM_MAQ + MEM_U;
 
-    cout << endl
-         << "MÁQ: " << MEM_MAQ << endl
-         << "U: " << MEM_U << endl
-         << endl
-         << "TOTAL: " << TOTAL;
+    cout << endl << "MÁQ: " << MEM_MAQ << endl << "U: " << MEM_U << endl << endl << "TOTAL: " << TOTAL;
 
     return TOTAL;
 }
@@ -524,9 +490,8 @@ list<Maquina *> *Casino::Ranking_Dos_Fracos()
 {
     list<Maquina *> *Res = new list<Maquina *>;
 
-    for (map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it){
-        Res->push_back(it->second);
-    }
+    for(list<Maquina *>::iterator it = LM_Total.begin(); it != LM_Total.end(); ++it)
+        Res->push_back(*it);
 
     for(list<Maquina *>::iterator it = Res->begin(); it != Res->end(); ++it){
         Res->sort(compare_Ranking_Dos_Fracos);
@@ -542,12 +507,10 @@ bool compare_Ranking_Das_Mais_Trabalhadores(Maquina *M1, Maquina *M2)
 
 list<Maquina *> *Casino::Ranking_Das_Mais_Trabalhadores()
 {
-
     list<Maquina *> *Res = new list<Maquina *>;
 
-    for (map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it){
-        Res->push_back(it->second);
-    }
+    for(list<Maquina *>::iterator it = LM_Total.begin(); it != LM_Total.end(); ++it)
+        Res->push_back(*it);
 
     for(list<Maquina *>::iterator it = Res->begin(); it != Res->end(); ++it){
         Res->sort(compare_Ranking_Das_Mais_Trabalhadores);
@@ -565,13 +528,11 @@ list<User *> *Casino::Jogadores_Mais_Ganhos()
 {
     list<User *> *Res = new list<User *>;
 
-    for (map<string, User *>::iterator it = HashUser.begin(); it != HashUser.end(); ++it){
-        Res->push_back(it->second);
-    }
-
-    for(list<User *>::iterator it = Res->begin(); it != Res->end(); ++it){
+    for(list<User *>::iterator it = LU_Total.begin(); it != LU_Total.end(); ++it)
+        Res->push_back(*it);
+    
+    for(list<User *>::iterator it = Res->begin(); it != Res->end(); ++it)
         Res->sort(compare_Jogadores_Mais_Ganhos);
-    }
 
     return Res;
 }
@@ -585,13 +546,11 @@ list<User *> *Casino::Jogadores_Mais_Frequentes()
 {
     list<User *> *Res = new list<User *>;
 
-    for (map<string, User *>::iterator it = HashUser.begin(); it != HashUser.end(); ++it){
-        Res->push_back(it->second);
-    }
-
-    for(list<User *>::iterator it = Res->begin(); it != Res->end(); ++it){
+    for(list<User *>::iterator it = LU_Total.begin(); it != LU_Total.end(); ++it)
+        Res->push_back(*it);
+    
+    for(list<User *>::iterator it = Res->begin(); it != Res->end(); ++it)
         Res->sort(compare_Jogadores_Mais_Frequentes);
-    }
 
     return Res;
 }
