@@ -13,12 +13,12 @@ ClassicSlots::~ClassicSlots()
 
 bool ClassicSlots::Jogar()
 {
-    /*vector<string> L_Resultado = {"Banana", "Barra de Ouro", "Sino", "7"};
+    vector<string> L_Resultado = {"Banana", "Barra de Ouro", "Sino", "7"};
     string slot1, slot2, slot3;
 
     int Resultado = AleatorioINT(1, 100);
 
-    if(Resultado <= Get_PROB_GANHAR()){ // SE RESULTADO FOR MENOR QUE PROB_GANHAR O USER GANHA
+    if(Resultado <= Get_PROB_GANHAR()){
         string VENCER = AleatorioVECTOR_STRINGS(L_Resultado);
         slot1 = VENCER;
         slot2 = VENCER;
@@ -28,11 +28,12 @@ bool ClassicSlots::Jogar()
         //1 = 1s
         cout << "Loading..." << endl;
         sleep(2);
-        cout << slot1 << "  ";
+        cout << slot1 << "  " << flush;
         sleep(2);
-        cout << slot2 << "  ";
+        cout << slot2 << "  " << flush;
         sleep(2);
-        cout << slot3;
+        cout << slot3 << flush;
+
 
         if((slot1 == "7") && (slot2 == "7") && (slot3 == "7")) {
             cout << endl << "!!! JACKPOT !!!" << endl;
@@ -44,7 +45,7 @@ bool ClassicSlots::Jogar()
         }
     }
     else{
-        do{ // GARANTE QUE OS 3 VALORES N�O SEJAM IGUAIS MAS QUE AINDA POSSA HAVER DOIS VALORES IGUAIS E UM DIFERENTE
+        do{
             slot1 = AleatorioVECTOR_STRINGS(L_Resultado);
             slot2 = AleatorioVECTOR_STRINGS(L_Resultado);
             slot3 = AleatorioVECTOR_STRINGS(L_Resultado);
@@ -54,13 +55,13 @@ bool ClassicSlots::Jogar()
 
         cout << "Loading..." << endl;
         sleep(1);
-        cout << slot1 << "  ";
+        cout << slot1 << "  " << flush;
         sleep(1);
-        cout << slot2 << "  ";
+        cout << slot2 << "  " << flush;
         sleep(2);
-        cout << slot3;
+        cout << slot3 << flush;
 
         cout << endl << "Perdeu" << endl;
-    }*/
-    return false;
+    }
+    return true;
 }

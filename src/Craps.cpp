@@ -10,8 +10,3 @@ Craps::~Craps()
 {
     //dtor
 }
-
-bool Craps::Jogar()
-{
-    return false;
-}

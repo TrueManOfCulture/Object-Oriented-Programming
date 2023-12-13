@@ -5,7 +5,6 @@
 #include <string>
 #include <list>
 #include <vector>
-//#include <conio.h>
 
 using namespace std;
 
@@ -19,9 +18,8 @@ class BlackJack : public Maquina
         BlackJack(float _prob_ganhar, float _prob_avaria,  int _premio, int _posX, int _posY, int _temp, string _tipo, User *U = NULL, ESTADO_MAQUINA _est = OFF);
         virtual ~BlackJack();
 
-        bool Jogar();                               // Função de Jogar
-        //string Get_TIPO(){ return TIPO; }         // Retornar o TIPO da máquina
         int Memoria(){ return sizeof(*this); }      // Retornar o espaço em memória que a máquina ocupa
+        void Inc_PROB_GANHAR(float _prob){ PREMIO += _prob; }
 };
 
 #endif // BLACKJACK_H

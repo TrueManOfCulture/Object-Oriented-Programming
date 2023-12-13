@@ -20,7 +20,6 @@ class Maquina
     int ID__;
     float PROB_GANHAR;
     float PROB_AVARIA;
-    int PREMIO;
     int posX, posY;
     int tempAtual;
     int tempAviso;
@@ -39,7 +38,7 @@ class Maquina
         int Get_POSY(){ return posY; }                              // RETORNA A POSY
         float Get_PROB_GANHAR(){ return PROB_GANHAR; }              // RETORNA A PROBABILIDADE DE GANHAR DE UMA MÁQUINA
         void Set_ESTADO(ESTADO_MAQUINA _est);                       // ALTERA O ESTADO DA MÁQUINA
-        void Inc_PROB_GANHAR(float _prob){ PROB_GANHAR += _prob; }  // ALTERA A PROBABILIDADE DE GANHAR DA MÁQUINA
+        virtual void Inc_PROB_GANHAR(float _prob){ PROB_GANHAR += _prob; }  // ALTERA A PROBABILIDADE DE GANHAR DA MÁQUINA
         string Get_TIPO(){ return TIPO; }                           // RETORNA O TIPO DA MÁQUINA
         float Get_PROB_AVARIA(){ return PROB_AVARIA; }              //RETORNA A PROBABILIDADE DE AVARIA
         void Inc_QNT_AVARIA(){ QNT_AVARIA++; }                      //INCREMENTA A QUANTIDADE DE AVARIA
@@ -50,7 +49,7 @@ class Maquina
         int Get_TEMPO_JOGO(){ return tempoDeJogo; } 
 
         bool Jogar();
-        //virtual bool Jogar();                                       //FUNÇÃO PARA JOGAR NA MÁQUINA ESCOLHIDA
+        //FUNÇÃO PARA JOGAR NA MÁQUINA ESCOLHIDA
 
         void Show(ostream &saida = cout);                           // MOSTRA OS DADOS DA MÁQUINA
         virtual int Memoria(){ return sizeof(*this); }              // CALCULA A MEMÓRIA OCUPADA
@@ -60,7 +59,10 @@ class Maquina
         void Aquecer();
         int Get_TEMP_AT(){ return tempAtual; } 
         int Get_TEMP_AV(){ return tempAviso; }
-        void Reset_TEMP_AT(){ tempAtual = 20; }      
+        void Reset_TEMP_AT(){ tempAtual = 20; } 
+
+    protected:
+        int PREMIO;     
         
 };
 

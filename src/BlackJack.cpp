@@ -10,21 +10,3 @@ BlackJack::~BlackJack()
 {
     //dtor
 }
-
-bool BlackJack::Jogar()
-{
-    /*vector<string> L_Resultado = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "Rainha", "Rei", "Valete", "�s"};
-    while(1){
-        if(_kbhit()){
-            char ch = _getch();
-            cout << "Pressed key: " << ch << endl;
-
-            if(ch == 'M' || ch == 'm'){
-                cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" << endl;
-
-
-            }
-        }
-    }*/
-    return false;
-}
