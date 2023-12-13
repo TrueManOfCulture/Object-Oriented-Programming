@@ -291,6 +291,7 @@ void Casino::PesqUser(string _ID, ostream &f)
 
 void Casino::Run(bool debug) 
 {
+    Menu(this);
     Relogio *R = new Relogio(1000, HORA_ABERTURA);
     time_t horaAtual = R->VerTimeRelogio();
     int userEscolhido, prob, probAv,quantUs;
@@ -445,8 +446,6 @@ int Casino::MemoriaCasino()
 
     TOTAL = sizeof(*this) + MEM_MAQ + MEM_U;
 
-    cout << endl << "MÁQ: " << MEM_MAQ << endl << "U: " << MEM_U << endl << endl << "TOTAL: " << TOTAL;
-
     return TOTAL;
 }
 
@@ -557,3 +556,4 @@ list<User *> *Casino::Jogadores_Mais_Frequentes()
 
     return Res;
 }
+

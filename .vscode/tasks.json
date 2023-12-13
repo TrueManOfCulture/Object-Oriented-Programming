@@ -30,6 +30,8 @@
                 "${fileDirname}/src/Relogio.cpp",
                 "${fileDirname}/include/Craps.h",
                 "${fileDirname}/src/Craps.cpp",
+                "${fileDirname}/include/Menu.h",
+                "${fileDirname}/src/Menu.cpp",
             ],
             "options": {
                 "cwd": "${fileDirname}"

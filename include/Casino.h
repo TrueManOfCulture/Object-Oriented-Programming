@@ -19,6 +19,7 @@ using namespace std;
 #include "XML.h"
 #include "Relogio.h"
 #include "Uteis.h"
+#include "Menu.h"
 
 class Casino
 {
@@ -44,7 +45,7 @@ class Casino
 
         bool Add(Maquina *M);                                                   // ADICIONAR MÁQUINAS À LISTA
         bool Add(User *U);                                                      // ADICIONAR USUÁRIOS À LISTA
-        string Get_Estado(int ID);                                              // RETORNAR O ESTADO DE UMA MÁQUINA DADO UM ID
+        string Get_Estado(int ID);   
         int Qnt_Jog();
 
         list<Maquina *> *Listar_Tipo(string Tipo, ostream &saida = cout);       // LISTAR TODOS OS TIPOS DE MÁQUINA DADO UM TIPO
