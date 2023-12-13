@@ -47,6 +47,7 @@ class Maquina
         User *Get_User(){ return U; }
         void Inc_Tempo_Jogo(int tempo){ tempoDeJogo += tempo; }
         int Get_TEMPO_JOGO(){ return tempoDeJogo; } 
+        int Get_Premio(){return PREMIO;}
 
         bool Jogar();
         //FUNÇÃO PARA JOGAR NA MÁQUINA ESCOLHIDA

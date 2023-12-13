@@ -20,6 +20,7 @@ using namespace std;
 #include "Relogio.h"
 #include "Uteis.h"
 #include "Menu.h"
+#include "XMLWriter.h"
 
 class Casino
 {
@@ -71,20 +72,15 @@ class Casino
         void alterarProb(int id, int prob);
 
         list<Maquina *> *Ranking_Dos_Fracos();
-        
-        /*
-            void Relatorio(string fich_xml);
-        */
+        void Relatorio(string fich_xml);
 
         // FUNÇÕES PARA TESTES  [ TEMPORÁRIAS ]
         map<string, Maquina *> Ass_HashMaq(){ return HashMaq; }
         map<string, User *> Ass_HashUser(){ return HashUser; }
         void Ass_ListaUsusarios(list<User *> &_LU){ LU = _LU; }                 // ASSOCIAR A LISTA DE USUÁRIO DO CASINO A UMA LISTA DADA
 
-        void OP_ListMaquina(ostream &f = cout);
-        void PesqMaq(int _ID, ostream &f = cout);
-        void OP_ListUser(ostream &f = cout);
-        void PesqUser(string _ID, ostream &f = cout);
+        bool PesqMaq(int _ID, ostream &f = cout);
+        bool PesqUser(string _ID, ostream &f = cout);
 };
 
 #endif // CASINO_H
