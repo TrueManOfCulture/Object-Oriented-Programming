@@ -58,9 +58,8 @@ class Casino
         list<User *> *Jogadores_Mais_Ganhos();
 
         list<User *> *Jogadores_Mais_Frequentes();
-        
+        list<Maquina *> *Ranking_Das_Mais_Trabalhadores();
         /*
-        list<Maquina *> * Ranking_Das_Mais_Trabalhadores();
         list<User *> *Jogadores_Mais_Frequentes();
         void Relatorio(string fich_xml);
         */
