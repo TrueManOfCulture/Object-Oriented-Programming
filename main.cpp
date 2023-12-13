@@ -31,7 +31,8 @@ int main()
     Casino C(nomeCasino);
     C.Load("CasinoData.xml");
     C.Ass_ListaUsusarios(LU);
-    C.Run();
+
+    //C.Run();
 
     //////////////    TESTES DE ALTERAR ESTADO DE UMA MÁQUINA    //////////////
     /*Maquina *Maq = new ClassicSlots(5, 50, 1, 1, 70, "Classic Slots", NULL, ON);
@@ -107,6 +108,8 @@ int main()
     
     cout << "//////////////////////////////////////////" << endl << endl;
 
+    C.PesqMaq(1, cout);
+    /*
     map<string, Maquina *> HashMaq;
 
     HashMaq = C.Ass_HashMaq();
@@ -119,7 +122,7 @@ int main()
 
     /*for(map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it){
         it->second->Show();
-    }*/
+    }
 
 
     cout << "//////////////////////////////////////////" << endl;
@@ -135,7 +138,7 @@ int main()
     }
 
     delete Test;
-    
+    */
 
     //////////////    TESTES DE JOGADORES MAIS GANHOS    //////////////
     /*

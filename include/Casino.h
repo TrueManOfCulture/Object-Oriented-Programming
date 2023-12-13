@@ -80,10 +80,8 @@ class Casino
         map<string, User *> Ass_HashUser(){ return HashUser; }
         void Ass_ListaUsusarios(list<User *> &_LU){ LU = _LU; }                 // ASSOCIAR A LISTA DE USUÁRIO DO CASINO A UMA LISTA DADA
 
-        void OP_ListMaquina(ostream &f = cout);
-        void PesqMaq(int _ID, ostream &f = cout);
-        void OP_ListUser(ostream &f = cout);
-        void PesqUser(string _ID, ostream &f = cout);
+        bool PesqMaq(int _ID, ostream &f = cout);
+        bool PesqUser(string _ID, ostream &f = cout);
 };
 
 #endif // CASINO_H
