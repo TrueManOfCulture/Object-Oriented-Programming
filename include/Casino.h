@@ -19,6 +19,7 @@ using namespace std;
 #include "XML.h"
 #include "Relogio.h"
 #include "Uteis.h"
+#include "XMLWriter.h"
 
 class Casino
 {
@@ -70,10 +71,7 @@ class Casino
         void alterarProb(int id, int prob);
 
         list<Maquina *> *Ranking_Dos_Fracos();
-        
-        /*
-            void Relatorio(string fich_xml);
-        */
+        void Relatorio(string fich_xml);
 
         // FUNÇÕES PARA TESTES  [ TEMPORÁRIAS ]
         map<string, Maquina *> Ass_HashMaq(){ return HashMaq; }
