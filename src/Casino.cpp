@@ -16,6 +16,8 @@ Casino::~Casino()
         delete (*it);
 
     HashUser.clear();
+
+    cout << "PASSEI EM [" << __FUNCTION__ << "] E TUDO APAGADO!" << endl;
 }
 
 // recebe string hh:mm e passa a hora para o int hora e os minutos para a variável minuto
