@@ -94,6 +94,7 @@ void op_2(Casino *C, ostream &f){
                 cout << endl;
                 cout << "ID: ";
                 cin >> ID;
+                
                 break;
 
         case 5:

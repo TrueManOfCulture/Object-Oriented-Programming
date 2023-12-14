@@ -9,13 +9,13 @@ Casino::Casino(string _nome)
 Casino::~Casino()
 {
     Relatorio("relatorio.xml");
+
     for(map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it)
         delete (it->second);
     HashMaq.clear();
 
     for(list<User *>::iterator it = LU.begin(); it != LU.end(); ++it)
         delete (*it);
-
     HashUser.clear();
 
     cout << "PASSEI EM [" << __FUNCTION__ << "] E TUDO APAGADO!" << endl;
@@ -208,8 +208,10 @@ bool Casino::PesqUser(string _ID, ostream &f)
     return false;
 }
 
-void Casino::Run(bool debug=true) 
+void Casino::Run(bool debug) 
 {
+    Menu(this);
+    
     Relogio *R = new Relogio(1000, HORA_ABERTURA);
     time_t horaAtual = R->VerTimeRelogio();
     int userEscolhido, prob, probAv,quantUs;
@@ -217,6 +219,7 @@ void Casino::Run(bool debug=true)
 
     while (difftime(horaAtual, HORA_FECHO) < 0)
     {
+        
         /*if (kbhit){
             ch = getch();
             if(ch == 'M'|| ch == 'm'){
