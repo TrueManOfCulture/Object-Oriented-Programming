@@ -1,4 +1,4 @@
-#include "XMLWriter.h"
+#include "../include/XMLWriter.h"
 
 XMLWriter::XMLWriter()
 {

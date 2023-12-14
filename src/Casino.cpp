@@ -8,6 +8,7 @@ Casino::Casino(string _nome)
 
 Casino::~Casino()
 {
+    Relatorio("relatorio.xml");
     for(map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it)
         delete (it->second);
     HashMaq.clear();
@@ -448,3 +449,37 @@ list<User *> *Casino::Jogadores_Mais_Frequentes()
 
     return Res;
 }
+
+void Casino::Relatorio(string fich_xml){
+    XMLWriter XX;
+    XX.WriteStartDocument(fich_xml);
+    XX.WriteStartElement("LISTA_MAQ");
+    for(list<Maquina *>::iterator it = LM_Total.begin(); it != LM_Total.end(); ++it){
+        Maquina *M = *it;
+        XX.WriteStartElement("MAQUINA");
+        XX.WriteElementString("ID", to_string(M->Get_ID()));
+        XX.WriteElementString("NOME", M->Get_TIPO());
+        XX.WriteElementString("PROB_G",to_string(M->Get_PROB_GANHAR()));
+        XX.WriteElementString("PROB_A",to_string(M->Get_PROB_AVARIA()));
+        XX.WriteElementString("PREMIO",to_string(M->Get_Premio()));
+        XX.WriteElementString("X",to_string(M->Get_POSX()));
+        XX.WriteElementString("Y",to_string(M->Get_POSY()));
+        XX.WriteElementString("TEMP_AVISO",to_string(M->Get_TEMP_AV()));
+        XX.WriteElementString("ESTADO",to_string(M->Get_ESTADO()));
+        XX.WriteElementString("QNTAVARIA",to_string(M->Get_QNT_AVARIA()));
+        XX.WriteElementString("TEMPOJOGO",to_string(M->Get_TEMPO_JOGO()));
+        XX.WriteEndElement();
+    }
+    XX.WriteEndElement();
+    XX.WriteEndDocument();
+}
+
+/*<MAQUINA>
+            <NOME>BlackJack</NOME>
+            <PROB_G>10</PROB_G>
+            <PROB_A>10</PROB_A>
+            <PREMIO>50</PREMIO>
+            <X>1</X>
+            <Y>1</Y>
+            <TEMP_AVISO>70</TEMP_AVISO>
+        </MAQUINA>*/
