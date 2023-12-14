@@ -181,9 +181,8 @@ bool Casino::PesqUser(string _ID, ostream &f)
     return false;
 }
 
-void Casino::Run(bool debug) 
+void Casino::Run(bool debug=true) 
 {
-    Menu(this);
     Relogio *R = new Relogio(1000, HORA_ABERTURA);
     time_t horaAtual = R->VerTimeRelogio();
     int userEscolhido, prob, probAv,quantUs;
@@ -211,7 +210,7 @@ void Casino::Run(bool debug)
                 list<User *>::iterator userIt = LU.begin();
                 advance(userIt, userEscolhido);
                 Add(*userIt);
-                cout << "Adicionou o user: "<<(*userIt)->Get_Nome()<<endl<<endl;
+                if(debug) cout << "Adicionou o user: "<<(*userIt)->Get_Nome()<<endl<<endl;
             }
         }
         
@@ -222,16 +221,16 @@ void Casino::Run(bool debug)
 
             if(M->Get_ESTADO() == AVARIADA) {
                 M->Set_ESTADO(OFF);
-                cout <<"Maquina " << M->Get_ID() <<" foi concertada"<< endl << endl;
+                if(debug) cout <<"Maquina " << M->Get_ID() <<" foi concertada"<< endl << endl;
             }
 
-            if(M->Get_TEMP_AT() >= M->Get_TEMP_AV()){ cout << "Máquina: " << M->Get_ID() << " ATINGIU A TEMPERATURA DE AVISO  ////////////////////////////////////////////////////"; }
+            if(M->Get_TEMP_AT() >= M->Get_TEMP_AV()){ if(debug) cout << "Máquina: " << M->Get_ID() << " ATINGIU A TEMPERATURA DE AVISO  ////////////////////////////////////////////////////"; }
 
             if (probAv <= M->Get_PROB_AVARIA() || M->Get_TEMP_AT() >= M->Get_TEMP_AV())
             {
                 M->Set_ESTADO(AVARIADA);
                 M->Reset_TEMP_AT();
-                cout << "Maquina " << M->Get_ID() << " avariou" << endl << endl;
+                if(debug) cout << "Maquina " << M->Get_ID() << " avariou" << endl << endl;
             }
 
             if (M->Get_ESTADO() == ON)
@@ -243,7 +242,7 @@ void Casino::Run(bool debug)
             if (M->Get_ESTADO() == OFF && !LU_Espera.empty())
             {
                 M->Set_User(LU_Espera.front());
-                cout << "O User "<< LU_Espera.front()->Get_Nome() << " foi adicionado a maquina " << M->Get_ID() << endl << endl;
+                if(debug) cout << "O User "<< LU_Espera.front()->Get_Nome() << " foi adicionado a maquina " << M->Get_ID() << endl << endl;
                 LU_Espera.pop_front();
                 M->Set_ESTADO(ON);
                 
@@ -252,9 +251,10 @@ void Casino::Run(bool debug)
             }
         }
         horaAtual = R->VerTimeRelogio();
-        cout << "Hora: " << ctime(&horaAtual) << endl << endl;
-        R->Wait(2);
+        if(debug) cout << "Hora: " << ctime(&horaAtual) << endl << endl;
+        R->Wait(1);
     }
+    //Menu(this);
     Relatorio("relatorio.xml");
 }
 
@@ -395,11 +395,13 @@ list<Maquina *> *Casino::Ranking_Dos_Fracos()
     return Res;
 }
 
+//Funcao para comparar Maquinas que mais trabalharam
 bool compare_Ranking_Das_Mais_Trabalhadores(Maquina *M1, Maquina *M2)
 {
     return (M1->Get_TEMPO_JOGO() > M1->Get_TEMPO_JOGO());
 }
 
+//Lista ordenada por maquinas que mais trabalharam
 list<Maquina *> *Casino::Ranking_Das_Mais_Trabalhadores()
 {
     list<Maquina *> *Res = new list<Maquina *>;
@@ -414,11 +416,13 @@ list<Maquina *> *Casino::Ranking_Das_Mais_Trabalhadores()
     return Res;
 }
 
+//Funcao para comparar jogadores que mais ganharam
 bool compare_Jogadores_Mais_Ganhos(User *U1, User *U2)
 {
     return (U1->Get_premioGanho() > U2->Get_premioGanho());
 }
 
+//Obter lista de jogadores que mais galhou ordenada
 list<User *> *Casino::Jogadores_Mais_Ganhos()
 {
     list<User *> *Res = new list<User *>;
@@ -432,11 +436,13 @@ list<User *> *Casino::Jogadores_Mais_Ganhos()
     return Res;
 }
 
+//Funcao para comparar jogadores mais frequentes
 bool compare_Jogadores_Mais_Frequentes(User *U1, User *U2)
 {
     return (U1->Get_TempoJogo() > U2->Get_TempoJogo());
 }
 
+//Obter Lista de jogadores mais frequentes ordernada
 list<User *> *Casino::Jogadores_Mais_Frequentes()
 {
     list<User *> *Res = new list<User *>;
@@ -450,6 +456,7 @@ list<User *> *Casino::Jogadores_Mais_Frequentes()
     return Res;
 }
 
+//Funcao para escrever relatorio
 void Casino::Relatorio(string fich_xml){
     XMLWriter XX;
     XX.WriteStartDocument(fich_xml);
@@ -465,7 +472,7 @@ void Casino::Relatorio(string fich_xml){
         XX.WriteElementString("X",to_string(M->Get_POSX()));
         XX.WriteElementString("Y",to_string(M->Get_POSY()));
         XX.WriteElementString("TEMP_AVISO",to_string(M->Get_TEMP_AV()));
-        XX.WriteElementString("ESTADO",to_string(M->Get_ESTADO()));
+        XX.WriteElementString("ESTADO",EnumToString(M->Get_ESTADO()));
         XX.WriteElementString("QNTAVARIA",to_string(M->Get_QNT_AVARIA()));
         XX.WriteElementString("TEMPOJOGO",to_string(M->Get_TEMPO_JOGO()));
         XX.WriteEndElement();
@@ -473,13 +480,3 @@ void Casino::Relatorio(string fich_xml){
     XX.WriteEndElement();
     XX.WriteEndDocument();
 }
-
-/*<MAQUINA>
-            <NOME>BlackJack</NOME>
-            <PROB_G>10</PROB_G>
-            <PROB_A>10</PROB_A>
-            <PREMIO>50</PREMIO>
-            <X>1</X>
-            <Y>1</Y>
-            <TEMP_AVISO>70</TEMP_AVISO>
-        </MAQUINA>*/

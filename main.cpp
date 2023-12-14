@@ -32,7 +32,7 @@ int main()
     C.Load("CasinoData.xml");
     C.Ass_ListaUsusarios(LU);
 
-    //C.Run();
+    C.Run();
 
     //////////////    TESTES DE ALTERAR ESTADO DE UMA MÁQUINA    //////////////
     /*Maquina *Maq = new ClassicSlots(5, 50, 1, 1, 70, "Classic Slots", NULL, ON);
