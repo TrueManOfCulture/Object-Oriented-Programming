@@ -362,6 +362,7 @@ void Casino::Run(bool debug)
         cout << "Hora: " << ctime(&horaAtual) << endl << endl;
         R->Wait(2);
     }
+    Relatorio("relatorio.xml");
 }
 
 list<Maquina *> *Casino::Listar_Tipo(string Tipo, ostream &saida)
