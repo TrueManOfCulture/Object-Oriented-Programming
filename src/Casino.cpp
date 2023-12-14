@@ -3,6 +3,7 @@
 Casino::Casino(string _nome)
 {
     NOME = _nome;
+    qtMaqAv = 0;
 }
 
 
@@ -174,13 +175,38 @@ bool Casino::RemoverMaquina(int id){
 
 void Casino::Listar(ostream &f)
 {
-        f << "Lista de Máquinas" << endl;
-        for (map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it)
-            it->second->Show(f);
+    int emUso = HashUser.size()-LU_Espera.size();
+    cout<<"Numero de Pessoas no Casino: "<< HashUser.size()<<endl;
+    cout<<"Numero de Pessoas a jogar"<< emUso<<endl;
+    cout<<"Numero de Pessoas na Lista de Espera"<< LU_Espera.size()<<endl;
+    cout<<"Numero de Maquinas no Casino"<< HashMaq.size()<<endl;
+    cout<<"Numero de Maquinas em Uso"<< emUso<<endl;
+    cout<<"Numero de Maquinas Avariadas"<< qtMaqAv<<endl;
+    cout<<"Numero de Maquinas Disponíveis"<< HashMaq.size()-emUso<<endl;
+}
 
-        f << "Lista de Users" << endl;
+void Casino::ListarUsuariosAtuais(ostream &f){
+    f << "Lista de Usuarios" << endl;
+    for (list<User *>::iterator it = LU_Total.begin(); it != LU_Total.end(); ++it)
+        (*it)->Show(f);
+}
+
+void Casino::ListarUsuarios(ostream &f){
+    f << "Lista de Usuarios" << endl;
         for (map<string, User *>::iterator it = HashUser.begin(); it != HashUser.end(); ++it)
             it->second->Show(f);
+}
+
+void Casino::ListarMaquinasAtuais(ostream &f){
+    f << "Lista de Máquinas" << endl;
+        for (map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it)
+            it->second->Show(f);
+}
+
+void Casino::ListarMaquinas(ostream &f){
+    f << "Lista de Máquinas" << endl;
+    for (list<Maquina *>::iterator it = LM_Total.begin(); it != LM_Total.end(); ++it)
+        (*it)->Show(f);
 }
 
 bool Casino::PesqMaq(int _ID, ostream &f)
@@ -208,7 +234,7 @@ bool Casino::PesqUser(string _ID, ostream &f)
     return false;
 }
 
-void Casino::Run(bool debug=true) 
+void Casino::Run(bool debug) 
 {
     Relogio *R = new Relogio(1000, HORA_ABERTURA);
     time_t horaAtual = R->VerTimeRelogio();
@@ -223,7 +249,6 @@ void Casino::Run(bool debug=true)
                 menu();
             }
         }*/
-        
         probAv = AleatorioINT(1, 100);
         quantUs = AleatorioINT(1,10);
         
@@ -248,6 +273,7 @@ void Casino::Run(bool debug=true)
 
             if(M->Get_ESTADO() == AVARIADA) {
                 M->Set_ESTADO(OFF);
+                qtMaqAv--;
                 if(debug) cout <<"Maquina " << M->Get_ID() <<" foi concertada"<< endl << endl;
             }
 
@@ -256,6 +282,7 @@ void Casino::Run(bool debug=true)
             if (probAv <= M->Get_PROB_AVARIA() || M->Get_TEMP_AT() >= M->Get_TEMP_AV())
             {
                 M->Set_ESTADO(AVARIADA);
+                qtMaqAv++;
                 M->Reset_TEMP_AT();
                 if(debug) cout << "Maquina " << M->Get_ID() << " avariou" << endl << endl;
             }
@@ -279,7 +306,9 @@ void Casino::Run(bool debug=true)
         }
         horaAtual = R->VerTimeRelogio();
         if(debug) cout << "Hora: " << ctime(&horaAtual) << endl << endl;
+        Listar();
         R->Wait(1);
+        system("clear");
     }
     //Menu(this);
     Relatorio("relatorio.xml");

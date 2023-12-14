@@ -7,6 +7,7 @@
 #include <fstream>
 #include <map>
 #include <iterator>
+#include <cstdlib>
 
 using namespace std;
 
@@ -27,7 +28,7 @@ class Casino
     list <User *> LU;
     list <User *> LU_Espera;
     list<User *> LU_Total;
-    int maxUser;
+    int maxUser,qtMaqAv;
 
     //map com posicoes de maquinas como chave e a maquina como valor
     map<string, Maquina *> HashMaq;
@@ -83,6 +84,11 @@ class Casino
         bool PesqMaq(int _ID, ostream &f = cout);
         bool PesqUser(string _ID, ostream &f = cout);
         bool RemoverMaquina(int id);
+        void ListarMaquinas(ostream &f = cout);
+        void ListarMaquinasAtuais(ostream &f = cout);
+        void ListarUsuarios(ostream &f = cout);
+        void ListarUsuariosAtuais(ostream &f = cout);
+
 };
 
 #endif // CASINO_H
