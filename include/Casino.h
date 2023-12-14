@@ -45,6 +45,7 @@ class Casino
         virtual ~Casino();
 
         bool Add(Maquina *M);                                                   // ADICIONAR MÁQUINAS À LISTA
+        bool AddMaquina();                                                             // ADICIONAR MÁQUINAS À LISTA
         bool Add(User *U);                                                      // ADICIONAR USUÁRIOS À LISTA
         string Get_Estado(int ID);   
         int Qnt_Jog();
@@ -81,6 +82,7 @@ class Casino
 
         bool PesqMaq(int _ID, ostream &f = cout);
         bool PesqUser(string _ID, ostream &f = cout);
+        bool RemoverMaquina(int id);
 };
 
 #endif // CASINO_H
