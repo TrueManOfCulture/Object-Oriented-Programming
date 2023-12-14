@@ -38,7 +38,7 @@ void Maquina::Show(ostream &saida)
     saida << "QNT_AVARIAS: " << QNT_AVARIA << endl<< endl;
 }
 
-bool Maquina::Jogar(){
+bool Maquina::Jogar(bool debug){
     int tempoJogo,probGanhar; //Tempo de jogo em minutos
 
     probGanhar = AleatorioINT(0,100);
@@ -47,13 +47,13 @@ bool Maquina::Jogar(){
     Inc_Tempo_Jogo(tempoJogo);
     if(probGanhar<=PROB_GANHAR) {
         U->Inc_premioGanho(PREMIO);
-        cout << U->Get_Nome() << " ganhou " << PREMIO << "  euros" << endl << endl;
+        if(debug)cout << U->Get_Nome() << " ganhou " << PREMIO << "  euros" << endl << endl;
         Aquecer();
         return true;
     }
 
     ESTADO = OFF;
-    cout << U->Get_Nome() << " jogou por " << tempoJogo << " minutos" << endl << endl;
+    if(debug)cout << U->Get_Nome() << " jogou por " << tempoJogo << " minutos" << endl << endl;
     return false;
 }
 

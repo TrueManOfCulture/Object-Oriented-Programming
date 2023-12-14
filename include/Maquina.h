@@ -49,7 +49,7 @@ class Maquina
         int Get_TEMPO_JOGO(){ return tempoDeJogo; } 
         int Get_Premio(){return PREMIO;}
 
-        bool Jogar();
+        bool Jogar(bool debug);
         //FUNÇÃO PARA JOGAR NA MÁQUINA ESCOLHIDA
 
         void Show(ostream &saida = cout);                           // MOSTRA OS DADOS DA MÁQUINA

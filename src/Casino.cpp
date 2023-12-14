@@ -177,12 +177,12 @@ void Casino::Listar(ostream &f)
 {
     int emUso = HashUser.size()-LU_Espera.size();
     cout<<"Numero de Pessoas no Casino: "<< HashUser.size()<<endl;
-    cout<<"Numero de Pessoas a jogar"<< emUso<<endl;
-    cout<<"Numero de Pessoas na Lista de Espera"<< LU_Espera.size()<<endl;
-    cout<<"Numero de Maquinas no Casino"<< HashMaq.size()<<endl;
-    cout<<"Numero de Maquinas em Uso"<< emUso<<endl;
-    cout<<"Numero de Maquinas Avariadas"<< qtMaqAv<<endl;
-    cout<<"Numero de Maquinas Disponíveis"<< HashMaq.size()-emUso<<endl;
+    cout<<"Numero de Pessoas a jogar: "<< emUso<<endl;
+    cout<<"Numero de Pessoas na Lista de Espera: "<< LU_Espera.size()<<endl;
+    cout<<"Numero de Maquinas no Casino: "<< HashMaq.size()<<endl;
+    cout<<"Numero de Maquinas em Uso: "<< emUso<<endl;
+    cout<<"Numero de Maquinas Avariadas: "<< qtMaqAv<<endl;
+    cout<<"Numero de Maquinas Disponíveis: "<< HashMaq.size()-emUso<<endl;
 }
 
 void Casino::ListarUsuariosAtuais(ostream &f){
@@ -265,7 +265,6 @@ void Casino::Run(bool debug)
                 if(debug) cout << "Adicionou o user: "<<(*userIt)->Get_Nome()<<endl<<endl;
             }
         }
-        
         // Jogar
         for (map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it)
         {
@@ -287,28 +286,28 @@ void Casino::Run(bool debug)
                 if(debug) cout << "Maquina " << M->Get_ID() << " avariou" << endl << endl;
             }
 
-            if (M->Get_ESTADO() == ON)
-            {
-                if(M->Jogar()) SubirProbabilidadeVizinhas(M, 1, lmvizinhas);
-                HashUser.erase(M->Get_User()->Get_ID());
-            }
-
             if (M->Get_ESTADO() == OFF && !LU_Espera.empty())
             {
                 M->Set_User(LU_Espera.front());
                 if(debug) cout << "O User "<< LU_Espera.front()->Get_Nome() << " foi adicionado a maquina " << M->Get_ID() << endl << endl;
                 LU_Espera.pop_front();
                 M->Set_ESTADO(ON);
-                
-                if(M->Jogar()) SubirProbabilidadeVizinhas(M, 1, lmvizinhas);
+            }
+        }
+        Listar();
+        horaAtual = R->VerTimeRelogio();
+        if(debug) cout << "Hora: " << ctime(&horaAtual) << endl << endl;
+        R->Wait(1);
+        system("clear");
+        for (map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it)
+        {
+            Maquina *M = it->second;
+            if (M->Get_ESTADO() == ON)
+            {
+                if(M->Jogar(debug)) SubirProbabilidadeVizinhas(M, 1, lmvizinhas);
                 HashUser.erase(M->Get_User()->Get_ID());
             }
         }
-        horaAtual = R->VerTimeRelogio();
-        if(debug) cout << "Hora: " << ctime(&horaAtual) << endl << endl;
-        Listar();
-        R->Wait(1);
-        system("clear");
     }
     //Menu(this);
     Relatorio("relatorio.xml");
