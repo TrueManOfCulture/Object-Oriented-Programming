@@ -4,7 +4,7 @@
 
 //////////////    MENU    //////////////
 
-void Menu(Casino *C, ostream &f){
+void Menu(Casino *C,bool &parar, ostream &f){
 
         int b;
 
@@ -117,7 +117,8 @@ void op_2(Casino *C, ostream &f){
 
         case 9:
                 cout << endl;
-                Menu(C);
+                bool x = true;
+                Menu(C, x);
                 cout << endl; 
                 break;
         
@@ -165,7 +166,8 @@ void op_3(Casino *C, ostream &f){
         case 4:
                 
                 cout << endl;
-                Menu(C);
+                bool x = false;
+                Menu(C,x);
                 cout << endl;
 
                 break;

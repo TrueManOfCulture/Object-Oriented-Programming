@@ -8,7 +8,7 @@ using namespace std;
 
 class Casino;
 
-void Menu(Casino *C, ostream &f = cout);
+void Menu(Casino *C,bool &parar, ostream &f = cout);
 void op_2(Casino *C, ostream &f = cout);
 void op_3(Casino *C, ostream &f = cout);
 

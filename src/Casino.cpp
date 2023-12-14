@@ -241,7 +241,7 @@ void Casino::Run(bool debug)
     int userEscolhido, prob, probAv,quantUs;
     list<Maquina*> lmvizinhas;
 
-    while (difftime(horaAtual, HORA_FECHO) < 0)
+    while (difftime(horaAtual, HORA_FECHO) < 0&&parar)
     {
         /*if (kbhit){
             ch = getch();
@@ -309,7 +309,7 @@ void Casino::Run(bool debug)
             }
         }
     }
-    //Menu(this);
+    Menu(this,parar);
     Relatorio("relatorio.xml");
 }
 

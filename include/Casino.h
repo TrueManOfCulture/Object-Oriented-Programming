@@ -36,6 +36,7 @@ class Casino
     //map com id como chave e usuario como valor
     map<string, User *> HashUser;
     list<Maquina *> LM_Total;
+    bool parar;
     
 
     string NOME;
