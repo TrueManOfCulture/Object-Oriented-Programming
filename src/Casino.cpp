@@ -459,8 +459,8 @@ void Casino::Relatorio(string fich_xml){
         XX.WriteStartElement("MAQUINA");
         XX.WriteElementString("ID", to_string(M->Get_ID()));
         XX.WriteElementString("NOME", M->Get_TIPO());
-        XX.WriteElementString("PROB_G",to_string(M->Get_PROB_GANHAR()));
-        XX.WriteElementString("PROB_A",to_string(M->Get_PROB_AVARIA()));
+        XX.WriteElementString("PROB_G",to_string((int)M->Get_PROB_GANHAR()));
+        XX.WriteElementString("PROB_A",to_string((int)M->Get_PROB_AVARIA()));
         XX.WriteElementString("PREMIO",to_string(M->Get_Premio()));
         XX.WriteElementString("X",to_string(M->Get_POSX()));
         XX.WriteElementString("Y",to_string(M->Get_POSY()));
