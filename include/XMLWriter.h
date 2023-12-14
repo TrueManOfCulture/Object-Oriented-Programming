@@ -8,7 +8,7 @@ using namespace std;
 
 class XMLWriter
 {
-    string NOME_FICHEIRO;
+    ofstream F;
     list<string> TAGS;
 
     string Tabulacoes(int N);
