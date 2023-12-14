@@ -32,6 +32,8 @@
                 "${fileDirname}/src/Craps.cpp",
                 "${fileDirname}/include/Menu.h",
                 "${fileDirname}/src/Menu.cpp",
+                "${fileDirname}/include/XMLWriter.h",
+                "${fileDirname}/src/XMLWriter.cpp",
             ],
             "options": {
                 "cwd": "${fileDirname}"
