@@ -9,13 +9,13 @@ Casino::Casino(string _nome)
 Casino::~Casino()
 {
     Relatorio("relatorio.xml");
+
     for(map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it)
         delete (it->second);
     HashMaq.clear();
 
     for(list<User *>::iterator it = LU.begin(); it != LU.end(); ++it)
         delete (*it);
-
     HashUser.clear();
 
     cout << "PASSEI EM [" << __FUNCTION__ << "] E TUDO APAGADO!" << endl;
@@ -145,6 +145,33 @@ bool Casino::Add(Maquina *M)
     return true;
 }
 
+bool Casino::AddMaquina(){
+    string nome;
+    int posX,posY,tempAviso, premio;
+    float probAv, probGanhar;
+    cout << "Qual e o nome da maquina que quer adicionar: "<<endl;
+    cin >>nome;
+    posX = getInt("Qual é a coordenada x da maquina?: ",1,10000);
+    posY = getInt("Qual é a coordenada y da maquina?: ",1,10000);
+    premio = getInt("Qual é o premio da máquina?", 1, 1000000);
+    tempAviso = getInt("Qual é a temperatura de aviso da maquina?: ",1,10000);
+    probAv = getInt("Qual é a probabilidade de avaria da maquina em percentagem?: ",1,100);
+    probGanhar = getInt("Qual é a probabilidade de ganhar da maquina em percentagem?: ",0,100);
+    Maquina *M = MaquinaTipo(probGanhar, probAv, premio, posX, posY, tempAviso, nome);
+    return Add(M);
+}
+
+bool Casino::RemoverMaquina(int id){
+    std::map<string,Maquina*>::iterator it;
+    it = HashMaq.find(to_string(id));
+    if(it==HashMaq.end()){
+        cout<<"Maquina nao encontrada"<<endl;
+        return false;
+    }
+    HashMaq.erase(it);
+    return true;
+}
+
 void Casino::Listar(ostream &f)
 {
         f << "Lista de Máquinas" << endl;
@@ -181,8 +208,10 @@ bool Casino::PesqUser(string _ID, ostream &f)
     return false;
 }
 
-void Casino::Run(bool debug=true) 
+void Casino::Run(bool debug) 
 {
+    Menu(this);
+    
     Relogio *R = new Relogio(1000, HORA_ABERTURA);
     time_t horaAtual = R->VerTimeRelogio();
     int userEscolhido, prob, probAv,quantUs;
@@ -190,6 +219,7 @@ void Casino::Run(bool debug=true)
 
     while (difftime(horaAtual, HORA_FECHO) < 0)
     {
+        
         /*if (kbhit){
             ch = getch();
             if(ch == 'M'|| ch == 'm'){

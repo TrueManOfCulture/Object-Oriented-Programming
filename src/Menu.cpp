@@ -99,6 +99,7 @@ void op_2(Casino *C, ostream &f){
                 cout << endl;
                 C->Set_ProbMaquina();
                 cout << endl;
+                
                 break;
 
         case 5:
