@@ -19,6 +19,7 @@ using namespace std;
 #include "XML.h"
 #include "Relogio.h"
 #include "Uteis.h"
+#include "Menu.h"
 #include "XMLWriter.h"
 
 class Casino
@@ -45,7 +46,7 @@ class Casino
 
         bool Add(Maquina *M);                                                   // ADICIONAR MÁQUINAS À LISTA
         bool Add(User *U);                                                      // ADICIONAR USUÁRIOS À LISTA
-        string Get_Estado(int ID);                                              // RETORNAR O ESTADO DE UMA MÁQUINA DADO UM ID
+        string Get_Estado(int ID);   
         int Qnt_Jog();
 
         list<Maquina *> *Listar_Tipo(string Tipo, ostream &saida = cout);       // LISTAR TODOS OS TIPOS DE MÁQUINA DADO UM TIPO
@@ -78,10 +79,8 @@ class Casino
         map<string, User *> Ass_HashUser(){ return HashUser; }
         void Ass_ListaUsusarios(list<User *> &_LU){ LU = _LU; }                 // ASSOCIAR A LISTA DE USUÁRIO DO CASINO A UMA LISTA DADA
 
-        void OP_ListMaquina(ostream &f = cout);
-        void PesqMaq(int _ID, ostream &f = cout);
-        void OP_ListUser(ostream &f = cout);
-        void PesqUser(string _ID, ostream &f = cout);
+        bool PesqMaq(int _ID, ostream &f = cout);
+        bool PesqUser(string _ID, ostream &f = cout);
 };
 
 #endif // CASINO_H
