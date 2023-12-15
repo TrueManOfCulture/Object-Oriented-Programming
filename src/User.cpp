@@ -8,7 +8,6 @@ User::User(string _id, string _nome, string _cidade, int _idade)
     IDADE = _idade;
     tempoDeJogo = 0;
     premioGanho = 0;
-    qntEntradas = 0;
 }
 
 User::~User()
@@ -23,5 +22,5 @@ void User::Show(ostream &saida)
     cout << "CIDADE: " << CIDADE << endl;
     cout << "IDADE: " << IDADE << endl;
     cout << "PREMIO GANHO: " << premioGanho << endl;
-    cout << "Nº ENTRADAS: "<< qntEntradas << endl << endl;
+    cout << "TEMPO DE JOGO: "<< tempoDeJogo << endl << endl;
 }

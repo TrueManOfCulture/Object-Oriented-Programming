@@ -11,13 +11,11 @@ Casino::~Casino()
 {
     Relatorio("relatorio.xml");
 
-    for (map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it)
-        delete (it->second);
-    HashMaq.clear();
-
     for (list<User *>::iterator it = LU.begin(); it != LU.end(); ++it)
         delete (*it);
-    HashUser.clear();
+
+    for (list<Maquina *>::iterator it = LM_Total.begin(); it != LM_Total.end(); ++it)
+        delete (*it);
 
     cout << "PASSEI EM [" << __FUNCTION__ << "] E TUDO APAGADO!" << endl;
 }

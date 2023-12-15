@@ -99,8 +99,7 @@ bool op_2(Casino *C, ostream &f){
         case 3:
                 cout << "ID: "<< endl;
                 cin >> ID;
-                C->Get_Estado(ID);
-                cout << endl;
+                cout<<C->Get_Estado(ID)<< endl;
                 break;
 
         case 4:
@@ -164,7 +163,7 @@ bool op_3(Casino *C, ostream &f){
         cout << "4. Remover User (com ID)" << endl;//FALTA
         cout << "5. Voltar atrás" << endl;
         cout << endl;
-        b = getInt("Opção: ",0,11);
+        b = getInt("Opção: ",1,5);
 
         switch (b)
         {
