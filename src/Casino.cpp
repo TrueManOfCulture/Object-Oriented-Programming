@@ -178,17 +178,17 @@ bool Casino::RemoverMaquina()
     map<string, Maquina *>::iterator it;
     while (!encontrado)
     {
-        id = getInt("Qual e o id da máquina que quer remover?", 1, 100000);
+        id = getInt("Qual o ID da máquina que quer remover?", 1, 100000);
         for (it = HashMaq.begin(); it != HashMaq.end(); it++)
         {
             if (it->second->Get_ID() == id){
                 encontrado = true;
                 HashMaq.erase(it);
                 return false;
-            } 
+            }
         }
         if (!encontrado){
-            cout << "Máquina nao encontrada, volte a introduzir" << endl;
+            cout << "Máquina não encontrada, volte a introduzir" << endl;
         }
     }
     return true;
@@ -280,11 +280,27 @@ void Casino::Run(bool debug)
     while (difftime(horaAtual, HORA_FECHO) < 0 && !parar)
     {
 
-        /*if (kbhit){
+        /*if (kbhit()){
             ch = getch();
             if(ch == 'M'|| ch == 'm'){
                 R->stop();
-                while(Menu(this));
+                cout << "Deseja que o output seja impresso na consola ou para um ficheiro (Consola / File): ";
+                cin >> output;
+                if(output == "Consola"){
+                    while(Menu(this));
+                }
+                else{
+                    if(output == "File"){
+                        cout << "Nome do Ficheiro (exemplo OUTPUT.txt): ";
+                        cin >> NOMEficheiro
+                        ofstream ficheiro(NOMEficheiro, ios::app)
+                        while(Menu(this, ficheiro))
+                        ficheiro.close();
+                    }
+                    else{
+                        cout << "Opção Inválida! A continuar simulação..." << endl;
+                    }
+                }
                 R->start();
             }
         }*/
@@ -351,26 +367,6 @@ void Casino::Run(bool debug)
         cout << "Hora: " << ctime(&horaAtual) << endl
              << endl;
         R->Wait(1);
-
-        /*  METER DAQUI ATÉ  */
-        R->stop();
-        cout << "Deseja que o output seja impresso na consola ou para um ficheiro (Consola / File): ";
-        cin >> output;
-        if(output == "Consola"){
-            while(Menu(this));
-        }
-        else{
-            cout << "Nome do Ficheiro (exemplo OUTPUT.txt): ";
-            cin >> NOMEficheiro;
-
-            ofstream ficheiro(NOMEficheiro, ios::app);
-
-            while(Menu(this, ficheiro));
-
-            ficheiro.close();
-        }
-        R->start();
-        /*  AQUI NO kbhit  */
 
         system("clear");
         for (map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it)
