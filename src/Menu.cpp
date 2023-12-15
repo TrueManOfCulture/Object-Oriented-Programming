@@ -177,8 +177,9 @@ bool op_3(Casino *C, ostream &f){
         {
         case 1:
                 cout << endl;
-                C->ListarUsuarios(f);
+                C->ListarUsuariosAtuais(f);
                 cout << endl;
+                break;
         case 2: 
                 cout << endl;
                 lista = C->Jogadores_Mais_Frequentes();

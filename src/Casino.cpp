@@ -360,15 +360,21 @@ void Casino::Run(bool debug)
             while(Menu(this));
         }
         else{
-            cout << "Nome do Ficheiro (exemplo OUTPUT.txt): ";
-            cin >> NOMEficheiro;
+            if(output == "File"){
+                cout << "Nome do Ficheiro (exemplo OUTPUT.txt): ";
+                cin >> NOMEficheiro;
 
-            ofstream ficheiro(NOMEficheiro, ios::app);
+                ofstream ficheiro(NOMEficheiro, ios::app);
 
-            while(Menu(this, ficheiro));
+                while(Menu(this, ficheiro));
 
-            ficheiro.close();
+                ficheiro.close();
+            }
+            else{
+                cout << "Opção Inválida! A continuar simulação..." << endl;
+            }
         }
+
         R->start();
         /*  AQUI NO kbhit  */
 
