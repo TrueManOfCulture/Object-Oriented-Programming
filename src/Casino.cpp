@@ -65,7 +65,8 @@ Maquina *MaquinaTipo(float pGanhar, float pAvariar, int premio, int x, int y, in
                 }
                 else{
                     cout << endl << "Introduza um tipo válido!" << endl;
-                    return NULL;
+                    M = new Maquina(pGanhar, pAvariar, premio, x, y, tempoAviso, nome);
+                    return M;
                 }
             }
         }
