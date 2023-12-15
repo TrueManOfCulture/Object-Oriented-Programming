@@ -130,13 +130,19 @@ bool op_2(Casino *C, ostream &f){
                 break;
 
         case 8:
-                mostrarListaMaquina(*(C->Ranking_Dos_Fracos()));
+                list<Maquina *> *lista;
+                lista = C->Ranking_Dos_Fracos();
+                mostrarListaMaquina(*lista);
                 cout << endl;
+                delete lista;
                 break;
         
         case 9:
-                mostrarListaMaquina(*(C->Ranking_Das_Mais_Trabalhadores()));
-                cout << endl; 
+                list<Maquina *> *lista;
+                lista = C->Ranking_Das_Mais_Trabalhadores();
+                mostrarListaMaquina(*lista);
+                cout << endl;
+                delete lista;
                 break;
 
         case 10:
@@ -171,13 +177,18 @@ bool op_3(Casino *C, ostream &f){
         {
         case 1:
                 cout << endl;
-                mostrarListaUtilizador((*C->Jogadores_Mais_Frequentes()),f);
+                list<User *> *lista;
+                lista = C->Jogadores_Mais_Frequentes();
+                mostrarListaUtilizador((*lista),f);
                 cout << endl;
+                delete lista;
                 break;
 
         case 2:
                 cout << endl;
-                mostrarListaUtilizador((*C->Jogadores_Mais_Ganhos()),f);
+                list<User *> *lista;
+                lista = C->Jogadores_Mais_Ganhos();
+                mostrarListaUtilizador((*lista),f);
                 cout << endl;
                 break;
 
