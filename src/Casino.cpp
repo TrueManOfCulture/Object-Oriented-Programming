@@ -197,13 +197,13 @@ bool Casino::RemoverMaquina()
 void Casino::Listar(ostream &f)
 {
     int emUso = HashUser.size() - LU_Espera.size();
-    cout << "Numero de Pessoas no Casino: " << HashUser.size() << endl;
-    cout << "Numero de Pessoas a jogar: " << emUso << endl;
-    cout << "Numero de Pessoas na Lista de Espera: " << LU_Espera.size() << endl;
-    cout << "Numero de Maquinas no Casino: " << HashMaq.size() << endl;
-    cout << "Numero de Maquinas em Uso: " << emUso << endl;
-    cout << "Numero de Maquinas Avariadas: " << qtMaqAv << endl;
-    cout << "Numero de Maquinas Disponíveis: " << HashMaq.size() - emUso << endl;
+    f << "Numero de Pessoas no Casino: " << HashUser.size() << endl;
+    f << "Numero de Pessoas a jogar: " << emUso << endl;
+    f << "Numero de Pessoas na Lista de Espera: " << LU_Espera.size() << endl;
+    f << "Numero de Maquinas no Casino: " << HashMaq.size() << endl;
+    f << "Numero de Maquinas em Uso: " << emUso << endl;
+    f << "Numero de Maquinas Avariadas: " << qtMaqAv << endl;
+    f << "Numero de Maquinas Disponíveis: " << HashMaq.size() - emUso << endl;
 }
 
 void Casino::ListarUsuariosAtuais(ostream &f)
@@ -270,6 +270,8 @@ void Casino::Listar(float X, ostream &f)
 
 void Casino::Run(bool debug)
 {
+    string output;
+    string NOMEficheiro;
 
     Relogio *R = new Relogio(1000, HORA_ABERTURA);
     time_t horaAtual = R->VerTimeRelogio();
@@ -351,10 +353,25 @@ void Casino::Run(bool debug)
              << endl;
         R->Wait(1);
 
+        /*  METER DAQUI ATÉ  */
         R->stop();
-        
-        while(Menu(this));
+        cout << "Deseja que o output seja impresso na consola ou para um ficheiro (Consola / File): ";
+        cin >> output;
+        if(output == "Consola"){
+            while(Menu(this));
+        }
+        else{
+            cout << "Nome do Ficheiro (exemplo OUTPUT.txt): ";
+            cin >> NOMEficheiro;
+
+            ofstream ficheiro(NOMEficheiro, ios::app);
+
+            while(Menu(this, ficheiro));
+
+            ficheiro.close();
+        }
         R->start();
+        /*  AQUI NO kbhit  */
 
         system("clear");
         for (map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it)

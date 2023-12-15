@@ -4,8 +4,8 @@
 
 //////////////    MENU    //////////////
 
-bool Menu(Casino *C, ostream &f){
-
+bool Menu(Casino *C, ostream &f)
+{
         int b;
         string relatorio;
 
@@ -25,9 +25,9 @@ bool Menu(Casino *C, ostream &f){
                 case 0:
                         return false;
                 case 1:
-                        cout << endl;
+                        f << endl;
                         C->Listar(f);
-                        cout << endl;
+                        f << endl;
                         break;
 
                 case 2:
@@ -39,9 +39,9 @@ bool Menu(Casino *C, ostream &f){
                         break;
 
                 case 4:
-                        cout << endl;
+                        f << endl;
                         f << "Memória do Casino: " << C->MemoriaCasino() << endl;
-                        cout << endl;
+                        f << endl;
                         break;
 
                 case 5:
