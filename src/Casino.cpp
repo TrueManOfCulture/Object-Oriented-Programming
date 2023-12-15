@@ -350,9 +350,12 @@ void Casino::Run(bool debug)
         cout << "Hora: " << ctime(&horaAtual) << endl
              << endl;
         R->Wait(1);
+
         R->stop();
+        
         while(Menu(this));
         R->start();
+
         system("clear");
         for (map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it)
         {
