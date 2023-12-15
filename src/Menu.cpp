@@ -121,7 +121,7 @@ bool op_2(Casino *C, ostream &f){
                 break;
 
         case 7:
-                cout << "Escreva o Tipo{OFF, ON, AVARIADA, ERRO}: "<<endl;
+                cout << "Escreva o Tipo {ClassicSlots, Roleta, BlackJack, Craps}: "<<endl;
                 cin >> Tipo;
                 C->Listar_Tipo(Tipo, f);
                 cout << endl;
