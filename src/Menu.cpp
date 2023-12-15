@@ -63,7 +63,7 @@ bool Menu(Casino *C, ostream &f)
 
 bool op_2(Casino *C, ostream &f){
 
-        int b, ID,cont;
+        int b, ID, cont;
         string Tipo;
 
         cout << endl
@@ -99,7 +99,7 @@ bool op_2(Casino *C, ostream &f){
         case 3:
                 cout << "ID: "<< endl;
                 cin >> ID;
-                cout<<C->Get_Estado(ID)<< endl;
+                f<<C->Get_Estado(ID)<< endl;
                 break;
 
         case 4:
@@ -132,7 +132,7 @@ bool op_2(Casino *C, ostream &f){
         case 8:
                 list<Maquina *> *lista;
                 lista = C->Ranking_Dos_Fracos();
-                mostrarListaMaquina(*lista);
+                mostrarListaMaquina(*lista, f);
                 cout << endl;
                 delete lista;
                 break;
@@ -140,7 +140,7 @@ bool op_2(Casino *C, ostream &f){
         case 9:
                 list<Maquina *> *lista;
                 lista = C->Ranking_Das_Mais_Trabalhadores();
-                mostrarListaMaquina(*lista);
+                mostrarListaMaquina(*lista, f);
                 cout << endl;
                 delete lista;
                 break;

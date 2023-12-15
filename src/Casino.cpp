@@ -236,8 +236,7 @@ void Casino::ListarMaquinas(ostream &f)
 bool Casino::PesqMaq(int _ID, ostream &f)
 {
     for (map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it)
-        if (_ID == it->second->Get_ID())
-        {
+        if (_ID == it->second->Get_ID()){
             it->second->Show(f);
             return true;
         }
