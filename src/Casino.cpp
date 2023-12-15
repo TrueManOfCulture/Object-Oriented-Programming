@@ -503,7 +503,8 @@ list<Maquina *> *Casino::Ranking_Dos_Fracos()
 
 bool Casino::RemoverUser(ostream &f){
     string id;
-    cout<<"Qual é o ID do user que quer remover?"<<endl;
+    cout<<"Qual é o ID do user que quer remover?:"<<endl;
+    cin >> id;
     map<string, User *>::iterator it;
     it = HashUser.find(id);
     if(it==HashUser.end()){
