@@ -24,7 +24,7 @@ void XMLWriter::WriteStartDocument(string ficheiro)
 
 void XMLWriter::WriteElementString(string el, string valor)
 {
-    F << Tabulacoes(TAGS.size()) << "<" << el <<">" << valor << "</" << el << ">" << endl;
+    F << Tabulacoes(TAGS.size()+1) << "<" << el <<">" << valor << "</" << el << ">" << endl;
 }
 void XMLWriter::WriteStartElement(string el)
 {

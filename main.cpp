@@ -5,16 +5,6 @@
 using namespace std;
 
 #include "./include/Casino.h"
-#include "./include/User.h"
-#include "./include/BlackJack.h"
-#include "./include/ClassicSlots.h"
-#include "./include/Maquina.h"
-#include "./include/Relogio.h"
-#include "./include/Roleta.h"
-#include "./include/User.h"
-#include "./include/Uteis.h"
-#include "./include/XML.h"
-#include "./include/Craps.h"
 
 int main()
 {

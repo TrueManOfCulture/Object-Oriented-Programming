@@ -114,7 +114,7 @@ void Casino::Set_ProbMaquina()
 {
     int id , prob;
     bool encontrado = false;
-    std::map<string, Maquina *>::iterator it;
+    map<string, Maquina *>::iterator it;
     while (!encontrado)
     {
         id = getInt("Qual e o id da maquina cuja a probabilidade quer alterar?", 1, 1000);
@@ -146,11 +146,9 @@ bool Casino::Add(Maquina *M)
     {
         HashMaq[key] = M;
         LM_Total.push_back(M);
-        M->Show();
     }
     else
     {
-        M->Dec_STATIC_ID();
         cout << "Erro! Já existe uma máquina na posição: " << key << "!" << endl
              << endl;
         return false;
@@ -173,14 +171,14 @@ bool Casino::AddMaquina()
     probAv = getInt("Qual é a probabilidade de avaria da maquina em percentagem?: ", 1, 100);
     probGanhar = getInt("Qual é a probabilidade de ganhar da maquina em percentagem?: ", 0, 100);
     Maquina *M = MaquinaTipo(probGanhar, probAv, premio, posX, posY, tempAviso, nome);
-    return Add(M);
+    return !Add(M);
 }
 
 bool Casino::RemoverMaquina()
 {
     int id;
     bool encontrado = false;
-    std::map<string, Maquina *>::iterator it;
+    map<string, Maquina *>::iterator it;
     while (!encontrado)
     {
         id = getInt("Qual e o id da maquina cuja a probabilidade quer remover?", 1, 100000);
@@ -274,7 +272,6 @@ void Casino::Listar(float X, ostream &f)
 
 void Casino::Run(bool debug)
 {
-    Menu(this);
 
     Relogio *R = new Relogio(1000, HORA_ABERTURA);
     time_t horaAtual = R->VerTimeRelogio();
@@ -287,7 +284,9 @@ void Casino::Run(bool debug)
         /*if (kbhit){
             ch = getch();
             if(ch == 'M'|| ch == 'm'){
-                menu();
+                R->stop();
+                while(Menu(this));
+                R->start();
             }
         }*/
         probAv = AleatorioINT(1, 100);
@@ -353,6 +352,9 @@ void Casino::Run(bool debug)
         cout << "Hora: " << ctime(&horaAtual) << endl
              << endl;
         R->Wait(1);
+        R->stop();
+        while(Menu(this));
+        R->start();
         system("clear");
         for (map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it)
         {
@@ -365,7 +367,7 @@ void Casino::Run(bool debug)
             }
         }
     }
-    Menu(this);
+    
     Relatorio("relatorio.xml");
 }
 

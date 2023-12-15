@@ -47,7 +47,6 @@ STRING *Read_Split_Line_File(ifstream &f, int n_campos_max, int &n_campos_lidos,
 
 int getInt(string pergunta, int menor,int maior){
 	int num;
-	cout<< pergunta<<endl;
     do{
         cout<<pergunta<<"("<<menor<<"-"<<maior<<")"<<endl;
 		cin >> num;
@@ -129,7 +128,7 @@ void mostrarListaMaquina(list<Maquina *> maquinas,ostream &f){
 }
 
 //Mostrar uma lista de utilizadores num ostream
-void mostrarListaUtilizador(list<User *> users,ostream &f=cout){
+void mostrarListaUtilizador(list<User *> users,ostream &f){
     for (list<User *>::iterator it = users.begin(); it != users.end(); ++it)
         (*it)->Show(f);
 }

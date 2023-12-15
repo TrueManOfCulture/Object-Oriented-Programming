@@ -15,13 +15,15 @@ bool Menu(Casino *C, ostream &f){
         cout << "3. Funções dos Users" << endl;
         cout << "4. Calcular a memória total " << endl;
         cout << "5. Parar Simulação " << endl;
-        cout << "6. Enviar Relatorio dos estado das maquinas" << endl;//FALTA
-        cout << "0. Sair do Menu" << endl;
+        cout << "6. Enviar Relatorio dos estado das maquinas" << endl;
+        cout << "0. Continuar simulacao" << endl;
         cout << endl
                 <<"Opção: ";
         cin >> b;
 
         switch (b) {
+                case 0:
+                        return false;
                 case 1:
                         cout << endl;
                         C->Listar(f);
@@ -44,17 +46,15 @@ bool Menu(Casino *C, ostream &f){
 
                 case 5:
                         C->pararCasino();
-                        break;
+                        return false;
 
-                case 0:
+                case 6:
                         cout<<"Para que ficheiro quer enviar o relatorio do estado atual do casino?(nomedoficheiro.xml): "<<endl;
                         cin >> relatorio;
                         C->Relatorio(relatorio);
                         break;
                 default:
                         return false;
-                        cout << "Escolheu uma opção válida" << endl;
-                        break;
         }
         return true;
 } 
@@ -63,7 +63,7 @@ bool Menu(Casino *C, ostream &f){
 
 bool op_2(Casino *C, ostream &f){
 
-        int b, ID;
+        int b, ID,cont;
         string Tipo;
 
         cout << endl
@@ -80,11 +80,14 @@ bool op_2(Casino *C, ostream &f){
         cout << "10. Listar Historico de maquinas"<<endl;
         cout << "11. Listar Máquinas que tem acima de uma certa probabilidade" << endl;
         cout << "0.  Voltar atrás" << endl;
-        cout << endl <<"Opção: "<< endl;
-        cin >> b;
+        cout << endl;
+        b = getInt("Opção: ",0,11);
 
         switch (b)
         {
+        case 0:
+                return false;
+                break;
         case 1:
                 while(C->AddMaquina());
                 break;
@@ -143,11 +146,6 @@ bool op_2(Casino *C, ostream &f){
                 int p=getInt("Listar maquina acima de que probabilidade?",0,100);
                 C->Listar(p,f);
                 break;
-        case 0:
-                return false;
-        default:
-                cout << "Escolha uma opção válida" << endl;
-                break;
         }
         return true;
 }
@@ -165,9 +163,8 @@ bool op_3(Casino *C, ostream &f){
         cout << "3. Pesquisar User (com ID)" << endl;
         cout << "4. Remover User (com ID)" << endl;//FALTA
         cout << "5. Voltar atrás" << endl;
-        cout << endl
-                <<"Opção: ";
-        cin >> b;
+        cout << endl;
+        b = getInt("Opção: ",0,11);
 
         switch (b)
         {
