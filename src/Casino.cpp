@@ -149,8 +149,7 @@ bool Casino::Add(Maquina *M)
     }
     else
     {
-        cout << "Erro! Já existe uma máquina na posição: " << key << "!" << endl
-             << endl;
+        cout << "Erro! Já existe uma máquina na posição: " << key << "!" << endl << endl;
         return false;
     }
 
@@ -187,6 +186,7 @@ bool Casino::RemoverMaquina()
             if (it->second->Get_ID() == id){
                 encontrado = true;
                 HashMaq.erase(it);
+                return false;
             } 
         }
         if (!encontrado){
