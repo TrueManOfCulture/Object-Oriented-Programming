@@ -22,6 +22,8 @@ using namespace std;
 #include "Uteis.h"
 #include "Menu.h"
 #include "XMLWriter.h"
+#include <algorithm>
+#include <cctype>
 
 class Casino
 {
@@ -56,8 +58,6 @@ class Casino
         void Desligar(int ID_MAQ);                                              // DESLIGAR UMA MÁQUINA DADO UM ID
 
         int MemoriaCasino();                                                    // CALCULAR A MEMÓRIA TOTAL DO CASINO
-
-        void Listar_Sup_Prob_Ganhar(float X, ostream &saida = cout);            // LISTAR AS MÁQUINAS COM UM VALOR DE PROBABILIDADE DE GANHAR SUPERIOR AO DADO
         bool Load(const string &ficheiro);                                      // CARREGAR O FICHEIRO XML
 
         void SubirProbabilidadeVizinhas(Maquina *M_ganhou, float raio, list<Maquina *> &LM_Vizinhas);
@@ -67,29 +67,27 @@ class Casino
         time_t getHoraFecho(){return HORA_FECHO;};
         void Run(bool Debug = true);
         void Listar(ostream &f=cout);
+        void Listar(float X, ostream &f = cout);                                // LISTAR AS MÁQUINAS COM UM VALOR DE PROBABILIDADE DE GANHAR SUPERIOR AO DADO
 
         list<User *> *Jogadores_Mais_Ganhos();
         list<User *> *Jogadores_Mais_Frequentes();
         list<Maquina *> *Ranking_Das_Mais_Trabalhadores();
         void Set_ProbMaquina();
-        void alterarProb(int id, int prob);
+        void alterarProb(Maquina *M, int prob);
 
         list<Maquina *> *Ranking_Dos_Fracos();
         void Relatorio(string fich_xml);
-
-        // FUNÇÕES PARA TESTES  [ TEMPORÁRIAS ]
-        map<string, Maquina *> Ass_HashMaq(){ return HashMaq; }
-        map<string, User *> Ass_HashUser(){ return HashUser; }
         void Ass_ListaUsusarios(list<User *> &_LU){ LU = _LU; }                 // ASSOCIAR A LISTA DE USUÁRIO DO CASINO A UMA LISTA DADA
 
         bool PesqMaq(int _ID, ostream &f = cout);
         bool PesqUser(string _ID, ostream &f = cout);
-        bool RemoverMaquina(int id);
+        bool RemoverMaquina();
+        bool RemoverUser(ostream &f=cout);
         void ListarMaquinas(ostream &f = cout);
         void ListarMaquinasAtuais(ostream &f = cout);
         void ListarUsuarios(ostream &f = cout);
         void ListarUsuariosAtuais(ostream &f = cout);
-
+        void pararCasino(){parar=true;}
 };
 
 #endif // CASINO_H

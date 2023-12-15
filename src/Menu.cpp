@@ -7,6 +7,7 @@
 bool Menu(Casino *C, ostream &f){
 
         int b;
+        string relatorio;
 
         cout << "--- MENU ---" << endl;
         cout << "1. Listar o estado atual do Casino" << endl;//FALTA (lista users no casino, hora, listar maq, n clientes no dia) 
@@ -14,7 +15,7 @@ bool Menu(Casino *C, ostream &f){
         cout << "3. Funções dos Users" << endl;
         cout << "4. Calcular a memória total " << endl;
         cout << "5. Parar Simulação " << endl;
-        cout << "6. Enviar Relatorio" << endl;//FALTA
+        cout << "6. Enviar Relatorio dos estado das maquinas" << endl;//FALTA
         cout << "0. Sair do Menu" << endl;
         cout << endl
                 <<"Opção: ";
@@ -28,11 +29,11 @@ bool Menu(Casino *C, ostream &f){
                         break;
 
                 case 2:
-                        op_2(C, f);
+                        while(op_2(C, f));
                         break;
 
                 case 3:
-                        op_3(C, f);
+                        while(op_3(C, f));
                         break;
 
                 case 4:
@@ -42,12 +43,16 @@ bool Menu(Casino *C, ostream &f){
                         break;
 
                 case 5:
-                        exit(0);
+                        C->pararCasino();
                         break;
 
                 case 0:
+                        cout<<"Para que ficheiro quer enviar o relatorio do estado atual do casino?(nomedoficheiro.xml): "<<endl;
+                        cin >> relatorio;
+                        C->Relatorio(relatorio);
                         break;
                 default:
+                        return false;
                         cout << "Escolheu uma opção válida" << endl;
                         break;
         }
@@ -56,47 +61,46 @@ bool Menu(Casino *C, ostream &f){
 
 //////////////    MENU MAQUINAS   //////////////
 
-void op_2(Casino *C, ostream &f){
+bool op_2(Casino *C, ostream &f){
 
         int b, ID;
         string Tipo;
 
         cout << endl
              << "--- Funções das Máquinas ---" << endl;
-        cout << "1. Adicionar uma Máquina" << endl;//FALTA
-        cout << "2. Remover uma Máquina (com ID)" << endl;//FALTA
-        cout << "3. Saber o estado de uma Máquina (com ID)" << endl;
-        cout << "4. Alterar a probabilidade de uma Máquina (com ID)  " << endl;
-        cout << "5. Pesquisar Máquina (com ID)" << endl;
-        cout << "6. Listar Maquinas" << endl;//FALTA
-        cout << "7. Listar Máquinas de um dado tipo" << endl;
-        cout << "8. Listar Máquinas que mais avariam" << endl;
-        cout << "9. Listar Máquinas mais usadas" << endl;
-        cout << "10. Voltar atrás" << endl;
-        cout << endl
-                <<"Opção: ";
+        cout << "1.  Adicionar uma Máquina" << endl;//FALTA
+        cout << "2.  Remover uma Máquina (com ID)" << endl;//FALTA
+        cout << "3.  Saber o estado de uma Máquina (com ID)" << endl;
+        cout << "4.  Alterar a probabilidade de uma Máquina (com ID)  " << endl;
+        cout << "5.  Pesquisar Máquina (com ID)" << endl;
+        cout << "6.  Listar Maquinas Atuais" << endl;//FALTA
+        cout << "7.  Listar Máquinas de um dado tipo" << endl;
+        cout << "8.  Listar Máquinas ordenadas pela que mais avariam" << endl;
+        cout << "9.  Listar Máquinas ordenadas pelas mais usadas" << endl;
+        cout << "10. Listar Historico de maquinas"<<endl;
+        cout << "11. Listar Máquinas que tem acima de uma certa probabilidade" << endl;
+        cout << "0.  Voltar atrás" << endl;
+        cout << endl <<"Opção: "<< endl;
         cin >> b;
 
         switch (b)
         {
         case 1:
-                /* code */
+                while(C->AddMaquina());
                 break;
 
         case 2:
-                /* code */
+                C->RemoverMaquina();
                 break;
 
         case 3:
-                cout << endl;
-                cout << "ID: ";
+                cout << "ID: "<< endl;
                 cin >> ID;
                 C->Get_Estado(ID);
                 cout << endl;
                 break;
 
         case 4:
-                cout << endl;
                 C->Set_ProbMaquina();
                 cout << endl;
                 
@@ -111,49 +115,51 @@ void op_2(Casino *C, ostream &f){
                 break;
 
         case 6:
-                cout << endl;
-                cout << endl;
+                C->ListarMaquinasAtuais(f);
                 break;
 
         case 7:
-                cout << endl;
-                cout << "Tipo: ";
+                cout << "Escreva o Tipo{OFF, ON, AVARIADA, ERRO}: "<<endl;
                 cin >> Tipo;
                 C->Listar_Tipo(Tipo, f);
                 cout << endl;
                 break;
 
         case 8:
-                cout << endl;
-                C->Ranking_Dos_Fracos();
+                mostrarListaMaquina(*(C->Ranking_Dos_Fracos()));
                 cout << endl;
                 break;
         
         case 9:
-                cout << endl;
-                C->Ranking_Das_Mais_Trabalhadores();
+                mostrarListaMaquina(*(C->Ranking_Das_Mais_Trabalhadores()));
                 cout << endl; 
                 break;
 
         case 10:
-                cout << endl;
+                C->ListarMaquinas(f);
                 break;
-        
+
+        case 11:
+                int p=getInt("Listar maquina acima de que probabilidade?",0,100);
+                C->Listar(p,f);
+                break;
+        case 0:
+                return false;
         default:
                 cout << "Escolha uma opção válida" << endl;
                 break;
         }
+        return true;
 }
 
 //////////////    MENU USERS    //////////////
 
-void op_3(Casino *C, ostream &f){
+bool op_3(Casino *C, ostream &f){
 
         int b;
         string ID;
 
-        cout << endl
-             << "--- Funções dos Users ---" << endl;
+        cout << endl << "--- Funções dos Users ---" << endl;
         cout << "1. Listar Users que passaram mais tempo no Casino" << endl;
         cout << "2. Listar Users que mais prémios ganharam" << endl;
         cout << "3. Pesquisar User (com ID)" << endl;
@@ -167,13 +173,13 @@ void op_3(Casino *C, ostream &f){
         {
         case 1:
                 cout << endl;
-                C->Jogadores_Mais_Frequentes();
+                mostrarListaUtilizador((*C->Jogadores_Mais_Frequentes()),f);
                 cout << endl;
                 break;
 
         case 2:
                 cout << endl;
-                C->Jogadores_Mais_Ganhos();
+                mostrarListaUtilizador((*C->Jogadores_Mais_Ganhos()),f);
                 cout << endl;
                 break;
 
@@ -185,16 +191,17 @@ void op_3(Casino *C, ostream &f){
                 break;
 
         case 4:
+                while(C->RemoverUser(f));
                 break;
-
         case 5:
-
+                return false;
                 break;
                      
         default:
-
+                cout<< "Introduziu uma opcao errada" << endl;
                 break;
 
         }
+        return true;
 }
 

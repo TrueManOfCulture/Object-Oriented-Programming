@@ -121,6 +121,19 @@ time_t convertToTime(int hora, int minutos){
 	return tempo;
 }
 
+//Mostrar uma lista de maquinas num ostream
+void mostrarListaMaquina(list<Maquina *> maquinas,ostream &f){
+    for (list<Maquina *>::iterator it = maquinas.begin(); it != maquinas.end(); ++it)
+        (*it)->Show(f);
+    
+}
+
+//Mostrar uma lista de utilizadores num ostream
+void mostrarListaUtilizador(list<User *> users,ostream &f=cout){
+    for (list<User *>::iterator it = users.begin(); it != users.end(); ++it)
+        (*it)->Show(f);
+}
+
 string EnumToString(ESTADO_MAQUINA _est)
 {
     switch (_est)

@@ -35,6 +35,8 @@ bool saltarNLinhas(ifstream &f, int nlinhas);
 string EnumToString(ESTADO_MAQUINA _est);                   // TRANSFORMA O VALOR DE ENUM NUMA STRING
 time_t convertToTime(int hora, int minutos);                // converte dois int para tempo
 float CalcularDistancia(Maquina *M1, Maquina *M2);          // CALCULA A DISTANCIA ENTRE DUAS MÁQUINAS
-int getInt(string pergunta,int menor,int maior);
+int getInt(string pergunta,int menor,int maior);            // FAZ A PERGUNTA E RECEBE UM INT DO TECLADO DENTRO DO INTERVALO
+void mostrarListaMaquina(list<Maquina *> maquinas,ostream &f=cout);
+void mostrarListaUtilizador(list<User *> users,ostream &f=cout);
 
 #endif // UTEIS_H_INCLUDED
