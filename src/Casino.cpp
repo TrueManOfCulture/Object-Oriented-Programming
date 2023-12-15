@@ -44,16 +44,32 @@ Maquina *MaquinaTipo(float pGanhar, float pAvariar, int premio, int x, int y, in
 {
     Maquina *M;
 
-    if (nome == "BlackJack")
+    if (nome == "BlackJack"){
         M = new BlackJack(pGanhar, pAvariar, premio, x, y, tempoAviso, nome);
-    if (nome == "ClassicSlots")
-        M = new ClassicSlots(pGanhar, pAvariar, premio, x, y, tempoAviso, nome);
-    if (nome == "Roleta")
-        M = new Roleta(pGanhar, pAvariar, premio, x, y, tempoAviso, nome);
-    if (nome == "Craps")
-        M = new Craps(pGanhar, pAvariar, premio, x, y, tempoAviso, nome);
-
-    return M;
+        return M;
+    }
+    else{
+        if (nome == "ClassicSlots"){
+            M = new ClassicSlots(pGanhar, pAvariar, premio, x, y, tempoAviso, nome);
+            return M;
+        }
+        else{
+            if (nome == "Roleta"){
+                M = new Roleta(pGanhar, pAvariar, premio, x, y, tempoAviso, nome);
+                return M;
+            }
+            else{
+                if (nome == "Craps"){
+                   M = new Craps(pGanhar, pAvariar, premio, x, y, tempoAviso, nome);
+                   return M;
+                }
+                else{
+                    cout << endl << "Introduza um tipo válido!" << endl;
+                    return NULL;
+                }
+            }
+        }
+    }
 }
 
 bool Casino::Load(const string &ficheiro)
