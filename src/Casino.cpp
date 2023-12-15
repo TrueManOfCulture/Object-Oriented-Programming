@@ -248,10 +248,10 @@ bool Casino::PesqMaq(int _ID, ostream &f)
 
 bool Casino::PesqUser(string _ID, ostream &f)
 {
-    for (map<string, User *>::iterator it = HashUser.begin(); it != HashUser.end(); ++it)
-        if (_ID == it->second->Get_ID())
+    for (list<User *>::iterator it = LU_Total.begin(); it != LU_Total.end(); ++it)
+        if (_ID == (*it)->Get_ID())
         {
-            it->second->Show(f);
+            (*it)->Show(f);
             return true;
         }
 
