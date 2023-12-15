@@ -178,7 +178,7 @@ bool Casino::RemoverMaquina()
     map<string, Maquina *>::iterator it;
     while (!encontrado)
     {
-        id = getInt("Qual e o id da maquina cuja a probabilidade quer remover?", 1, 100000);
+        id = getInt("Qual e o id da maquina que quer remover?", 1, 100000);
         for (it = HashMaq.begin(); it != HashMaq.end(); it++)
         {
             if (it->second->Get_ID() == id){
