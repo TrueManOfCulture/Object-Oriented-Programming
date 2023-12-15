@@ -192,6 +192,7 @@ bool op_3(Casino *C, ostream &f){
                 lista = C->Jogadores_Mais_Ganhos();
                 mostrarListaUtilizador((*lista),f);
                 cout << endl;
+                delete lista;
                 break;
 
         case 4:
@@ -209,7 +210,7 @@ bool op_3(Casino *C, ostream &f){
                 break;
                      
         default:
-                cout<< "Introduziu uma opcao errada" << endl;
+                cout<< "Introduza uma opção válida!" << endl;
                 break;
 
         }
