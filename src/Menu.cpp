@@ -65,6 +65,7 @@ bool op_2(Casino *C, ostream &f){
 
         int b, ID, cont;
         string Tipo;
+        list<Maquina *> *lista;
 
         cout << endl
              << "--- Funções das Máquinas ---" << endl;
@@ -123,14 +124,12 @@ bool op_2(Casino *C, ostream &f){
         case 7:
                 cout << "Escreva o Tipo {ClassicSlots, Roleta, BlackJack, Craps}: "<<endl;
                 cin >> Tipo;
-                list<Maquina *> *lista;
                 lista = C->Listar_Tipo(Tipo, f);
                 cout << endl;
                 delete lista;
                 break;
 
         case 8:
-                list<Maquina *> *lista;
                 lista = C->Ranking_Dos_Fracos();
                 mostrarListaMaquina(*lista, f);
                 cout << endl;
@@ -138,7 +137,6 @@ bool op_2(Casino *C, ostream &f){
                 break;
         
         case 9:
-                list<Maquina *> *lista;
                 lista = C->Ranking_Das_Mais_Trabalhadores();
                 mostrarListaMaquina(*lista, f);
                 cout << endl;
@@ -163,6 +161,7 @@ bool op_3(Casino *C, ostream &f){
 
         int b;
         string ID;
+        list<User *> *lista;
 
         cout << endl << "--- Funções dos Users ---" << endl;
         cout << "1. Listar Users que passaram mais tempo no Casino" << endl;
@@ -177,7 +176,6 @@ bool op_3(Casino *C, ostream &f){
         {
         case 1:
                 cout << endl;
-                list<User *> *lista;
                 lista = C->Jogadores_Mais_Frequentes();
                 mostrarListaUtilizador((*lista),f);
                 cout << endl;
@@ -186,7 +184,6 @@ bool op_3(Casino *C, ostream &f){
 
         case 2:
                 cout << endl;
-                list<User *> *lista;
                 lista = C->Jogadores_Mais_Ganhos();
                 mostrarListaUtilizador((*lista),f);
                 cout << endl;
