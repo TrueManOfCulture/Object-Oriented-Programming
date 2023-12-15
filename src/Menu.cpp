@@ -4,7 +4,7 @@
 
 //////////////    MENU    //////////////
 
-void Menu(Casino *C,bool &parar, ostream &f){
+bool Menu(Casino *C, ostream &f){
 
         int b;
 
@@ -47,11 +47,11 @@ void Menu(Casino *C,bool &parar, ostream &f){
 
                 case 0:
                         break;
-
                 default:
-                        cout << "Escolha uma opção válida" << endl;
+                        cout << "Escolheu uma opção válida" << endl;
                         break;
         }
+        return true;
 } 
 
 //////////////    MENU MAQUINAS   //////////////
@@ -135,12 +135,9 @@ void op_2(Casino *C, ostream &f){
                 cout << endl; 
                 break;
 
-        /*case 10:
+        case 10:
                 cout << endl;
-                bool x = true;
-                Menu(C, x);
-                cout << endl; 
-                break;*/
+                break;
         
         default:
                 cout << "Escolha uma opção válida" << endl;
@@ -188,15 +185,9 @@ void op_3(Casino *C, ostream &f){
                 break;
 
         case 4:
-                bool x = false;
-                Menu(C,x);
                 break;
 
         case 5:
-                cout << endl;
-                bool x = false;
-                Menu(C,x);
-                cout << endl;
 
                 break;
                      
