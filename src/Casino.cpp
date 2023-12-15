@@ -442,6 +442,9 @@ int Casino::MemoriaCasino()
 
     for (map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it)
         MEM_MAQ += it->second->Memoria();
+    
+    for (list<Maquina *>::iterator it = LM_Total.begin(); it != LM_Total.end(); ++it)
+        MEM_MAQ += (*it)->Memoria();
 
     for (list<User *>::iterator it = LU.begin(); it != LU.end(); ++it)
         MEM_U += (*it)->Memoria();
@@ -453,7 +456,7 @@ int Casino::MemoriaCasino()
         MEM_U += (*it)->Memoria();
 
     for (map<string, User *>::iterator it = HashUser.begin(); it != HashUser.end(); ++it)
-        MEM_U = it->second->Memoria();
+        MEM_U += it->second->Memoria();
 
     TOTAL = sizeof(*this) + MEM_MAQ + MEM_U;
 
