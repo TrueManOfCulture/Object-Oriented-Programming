@@ -20,7 +20,7 @@ class ClassicSlots : public Maquina
         virtual ~ClassicSlots();
 
         bool Jogar();                                   // FUNÇÃO DE JOGAR
-        //string Get_TIPO(){ return TIPO; }               // RETORNA O TIPO
+        //string Get_TIPO(){ return TIPO; }             // RETORNA O TIPO
         int Memoria(){ return sizeof(*this); }          // CALCULO DE MEMÓRIA
 };
 

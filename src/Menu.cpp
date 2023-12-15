@@ -10,13 +10,13 @@ bool Menu(Casino *C, ostream &f)
         string relatorio;
 
         cout << "--- MENU ---" << endl;
-        cout << "1. Listar o estado atual do Casino" << endl;//FALTA (lista users no casino, hora, listar maq, n clientes no dia) 
+        cout << "1. Listar o estado atual do Casino" << endl; 
         cout << "2. Funções das Máquinas" << endl;
         cout << "3. Funções dos Users" << endl;
         cout << "4. Calcular a memória total " << endl;
         cout << "5. Parar Simulação " << endl;
-        cout << "6. Enviar Relatorio dos estado das maquinas" << endl;
-        cout << "0. Continuar simulacao" << endl;
+        cout << "6. Enviar Relatório dos estado das maquinas" << endl;
+        cout << "0. Continuar simulação" << endl;
         cout << endl
                 <<"Opção: ";
         cin >> b;
@@ -69,17 +69,17 @@ bool op_2(Casino *C, ostream &f){
 
         cout << endl
              << "--- Funções das Máquinas ---" << endl;
-        cout << "1.  Adicionar uma Máquina" << endl;//FALTA
-        cout << "2.  Remover uma Máquina (com ID)" << endl;//FALTA
+        cout << "1.  Adicionar uma Máquina" << endl;
+        cout << "2.  Remover uma Máquina (com ID)" << endl;
         cout << "3.  Saber o estado de uma Máquina (com ID)" << endl;
         cout << "4.  Alterar a probabilidade de uma Máquina (com ID)  " << endl;
         cout << "5.  Pesquisar Máquina (com ID)" << endl;
-        cout << "6.  Listar Maquinas Atuais" << endl;//FALTA
+        cout << "6.  Listar Maquinas Atuais" << endl;
         cout << "7.  Listar Máquinas de um dado tipo" << endl;
-        cout << "8.  Listar Máquinas ordenadas pela que mais avariam" << endl;
-        cout << "9.  Listar Máquinas ordenadas pelas mais usadas" << endl;
-        cout << "10. Listar Historico de maquinas"<<endl;
-        cout << "11. Listar Máquinas que tem acima de uma certa probabilidade" << endl;
+        cout << "8.  Listar Máquinas ordenadas pela qauntidade de avarias" << endl;
+        cout << "9.  Listar Máquinas ordenadas da mais usada para a menos usada" << endl;
+        cout << "10. Listar Histórico de maquinas"<<endl;
+        cout << "11. Listar máquinas que possuem uma probabilidade acima de um determinado valor" << endl;
         cout << "0.  Voltar atrás" << endl;
         cout << endl;
         b = getInt("Opção: ",0,11);
@@ -148,7 +148,7 @@ bool op_2(Casino *C, ostream &f){
                 break;
 
         case 11:
-                int p=getInt("Listar maquina acima de que probabilidade?",0,100);
+                int p=getInt("Listar máquina acima de que probabilidade?",0,100);
                 C->Listar(p,f);
                 break;
         }
@@ -167,7 +167,7 @@ bool op_3(Casino *C, ostream &f){
         cout << "1. Listar Users que passaram mais tempo no Casino" << endl;
         cout << "2. Listar Users que mais prémios ganharam" << endl;
         cout << "3. Pesquisar User (com ID)" << endl;
-        cout << "4. Remover User (com ID)" << endl;//FALTA
+        cout << "4. Remover User (com ID)" << endl;
         cout << "5. Voltar atrás" << endl;
         cout << endl;
         b = getInt("Opção: ",1,5);
@@ -193,6 +193,7 @@ bool op_3(Casino *C, ostream &f){
                 cout << endl;
                 cout << "ID: ";
                 cin >> ID;
+                cout << endl;
                 C->PesqUser(ID, f);
                 break;
 
@@ -204,7 +205,7 @@ bool op_3(Casino *C, ostream &f){
                 break;
                      
         default:
-                cout<< "Introduziu uma opcao errada" << endl;
+                cout<< "Introduziu uma opção errada" << endl;
                 break;
 
         }

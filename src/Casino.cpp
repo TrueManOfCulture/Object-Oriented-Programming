@@ -66,7 +66,7 @@ bool Casino::Load(const string &ficheiro)
 
     if (!infoCasino.is_open())
     {
-        cout << "File not found" << endl;
+        cout << "Ficheiro não encontrado" << endl;
         return false;
     }
 
@@ -115,7 +115,7 @@ void Casino::Set_ProbMaquina()
     map<string, Maquina *>::iterator it;
     while (!encontrado)
     {
-        id = getInt("Qual e o id da maquina cuja a probabilidade quer alterar?", 1, 1000);
+        id = getInt("Qual e o id da máquina cuja a probabilidade quer alterar?", 1, 1000);
         for (it = HashMaq.begin(); it != HashMaq.end(); it++)
         {
             if (it->second->Get_ID() == id){
@@ -124,10 +124,10 @@ void Casino::Set_ProbMaquina()
             } 
         }
         if (!encontrado){
-            cout << "Maquina nao encontrada, volte a introduzir" << endl;
+            cout << "Maquina não encontrada, volte a introduzir" << endl;
         }
     }
-    prob = getInt("Qual e a probabilidade da maquina cuja a probabilidade quer alterar?", 0, 100);
+    prob = getInt("Qual e a probabilidade da máquina cuja a probabilidade quer alterar?", 0, 100);
     alterarProb(it->second, prob);
 }
 
@@ -159,14 +159,14 @@ bool Casino::AddMaquina()
     string nome;
     int posX, posY, tempAviso, premio;
     float probAv, probGanhar;
-    cout << "Qual e o nome da maquina que quer adicionar: " << endl;
+    cout << "Qual e o nome da máquina que quer adicionar: " << endl;
     cin >> nome;
-    posX = getInt("Qual é a coordenada x da maquina?: ", 1, 10000);
+    posX = getInt("Qual é a coordenada x da máquina?: ", 1, 10000);
     posY = getInt("Qual é a coordenada y da maquina?: ", 1, 10000);
     premio = getInt("Qual é o premio da máquina?", 1, 1000000);
-    tempAviso = getInt("Qual é a temperatura de aviso da maquina?: ", 1, 10000);
-    probAv = getInt("Qual é a probabilidade de avaria da maquina em percentagem?: ", 1, 100);
-    probGanhar = getInt("Qual é a probabilidade de ganhar da maquina em percentagem?: ", 0, 100);
+    tempAviso = getInt("Qual é a temperatura de aviso da máquina?: ", 1, 10000);
+    probAv = getInt("Qual é a probabilidade de avaria da máquina em percentagem?: ", 1, 100);
+    probGanhar = getInt("Qual é a probabilidade de ganhar da máquina em percentagem?: ", 0, 100);
     Maquina *M = MaquinaTipo(probGanhar, probAv, premio, posX, posY, tempAviso, nome);
     return !Add(M);
 }
@@ -178,7 +178,7 @@ bool Casino::RemoverMaquina()
     map<string, Maquina *>::iterator it;
     while (!encontrado)
     {
-        id = getInt("Qual e o id da maquina que quer remover?", 1, 100000);
+        id = getInt("Qual e o id da máquina que quer remover?", 1, 100000);
         for (it = HashMaq.begin(); it != HashMaq.end(); it++)
         {
             if (it->second->Get_ID() == id){
@@ -188,7 +188,7 @@ bool Casino::RemoverMaquina()
             } 
         }
         if (!encontrado){
-            cout << "Maquina nao encontrada, volte a introduzir" << endl;
+            cout << "Máquina nao encontrada, volte a introduzir" << endl;
         }
     }
     return true;
@@ -197,25 +197,25 @@ bool Casino::RemoverMaquina()
 void Casino::Listar(ostream &f)
 {
     int emUso = HashUser.size() - LU_Espera.size();
-    f << "Numero de Pessoas no Casino: " << HashUser.size() << endl;
-    f << "Numero de Pessoas a jogar: " << emUso << endl;
-    f << "Numero de Pessoas na Lista de Espera: " << LU_Espera.size() << endl;
-    f << "Numero de Maquinas no Casino: " << HashMaq.size() << endl;
-    f << "Numero de Maquinas em Uso: " << emUso << endl;
-    f << "Numero de Maquinas Avariadas: " << qtMaqAv << endl;
-    f << "Numero de Maquinas Disponíveis: " << HashMaq.size() - emUso << endl;
+    f << "Número de Pessoas no Casino: " << HashUser.size() << endl;
+    f << "Número de Pessoas a jogar: " << emUso << endl;
+    f << "Número de Pessoas na Lista de Espera: " << LU_Espera.size() << endl;
+    f << "Número de Maquinas no Casino: " << HashMaq.size() << endl;
+    f << "Número de Maquinas em Uso: " << emUso << endl;
+    f << "Número de Maquinas Avariadas: " << qtMaqAv << endl;
+    f << "Número de Maquinas Disponíveis: " << HashMaq.size() - emUso << endl;
 }
 
 void Casino::ListarUsuariosAtuais(ostream &f)
 {
-    f << "Lista de Usuarios" << endl;
+    f << "Lista de Usuários" << endl;
     for (list<User *>::iterator it = LU_Total.begin(); it != LU_Total.end(); ++it)
         (*it)->Show(f);
 }
 
 void Casino::ListarUsuarios(ostream &f)
 {
-    f << "Lista de Usuarios" << endl;
+    f << "Lista de Usuários" << endl;
     for (map<string, User *>::iterator it = HashUser.begin(); it != HashUser.end(); ++it)
         it->second->Show(f);
 }
@@ -241,7 +241,7 @@ bool Casino::PesqMaq(int _ID, ostream &f)
             return true;
         }
 
-    f << "Nenhuma Máquina encontrada com o ID " << _ID << endl;
+    f << "Nenhuma Máquina encontrada com o ID: " << _ID << endl;
     return false;
 }
 
@@ -254,7 +254,7 @@ bool Casino::PesqUser(string _ID, ostream &f)
             return true;
         }
 
-    f << "Nenhum User encontrada com o ID " << _ID << endl;
+    f << "Nenhum User encontrado com o ID: " << _ID << endl;
     return false;
 }
 
@@ -302,7 +302,7 @@ void Casino::Run(bool debug)
                 advance(userIt, userEscolhido);
                 Add(*userIt);
                 if (debug)
-                    cout << "Adicionou o user: " << (*userIt)->Get_Nome() << endl
+                    cout << "Adicionou o User: " << (*userIt)->Get_Nome() << endl
                          << endl;
             }
         }
@@ -316,7 +316,7 @@ void Casino::Run(bool debug)
                 M->Set_ESTADO(OFF);
                 qtMaqAv--;
                 if (debug)
-                    cout << "Maquina " << M->Get_ID() << " foi concertada" << endl
+                    cout << "Máquina " << M->Get_ID() << " foi concertada" << endl
                          << endl;
             }
 
@@ -332,7 +332,7 @@ void Casino::Run(bool debug)
                 qtMaqAv++;
                 M->Reset_TEMP_AT();
                 if (debug)
-                    cout << "Maquina " << M->Get_ID() << " avariou" << endl
+                    cout << "Máquina " << M->Get_ID() << " avariou" << endl
                          << endl;
             }
 
@@ -340,7 +340,7 @@ void Casino::Run(bool debug)
             {
                 M->Set_User(LU_Espera.front());
                 if (debug)
-                    cout << "O User " << LU_Espera.front()->Get_Nome() << " foi adicionado a maquina " << M->Get_ID() << endl
+                    cout << "O User " << LU_Espera.front()->Get_Nome() << " foi adicionado a máquina " << M->Get_ID() << endl
                          << endl;
                 LU_Espera.pop_front();
                 M->Set_ESTADO(ON);

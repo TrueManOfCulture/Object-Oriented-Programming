@@ -100,7 +100,7 @@ void LerFicheiroUser(list<User *> &LU, string fic)
     F1.close();
 }
 
-//Para saltar um determinado numero de linhas num ficheiro
+//Para saltar um determinado número de linhas num ficheiro
 bool saltarNLinhas(ifstream &f, int nlinhas)
 {
     for(int i = 0; i<nlinhas; i++){

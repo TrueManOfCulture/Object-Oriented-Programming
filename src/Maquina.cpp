@@ -35,7 +35,7 @@ void Maquina::Show(ostream &saida)
     saida << "posY: " << posY << endl;
     saida << "TEMPATUAL: " << tempAtual << endl;
     saida << "TIPO: "<< TIPO << endl;
-    saida << "TEMPO DE JOGO" << tempoDeJogo <<endl;
+    saida << "TEMPO DE JOGO: " << tempoDeJogo <<endl;
     saida << "QNT_AVARIAS: " << QNT_AVARIA << endl<< endl;
 }
 

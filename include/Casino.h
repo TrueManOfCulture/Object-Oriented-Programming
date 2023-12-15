@@ -50,7 +50,7 @@ class Casino
         virtual ~Casino();
 
         bool Add(Maquina *M);                                                   // ADICIONAR MÁQUINAS À LISTA
-        bool AddMaquina();                                                             // ADICIONAR MÁQUINAS À LISTA
+        bool AddMaquina();                                                      // ADICIONAR MÁQUINAS À LISTA
         bool Add(User *U);                                                      // ADICIONAR USUÁRIOS À LISTA
         string Get_Estado(int ID);   
         int Qnt_Jog();
