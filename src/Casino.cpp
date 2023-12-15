@@ -375,7 +375,6 @@ void Casino::Run(bool debug)
 list<Maquina *> *Casino::Listar_Tipo(string Tipo, ostream &saida)
 {
     list<Maquina *> *LM_Tipo = new list<Maquina *>;
-    transform(Tipo.begin(), Tipo.end(), Tipo.begin(), ::toupper);
     for (map<string, Maquina *>::iterator it = HashMaq.begin(); it != HashMaq.end(); ++it)
     {
         if (Tipo == it->second->Get_TIPO())
