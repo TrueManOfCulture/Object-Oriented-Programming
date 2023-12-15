@@ -164,17 +164,22 @@ bool op_3(Casino *C, ostream &f){
         list<User *> *lista;
 
         cout << endl << "--- Funções dos Users ---" << endl;
-        cout << "1. Listar Users que passaram mais tempo no Casino" << endl;
-        cout << "2. Listar Users que mais prémios ganharam" << endl;
-        cout << "3. Pesquisar User (com ID)" << endl;
-        cout << "4. Remover User (com ID)" << endl;//FALTA
-        cout << "5. Voltar atrás" << endl;
+        cout << "1. Listar todos os Users"<< endl;
+        cout << "2. Listar Users que passaram mais tempo no Casino" << endl;
+        cout << "3. Listar Users que mais prémios ganharam" << endl;
+        cout << "4. Pesquisar User (com ID)" << endl;
+        cout << "5. Remover User (com ID)" << endl;//FALTA
+        cout << "6. Voltar atrás" << endl;
         cout << endl;
-        b = getInt("Opção: ",1,5);
+        b = getInt("Opção: ", 1, 6);
 
         switch (b)
         {
         case 1:
+                cout << endl;
+                C->ListarUsuarios(f);
+                cout << endl;
+        case 2: 
                 cout << endl;
                 lista = C->Jogadores_Mais_Frequentes();
                 mostrarListaUtilizador((*lista),f);
@@ -182,24 +187,24 @@ bool op_3(Casino *C, ostream &f){
                 delete lista;
                 break;
 
-        case 2:
+        case 3:
                 cout << endl;
                 lista = C->Jogadores_Mais_Ganhos();
                 mostrarListaUtilizador((*lista),f);
                 cout << endl;
                 break;
 
-        case 3:
+        case 4:
                 cout << endl;
                 cout << "ID: ";
                 cin >> ID;
                 C->PesqUser(ID, f);
                 break;
 
-        case 4:
+        case 5:
                 while(C->RemoverUser(f));
                 break;
-        case 5:
+        case 6:
                 return false;
                 break;
                      

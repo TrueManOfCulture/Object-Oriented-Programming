@@ -178,17 +178,17 @@ bool Casino::RemoverMaquina()
     map<string, Maquina *>::iterator it;
     while (!encontrado)
     {
-        id = getInt("Qual e o id da maquina que quer remover?", 1, 100000);
+        id = getInt("Qual o ID da maquina que quer remover?", 1, 100000);
         for (it = HashMaq.begin(); it != HashMaq.end(); it++)
         {
             if (it->second->Get_ID() == id){
                 encontrado = true;
                 HashMaq.erase(it);
                 return false;
-            } 
+            }
         }
         if (!encontrado){
-            cout << "Maquina nao encontrada, volte a introduzir" << endl;
+            cout << "Máquina não encontrada, volte a introduzir" << endl;
         }
     }
     return true;
