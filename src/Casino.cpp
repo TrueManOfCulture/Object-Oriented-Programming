@@ -528,10 +528,7 @@ list<Maquina *> *Casino::Ranking_Das_Mais_Trabalhadores()
     for (list<Maquina *>::iterator it = LM_Total.begin(); it != LM_Total.end(); ++it)
         Res->push_back(*it);
 
-    for (list<Maquina *>::iterator it = Res->begin(); it != Res->end(); ++it)
-    {
-        Res->sort(compare_Ranking_Das_Mais_Trabalhadores);
-    }
+    Res->sort(compare_Ranking_Das_Mais_Trabalhadores);
 
     return Res;
 }
@@ -547,11 +544,12 @@ list<User *> *Casino::Jogadores_Mais_Ganhos()
 {
     list<User *> *Res = new list<User *>;
 
-    for (list<User *>::iterator it = LU_Total.begin(); it != LU_Total.end(); ++it)
+    for (list<User *>::iterator it = LU_Total.begin(); it != LU_Total.end(); ++it){
+        if((*it)->Get_premioGanho()==0)
         Res->push_back(*it);
+    }
 
-    for (list<User *>::iterator it = Res->begin(); it != Res->end(); ++it)
-        Res->sort(compare_Jogadores_Mais_Ganhos);
+    Res->sort(compare_Jogadores_Mais_Ganhos);
 
     return Res;
 }
