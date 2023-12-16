@@ -349,8 +349,7 @@ void Casino::Run(bool debug)
                 M->Set_ESTADO(OFF);
                 qtMaqAv--;
                 if (debug)
-                    cout << "Máquina " << M->Get_ID() << " foi consertada" << endl
-                         << endl;
+                    cout << "Máquina " << M->Get_ID() << " foi consertada" << endl << endl;
             }
 
             if (M->Get_TEMP_AT() >= M->Get_TEMP_AV())

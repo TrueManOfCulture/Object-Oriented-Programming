@@ -80,6 +80,7 @@ bool op_2(Casino *C, ostream &f){
         cout << "9.  Listar Máquinas ordenadas da mais usada para a menos usada" << endl;
         cout << "10. Listar Histórico de maquinas"<<endl;
         cout << "11. Listar máquinas que possuem uma probabilidade acima de um determinado valor" << endl;
+        cout << "12. Jogar ClassicSlots" << endl;
         cout << "0.  Voltar atrás" << endl;
         cout << endl;
         b = getInt("Opção: ",0,11);
@@ -151,6 +152,11 @@ bool op_2(Casino *C, ostream &f){
                 int p=getInt("Listar máquina acima de que probabilidade?",0,100);
                 C->Listar(p,f);
                 break;
+        
+        case 12:
+                Maquina *CS = new ClassicSlots(10, 5, 100, 10, 10, 90, "ClassicSlots");
+                CS->Jogar(false);
+                delete CS;
         }
         return true;
 }
